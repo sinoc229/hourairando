@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<data>
+  <!-- ホワイトヘブンエリア１ -->
+  <Text Key="Map.HeavenNet1Name" Value="White Heaven Area 1" />
+  <Dialogue Key="Map.HeavenNet1FirstEnteredAutoEventStage1Dialogue1" Value="This place...." Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1FirstEnteredAutoEventStage1Dialogue3" Value="A....,A--,Achoo!" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1FirstEnteredAutoEventStage1Dialogue4" Value="Ugh，all these trees....,Sorry Alice，you were saying,something?" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1FirstEnteredAutoEventStage1Dialogue5" Value="Nevermind，it’s nothing...." Face="Alice" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1FirstEnteredAutoEventStage1Dialogue6" Value="Alright.,Let’s just get our answers and,leave，my nose is killing me." Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1FirstEnteredAutoEventStage1Dialogue2.1" Value="And so deep in the Undernet....,Who could have done,something like this?" Face="Alice" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1FirstEnteredAutoEventStage1Dialogue2" Value="Is this a garden....?" Face="Alice" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1FirstEnteredAutoEventStage1Dialogue2.2" Value="....Shanghai?" Face="Alice" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1LockdownDoorDialogue1" Value="A message floats in the air,before the barrier:" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaDoorStage1Dialogue1" Value="A message floats in the air,before the barrier:" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaDoorStage1Dialogue2" Value="THE WAY SHALL OPEN TO,ONE WHO SEARCHES FOR,ANSWERS TO ANY QUERY" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaDoorStage1Dialogue3Question" Value="ENTER CODE" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaDoorStage2Dialogue1" Value="Great，now what?" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaDoorStage2Dialogue2" Value="If you want me to sit here and try,every 5-digit code，we’re going,to have words，Alice." Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaDoorStage2Dialogue3" Value="“Searches for answers”....,....Shanghai，do you think....?" Face="Alice" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaDoorStage2Dialogue4" Value="....The Sage?,That does sound like his thing.,Can’t hurt to try，anyways." Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaDoorStage2Dialogue5" Value="Time to go find an old man.,Let’s get out of here，Alice." Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaDoorStage3Dialogue1" Value="....Shanghai，I don’t think--" Face="Alice" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaDoorStage3Dialogue2" Value="Aha!" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaDoorStage3Dialogue3" Value="You’d be surprised by how,many people use that as their,password." Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaDoorStage3Dialogue4" Value="If you’re trying to open,someone’s briefcase，try,it out，it just might open!" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaDoorStage3Dialogue5" Value="I don’t think you should be,opening someone else’s,property in the first place!" Face="Alice" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaDoorStage4Dialogue1" Value="...." Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaDoorStage4Dialogue2" Value="....Shanghai，are you alright?,Do you want to talk about it?" Face="Alice" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaDoorStage4Dialogue3" Value="No.,Let’s just hurry up and find,whoever’s in charge here." Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaDoorStage4Dialogue4" Value="Find them， and.... ask them,some questions." Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1SandRock1Dialogue1" Value="It’s a rock." Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1SandRock1Dialogue2" Value="Someone’s taken great care to,model every crack and crevice,to make it as real as possible." Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1SandRock2Dialogue1" Value="It’s a long，sloped rock." Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1SandRock2Dialogue2" Value="The slope is just too steep to,comfortably sit on，but too,shallow to lean against." Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1SandTree1Dialogue1" Value="This wiry tree survives in a,small patch of soil surrounded,by sand." Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventIntroDialogue1" Value="Just sand and rocks，huh?,Forget “all-seeing”， are we,going to find anyone at all?" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventIntroDialogue2" Value="Anybody intelligent，I mean.,Honestly，this place...." Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventIntroDialogue3" Value="Somebody has to be taking,care of all this，I’m sure,they’re further inside." Face="Alice" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventIntroDialogue4" Value="Oh，they’d better be.,Let’s go， Alice." Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventEncounterDialogue1" Value="Isn’t that someone right there?" Face="Alice" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventEncounterDialogue2" Value="Finally!" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventEncounterDialogue3" Value="Hey，you!" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventEncounterDialogue4" Value="Yeah，you!,Who’s in charge of this place，,huh?" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventEncounterDialogue5" Value="Uuuuuuu...." Face="Ghost" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventEncounterDialogue6" Value="You going to be a pain too?,Let’s see what you have to,say to my fist!" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventYoumuEncounterDialogue1" Value="!?" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventYoumuEncounterDialogue2" Value="Another one...." Face="Youmu" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventEncounterDialogue8" Value="Shanghai!,You can’t just threaten random--" Face="Alice" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventYoumuEncounterDialogue3" Value="What’s your problem!?,We were talking here!" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventYoumuEncounterDialogue4" Value="Hmm?" Face="Youmu" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventYoumuEncounterDialogue5" Value="Another one!" Face="Youmu" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventYoumuEncounterDialogue6" Value="You won’t get away this time!" Face="Youmu" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventYoumuEncounterDialogue7" Value="Are you an idiot?! I’ve never,seen you before in my life!,Alice，she’s crazy!" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventYoumuEncounterDialogue8" Value="After what your kind did here--!" Face="Youmu" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventYoumuEncounterDialogue9" Value="She’s going to attack again!" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventYoumuEncounterDialogue10" Value="Battle Routine! Set!" Face="Alice" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventYoumuEncounterDialogue11" Value="Execute!" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventYoumuEncounterDialogue12" Value="I’ll cut you down where you,stand!" Face="Youmu" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventYoumuEncounterEndDialogue1" Value="Had enough?" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventYoumuEncounterEndDialogue2" Value="Grk!,This time，I’ll--!" Face="Youmu" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventYoumuEncounterEndDialogue3" Value="That’s enough，Youmu." Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventYoumuEncounterEndDialogue4" Value="Mistress Yuyuko!" Face="Youmu" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventYoumuEncounterEndDialogue5" Value="Welcome to the White Heaven,Area，Alice and Shanghai!" Face="YuyukoCasual" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventYoumuEncounterEndDialogue6" Value="I must have forgotten to tell,Youmu you were coming，,hehehe!" Face="YuyukoCasual" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventYoumuEncounterEndDialogue7" Value="Forgot--?! She tried to cut me,in two! That’s not something to,just giggle about!" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventYoumuEncounterEndDialogue8" Value="Let’s talk more in my sanctum!,I’m sure you have many,questions!" Face="YuyukoCasual" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventYoumuEncounterEndDialogue9" Value="Let’s go，Youmu!,Did I smell steamed GelPack,earlier?" Face="YuyukoCasual" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventYoumuEncounterEndDialogue10" Value="....Yes，my lady." Face="Youmu" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventYoumuEncounterEndDialogue11" Value="Ugh!,I hate this place and everyone,in it!" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventYoumuEncounterEndDialogue12" Value="Just a little further，Shanghai.,....Where is her sanctum，,anyways?" Face="Alice" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventYoumuEncounterEndDialogue13" Value="Argh!" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1MidAreaEventYoumuEncounterEndDialogue10.5" Value="Hey!,Just wait a--!" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1SpecialDoorStdChips1" Value="THE WAY SHALL OPEN FOR,ONE WHO WIELDS ALL,WEAPONS OF THE WORLD" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1SpecialDoorSPBounty1" Value="THE WAY SHALL OPEN FOR,ONE WHO FEARS NO BEAST,AND HUNTS ALL QUARRY" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1SpecialDoorRequest1" Value="THE WAY SHALL OPEN FOR,ONE WHO OFFERS ALL A,HELPING HAND" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1SpecialDoorStdProgramAdvances1" Value="THE WAY SHALL OPEN FOR,ONE WHO UNLOCKS THEIR,TOOLS’ FULL POTENTIAL." Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1SpecialDoorEnemyNavis1" Value="THE WAY SHALL OPEN FOR,ONE WHO SEES THEIR FOES,RETURNED TO DUST" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1SpecialDoorZenny1" Value="THE WAY SHALL OPEN FOR,ONE WHO WANTS FOR,NOTHING" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1SpecialDoorAllyNavis1" Value="THE WAY SHALL OPEN FOR,ONE WHO NURTURES THE,BONDS OF FRIENDSHIP" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1SpecialDoorAllLinkGates1" Value="THE WAY SHALL OPEN FOR,ONE WHO BUILDS PATHS,TO FAR OFF LANDS" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1SpecialDoorStoryKey1" Value="THE WAY SHALL OPEN FOR,ONE WHO HOLDS THE KEY" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1SpecialDoorLottoCodes1" Value="THE WAY SHALL OPEN FOR,ONE WHO LEAVES NO,STONE UNTURNED" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1LockdownDoorDialogue2" Value="ACCESS DENIED,AREA SEALED BY ORDER,OF ADMINISTRATOR " Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1Barrier1CutsceneDialogue1" Value="WARNING: IFF CORRUPTION,IN SECTOR 0x7D308011,CAUTION: FAIL-SECURE!" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1Barrier1CutsceneDialogue2" Value="Be careful，Shanghai，this,could be dangerous. We don’t,know what happened here." Face="Alice" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1Barrier1CutsceneDialogue3" Value="Whatever this is，it’s in my way.,Besides，we’ve handled worse.,Let’s get on with it，Alice." Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1Barrier1CutsceneDialogue4" Value="You’re right，I should believe,in our abilities!,Battle Routine! Set!" Face="Alice" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1Barrier1CutsceneDialogue5" Value="Of course I’m right!,Execute!" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1Barrier1CutsceneEndDialogue1" Value="That’s it?" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1Barrier1CutsceneEndDialogue2" Value="Yeah!,That was no problem at all!" Face="Alice" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1Barrier1CutsceneEndDialogue3" Value="No，I mean.... that’s it?,That’s all they have?" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1Barrier1CutsceneEndDialogue4" Value="They didn’t even move!,I had to do all the work myself!" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1Barrier1CutsceneEndDialogue5" Value="There，there，Shanghai.,I’m sure the next one will be....,....more of a challenge?" Face="Alice" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1Barrier1CutsceneEndDialogue6" Value="Tch....,Let’s keep going，Alice." Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1SpecialDoorVirusTraining1" Value="THE WAY SHALL OPEN FOR,ONE WHO TAMES THE WILD,SOULS OF FERAL BEASTS." Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1Barrier1NoiseCutsceneDialogue1" Value="What....?" Face="Alice" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1Barrier1NoiseCutsceneDialogue2" Value="Something bad is happening,here，that’s for sure." Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1Barrier1NoiseCutsceneDialogue3" Value="Shanghai!,Watch out!" Face="Alice" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1Barrier1NoiseCutsceneDialogue4" Value="What is this stuff?!" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1Barrier1NoiseCutsceneDialogue5" Value="How am I supposed to deal,with this?!" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1Barrier1NoiseCutsceneDialogue6" Value="Hm?" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1Barrier1NoiseCutsceneDialogue7" Value="Is it.... over?,Are you alright，Shanghai?" Face="Alice" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1Barrier1NoiseCutsceneDialogue8" Value="Of course I am.,But for the record，I don’t like,this one bit，Alice." Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1Barrier1NoiseCutsceneDialogue9" Value="We’re here to find the Queen of,Darkness，not solve everyone,else’s problems." Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1Barrier1OverloadQuestion" Value="Do you want to try to overload,the barrier system?" Face="Shanghai" Mono="False" />
+  <Text Key="Map.HeavenNet1Barrier1OverloadAnswers" Value="Yes,No" />
+  <Dialogue Key="Map.HeavenNet1LockdownDoorBackDialogue1" Value="ACCESS DENIED,UNSAFE CORRUPTION,LEVELS DETECTED" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1LockdownDoorBackDialogue2" Value="There should be a barrier,nearby that we can overload,to clear this stuff out." Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1Barrier1NoiseCutsceneDialogue10" Value="We don’t have the time to deal,with.... whatever this is." Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1BarrierUnlockScanDialogue1" Value="SCAN COMPLETE,VERIFYING IDENTITY" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1BarrierUnlockScanDialogue2Failure" Value="ACCESS DENIED" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1BarrierUnlockScanVirusUpgradeCheckSuccess" Value="TITLE DETECTED:,TAMER OF FEROCIOUS,BEASTS" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1BarrierUnlockScanVirusUpgradeCheckFailure" Value="TITLE NOT FOUND:,TAMER OF FEROCIOUS,BEASTS" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1BarrierUnlockScanV2NavisSuccess" Value="TITLE DETECTED:,GUIDE OF LOST SOULS" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1BarrierUnlockScanV2NavisFailure" Value="TITLE NOT FOUND:,GUIDE OF LOST SOULS" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1BarrierUnlockScanAlphabetSoupSuccess" Value="TITLE DETECTED:,OWNER OF THE 27 MARKS,OF POWER" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1BarrierUnlockScanAlphabetSoupFailure" Value="TITLE NOT FOUND:,OWNER OF THE 27 MARKS,OF POWER" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1BarrierUnlockScanIllegalNaviSuccess" Value="TITLE DETECTED:,SEEKER OF FORBIDDEN,POWER" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1BarrierUnlockScanIllegalNaviFailure" Value="TITLE NOT FOUND:,SEEKER OF FORBIDDEN,POWER" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1BarrierUnlockScanAllStylesSuccess" Value="TITLE DETECTED:,MISTRESS OF THE SIX,STYLES OF COMBAT" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1BarrierUnlockScanAllStylesFailure" Value="TITLE NOT FOUND:,MISTRESS OF THE SIX,STYLES OF COMBAT" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1BarrierUnlockScanPartialStdChipsSuccess" Value="TITLE DETECTED:,WIELDER OF 144 WEAPONS" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1BarrierUnlockScanPartialStdChipsFailure" Value="TITLE NOT FOUND:,WIELDER OF 144 WEAPONS" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1BarrierUnlockScanHealingCheckSuccess" Value="TITLE DETECTED:,HEALER OF 5000 WOUNDS" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1BarrierUnlockScanHealingCheckFailure" Value="TITLE NOT FOUND:,HEALER OF 5000 WOUNDS" Face="None" Mono="False" />
+  <Text Key="Map.HeavenNet1GhostEnemyName" Value="????" />
+  <Dialogue Key="Map.HeavenNet1Barrier1EscapeDialogue1" Value="Hmph. Looks like the barriers,are regenerating.,We’ll get ’em next time， Alice." Face="Shanghai" Mono="False" />
+</data>

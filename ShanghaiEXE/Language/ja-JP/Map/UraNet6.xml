@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+  <Text Key="Map.UraNet6Name" Value="ウラインターネット６" />
+  <Dialogue Key="Map.UraNet6ScissorManV2Stage1Dialogue1FaceNone" Value="倒したナビの残骸データが,別の電脳へと,飛び去っていった････" Face="None" Mono="False" />
+  <Dialogue Key="Map.UraNet6ROMGateStage1Dialogue1FaceNone" Value="不気味な扉が道を塞いで,通ることができない！" Face="None" Mono="False" />
+  <Dialogue Key="Map.UraNet6ROMGateStage3Dialogue1FaceNone" Value="シャンハイは,「ＲＯＭ−ＩＤ」を使った！" Face="None" Mono="False" />
+  <Dialogue Key="Map.UraNet6ROMGateStage3Dialogue2FaceNone" Value="不気味な扉が開いた！" Face="None" Mono="False" />
+  <Dialogue Key="Map.UraNet6BlackNaviWrongWayNPCDialogue1" Value="お前さんあのいかれ野郎どもの,味方とかじゃねぇだろうな？" Face="NaviPurplePunk" Mono="False" />
+  <Dialogue Key="Map.UraNet6BlackNaviWrongWayNPCDialogue2" Value="ウラ８側で友達と過ごしてたら,かりかりとした音がしてたんだ,後ろを見たらそいつらがいたよ" Face="NaviPurplePunk" Mono="False" />
+  <Dialogue Key="Map.UraNet6BlackNaviWrongWayNPCDialogue3" Value="俺の友達は皆八つ裂きにされて,俺だけ無事にドンずら出来て,ウラ５でなんとか振り切れた" Face="NaviPurplePunk" Mono="False" />
+  <Dialogue Key="Map.UraNet6BlackNaviWrongWayNPCDialogue4" Value="今は姿を隠し,少し息抜きしようとしてるんだ,くっそ、あいつら何なんだ････" Face="NaviPurplePunk" Mono="False" />
+  <Dialogue Key="Map.UraNet6PostgameThugDialogue1" Value="はっはっはっは････ヨーリカ、日本,ネットエージェント、ＲＯＭ、,そしてウラスクエアまでに････" Face="NaviPurpleHeel" Mono="False" />
+  <Dialogue Key="Map.UraNet6PostgameThugDialogue2" Value="もうここまで来ると,ネットの管理者なんて,いないと思うが良いだろうね････" Face="NaviPurpleHeel" Mono="False" />
+  <Dialogue Key="Map.UraNet6PostgameSpriteDialogue1" Value="タイヘンデス、タイヘン！" Face="Sprite" Mono="False" />
+  <Dialogue Key="Map.UraNet6PostgameSpriteDialogue2" Value="アノ、スミマセンガコノ,アタリカラオンナノナビサンヲ,ミタコトアリマセンカ？" Face="Sprite" Mono="False" />
+  <Dialogue Key="Map.UraNet6PostgameSpriteDialogue3" Value="カノジョノトモダチサンニ,タスケガヒツヨウダトイワレテ,ツイテキマシタケド････" Face="Sprite" Mono="False" />
+  <Dialogue Key="Map.UraNet6PostgameSpriteDialogue4" Value="アノトモダチサンガミエマセン！,ソシテイマハワタシマデミチヲ,ウシナッタミタイデス！ドウシヨ！" Face="Sprite" Mono="False" />
+  <Dialogue Key="Map.UraNet6PostgamePurpleNaviDialogue1" Value="プッ････,それなりに楽しめたよ。さて、,次はどんないたずらをしようかな" Face="NaviPurpleFemale" Mono="False" />
+  <Dialogue Key="Map.UraNet6ScissorManV2Stage1Dialogue2FaceNone" Value="無法地帯で恨みを,晴らそうとする,タイプのようだ" Face="None" Mono="False" />
+</data>

@@ -23,7 +23,7 @@ namespace NSEvent
             if (this.get)
                 this.savedata.keyitem.Add(this.number);
             else
-                this.savedata.keyitem.RemoveAll(i => i == this.number);
+                this.savedata.keyitem.RemoveAll(i => i == 99);
             this.EndCommand();
         }
 

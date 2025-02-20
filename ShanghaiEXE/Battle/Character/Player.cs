@@ -598,32 +598,32 @@ namespace NSBattle.Character
 
         public void PluspointFighter(int point)
         {
-            this.stylepoint[0] += point;
+            this.stylepoint[0] += point * 2;
         }
 
         public void PluspointShinobi(int point)
         {
-            this.stylepoint[1] += point;
+            this.stylepoint[1] += point * 2;
         }
 
         public void PluspointDoctor(int point)
         {
-            this.stylepoint[2] += point;
+            this.stylepoint[2] += point * 2;
         }
 
         public void PluspointGaia(int point)
         {
-            this.stylepoint[3] += point;
+            this.stylepoint[3] += point * 2;
         }
 
         public void PluspointWing(int point)
         {
-            this.stylepoint[4] += point;
+            this.stylepoint[4] += point * 2;
         }
 
         public void PluspointWitch(int point)
         {
-            this.stylepoint[5] += point;
+            this.stylepoint[5] += point * 2;
         }
 
         public override void Updata()

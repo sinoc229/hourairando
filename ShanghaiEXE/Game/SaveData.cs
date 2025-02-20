@@ -2225,7 +2225,7 @@ namespace NSGame
 
         public void Init()
         {
-            //confusingly, does not seem to actually init
+            //function that's called when you hit newgame normally
             this.manybattle = 0;
             this.HPmax = 200;
             this.HPnow = this.HPmax;
@@ -2251,8 +2251,8 @@ namespace NSGame
                 for (int index2 = 0; index2 < this.shopCount.GetLength(1); ++index2)
                     this.shopCount[index1, index2] = 0;
             }
-            for (int index = 0; index < this.regularflag.Length; ++index)
-                this.regularflag[index] = false;
+           // for (int index = 0; index < this.regularflag.Length; ++index)
+           //     this.regularflag[index] = false;
             for (int index = 0; index < this.regularchip.Length; ++index)
                 this.regularchip[index] = 0;
             this.HaveVirus = new Virus[3];
@@ -2300,8 +2300,8 @@ namespace NSGame
             for (int index = 0; index < this.havePeace.Length; ++index)
                 this.havePeace[index] = 0;
             this.mind = 0;
-            for (int index = 0; index < this.flagList.Length; ++index)
-                this.flagList[index] = false;
+            //for (int index = 0; index < this.flagList.Length; ++index)
+            //    this.flagList[index] = false;
             for (int index = 0; index < this.valList.Count; ++index)
                 this.valList[index] = 0;
             for (int index = 0; index < this.getMystery.Length; ++index)
@@ -2345,8 +2345,8 @@ namespace NSGame
             this.datelist[189] = true;
             this.shopThread = new Thread(new ThreadStart(this.ShopSave));
             this.shopThread.Start();
-            this.flagThread = new Thread(new ThreadStart(this.FlugSave));
-            this.flagThread.Start();
+            //this.flagThread = new Thread(new ThreadStart(this.FlugSave));
+           // this.flagThread.Start();
             this.valThread = new Thread(new ThreadStart(this.ValSave));
             this.valThread.Start();
             this.mysThread = new Thread(new ThreadStart(this.MysSave));

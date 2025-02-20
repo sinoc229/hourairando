@@ -182,16 +182,34 @@ namespace NSMap
             this.player.FieldSet(this.field);
             this.fadeColor = Color.Black;
             this.alpha = byte.MaxValue;
-            Console.WriteLine("Set flags here, when we figgure them out");
+            this.savedata.Init(); //<--- resets flags, use for refrence but don't call?
+            Console.WriteLine("Zeroing out BMD data");
             for (int index1 = 0; index1 < 600; ++index1) //zero out BMD
             {
                 this.savedata.GetMystery[index1] = false;
                 this.savedata.GetRandomMystery[index1] = false;
             }
+            Console.WriteLine(this.savedata.keyitem);
+         //   this.savedata.keyitem.Clear();
+          //  this.savedata.HPmax = 200;
+          //  this.savedata.HPnow = 200;
+          //  this.savedata.HPplus = 0;
+          //  this.savedata.AddonSkillReset();
+          //  this.savedata.MaxHz = 10;
+           // this.savedata.MaxCore = 2;
+            //this.savedata.NaviFolder = 5;
+           // this.savedata.darkFolder = 1;
+            //this.savedata.plusFolder = 0;
+            //this.savedata.haveAddon.Clear();
+            //this.savedata.equipAddon.Clear();
+
+            //this.savedata.shopThread.Start();
+
+
 
 
             //this.GetRandomMystery[index1] = bool.Parse(strArray32[index1]);
-
+            Console.WriteLine("Set flags here, when we figgure them out");
 
             this.FadeStart(Color.FromArgb(0, this.fadeColor), 5);
         }

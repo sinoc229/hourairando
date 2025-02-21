@@ -2225,7 +2225,8 @@ namespace NSGame
 
         public void Init()
         {
-            //function that's called when you hit newgame normally
+            //function that's called when you hit newgame normally, we're hijacking this in part to set
+            //freeplay stuff
             this.manybattle = 0;
             this.HPmax = 200;
             this.HPnow = this.HPmax;
@@ -2276,10 +2277,13 @@ namespace NSGame
             }
             for (int index1 = 0; index1 < this.chipFolder.GetLength(0); ++index1)
             {
+                //Console.WriteLine(this.chipFolder.ToString());
+
                 for (int index2 = 0; index2 < this.chipFolder.GetLength(1); ++index2)
                 {
                     for (int index3 = 0; index3 < this.chipFolder.GetLength(2); ++index3)
                     {
+                        //Console.WriteLine(this.chipFolder[index1,index2,index3].ToString());
                         this.chipFolder[index1, index2, index3] = 0;
                         if (index1 == 0)
                             this.chipFolder[index1, index2, index3] = index2 > 1 ? (index2 > 3 ? (index2 > 5 ? (index2 > 7 ? (index2 > 9 ? (index2 > 12 ? (index2 > 14 ? (index2 > 17 ? (index2 > 19 ? (index2 > 20 ? (index2 > 22 ? (index2 > 25 ? (index2 > 28 ? (index3 != 0 ? 0 : 190) : (index3 != 0 ? 2 : 188)) : (index3 != 0 ? 2 : 174)) : (index3 != 0 ? 1 : 158)) : (index3 != 0 ? 0 : 136)) : (index3 != 0 ? 1 : 121)) : (index3 != 0 ? 2 : 100)) : (index3 != 0 ? 1 : 62)) : (index3 != 0 ? 1 : 59)) : (index3 != 0 ? 0 : 59)) : (index3 != 0 ? 2 : 43)) : (index3 != 0 ? 0 : 43)) : (index3 != 0 ? 1 : 1)) : (index3 != 0 ? 0 : 1);
@@ -2290,9 +2294,11 @@ namespace NSGame
                     }
                 }
             }
+
+
             for (int index = 0; index < this.stylepoint.Length; ++index)
                 this.stylepoint[index] = 0;
-            this.havefolder[1] = false;
+            this.havefolder[1] = false; //maybe make extra folders checks?
             this.havefolder[2] = false;
             for (int index = 0; index < this.HaveVirus.Length; ++index)
                 this.HaveVirus[index] = null;

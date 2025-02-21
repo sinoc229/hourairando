@@ -182,31 +182,134 @@ namespace NSMap
             this.player.FieldSet(this.field);
             this.fadeColor = Color.Black;
             this.alpha = byte.MaxValue;
-            this.savedata.Init(); //<--- resets flags, use for refrence but don't call?
+            Console.WriteLine("Initing most of ths save file");
+            this.savedata.Init(); //<--- resets flags, put proper flags down bellow
             Console.WriteLine("Zeroing out BMD data");
-            for (int index1 = 0; index1 < 600; ++index1) //zero out BMD
+            for (int index45 = 0; index45 < 600; ++index45) //zero out BMD
             {
-                this.savedata.GetMystery[index1] = false;
-                this.savedata.GetRandomMystery[index1] = false;
+                this.savedata.GetMystery[index45] = false;
+                this.savedata.GetRandomMystery[index45] = false;
             }
-            Console.WriteLine(this.savedata.keyitem);
-         //   this.savedata.keyitem.Clear();
-          //  this.savedata.HPmax = 200;
-          //  this.savedata.HPnow = 200;
-          //  this.savedata.HPplus = 0;
-          //  this.savedata.AddonSkillReset();
-          //  this.savedata.MaxHz = 10;
-           // this.savedata.MaxCore = 2;
-            //this.savedata.NaviFolder = 5;
-           // this.savedata.darkFolder = 1;
-            //this.savedata.plusFolder = 0;
-            //this.savedata.haveAddon.Clear();
-            //this.savedata.equipAddon.Clear();
+            //this.main.FolderReset();
+            this.savedata.chipFolder[0, 0, 0] = 2;
 
-            //this.savedata.shopThread.Start();
+            Console.WriteLine("Setting folder to starting folder(ish)");
+            this.main.FolderSave();
+            int index1 = 0;
+            for (int index2 = 0; index2 < this.savedata.chipFolder.GetLength(1); ++index2)
+            {
+                for (int index3 = 0; index3 < this.savedata.chipFolder.GetLength(2); ++index3)
+                {
+                    if (index2 < 3)
+                    {
+                        if (index3 == 0)
+                            this.savedata.chipFolder[index1, index2, index3] = 1;
+                        else
+                            this.savedata.chipFolder[index1, index2, index3] = 0;
+                    }
+                    else if (index2 < 6)
+                    {
+                        if (index3 == 0)
+                            this.savedata.chipFolder[index1, index2, index3] = 43;
+                        else
+                            this.savedata.chipFolder[index1, index2, index3] = 1;
+                    }
+                    else if (index2 < 8)
+                    {
+                        if (index3 == 0)
+                            this.savedata.chipFolder[index1, index2, index3] = 59;
+                        else
+                            this.savedata.chipFolder[index1, index2, index3] = 0;
+                    }
+                    else if (index2 < 10)
+                    {
+                        if (index3 == 0)
+                            this.savedata.chipFolder[index1, index2, index3] = 62;
+                        else
+                            this.savedata.chipFolder[index1, index2, index3] = 1;
+                    }
+                    else if (index2 < 12)
+                    {
+                        if (index3 == 0)
+                            this.savedata.chipFolder[index1, index2, index3] = 100;
+                        else
+                            this.savedata.chipFolder[index1, index2, index3] = 1;
+                    }
+                    else if (index2 < 14)
+                    {
+                        if (index3 == 0)
+                            this.savedata.chipFolder[index1, index2, index3] = 121;
+                        else
+                            this.savedata.chipFolder[index1, index2, index3] = 2;
+                    }
+                    else if (index2 < 16)
+                    {
+                        if (index3 == 0)
+                            this.savedata.chipFolder[index1, index2, index3] = 100;
+                        else
+                            this.savedata.chipFolder[index1, index2, index3] = 1;
+                    }
+                    else if (index2 < 17)
+                    {
+                        if (index3 == 0)
+                            this.savedata.chipFolder[index1, index2, index3] = 136;
+                        else
+                            this.savedata.chipFolder[index1, index2, index3] = 2;
+                    }
+                    else if (index2 < 19)
+                    {
+                        if (index3 == 0)
+                            this.savedata.chipFolder[index1, index2, index3] = 62;
+                        else
+                            this.savedata.chipFolder[index1, index2, index3] = 0;
+                    }
+                    else if (index2 < 22)
+                    {
+                        if (index3 == 0)
+                            this.savedata.chipFolder[index1, index2, index3] = 158;
+                        else
+                            this.savedata.chipFolder[index1, index2, index3] = 0;
+                    }
+                    else if (index2 < 25)
+                    {
+                        if (index3 == 0)
+                            this.savedata.chipFolder[index1, index2, index3] = 174;
+                        else
+                            this.savedata.chipFolder[index1, index2, index3] = 0;
+                    }
+                    else if (index2 < 26)
+                    {
+                        if (index3 == 0)
+                            this.savedata.chipFolder[index1, index2, index3] = 177;
+                        else
+                            this.savedata.chipFolder[index1, index2, index3] = 0;
+                    }
+                    else if (index2 < 27)
+                    {
+                        if (index3 == 0)
+                            this.savedata.chipFolder[index1, index2, index3] = 59;
+                        else
+                            this.savedata.chipFolder[index1, index2, index3] = 3;
+                    }
+                    else if (index2 < 29)
+                    {
+                        if (index3 == 0)
+                            this.savedata.chipFolder[index1, index2, index3] = 59;
+                        else
+                            this.savedata.chipFolder[index1, index2, index3] = 0;
+                    }
+                    else if (index2 < 30)
+                    {
+                        if (index3 == 0)
+                            this.savedata.chipFolder[index1, index2, index3] = 190;
+                        else
+                            this.savedata.chipFolder[index1, index2, index3] = 0;
+                    }
+                }
+            }
+            this.savedata.havefolder[1] = false;
 
-
-
+            this.main.FolderLoad();
 
             //this.GetRandomMystery[index1] = bool.Parse(strArray32[index1]);
             Console.WriteLine("Set flags here, when we figgure them out");

@@ -402,7 +402,6 @@
   <Dialogue Key="Map.ChipshopPostGameBystander2Dialogue1" Value="Hey，manager!,You sure this Chip Trader isn’t,rigged?" Face="MaleAdult" Mono="False" />
   <Dialogue Key="Map.ChipshopPostGameBystander3Dialogue1" Value="My brother works with some,guys and told me there’s a,trader that takes BugFrags!" Face="MaleStudent" Mono="False" />
   <Dialogue Key="Map.ChipshopPostGameBystander3Dialogue2" Value="I heard that it only gives out rare,chips! I want to know where it is!,I need to use it!" Face="MaleStudent" Mono="False" />
-  
-  
-  
+  <Dialogue Key="Map.Chipshop.Pachirando1" Value="Myukuu!,My items have been moved to,other locations!" Face="Patchouli" />
+  <Dialogue Key="Map.Chipshop.Pachirando2" Value="Try checking the Net,Squares! ,pipipipipipipipi..." Face="Patchouli" />
 </data>

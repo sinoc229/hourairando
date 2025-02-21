@@ -52,6 +52,7 @@ namespace NSGame
 
         public void FolderReset()
         {
+            
             for (int index1 = 0; index1 < this.chipfolder.GetLength(0); ++index1)
             {
                 for (int index2 = 0; index2 < this.chipfolder.GetLength(1); ++index2)

@@ -106,7 +106,15 @@ namespace Services
                             faceId = FACE.None.ToFaceId(mono, auto);
                         }
 					}
-                    this.language.Add(key, new Dialogue { Text = value, Face = faceId });
+                    try
+                    {
+                        this.language.Add(key, new Dialogue { Text = value, Face = faceId });
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Attempting to add a key that already exists, ignorning");
+                    }
+
                 }
 
                 var spriteRectangleConverter = new RectangleConverter();

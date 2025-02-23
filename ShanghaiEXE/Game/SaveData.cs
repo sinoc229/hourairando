@@ -488,7 +488,12 @@ namespace NSGame
                 str = TCDEncodeDecode.DecryptString(streamReader.ReadLine(), SaveData.pass);
                     string[] strArray30 = str.Split('@');
                     for (int index1 = 0; index1 < strArray30.Length - 1; ++index1)
+                    {
                         this.ValList[index1] = int.Parse(strArray30[index1]);
+                        var valer = this.ValList[index1];
+                        string text = "val num ";
+                        Console.WriteLine($"{text}{index1}:{valer}");
+                    }
                     str = TCDEncodeDecode.DecryptString(streamReader.ReadLine(), SaveData.pass);
                     string[] strArray31 = str.Split('@');
                     //Console.WriteLine(strArray31.Length - 1); //get total blue mystery data count
@@ -2262,7 +2267,7 @@ namespace NSGame
                 this.runSubChips[index] = false;
             this.interiors.Clear();
             //APTODO: this inits new save file crap
-            this.Money = 229;
+            this.Money = 2290000; //default is 1k, probly up a bit
             this.MaxHz = 10;
             this.MaxCore = 2;
             this.NaviFolder = 5;

@@ -560,7 +560,7 @@ namespace NSGame
         }
 
         public void ChangeOfSecne(Scene change)
-        {
+        { 
             switch (change)
             {
                 case Scene.Title:

@@ -306,7 +306,9 @@ namespace NSMap
 
             this.main.FolderLoad();
 
-            //this.GetRandomMystery[index1] = bool.Parse(strArray32[index1]);
+            //flag list extracted from a no sidecontent playthrough
+            //no idea what most of this shit does, i don't think anybody does!
+
             #region flag list
             this.savedata.flagList[0] = false;
             this.savedata.flagList[1] = false;
@@ -1153,9 +1155,16 @@ namespace NSMap
             this.savedata.flagList[842] = true;
             #endregion
 
+
             
-            this.savedata.ValList[3] = 102;
-            
+            this.savedata.flagList[788] = false; //stage intro cutscene
+
+            this.savedata.ValList[10] = 8; //set worldstate to endgame
+            this.savedata.ValList[11] = -1; //no active quests
+            this.savedata.ValList[12] = -1; //no active SP target
+
+            //this.savedata.ValList[3] = 102; //set hint to heaven hint
+            this.savedata.ValList[199] = 8; //set savedata to version from final anon release, for compatability
 
             Console.WriteLine("Zeroing out BMD data");
             for (int index45 = 0; index45 < 600; ++index45) //zero out BMD

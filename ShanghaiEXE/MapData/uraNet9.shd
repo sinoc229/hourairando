@@ -70,6 +70,21 @@ battle:84:3:4:1:1:1:1:0::0:1:5:0:1:1:1:0::0:1:5:2:1:1:1:0::0:0:0:False:True:True
 
 random:0,170,2,:0,134,2,:0,143,1,:0,37,1,:3,8,100,:3,8,200,:3,8,300,:3,8,10000,:4,0,0,Map.RandomItemEncounterName:4,0,0,Map.RandomItemEncounterName:4,0,0,Map.RandomItemEncounterName:4,0,0,Map.RandomItemEncounterName
 
+ID:Supertrader
+position:251:331:0
+page:1
+startterms:Abutton
+type:1
+terms:none
+move:
+speed:0
+graphic:-9:456,88,32,40,0
+hitrange:12:12:3:4
+hitform:square
+event:
+chiptreader:1
+end
+
 ID:Remi Cube
 position:151:372:0
 page:1
@@ -718,7 +733,7 @@ hitrange:6:18:8:8
 hitform:square
 event:
 msgopen:
-msg:ChipTrader.ConfirmQuestion
+msg:Rando_goaround
 msgclose:
 end
 

@@ -161,13 +161,19 @@ namespace NSBattle.Character
                 this.stylepoint[index] = 0;
             this.stylepoint[0] = 5;
             this.picturename = this.StyleGraphics(this.savedata.setstyle);
-            this.busterPower = 250; //debug beeg buster damage
+            this.busterPower = bp;
             this.busterRapid = br;
             this.busterCharge = bc;
             this.chargeWait = this.chargeShot.chargetime - busterCharge * this.chargeShot.shorttime;
             this.mind = m;
             this.hpmax = this.savedata.HPMax;
             this.hp = this.savedata.HPnow;
+
+            //debug beeg buster damage and hp
+            this.busterPower = 250;
+            this.hpmax = 9999;
+            this.hp = 9999;
+
             this.hpprint = this.hp;
             this.position = new Point(pX, pY);
             this.positionre = this.position;
@@ -598,32 +604,32 @@ namespace NSBattle.Character
 
         public void PluspointFighter(int point)
         {
-            this.stylepoint[0] += point * 2;
+            this.stylepoint[0] += point * 4;
         }
 
         public void PluspointShinobi(int point)
         {
-            this.stylepoint[1] += point * 2;
+            this.stylepoint[1] += point * 4;
         }
 
         public void PluspointDoctor(int point)
         {
-            this.stylepoint[2] += point * 2;
+            this.stylepoint[2] += point * 4;
         }
 
         public void PluspointGaia(int point)
         {
-            this.stylepoint[3] += point * 2;
+            this.stylepoint[3] += point * 4;
         }
 
         public void PluspointWing(int point)
         {
-            this.stylepoint[4] += point * 2;
+            this.stylepoint[4] += point * 4;
         }
 
         public void PluspointWitch(int point)
         {
-            this.stylepoint[5] += point * 2;
+            this.stylepoint[5] += point * 4;
         }
 
         public override void Updata()

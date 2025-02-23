@@ -3514,7 +3514,7 @@ event:
 msgopen:
 msg:Map.HeavenNet1SpecialDoorLottoCodes1
 msgclose:
-EventLun:SpecialDoor11LottoCodeCheck:-1
+EventLun:SpecialDoor10EnemyV3Check:-1
 ifFlag:827:True:0
 seon:get
 wait:15:False

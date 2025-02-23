@@ -125,4 +125,5 @@
   <Dialogue Key="Messages.AliceInfo108Dialogue1Alice" Value="Let’s go open that door in the,Heaven Area." Face="Alice" Mono="False" />
   <Dialogue Key="Messages.AliceInfo108Dialogue2Alice" Value="....I didn’t really need to write,down “12345”，I guess...." Face="Alice" Mono="False" />
   <Dialogue Key="Messages.AliceInfo108Dialogue1AliceRealIndexStart" Value="Let’s explore the rest of the,Heaven Area!" Face="Alice" Mono="False" />
+  <Dialogue Key="Messages.Alicerando" Value="Let’s do the randomizer!" Face="Alice" />
 </data>

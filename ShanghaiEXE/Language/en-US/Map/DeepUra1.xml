@@ -20,4 +20,7 @@
   <Dialogue Key="Map.DeepUra1EntryCutsceneStage6Dialogue2FaceShanghai" Value="Everything’s just fine." Face="Shanghai" Mono="False" />
   <Dialogue Key="Map.DeepUra1Shop1ShopIntro" Value="--ndor vendor vendor ven--,           --nything you like?" Face="Sheet10Face9Blank" Auto="True" />
   <Dialogue Key="Map.DeepUra1Shop2ShopIntro" Value="--ndor vendor vendor ven--,           --nything you like?" Face="Sheet10Face8Blank" Auto="True" />
+  <Dialogue Key="Map.DeepUra1End1" Value="Unfortunately，you’ve reached,the end of implemented content." Face="Sprite" />
+  <Dialogue Key="Map.DeepUra1End2" Value="Please back up your save,before exploring this incomplete,area to avoid setting flags." Face="Sprite" />
+  <Dialogue Key="Map.DeepUra1End3" Value="The area entrance cutscene,will reset at the end of this,message." Face="Sprite" />
 </data>

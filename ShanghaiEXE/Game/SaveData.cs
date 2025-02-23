@@ -102,7 +102,7 @@ namespace NSGame
         public List<int> keyitem = new List<int>();
         private int[,] shopCount = new int[40, 10];
         public List<Interior> interiors = new List<Interior>();
-        private bool[] flagList = new bool[2000];
+        public bool[] flagList = new bool[2000];
         private VariableArray valList = new VariableArray();
         private bool[] getMystery = new bool[600];
         private bool[] getRandomMystery = new bool[600];

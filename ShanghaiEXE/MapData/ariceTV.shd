@@ -27,6 +27,45 @@
 
 
 
+ID:Gauntlentsprite
+position:76:54:0
+page:1
+startterms:Abutton
+type:1
+terms:none
+move:
+speed:0
+graphic:2:6,0,7,0,0
+hitrange:3:0:0:0
+hitform:circle
+event:
+msgopen:
+msg:Map.ExOmakeExtra1Stage1Dialogue1FaceSprite
+msg:Map.ExOmakeExtra1Stage1Dialogue2FaceSprite
+msg:Map.ExOmakeExtra1Stage1Dialogue3FaceSprite
+question:Map.ExOmakeExtra1Stage1Dialogue4QuestionFaceSprite:Map.ExOmakeExtra1Stage1Dialogue4Options
+BranchHead:1
+msgclose:
+BranchEnd:
+BranchHead:0
+msgclose:
+editValue:9:False:0:0:-1
+battle:9:2:3:0:1:1:1:0::15:2:5:1:1:1:1:0::16:2:4:2:1:1:1:0::0:0:1:True:False:False:True:VSvirus:0
+battle:29:2:4:0:1:1:1:0::22:2:5:1:1:1:1:0::38:2:4:2:1:1:1:0::4:4:5:True:False:False:True:VSvirus:9
+battle:23:2:5:1:1:1:1:0::12:2:3:0:1:1:1:0::12:2:4:2:1:1:1:0::3:4:19:True:False:False:True:VSvirus:6
+battle:28:2:3:0:1:1:1:0::31:2:5:1:1:1:1:0::28:2:3:2:1:1:1:0::1:8:5:True:False:False:True:VSvirus:10
+battle:42:2:4:1:54:154:41:600:Map.ExOmakeExtra1Battle5Enemy1:23:2:3:0:1:1:1:0::23:2:3:2:1:1:1:0::0:0:5:True:False:False:True:Tournament:7
+bgmon:internet
+fade:30:0:0:0:0:True
+msgopen:
+msg:Map.ExOmakeExtra1Stage4Dialogue1FaceSprite
+ItemGet:0:26:3:
+ItemGet:0:27:3:
+ItemGet:0:28:3:
+msgclose:
+BranchEnd:
+end
+
 ID:ワープ
 position:106:106:0
 page:1

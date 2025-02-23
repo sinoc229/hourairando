@@ -79,7 +79,7 @@
   <Dialogue Key="Map.HeavenNet1SpecialDoorAllyNavis1" Value="THE WAY SHALL OPEN FOR,ONE WHO NURTURES THE,BONDS OF FRIENDSHIP" Face="None" Mono="False" />
   <Dialogue Key="Map.HeavenNet1SpecialDoorAllLinkGates1" Value="THE WAY SHALL OPEN FOR,ONE WHO BUILDS PATHS,TO FAR OFF LANDS" Face="None" Mono="False" />
   <Dialogue Key="Map.HeavenNet1SpecialDoorStoryKey1" Value="THE WAY SHALL OPEN FOR,ONE WHO HOLDS THE KEY" Face="None" Mono="False" />
-  <Dialogue Key="Map.HeavenNet1SpecialDoorLottoCodes1" Value="THE WAY SHALL OPEN FOR,ONE WHO LEAVES NO,STONE UNTURNED" Face="None" Mono="False" />
+  <Dialogue Key="Map.HeavenNet1SpecialDoorLottoCodes1" Value="kill all v3s again,(randomzier temp)" Face="0,0" />
   <Dialogue Key="Map.HeavenNet1LockdownDoorDialogue2" Value="ACCESS DENIED,AREA SEALED BY ORDER,OF ADMINISTRATOR " Face="None" Mono="False" />
   <Dialogue Key="Map.HeavenNet1Barrier1CutsceneDialogue1" Value="WARNING: IFF CORRUPTION,IN SECTOR 0x7D308011,CAUTION: FAIL-SECURE!" Face="None" Mono="False" />
   <Dialogue Key="Map.HeavenNet1Barrier1CutsceneDialogue2" Value="Be careful，Shanghai，this,could be dangerous. We don’t,know what happened here." Face="Alice" Mono="False" />

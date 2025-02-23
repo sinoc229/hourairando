@@ -30,6 +30,49 @@ battle:33:2:4:1:1:1:1:0::0:1:3:1:1:1:1:0::0:1:3:2:1:1:1:0::0:8:10:False:True:Tru
 
 
 
+ID:Sprite
+position:66:86:0
+page:1
+startterms:Abutton
+type:1
+terms:none
+move:
+speed:0
+graphic:2:6,0,7,0,0
+hitrange:3:0:0:0
+hitform:circle
+event:
+msgopen:
+msg:Map.ExOmakeExtra6-2Stage1Dialogue1FaceSprite
+msg:Map.ExOmakeExtra6-2Stage1Dialogue2FaceSprite
+msg:Map.ExOmakeExtra6-2Stage1Dialogue3FaceSprite
+question:Map.ExOmakeExtra6-2Stage1Dialogue4QuestionFaceSprite:Map.ExOmakeExtra6-2Stage1Dialogue4Options
+BranchHead:1
+msgclose:
+BranchEnd:
+BranchHead:0
+msgclose:
+editValue:9:False:0:0:-1
+battle:52:4:4:1:1:1:1:0::0:1:3:1:1:1:1:0::0:1:3:2:1:1:1:0::0:9:2:True:False:False:True:VSnavi:6
+battle:53:4:4:1:1:1:1:0::0:1:3:1:1:1:1:0::0:1:3:2:1:1:1:0::0:3:4:True:False:False:True:VSnavi:8
+battle:54:4:5:1:1:1:1:0::0:1:3:1:1:1:1:0::0:1:3:2:1:1:1:0::0:0:4:True:False:False:True:VSnavi:14
+battle:48:4:4:1:1:1:1:0::0:1:3:1:1:1:1:0::0:1:3:2:1:1:1:0::0:0:4:True:False:False:True:VSnavi:19
+battle:49:4:4:1:1:1:1:0::0:1:3:1:1:1:1:0::0:1:3:2:1:1:1:0::0:0:4:True:False:False:True:VSnavi:17
+battle:55:4:4:1:1:1:1:0::0:1:3:1:1:1:1:0::0:1:3:2:1:1:1:0::0:0:4:True:False:False:True:VSnavi:18
+bgmon:internet
+fade:30:0:0:0:0:True
+msgopen:
+msg:Map.ExOmakeExtra6-2Stage4Dialogue1FaceSprite
+ItemGet:0:217:2:
+ItemGet:0:220:2:
+ItemGet:0:223:2:
+ItemGet:0:205:2:
+ItemGet:0:208:2:
+ItemGet:0:226:2:
+msgclose:
+BranchEnd:
+end
+
 ID:ワープ
 position:106:106:0
 page:1
@@ -58,8 +101,8 @@ hitrange:3:0:0:0
 hitform:circle
 event:
 msgopen:
-msg:Map.WiiUSprite1Stage1Dialogue1FaceSprite
-msg:Map.WiiUSprite1Stage1Dialogue2FaceSprite
+msg:Map.WiiUSprite2Stage1Dialogue1FaceSprite
+msg:Map.WiiUSprite2Stage1Dialogue2FaceSprite
 msgclose:
 end
 
@@ -76,8 +119,9 @@ hitrange:3:0:0:0
 hitform:circle
 event:
 msgopen:
-msg:Map.WiiUSprite2Stage1Dialogue1FaceSprite
-msg:Map.WiiUSprite2Stage1Dialogue2FaceSprite
+msg:Map.WiiUSprite1Stage1Dialogue1FaceSprite
+msg:Map.WiiUSprite1Stage1Dialogue2FaceSprite
+msg:Map.Wiiu.shitpost1
 msgclose:
 end
 

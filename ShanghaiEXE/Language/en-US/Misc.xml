@@ -480,7 +480,6 @@
   <Dialogue Key="Retcon.0550CrimDexEnabled" Value="Enabled illegal library." Face="Sprite" Mono="False" />
   <Dialogue Key="Retcon.0550WIPEndgameReset" Value="Reset endgame placeholder,battles." Face="Sprite" Mono="False" />
   <Dialogue Key="Retcon.0550HeavenJackOut" Value="Jacked out of Heaven Area." Face="Sprite" Mono="False" />
-
   <Text Key="Save.SaveFailedTitle" Value="Save Failed!" />
   <Text Key="Save.SaveFailed" Value="Something went wrong during the save process.&#xA;&#xD;&#xA;&#xD;Unfortunately, it is unlikely that the problem can be solved without a game update.&#xA;&#xD;&#xA;&#xD;Please report this bug at https://gitgud.io/SHNecro/shanghaiexe/-/issues or wherever you downloaded this copy of the game." />
   <Text Key="Save.SaveRetained" Value="A backup has been restored from your last working savegame.&#xA;&#xD;&#xA;&#xD;Press 'ESC' to return to the start screen once the game resumes." />
@@ -490,4 +489,9 @@
   <Text Key="Save.BackupRestored" Value="Your previous savegame has been restored from backup." />
   <Text Key="Save.BackupCorrupted" Value="The backup savegame has also failed to load." />
   <Text Key="Save.BackupNotFound" Value="No backup was able to be found." />
+  <Dialogue Key="" Value="GO FIND THE P-CODES,AND ID’S TO GET,PAST THE CUBES!" Face="Ghost" />
+  <Dialogue Key="Rando_goaround" Value="FIND THE P-CODES AND,ID’S TO GET TO THE,DEEP NET!" Face="0,0" />
+  <Dialogue Key="" Value="I’m the final boss of the,randomizer.,Wana fight?" Face="FlandreNormal" />
+  <Dialogue Key="Rando_Flandrefightstart" Value="I’m the final boss of the,randomizer. " Face="FlandreNormal" />
+  <Dialogue Key="Rando_fightquestion" Value="Fight this boss?" Face="Shanghai" />
 </data>

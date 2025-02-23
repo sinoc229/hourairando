@@ -899,6 +899,4 @@
   <Dialogue Key="Map.AliceroomPostGameAutomaticStartStage3Dialogue6" Value="We’ll do our best to help with,your investigation，Reisen." Face="Alice" Mono="False" />
   <Dialogue Key="Map.AliceroomPostGameAutomaticStartStage3Dialogue7" Value="We’re currently pursuing an,Engellese suspect connected,to another case." Face="Reisen" Mono="False" />
   <Dialogue Key="Map.AliceroomPostGameAutomaticStartStage3Dialogue8" Value="If you need to contact me，,we’ll be in Engelles." Face="Reisen" Mono="False" />
-  <Dialogue Key="Map.AliceroomFreeplay1" Value="Freeplay test." Face="Reisen" Mono="False" />
-
 </data>

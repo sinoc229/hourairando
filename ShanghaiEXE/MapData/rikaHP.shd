@@ -141,12 +141,13 @@ msg:Map.RikaHPSpriteStage1Dialogue2FaceSprite
 msg:Map.RikaHPSpriteStage1Dialogue3FaceSprite
 EditItem:8:True
 ItemGet:3:8:0:KeyItem.RikaPCodeName
+editFlag:1672:True
 msgclose:
 end
 page:2
 startterms:Abutton
 type:1
-terms:flag/285
+terms:flag/1672
 move:
 speed:0
 graphic:2:6,0,1,0,0

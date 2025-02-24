@@ -523,7 +523,7 @@ msgclose:
 goto:end
 ifEnd:1
 ifEnd:0
-ifFlag:148:False:0
+ifFlag:1671:False:0
 msg:Map.MariroomMarisaBattleStage6Dialogue1FaceMari
 msgclose:
 bgmSave:
@@ -541,14 +541,15 @@ msgopen:
 msg:Map.MariroomMarisaBattleStage10Dialogue1FaceMari
 msg:Map.MariroomMarisaBattleStage10Dialogue2FaceMari
 ItemGet:3:8:0:KeyItem.MariPCodeName
-EditItem:6:True
+editFlag:1671:True
+msg:Debug.UnimplementedText
 msg:Map.MariroomMarisaBattleStage10Dialogue3FaceMari
 msg:Map.MariroomMarisaBattleStage10Dialogue4FaceMari
 msgclose:
 ifEnd:1
 goto:end
 ifEnd:0
-ifFlag:148:True:0
+ifFlag:1671:True:0
 msg:Map.MariroomMarisaBattleStage11Dialogue1FaceMari
 msgclose:
 bgmSave:

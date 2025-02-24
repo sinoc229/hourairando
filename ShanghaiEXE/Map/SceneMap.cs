@@ -1159,6 +1159,10 @@ namespace NSMap
             
             this.savedata.flagList[788] = false; //stage intro cutscene
 
+           // this.savedata.flagList[722] = true; //start hospital
+            //this.savedata.flagList[721] = true;
+            //this.savedata.flagList[720] = true;
+
             this.savedata.ValList[10] = 8; //set worldstate to endgame
             this.savedata.ValList[11] = -1; //no active quests
             this.savedata.ValList[12] = -1; //no active SP target

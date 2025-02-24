@@ -35,6 +35,8 @@ namespace NSEvent
                     case 6:
                         Console.WriteLine("Got mari p-code");
                         this.savedata.flagList[148] = true;
+
+
                         break;
 
                     case 7:

@@ -151,6 +151,22 @@ battle:11:0:4:1:1:1:1:0::0:2:5:0:1:1:1:0::0:2:5:2:1:1:1:0::0:0:1:False:False:Tru
 
 random:3,8,200,:3,8,500,:3,8,1000,:3,8,2500,:3,8,3500,
 
+ID:Sprite
+position:39:13:0
+page:1
+startterms:Abutton
+type:1
+terms:!flag/1653
+move:
+speed:3
+graphic:-2:0,40,16,40,16
+hitrange:8:8:6:6
+hitform:square
+event:
+ItemGet:3:8:0:KeyItem.MetroPassName
+EditItem:3:True
+end
+
 ID:2章女ナビ1
 position:310:445:0
 page:1

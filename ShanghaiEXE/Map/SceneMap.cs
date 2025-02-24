@@ -1162,8 +1162,9 @@ namespace NSMap
             this.savedata.ValList[10] = 8; //set worldstate to endgame
             this.savedata.ValList[11] = -1; //no active quests
             this.savedata.ValList[12] = -1; //no active SP target
+            this.savedata.ValList[35] = 1; //set bosses to appear as they do in a normal game (why is this even a var?)
 
-            //this.savedata.ValList[3] = 102; //set hint to heaven hint
+            this.savedata.ValList[3] = 102; //set hint to heaven hint
             this.savedata.ValList[199] = 8; //set savedata to version from final anon release, for compatability
 
             Console.WriteLine("Zeroing out BMD data");

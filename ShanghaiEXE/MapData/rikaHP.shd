@@ -142,7 +142,6 @@ msg:Map.RikaHPSpriteStage1Dialogue3FaceSprite
 EditItem:8:True
 ItemGet:3:8:0:KeyItem.RikaPCodeName
 msgclose:
-editFlag:285:True
 end
 page:2
 startterms:Abutton

@@ -37,7 +37,14 @@ ingles square -
 11111111 DeadBody 523 (DARK)
 
 
-
 "noncanon"
 21216128 DemoRoom 
 19122018 DebugRoom 
+
+
+###BMD###
+(These were treated as key items for some reason, moved to BMD since we've got a whole system for that)
+524 - Salvage yellow 
+525 - Mammon Dark
+526 - Equalizer Pink
+527 - STDchip+ skyblue

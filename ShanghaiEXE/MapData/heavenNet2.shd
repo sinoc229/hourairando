@@ -3302,8 +3302,6 @@ graphic:-2:0,40,16,40,16
 hitrange:8:8:6:6
 hitform:square
 event:
-editFlag:884:True
-ItemGet:3:8:0:KeyItem.RoukankenName
 EditItem:30:True
 end
 
@@ -3451,7 +3449,6 @@ graphic:-2:0,40,16,40,16
 hitrange:8:8:6:6
 hitform:square
 event:
-editFlag:885:True
 ItemGet:3:8:0:KeyItem.MirrorShardName
 EditItem:31:True
 end
@@ -3571,7 +3568,7 @@ event:
 end
 
 ID:SpecialBMD11
-position:372:606:1
+position:370:604:1
 page:1
 startterms:Abutton
 type:1
@@ -3582,7 +3579,6 @@ graphic:-2:0,40,16,40,16
 hitrange:8:8:6:6
 hitform:square
 event:
-editFlag:886:True
 ItemGet:3:8:0:KeyItem.FreezeCoreName
 EditItem:32:True
 end
@@ -3642,7 +3638,6 @@ graphic:-2:0,40,16,40,16
 hitrange:8:8:6:6
 hitform:square
 event:
-editFlag:857:True
 ItemGet:3:8:0:KeyItem.SecretKeyName
 EditItem:26:True
 end
@@ -6193,7 +6188,7 @@ event:
 end
 
 MysteryID:BMD268
-position:130:729:1
+position:130:730:1
 Mystery:1,2,22,5,,268
 page:1
 startterms:Abutton

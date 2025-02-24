@@ -545,7 +545,6 @@ EditItem:6:True
 msg:Map.MariroomMarisaBattleStage10Dialogue3FaceMari
 msg:Map.MariroomMarisaBattleStage10Dialogue4FaceMari
 msgclose:
-editFlag:148:True
 ifEnd:1
 goto:end
 ifEnd:0

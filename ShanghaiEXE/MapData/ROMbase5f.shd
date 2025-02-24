@@ -27,6 +27,64 @@
 
 
 
+ID:Sprite
+position:76:71:0
+page:1
+startterms:Abutton
+type:1
+terms:none
+move:
+speed:0
+graphic:9:6,0,7,0,0
+hitrange:3:0:0:0
+hitform:circle
+event:
+msgopen:
+msg:Enemy.KikuriName1
+question:Rando_fightquestion:Map.ExOmakeExtra5Stage1Dialogue4Options
+BranchHead:1
+msgclose:
+BranchEnd:
+BranchHead:0
+msgclose:
+battle:0:4:3:0:1:1:1:0::65:2:4:1:1:1:1:0::0:4:5:2:1:1:1:0::0:0:0:False:False:False:True:VScybeast:34
+HP:2000:True
+fade:30:0:0:0:0:True
+bgmon:ROM_base
+editFlag:1750:True
+HP:2000:True
+BranchEnd:
+end
+
+ID:Sprite
+position:53:72:0
+page:1
+startterms:Abutton
+type:1
+terms:none
+move:
+speed:0
+graphic:18:4,0,7,0,0
+hitrange:3:0:0:0
+hitform:circle
+event:
+msgopen:
+msg:Enemy.KikuriName2
+question:Rando_fightquestion:Map.ExOmakeExtra5Stage1Dialogue4Options
+BranchHead:1
+msgclose:
+BranchEnd:
+BranchHead:0
+msgclose:
+battle:0:4:3:0:1:1:1:0::65:1:4:1:1:1:1:0::0:4:5:2:1:1:1:0::0:0:0:False:False:False:True:VScybeast:34
+HP:2000:True
+fade:30:0:0:0:0:True
+bgmon:ROM_base
+editFlag:1750:True
+HP:2000:True
+BranchEnd:
+end
+
 ID:ROMbase6f-Transition
 position:72:30:0
 page:1
@@ -71,7 +129,7 @@ event:
 end
 
 ID:バリアー
-position:97:77:0
+position:165:82:0
 page:1
 startterms:Abutton
 type:1
@@ -143,7 +201,7 @@ eventDeath:
 end
 
 ID:バリアー
-position:65:77:0
+position:94:-33:0
 page:1
 startterms:Abutton
 type:1
@@ -172,7 +230,7 @@ event:
 end
 
 ID:バリアー
-position:33:77:0
+position:158:16:0
 page:1
 startterms:Abutton
 type:1
@@ -473,7 +531,7 @@ event:
 end
 
 ID:鈴仙
-position:61:93:0
+position:65:96:0
 page:1
 startterms:Abutton
 type:1
@@ -657,7 +715,7 @@ msgclose:
 end
 
 ID:PostgameAgent
-position:33:83:0
+position:29:90:0
 page:1
 startterms:Abutton
 type:1

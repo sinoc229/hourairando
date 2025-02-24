@@ -44,6 +44,26 @@
 
 
 
+ID:Sprite
+position:273:135:0
+page:1
+startterms:Touch
+type:1
+terms:flag/716,flag/614
+move:
+speed:0
+graphic:-1:0,0,0,0,0
+hitrange:33:37:0:0
+hitform:square
+event:
+GetMail:26:True
+wait:120:False
+msgopen:
+msg:Map.AliceroomHospitalEventStage1Dialogue1FaceShanghai
+msgclose:
+editFlag:720:True
+end
+
 ID:4章学生１
 position:232:94:0
 page:1

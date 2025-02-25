@@ -2948,7 +2948,7 @@ msgopen:
 msg:Map.HeavenNet1SpecialDoorStdProgramAdvances1
 msgclose:
 Special:21
-ifValue:7:False:32:1:0
+ifValue:7:False:30:1:0
 editFlag:807:True
 seon:get
 wait:15:False
@@ -3580,7 +3580,7 @@ event:
 end
 
 ID:SpecialBMD1
-position:291:330:0
+position:291:331:0
 page:1
 startterms:Abutton
 type:1

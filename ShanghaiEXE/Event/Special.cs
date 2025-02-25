@@ -902,7 +902,9 @@ namespace NSEvent
                         //var addonsObtained = addons.All(id => this.savedata.haveAddon.Any(a => a.ID == id));
                         //var subChipsObtained = this.savedata.haveSubChis[0] == 9 && this.savedata.haveSubChis[1] == 9;
                         //var healingFound = chipsSeen && addonsObtained && subChipsObtained;
-                        this.savedata.ValList[7] = healingFound ? 1 : 0;
+
+                        this.savedata.ValList[7] = 1; //TEMP, rnomal calc seems to be broken
+                        //this.savedata.ValList[7] = healingFound ? 1 : 0;
                     }
                     break;
                 case 24:

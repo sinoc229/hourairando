@@ -112,7 +112,7 @@ namespace NSEvent
 
                     case 33:
                         Console.WriteLine("Got Order book");
-                        this.savedata.flagList[887] = true;
+                        this.savedata.flagList[877] = true;
                         break;
 
                     default:

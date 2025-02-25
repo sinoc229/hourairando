@@ -1978,7 +1978,7 @@ end
 page:2
 startterms:none
 type:1
-terms:flag/422,flag/423,flag/424,flag/425,flag/426,flag/427
+terms:flag/422,flag/423,flag/424,flag/425
 move:
 speed:0
 graphic:-1:0,0,0,0,0
@@ -2670,7 +2670,7 @@ seon:search
 fade:15:0:255:0:255:True
 msgopen:
 msg:Map.HeavenNet1BarrierUnlockScanDialogue1
-Special:23
+editValue:7:False:0:0:1
 ifValue:7:False:1:0:0
 seon:getchip
 editFlag:867:True
@@ -3277,7 +3277,7 @@ msgclose:
 end
 
 ID:SpecialGhost9
-position:122:682:1
+position:125:680:1
 page:1
 startterms:Abutton
 type:0
@@ -3302,6 +3302,7 @@ graphic:-2:0,40,16,40,16
 hitrange:8:8:6:6
 hitform:square
 event:
+ItemGet:3:8:0:KeyItem.RoukankenName
 EditItem:30:True
 end
 
@@ -3353,7 +3354,7 @@ position:98:515:1
 page:1
 startterms:Abutton
 type:1
-terms:!flag/826
+terms:!flag/1761
 move:
 speed:3
 graphic:-25:0,684,32,56,4
@@ -3385,6 +3386,7 @@ battle:42:19:4:1:24:143:26:1300:Map.HeavenNet1GhostEnemyName:8:4:5:0:1:1:1:0::8:
 effectEnd:
 playerHide:False
 editFlag:830:True
+editFlag:1761:True
 emove:SpecialGhost10End:warpup,500
 emove:SpecialGhost10EndShadow:warpup,500
 effect:3:GhostEnd:95:490:1:0:6:8:2:bomb
@@ -3406,7 +3408,7 @@ ifEnd:0
 end
 
 ID:SpecialDoorLockout10
-position:90:512:1
+position:90:516:1
 page:1
 startterms:Abutton
 type:1
@@ -3428,7 +3430,7 @@ position:100:482:1
 page:1
 startterms:Abutton
 type:0
-terms:!flag/830
+terms:!flag/1761
 move:down,8:left,8:up,8:right,8
 speed:12
 graphic:19:7,0,7,0,0
@@ -3511,8 +3513,7 @@ event:
 msgopen:
 msg:Map.HeavenNet1SpecialDoorLottoCodes1
 msgclose:
-EventLun:SpecialDoor10EnemyV3Check:-1
-ifFlag:827:True:0
+ifFlag:1760:True:0
 seon:get
 wait:15:False
 emove:SpecialGhost11:wait,25:wayup,0:wait,5
@@ -3647,7 +3648,7 @@ position:213:170:0
 page:1
 startterms:Touch
 type:1
-terms:!flag/873
+terms:!flag/1762
 move:
 speed:0
 graphic:-1:0,0,0,0,0
@@ -3673,6 +3674,7 @@ emove:プレイヤー:up,6:wait,0
 wait:30:False
 msgopen:
 msg:Map.HeavenNet2MeetingCutsceneDialogue1
+editFlag:1762:True
 msgclose:
 bgmon:encounter
 bgmfade:100:240:False
@@ -3781,11 +3783,8 @@ msg:Map.HeavenNet2MeetingCutsceneDialogue32
 msg:Map.HeavenNet2MeetingCutsceneDialogue33
 emove:プレイヤー:wait,16:waydown,0
 emove:MeetingCutsceneYuyuko:wait,24:wayleft,0:wait,24:wayright,0:wait,24:wayleft,0
-msg:Map.HeavenNet2MeetingCutsceneDialogue34
+msg:Map.HeavenNet2MeetingCutsceneDialogue33
 emove:MeetingCutsceneYuyuko:wait,24:waydown,0
-msg:Map.HeavenNet2MeetingCutsceneDialogue35
-ItemGet:3:8:0:KeyItem.DarkKeyName
-EditItem:27:True
 editFlag:875:True
 emove:プレイヤー:wayup,0
 msg:Map.HeavenNet2MeetingCutsceneDialogue36
@@ -3813,6 +3812,7 @@ fade:8:255:255:255:255:True
 fade:32:0:255:255:255:False
 wait:60:False
 editFlag:873:True
+editFlag:873:True
 msgopen:
 msg:Map.HeavenNet2MeetingCutsceneDialogue44
 msg:Map.HeavenNet2MeetingCutsceneDialogue45
@@ -3837,6 +3837,7 @@ emove:プレイヤー:up,8:wait,0
 editFlag:874:False
 fade:8:255:255:255:255:True
 HP:9999:True
+editFlag:890:True
 fade:32:0:255:255:255:False
 end
 
@@ -3903,6 +3904,9 @@ hitrange:3:8:1:1
 hitform:circle
 event:
 msgopen:
+msg:Map.HeavenNet2MeetingCutsceneDialogue40
+msg:Map.HeavenNet2MeetingCutsceneDialogue41
+msg:Map.HeavenNet2MeetingCutsceneDialogue42
 msg:Map.HeavenNet2YoumuAfterMeetingNoBattleDialogue1
 msg:Map.HeavenNet2YoumuAfterMeetingNoBattleDialogue2
 msgclose:
@@ -4178,6 +4182,8 @@ event:
 msgopen:
 msg:Map.HeavenNet2YuyukoAfterMeetingNoBattleDialogue1
 msg:Map.HeavenNet2YuyukoAfterMeetingNoBattleDialogue2
+msg:Map.HeavenNet2MeetingCutsceneDialogue31
+msg:Map.HeavenNet2MeetingCutsceneDialogue32
 msgclose:
 end
 page:3
@@ -4257,16 +4263,16 @@ ifEnd:3
 msg:Map.HeavenNet2YuyukoChallengeWinDialogue3
 editValue:7:False:0:3:0/3
 ifValue:7:False:0:0:3
-ItemGet:3:8:5000:
+ItemGet:3:8:10000:
 ifEnd:3
 ifValue:7:False:1:0:3
-ItemGet:3:5:5:
+ItemGet:3:5:10:
 ifEnd:3
 ifValue:7:False:2:0:3
-ItemGet:3:6:5:
+ItemGet:3:6:10:
 ifEnd:3
 ifValue:7:False:3:0:3
-ItemGet:3:7:5:
+ItemGet:3:7:10:
 ifEnd:3
 ifEnd:2
 ifEnd:1

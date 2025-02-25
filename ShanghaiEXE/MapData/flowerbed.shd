@@ -66,9 +66,7 @@ bgmon:internet
 fade:30:0:0:0:0:True
 msgopen:
 msg:Map.ExOmakeExtra4Stage4Dialogue1FaceSprite
-ItemGet:0:77:3:
-ItemGet:0:78:3:
-ItemGet:0:79:3:
+ItemGet:0:401:0:
 msgclose:
 BranchEnd:
 end

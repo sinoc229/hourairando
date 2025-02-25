@@ -160,4 +160,30 @@ bgmoff:
 eventDeath:
 end
 
+MysteryID:GMD
+position:82:80:0
+Mystery:1,2,0,0,,530
+page:1
+startterms:Abutton
+type:1
+terms:
+move:
+speed:3
+graphic:-2:0,40,16,40,16
+hitrange:2:0:8:8
+hitform:circle
+event:
+end
+page:2
+startterms:Abutton
+type:0
+terms:
+move:
+speed:0
+graphic:-1:0,0,0,0,0
+hitrange:0:0:0:0
+hitform:square
+event:
+end
+
 

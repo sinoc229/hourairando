@@ -64,7 +64,8 @@ BranchEnd:
 BranchHead:0
 msgclose:
 battle:0:4:3:0:1:1:1:0::60:3:4:1:1:1:1:0::0:4:5:2:1:1:1:0::0:0:0:False:True:False:False:VScybeast:0
-HP:2000:True
+editFlag:1751:True
+msg:Debug.UnimplementedText
 fade:30:0:0:0:0:True
 bgmon:hospital
 HP:2000:True
@@ -507,6 +508,7 @@ msgclose:
 BranchEnd:
 BranchHead:0
 battle:92:1:4:1:1:1:1:0::0:1:5:0:1:1:1:0::0:1:5:2:1:1:1:0::0:0:0:False:True:False:False:VSnavi:27
+editFlag:1752:True
 msgclose:
 fade:30:0:0:0:0:True
 BranchEnd:

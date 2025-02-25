@@ -75,7 +75,7 @@ battle:14:0:4:0:1:1:1:0::14:0:4:2:1:1:1:0::0:1:3:2:1:1:1:0::0:0:1:False:False:Tr
 random:3,8,100,:3,8,300,:3,8,500,:3,8,1000,:3,8,1500,:3,8,2000,:3,8,3000,
 
 ID:チェンV2
-position:196:260:0
+position:204:261:0
 page:1
 startterms:Touch
 type:1
@@ -108,6 +108,22 @@ graphic:-1:0,0,0,0,0
 hitrange:0:0:0:0
 hitform:square
 event:
+end
+
+ID:Sprite
+position:192:251:0
+page:1
+startterms:Abutton
+type:1
+terms:!flag/1650
+move:
+speed:3
+graphic:-2:0,40,16,40,16
+hitrange:8:8:6:6
+hitform:square
+event:
+ItemGet:3:8:0:KeyItem.DarkKeyName
+EditItem:27:True
 end
 
 ID:案内板

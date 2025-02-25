@@ -1153,10 +1153,12 @@ namespace NSMap
             this.savedata.flagList[840] = false;
             this.savedata.flagList[841] = false;
             this.savedata.flagList[842] = true;
+
+            this.savedata.flagList[884] = false;
             #endregion
 
 
-            
+
             this.savedata.flagList[788] = false; //stage intro cutscene
 
            // this.savedata.flagList[722] = true; //start hospital
@@ -1170,7 +1172,7 @@ namespace NSMap
 
             this.savedata.ValList[3] = 102; //set hint to heaven hint
             this.savedata.ValList[199] = 8; //set savedata to version from final anon release, for compatability
-
+            //this.savedata.ValList[10] = 3; //make yorohime spawn
             Console.WriteLine("Zeroing out BMD data");
             for (int index45 = 0; index45 < 600; ++index45) //zero out BMD
             {

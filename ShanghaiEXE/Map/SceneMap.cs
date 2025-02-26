@@ -53,7 +53,7 @@ namespace NSMap
         private float plusB;
         private int fadeFlame;
         private int fadeTime;
-		internal List<IPersistentEvent> persistentEvents;
+        internal List<IPersistentEvent> persistentEvents;
 
         public bool NoEvent
         {
@@ -130,13 +130,13 @@ namespace NSMap
             this.eventmanager = new EventManager(this, this.sound);
             this.eventmanagerParallel = new EventManager(this, this.sound);
             this.HP = new HPGauge(this.sound, this.savedata.HPNow, this.savedata.HPMax);
-			this.persistentEvents = new List<IPersistentEvent>();
+            this.persistentEvents = new List<IPersistentEvent>();
         }
 
         public void NewGame(int plus) //old, don't use
         {
             Console.WriteLine("Attempting newgame plus?");
-            this.player = new NSMap.Character.Player(this.sound, this, new Point((int)0.0, (int)0.0),(int)0.0, MapCharacterBase.ANGLE.DOWNLEFT, this.main, this.savedata, this.savedata.nowZ);
+            this.player = new NSMap.Character.Player(this.sound, this, new Point((int)0.0, (int)0.0), (int)0.0, MapCharacterBase.ANGLE.DOWNLEFT, this.main, this.savedata, this.savedata.nowZ);
             this.step = (SceneMap.STEPS)this.savedata.steptype;
             this.stepover[0] = this.savedata.stepoverX;
             this.stepover[1] = this.savedata.stepoverY;
@@ -157,12 +157,12 @@ namespace NSMap
             this.stepover[0] = this.savedata.stepoverX;
             this.stepover[1] = this.savedata.stepoverY;
             this.player.stepCounter = this.savedata.stepCounter;
-			this.persistentEvents.Clear();
-			this.field = new MapField(this.sound, this.savedata.nowMap, this.savedata, this);
-			this.player.FieldSet(this.field);
+            this.persistentEvents.Clear();
+            this.field = new MapField(this.sound, this.savedata.nowMap, this.savedata, this);
+            this.player.FieldSet(this.field);
             this.fadeColor = Color.Black;
             this.alpha = byte.MaxValue;
-			this.FadeStart(Color.FromArgb(0, this.fadeColor), 5);
+            this.FadeStart(Color.FromArgb(0, this.fadeColor), 5);
         }
 
         public void LoadGame2()
@@ -1161,7 +1161,7 @@ namespace NSMap
 
             this.savedata.flagList[788] = false; //stage intro cutscene
 
-           // this.savedata.flagList[722] = true; //start hospital
+            // this.savedata.flagList[722] = true; //start hospital
             //this.savedata.flagList[721] = true;
             //this.savedata.flagList[720] = true;
 
@@ -1172,7 +1172,7 @@ namespace NSMap
 
             this.savedata.ValList[3] = 102; //set hint to heaven hint
             this.savedata.ValList[199] = 8; //set savedata to version from final anon release, for compatability
-            //this.savedata.ValList[10] = 3; //make yorohime spawn
+            
             Console.WriteLine("Zeroing out BMD data");
             for (int index45 = 0; index45 < 600; ++index45) //zero out BMD
             {
@@ -1187,7 +1187,7 @@ namespace NSMap
 
         public void FieldSet(string name, Point posi, int floor, MapCharacterBase.ANGLE angle)
         {
-			this.persistentEvents.Clear();
+            this.persistentEvents.Clear();
             this.field = new MapField(this.sound, name, this.savedata, this);
             this.player.PositionSet(posi, floor, angle);
             this.player.position.Z = this.savedata.pluginZ;
@@ -1215,13 +1215,13 @@ namespace NSMap
                 if (!this.player.openMenu && !this.eventmanager.playevent)
                     this.TimerUpdate();
                 // Temporary copy made in case a persistent event (runevent) adds another persistent event, will need to start next tick
-				foreach (var persistentEvent in this.persistentEvents.ToArray())
-				{
-					if (persistentEvent.IsActive)
-					{
-						persistentEvent.PersistentUpdate();
-					}
-				}
+                foreach (var persistentEvent in this.persistentEvents.ToArray())
+                {
+                    if (persistentEvent.IsActive)
+                    {
+                        persistentEvent.PersistentUpdate();
+                    }
+                }
                 this.persistentEvents.RemoveAll(pe => !pe.IsActive);
                 this.MapUpdate();
                 this.HP.HPDown(this.savedata.HPNow, this.savedata.HPMax);
@@ -1415,12 +1415,12 @@ namespace NSMap
                     {
                         ++num4;
                         if (mapEventBase.LunPage.hitform
-							&& mapEventBase.floor == player.floor
-							&& mapEventBase.rendType == 1
-							&& (point3.X >= mapEventBase.position.X + (double)mapEventBase.LunPage.hitShift.X - mapEventBase.LunPage.hitrange.X / 2
-							&& point3.X <= mapEventBase.position.X + (double)mapEventBase.LunPage.hitShift.X + mapEventBase.LunPage.hitrange.X / 2
-							&& point3.Y >= mapEventBase.position.Y + (double)mapEventBase.LunPage.hitShift.Y - mapEventBase.LunPage.hitrange.Y / 2
-							&& point3.Y <= mapEventBase.position.Y + (double)mapEventBase.LunPage.hitShift.Y + mapEventBase.LunPage.hitrange.Y / 2))
+                            && mapEventBase.floor == player.floor
+                            && mapEventBase.rendType == 1
+                            && (point3.X >= mapEventBase.position.X + (double)mapEventBase.LunPage.hitShift.X - mapEventBase.LunPage.hitrange.X / 2
+                            && point3.X <= mapEventBase.position.X + (double)mapEventBase.LunPage.hitShift.X + mapEventBase.LunPage.hitrange.X / 2
+                            && point3.Y >= mapEventBase.position.Y + (double)mapEventBase.LunPage.hitShift.Y - mapEventBase.LunPage.hitrange.Y / 2
+                            && point3.Y <= mapEventBase.position.Y + (double)mapEventBase.LunPage.hitShift.Y + mapEventBase.LunPage.hitrange.Y / 2))
                         {
                             flag1 = false;
                             if (mapEventBase.LunPage.startterms == EventPage.STARTTERMS.Touch)
@@ -1626,12 +1626,12 @@ namespace NSMap
                         float num2 = MyMath.Pow(mapEventBase.position.X + mapEventBase.LunPage.hitShift.X - vector3_1.X, 2)
                                    + MyMath.Pow(mapEventBase.position.Y + mapEventBase.LunPage.hitShift.Y - vector3_1.Y, 2);
                         isColliding = MyMath.Pow(mapEventBase.LunPage.startterms == EventPage.STARTTERMS.Touch
-							                ? mapEventBase.LunPage.hitrange.X + 2
-							                : mapEventBase.LunPage.hitrange.X + (a != MapCharacterBase.ANGLE.none
-																	                ? this.player.hitLange
-																	                : this.player.hitLange + 1),
+                                            ? mapEventBase.LunPage.hitrange.X + 2
+                                            : mapEventBase.LunPage.hitrange.X + (a != MapCharacterBase.ANGLE.none
+                                                                                    ? this.player.hitLange
+                                                                                    : this.player.hitLange + 1),
                                             2)
-								>= (double)num2;
+                                >= (double)num2;
                         // disable collision for 0-size circles
                         isColliding &= mapEventBase.LunPage.hitrange.X != 0;
                     }
@@ -1660,17 +1660,17 @@ namespace NSMap
                             }
                             int num6 = this.player.hitLange + 3;
                             isColliding = vector3_1.X >= mapEventBase.position.X + (double)mapEventBase.LunPage.hitShift.X - mapEventBase.LunPage.hitrange.X / 2 - num6 - num3
-								&& vector3_1.X <= mapEventBase.position.X + (double)mapEventBase.LunPage.hitShift.X + mapEventBase.LunPage.hitrange.X / 2 + num6 + num2
-								&& vector3_1.Y >= mapEventBase.position.Y + (double)mapEventBase.LunPage.hitShift.Y - mapEventBase.LunPage.hitrange.Y / 2 - num6 - num5
-								&& vector3_1.Y <= mapEventBase.position.Y + (double)mapEventBase.LunPage.hitShift.Y + mapEventBase.LunPage.hitrange.Y / 2 + num6 + num4;
+                                && vector3_1.X <= mapEventBase.position.X + (double)mapEventBase.LunPage.hitShift.X + mapEventBase.LunPage.hitrange.X / 2 + num6 + num2
+                                && vector3_1.Y >= mapEventBase.position.Y + (double)mapEventBase.LunPage.hitShift.Y - mapEventBase.LunPage.hitrange.Y / 2 - num6 - num5
+                                && vector3_1.Y <= mapEventBase.position.Y + (double)mapEventBase.LunPage.hitShift.Y + mapEventBase.LunPage.hitrange.Y / 2 + num6 + num4;
                         }
                         else
                         {
                             int num2 = this.player.hitLange + 3;
                             isColliding = vector3_1.X >= mapEventBase.position.X + (double)mapEventBase.LunPage.hitShift.X - mapEventBase.LunPage.hitrange.X / 2 - num2
-								&& vector3_1.X <= mapEventBase.position.X + (double)mapEventBase.LunPage.hitShift.X + mapEventBase.LunPage.hitrange.X / 2 + num2
-								&& vector3_1.Y >= mapEventBase.position.Y + (double)mapEventBase.LunPage.hitShift.Y - mapEventBase.LunPage.hitrange.Y / 2 - num2
-								&& vector3_1.Y <= mapEventBase.position.Y + (double)mapEventBase.LunPage.hitShift.Y + mapEventBase.LunPage.hitrange.Y / 2 + num2;
+                                && vector3_1.X <= mapEventBase.position.X + (double)mapEventBase.LunPage.hitShift.X + mapEventBase.LunPage.hitrange.X / 2 + num2
+                                && vector3_1.Y >= mapEventBase.position.Y + (double)mapEventBase.LunPage.hitShift.Y - mapEventBase.LunPage.hitrange.Y / 2 - num2
+                                && vector3_1.Y <= mapEventBase.position.Y + (double)mapEventBase.LunPage.hitShift.Y + mapEventBase.LunPage.hitrange.Y / 2 + num2;
                         }
                     }
                     if (isColliding && mapEventBase.LunPage.NormalMan)
@@ -1957,25 +1957,25 @@ namespace NSMap
                 }
             }
             if (this.eventmanager.playevent)
-			{
-				this.eventmanager.Render(dg);
-			}
+            {
+                this.eventmanager.Render(dg);
+            }
             if (this.eventmanagerParallel.playevent)
-			{
-				this.eventmanagerParallel.Render(dg);
-			}
+            {
+                this.eventmanagerParallel.Render(dg);
+            }
             // Temporary copy made in case of race condition modifying collection
-			foreach (var persistentEvent in this.persistentEvents.ToArray())
-			{
-				if (persistentEvent.IsActive)
-				{
-					persistentEvent.PersistentRender(dg);
-				}
-			}
+            foreach (var persistentEvent in this.persistentEvents.ToArray())
+            {
+                if (persistentEvent.IsActive)
+                {
+                    persistentEvent.PersistentRender(dg);
+                }
+            }
             if (this.DebugOn)
-			{
-				this.debugmode.Render(dg);
-			}
+            {
+                this.debugmode.Render(dg);
+            }
         }
 
         private void MailAnime()

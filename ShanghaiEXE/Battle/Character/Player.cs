@@ -174,11 +174,6 @@ namespace NSBattle.Character
                 this.savedata.flagList[1760] = true;
                 Console.WriteLine("player has enough HP to get past heaven gate");
             }
-            else
-            {
-                this.savedata.flagList[1760] = false;
-                Console.WriteLine("can't get into heaven");
-            }
                 //debug beeg buster damage and hp
                 this.busterPower = 250;
             this.hpmax = 9999;

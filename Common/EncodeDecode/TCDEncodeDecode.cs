@@ -9,6 +9,7 @@ using System.Windows;
 
 namespace Common.EncodeDecode
 {
+    //MAP ENCODING REAL???
     public static class TCDEncodeDecode
     {
         private const string DefaultPassword = "sasanasi";

@@ -14,15 +14,19 @@ using System.Linq;
 using Common;
 using System.Windows.Forms;
 using NSMap;
+using NSShanghaiEXE.Map;
+using NSMap.Character;
+using System.Drawing;
 
 namespace NSGame
 {
+
     public class SaveData
     {
-        const string FreeplayPath = "freeplay.she";
-        const string SavePath = "save.she";
-        const string SavePathTemp = "save.she.tmp";
-        const string BackupPath = "save.she.bak";
+        private const string FreeplayPath = "freeplay.she";
+        private const string SavePath = "save.she";
+        private const string SavePathTemp = "save.she.tmp";
+        private const string BackupPath = "save.she.bak";
 
         public static int decCount = 0;
         public static string pass = "sasanasi";
@@ -104,8 +108,8 @@ namespace NSGame
         public List<Interior> interiors = new List<Interior>();
         public bool[] flagList = new bool[2000];
         private VariableArray valList = new VariableArray();
-        private bool[] getMystery = new bool[600];
-        private bool[] getRandomMystery = new bool[600];
+        private bool[] getMystery = new bool[1000];
+        private bool[] getRandomMystery = new bool[1000];
         public string pluginMap = "";
         public bool loadEnd;
         public bool loadSucces;
@@ -123,7 +127,7 @@ namespace NSGame
         public const int ManyChips_navi = 64;
         public const int ManyChips_dark = 16;
         public const int ManyChips_PA = 32;
-        public const int ManyMystery = 600;
+        public const int ManyMystery = 1000;
         public const int ManyChips = 450;
         public const int ManyNormalChips = 270;
         public const byte ManyCode = 4;
@@ -181,9 +185,19 @@ namespace NSGame
         public bool stepmode;
         public string item;
         public string category;
+        //public VariableArray scrambleid = new VariableArray();
+        public string[] scrambleid = new string[1000];
+        public string[,] scrambleid2 = new string[1000,6];
+        public int[,] scrambleidfinal = new int[1000, 6];
+        public int[,] Randolist = new int[1000, 6];
+        public string[] mapnames = new string[1000];
+        public UnboundedMap map;
+        public RandomMystery[] randomMystery;
 
         public void Load(Control parent = null)
         {
+            
+
             this.loadEnd = false;
             var loadAttemptedAndFailed = false;
 
@@ -426,7 +440,7 @@ namespace NSGame
                             {
                                 ++index2;
                                 this.shopCount[index1, index4] = int.Parse(strArray6[index2]);
-                                Console.WriteLine(this.shopCount[index2, index4]);
+                                //Console.WriteLine(this.shopCount[index2, index4]);
                             }
                         }
                     }
@@ -440,10 +454,14 @@ namespace NSGame
                             {
                                 ++index1;
                                 this.shopCount[index2, index4] = int.Parse(strArray5[index1]);
-                                Console.WriteLine(this.shopCount[index2, index4]);
+                                //Console.WriteLine(this.shopCount[index2, index4]);
                             }
                         }
                     }
+                    Console.WriteLine("----Seed------");
+                    Console.WriteLine(ShanghaiEXE.Config.Seed);
+                    Console.WriteLine("--------------");
+
                     str = TCDEncodeDecode.DecryptString(streamReader.ReadLine(), SaveData.pass);
                     this.message = int.Parse(str);
                     str = TCDEncodeDecode.DecryptString(streamReader.ReadLine(), SaveData.pass);
@@ -483,7 +501,7 @@ namespace NSGame
                         this.FlagList[index1] = bool.Parse(strArray29[index1]);
                         var flager = this.FlagList[index1];
                         string text = "flag num ";
-                        Console.WriteLine($"{text}{index1}:{flager}");
+                        //Console.WriteLine($"{text}{index1}:{flager}");
                     }
                 str = TCDEncodeDecode.DecryptString(streamReader.ReadLine(), SaveData.pass);
                     string[] strArray30 = str.Split('@');
@@ -492,13 +510,67 @@ namespace NSGame
                         this.ValList[index1] = int.Parse(strArray30[index1]);
                         var valer = this.ValList[index1];
                         string text = "val num ";
-                        Console.WriteLine($"{text}{index1}:{valer}");
+                        //Console.WriteLine($"{text}{index1}:{valer}");
                     }
                     str = TCDEncodeDecode.DecryptString(streamReader.ReadLine(), SaveData.pass);
                     string[] strArray31 = str.Split('@');
+
+                    
+
                     //Console.WriteLine(strArray31.Length - 1); //get total blue mystery data count
                     for (int index1 = 0; index1 < strArray31.Length - 1; ++index1)
+                    {
                         this.GetMystery[index1] = bool.Parse(strArray31[index1]);
+
+                    }
+
+                    Console.WriteLine("Space alocated for G/B MD:");
+                    Console.WriteLine(strArray31.Length - 1);
+
+                    //this.scrambleid[index1] = index1;
+                    //Array.Resize(ref this.scrambleid, 600);
+                    //Console.WriteLine(this.scrambleid);
+                    /* most likely not useable but keeping it in here just incase
+                     * the initial idea was to offset what BMD's actually gave you, but that didn't work
+                    try
+                    {
+                        for (int i = 0; i < strArray31.Length - 1; i++)
+                        {
+                            this.scrambleid[i] = i;
+                        }
+                        Console.WriteLine("scrumbob");
+                    }
+                    catch
+                    {
+                        Console.WriteLine("no scrumbo");
+                    }
+                   
+                    int rng = ShanghaiEXE.Config.Seed;
+
+                    Random random = new Random(rng);  // Create a Random object with the provided seed
+                    int n = this.scrambleid.Length;
+
+                    // Fisher-Yates shuffle algorithm (Knuth shuffle)
+                    for (int i = n - 1; i > 0; i--)
+                    {
+                        // Pick a random index from 0 to i
+                        int j = random.Next(i + 1);
+
+                        // Swap array[i] with the element at random index j
+                        int temp = this.scrambleid[i];
+                        this.scrambleid[i] = this.scrambleid[j];
+                        this.scrambleid[j] = temp;
+                    }
+
+                    Console.WriteLine("scramble results?");
+
+                    Console.WriteLine(this.scrambleid[0]);
+                    */
+
+
+
+                    
+
                     str = TCDEncodeDecode.DecryptString(streamReader.ReadLine(), SaveData.pass);
                     string[] strArray32 = str.Split('@');
                     for (int index1 = 0; index1 < strArray32.Length - 1; ++index1)
@@ -646,6 +718,9 @@ namespace NSGame
                     }));
                 }
             }
+
+
+            Maplootfinder();
 
             this.loadEnd = true;
         }
@@ -1101,6 +1176,9 @@ namespace NSGame
             }
 
             this.loadEnd = true;
+
+            
+
         }
 
         public ICollection<Dialogue> RetconSave()
@@ -2739,6 +2817,718 @@ namespace NSGame
             Sacrifice,
             // Mammon
             Mammon,
+        }
+
+
+        public void Maplootfinder()
+        {
+            var linenumb = 0;
+            var mapno = 0;
+            string txtname = "";
+            var mapslookedthru = 0;
+            var totalmystery = 0;
+            var totalmaps = 175;
+
+
+
+
+            //nowMap2 = txtname;
+            var m = 0;
+            for (m = 0; m < totalmaps + 1; m++)
+            {
+                switch (mapno)
+                {
+                    case 0:
+                        txtname = "airCleaner1";
+                        break;
+                    case 1:
+                        txtname = "airCleaner2";
+                        break;
+                    case 2:
+                        txtname = "airCleaner3";
+                        break;
+                    case 3:
+                        txtname = "airCleaner4";
+                        break;
+                    case 4:
+                        txtname = "ariceTV";
+                        break;
+                    case 5:
+                        txtname = "battleship";
+                        break;
+                    case 6:
+                        txtname = "bench";
+                        break;
+                    case 7:
+                        txtname = "blackboard";
+                        break;
+                    case 8:
+                        txtname = "BronzeStatue";
+                        break;
+                    case 9:
+                        txtname = "BlackBoard";
+                        break;
+                    case 10:
+                        txtname = "blackbord";
+                        break;
+                    case 11:
+                        txtname = "cakeShop";
+                        break;
+                    case 12:
+                        txtname = "car";
+                        break;
+                    case 13:
+                        txtname = "CenterccityWest";
+                        break;
+                    case 14:
+                        txtname = "centerccityNorth";
+                        break;
+                    case 15:
+                        txtname = "centerccitySouth";
+                        break;
+                    case 16:
+                        txtname = "ChangeMachine";
+                        break;
+                    case 17:
+                        txtname = "cityNet1";
+                        break;
+                    case 18:
+                        txtname = "cityNet2";
+                        break;
+                    case 19:
+                        txtname = "cityNet3";
+                        break;
+                    case 20:
+                        txtname = "class2nen1kumi";
+                        break;
+                    case 21:
+                        txtname = "class2nen2kumi";
+                        break;
+                    case 22:
+                        txtname = "classPC";
+                        break;
+                    case 23:
+                        txtname = "clockTower1";
+                        break;
+                    case 24:
+                        txtname = "clockTower2";
+                        break;
+                    case 25:
+                        txtname = "clockTower3";
+                        break;
+                    case 26:
+                        txtname = "clockTower4";
+                        break;
+                    case 27:
+                        txtname = "clockTower5";
+                        break;
+                    case 28:
+                        txtname = "clockTowerReal1f";
+                        break;
+                    case 29:
+                        txtname = "clockTowerReal2f";
+                        break;
+                    case 30:
+                        txtname = "clockTowerReal3f";
+                        break;
+                    case 31:
+                        txtname = "clockTowerReal4f";
+                        break;
+                    case 32:
+                        txtname = "clockTowerReal5f";
+                        break;
+                    case 33:
+                        txtname = "Company3";
+                        break;
+                    case 34:
+                        txtname = "CompanyServer1";
+                        break;
+                    case 35:
+                        txtname = "CompanyServer2";
+                        break;
+                    case 36:
+                        txtname = "CompanyServer3";
+                        break;
+                    case 37:
+                        txtname = "CompanyServer4";
+                        break;
+                    case 38:
+                        txtname = "CompanyServerB";
+                        break;
+                    case 39:
+                        txtname = "Cruiser1f";
+                        break;
+                    case 40:
+                        txtname = "Cruiser1g";
+                        break;
+                    case 41:
+                        txtname = "Cruiser2f";
+                        break;
+                    case 42:
+                        txtname = "Cruiser2g";
+                        break;
+                    case 43:
+                        txtname = "Cruiser3f";
+                        break;
+                    case 44:
+                        txtname = "Cruiser3g";
+                        break;
+                    case 45:
+                        txtname = "cycle";
+                        break;
+                    //ignore debug room and deepura
+                    case 46:
+                        txtname = "eienHighSchoolHP";
+                        break;
+                    case 47:
+                        txtname = "eienNet1";
+                        break;
+                    case 48:
+                        txtname = "eienNet2";
+                        break;
+                    case 49:
+                        txtname = "eienNet3";
+                        break;
+                    case 50:
+                        txtname = "eienSquare";
+                        break;
+                    case 51:
+                        txtname = "EienTown1";
+                        break;
+                    case 52:
+                        txtname = "EienTown2";
+                        break;
+                    case 53:
+                        txtname = "firehydrant";
+                        break;
+                    case 54:
+                        txtname = "flowerbed";
+                        break;
+                    case 55:
+                        txtname = "fountain";
+                        break;
+                    case 56:
+                        txtname = "gameCenter";
+                        break;
+                    case 57:
+                        txtname = "gameCenterCorridor";
+                        break;
+                    case 58:
+                        txtname = "gameCenterRoom";
+                        break;
+                    case 59:
+                        txtname = "gencity";
+                        break;
+                    case 60:
+                        txtname = "genNet1";
+                        break;
+                    case 61:
+                        txtname = "genNet2";
+                        break;
+                    case 62:
+                        txtname = "genNetSquare";
+                        break;
+                    case 63:
+                        txtname = "genschool1f";
+                        break;
+                    case 64:
+                        txtname = "genschool2fa";
+                        break;
+                    case 65:
+                        txtname = "genschool2fb";
+                        break;
+                    case 66:
+                        txtname = "genschool2fb";
+                        break;
+                    case 67:
+                        txtname = "genUniversity";
+                        break;
+                    case 68:
+                        txtname = "genUniversity1f";
+                        break;
+                    case 69:
+                        txtname = "genUniversity2f";
+                        break;
+                    case 70:
+                        txtname = "genUniversity2fjim";
+                        break;
+                    case 71:
+                        txtname = "genUniversity2frin";
+                        break;
+                    case 72:
+                        txtname = "genUniversity3";
+                        break;
+                    case 73:
+                        txtname = "genUniversity3room";
+                        break;
+                    case 74:
+                        txtname = "HakureiJinja";
+                        break;
+                    //heaven moved later
+                    case 75:
+                        txtname = "hospital1f";
+                        break;
+                    case 76:
+                        txtname = "hospital2f";
+                        break;
+                    case 77:
+                        txtname = "hospital2fRoom";
+                        break;
+                    case 78:
+                        txtname = "hospital3f";
+                        break;
+                    case 79:
+                        txtname = "HospitalNet1";
+                        break;
+                    case 80:
+                        txtname = "HospitalNet2";
+                        break;
+                    case 81:
+                        txtname = "HosTV";
+                        break;
+                    case 82:
+                        txtname = "hotelHP";
+                        break;
+                    case 83:
+                        txtname = "hotelRef";
+                        break;
+                    case 84:
+                        txtname = "ingleasHotel";
+                        break;
+                    case 85:
+                        txtname = "ingleasHouse";
+                        break;
+                    case 86:
+                        txtname = "ingleasTowerPark";
+                        break;
+                    case 87:
+                        txtname = "ingleasTown";
+                        break;
+                    case 88:
+                        txtname = "inglesNet1f";
+                        break;
+                    case 89:
+                        txtname = "inglesNet2f";
+                        break;
+                    case 90:
+                        txtname = "inglesNet3";
+                        break;
+                    case 91:
+                        txtname = "inglesSquare";
+                        break;
+                    case 92:
+                        txtname = "inglesSquare";
+                        break;
+                    case 93:
+                        txtname = "jinja1";
+                        break;
+                    case 94:
+                        txtname = "jinja2";
+                        break;
+                    case 95:
+                        txtname = "jinja3";
+                        break;
+                    case 96:
+                        txtname = "kumamiTank";
+                        break;
+                    case 97:
+                        txtname = "library";
+                        break;
+                    case 98:
+                        txtname = "lostShip1";
+                        break;
+                    case 99:
+                        txtname = "lostShip2";
+                        break;
+                    case 100:
+                        txtname = "mariHP";
+                        break;
+                    case 101:
+                        txtname = "mariroom";
+                        break;
+                    case 102:
+                        txtname = "neckHP";
+                        break;
+                    case 103:
+                        txtname = "neckRoom";
+                        break;
+                    case 104:
+                        txtname = "nekodolphin";
+                        break;
+                    case 105:
+                        txtname = "NetAgentSenter1f";
+                        break;
+                    case 106:
+                        txtname = "NetAgentSenter2f";
+                        break;
+                    case 107:
+                        txtname = "netBattleMachineGame";
+                        break;
+                    case 108:
+                        txtname = "netBattleMachineRin";
+                        break;
+                    case 109:
+                        txtname = "netBattleMachineRin";
+                        break;
+                    case 110:
+                        txtname = "partytable";
+                        break;
+                    case 111:
+                        txtname = "Phone";
+                        break;
+                    case 112:
+                        txtname = "photoFrame";
+                        break;
+                    case 113:
+                        txtname = "piano";
+                        break;
+                    case 114:
+                        txtname = "post";
+                        break;
+                    case 115:
+                        txtname = "refrigerator1";
+                        break;
+                    case 116:
+                        txtname = "refrigerator2";
+                        break;
+                    case 117:
+                        txtname = "remihouse";
+                        break;
+                    case 118:
+                        txtname = "remiHP";
+                        break;
+                    case 119:
+                        txtname = "rikaHouse";
+                        break;
+                    case 120:
+                        txtname = "rikaHP";
+                        break;
+                    case 121:
+                        txtname = "ROMbase1f";
+                        break;
+                    case 122:
+                        txtname = "ROMbase2f";
+                        break;
+                    case 123:
+                        txtname = "ROMbase3f";
+                        break;
+                    case 124:
+                        txtname = "ROMbase4f";
+                        break;
+                    case 125:
+                        txtname = "ROMbase5f";
+                        break;
+                    case 126:
+                        txtname = "ROMbase6f";
+                        break;
+                    case 127:
+                        txtname = "ROMbase6f";
+                        break;
+                    case 128:
+                        txtname = "romDisplay";
+                        break;
+                    case 129:
+                        txtname = "ROMbaseOut";
+                        break;
+                    case 130:
+                        txtname = "ROMbaseOut";
+                        break;
+                    case 131:
+                        txtname = "romGate";
+                        break;
+                    case 132:
+                        txtname = "romGate";
+                        break;
+                    case 133:
+                        txtname = "ROMnet1";
+                        break;
+                    case 134:
+                        txtname = "ROMnet2";
+                        break;
+                    case 135:
+                        txtname = "ROMnet3";
+                        break;
+                    case 136:
+                        txtname = "ROMnet4";
+                        break;
+                    case 137:
+                        txtname = "SeirenShip1f";
+                        break;
+                    case 138:
+                        txtname = "SeirenShip1fbridge";
+                        break;
+                    case 139:
+                        txtname = "SeirenShip1fParty";
+                        break;
+                    case 140:
+                        txtname = "SeirenShip2f";
+                        break;
+                    case 141:
+                        txtname = "SeirenShipRoom103";
+                        break;
+                    case 142:
+                        txtname = "SeirenShip3f";
+                        break;
+                    case 143:
+                        txtname = "SeirenShipTV";
+                        break;
+                    case 144:
+                        txtname = "shoolNet1";
+                        break;
+                    case 145:
+                        txtname = "shoolNet1";
+                        break;
+                    case 146:
+                        txtname = "shoolNet2";
+                        break;
+                    case 147:
+                        txtname = "shoolNet3";
+                        break;
+                    case 148:
+                        txtname = "shoolNet4";
+                        break;
+                    case 149:
+                        txtname = "shoolNet4";
+                        break;
+                    case 150:
+                        txtname = "SNSkanri";
+                        break;
+                    case 151:
+                        txtname = "StaffRoom";
+                        break;
+                    case 152:
+                        txtname = "tenkoRoom";
+                        break;
+                    case 153:
+                        txtname = "tesuri";
+                        break;
+                    case 154:
+                        txtname = "UnderCable";
+                        break;
+                    case 155:
+                        txtname = "UnderGyosyou";
+                        break;
+                    case 156:
+                        txtname = "UnderSaikutu";
+                        break;
+                    case 157:
+                        txtname = "uraNet1";
+                        break;
+                    case 158:
+                        txtname = "uraNet2";
+                        break;
+                    case 159:
+                        txtname = "uraNet3";
+                        break;
+                    case 160:
+                        txtname = "uraNet4";
+                        break;
+                    case 161:
+                        txtname = "uraNet5";
+                        break;
+                    case 162:
+                        txtname = "uraNet6";
+                        break;
+                    case 163:
+                        txtname = "uraNet7";
+                        break;
+                    case 164:
+                        txtname = "uraNet8";
+                        break;
+                    case 165:
+                        txtname = "uraNet9";
+                        break;
+                    case 166:
+                        txtname = "uraNet10";
+                        break;
+                    case 167:
+                        txtname = "uraNetSquare";
+                        break;
+                    case 168:
+                        txtname = "uraNetSquare2";
+                        break;
+                    case 169:
+                        txtname = "usakou";
+                        break;
+                    case 170:
+                        txtname = "vendingMachine";
+                        break;
+                    case 171:
+                        txtname = "WiiU";
+                        break;
+                    case 172:
+                        txtname = "Yamada";
+                        break;
+                    case 173:
+                        txtname = "yukkuri";
+                        break;
+                    case 174:
+                        txtname = "heavenNet1";
+                        break;
+                    case 175:
+                        txtname = "heavenNet2";
+                        break;
+                }
+
+                string text = "checking map: ";
+                Console.WriteLine($"{text}{txtname}");
+
+                string path = Debug.MaskMapFile ? "rawmaps/" + txtname + ".shd" : "map/" + txtname + ".txt";
+                if (!File.Exists(path))
+                {
+                   Console.WriteLine("Not found?");
+
+                }
+                else
+                {
+                    //Console.WriteLine("File found!");
+                }
+
+                StreamReader sr = new StreamReader(path);
+
+                string searchtext = "Mystery:1,";
+                string searchtext2 = "Mystery:2,";
+
+                string line;
+
+                while ((line = sr.ReadLine()) != null)
+                {
+                    linenumb++;
+
+                    if (line.Contains(searchtext) | line.Contains(searchtext2))
+                    {
+                        //Console.WriteLine(line);
+                        string newstr = line;
+
+                        newstr = line.Replace(searchtext, "");
+
+                        newstr = line.Replace(",,", ",-1,"); //unsure if i need this, come back later?
+
+                        newstr = newstr.Replace("Mystery:", "");
+                        //Console.WriteLine(newstr);
+                        scrambleid[totalmystery] = newstr.ToString();
+
+                        totalmystery++;
+                    }
+
+                }
+                linenumb = 0;
+                mapno++;
+            }
+            //totalmystery
+            string txtr = "total BMD found: ";
+            Console.WriteLine($"{txtr}{totalmystery}");
+
+            string teststr = "";
+
+
+
+            //teststr = scrambleid[0];
+            Console.WriteLine("-------");
+            Console.WriteLine("begin raw mystery data dump");
+            Console.WriteLine("-------");
+            //scrambleid2[0,h] = teststr.Split(',');
+            for (int i = 0; i < totalmystery; i++)
+            {
+                teststr = scrambleid[i];
+                teststr = teststr.ToString();
+                //teststr = Int32.Parse(teststr);
+
+                string[] another = teststr.Split(',');
+                scrambleid2[i, 0] = another[5];
+                scrambleid2[i, 1] = another[0];
+                scrambleid2[i, 2] = another[1];
+                scrambleid2[i, 3] = another[2];
+                scrambleid2[i, 4] = another[3];
+                scrambleid2[i, 5] = another[4];
+                
+                //Console.WriteLine(scrambleid2);
+                /*
+                scrambleid2[i, 0] = another[0];
+                scrambleid2[i, 1] = another[1];
+                scrambleid2[i, 2] = another[2];
+                scrambleid2[i, 3] = another[3];
+                scrambleid2[i, 4] = another[4];
+                scrambleid2[i, 5] = another[5];
+                 * 
+                 * 
+                 **/
+
+            }
+            int nNumber = 0;
+
+
+            for (int i = 0; i < totalmystery; i++)
+            {
+                Console.Write(i + ": ");
+                for (int j = 0; j < scrambleid2.GetLength(1); j++)
+                {
+                    scrambleidfinal[i, j] = int.TryParse(scrambleid2[i, j],out nNumber) ? nNumber : -1;
+                    Console.Write(scrambleidfinal[i, j] + " ");
+                }
+                Console.WriteLine(); // Print a newline after each row
+            }
+
+
+            for (int i = 0; i < 1000; i++)
+                for (int j = 0; j < 2; j++)
+                    Randolist[i, j] = -9999;
+
+            //Randolist
+
+            Console.WriteLine("-------");
+            Console.WriteLine("begin raw randomized BMD list (-9999's must be filled in)");
+            Console.WriteLine("-------");
+
+            for (int i = 0; i < totalmystery;i++)
+            {
+                var entryno = scrambleidfinal[i, 0];
+
+                if (entryno != -9999)
+                {
+                    Randolist[entryno, 0] = scrambleidfinal[i, 1];
+                    Randolist[entryno, 1] = scrambleidfinal[i, 2];
+                    Randolist[entryno, 2] = scrambleidfinal[i, 3];
+                    Randolist[entryno, 3] = scrambleidfinal[i, 4];
+                    Randolist[entryno, 4] = scrambleidfinal[i, 5];
+                }
+            }
+
+
+            for (int i = 0; i < totalmystery; i++)
+            {
+                Console.Write(i + " : ");
+                for (int j = 0; j < scrambleid2.GetLength(1); j++)
+                {
+                    //scrambleidfinal[i, j] = int.TryParse(scrambleid2[i, j], out nNumber) ? nNumber : -1;
+                    Console.Write(Randolist[i, j] + " ");
+                }
+                Console.WriteLine(); // Print a newline after each row
+            }
+
+
+            int rng = ShanghaiEXE.Config.Seed; //get RNG seed
+            int n = this.scrambleid.Length;
+
+            Random random = new Random(rng);  // Create a Random object with the provided seed
+            int n1 = this.scrambleid.Length;
+
+            // Fisher-Yates shuffle algorithm (Knuth shuffle)
+            for (int i = n1 - 1; i > 0; i--)
+            {
+                // Pick a random index from 0 to i
+                int j = random.Next(i + 1);
+
+                // Swap array[i] with the element at random index j
+                string temp = this.scrambleid[i];
+                this.scrambleid[i] = this.scrambleid[j];
+                this.scrambleid[j] = temp;
+            }
+            // everything is now all scrambled
+
+
+
+
         }
     }
 }

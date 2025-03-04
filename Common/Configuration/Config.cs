@@ -59,6 +59,8 @@ namespace Common.Config
 
         public bool ShowDialogueTester { get; set; } = false;
 
+        public int Seed { get; set; } = 0;
+
         #region New
 
         [OptionalField(VersionAdded = 2)]
@@ -199,6 +201,9 @@ namespace Common.Config
                     config.PausedWhenInactive = configReader.ReadLine() == "1";
                     config.FPS30 = configReader.ReadLine() == "1";
                     config.Language = configReader.ReadLine() == "1" ? "en-US" : "ja-JP";
+                    config.Seed = int.Parse(configReader.ReadLine());
+                    Console.WriteLine("New seed:");
+                    Console.WriteLine(config.Seed);
 
                     config.ApplyNewFieldDefaults();
                     return config;

@@ -7,6 +7,7 @@ using NSMap;
 using NSMap.Character;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace NSEvent
 {
@@ -173,6 +174,8 @@ namespace NSEvent
 
         private void Eventmake()
         {
+            Console.WriteLine("getting mystery data?");
+            
             string str = "";
             switch (this.itemData.itemType)
             {
@@ -190,7 +193,18 @@ namespace NSEvent
             }
             if (this.itemData.itemType != 4)
             {
+
+                
+                
+
+                var oldresult = this.itemData.itemNumber;
                 this.itemData.getInfo = MysteryItem.ItemNameGet(this.itemData.itemType, this.itemData.itemNumber, this.itemData.itemSub, this.itemData.getInfo);
+
+
+                string text = "getting item from BMD: ";
+                Console.WriteLine($"{text}{itemData.getInfo}");
+
+
                 this.em.AddEvent(new BranchHead(this.sound, this.em, 0, this.savedata));
                 this.em.AddEvent(new SEmon(this.sound, this.em, "get", 0, this.savedata));
                 this.em.AddEvent(new EditValue(this.sound, this.em, 0, false, 0, 5, "0", this.parent.Player, this.savedata));

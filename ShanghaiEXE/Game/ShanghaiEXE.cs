@@ -281,6 +281,8 @@ namespace NSGame
             SaveData.Pad[0, 9] = ShanghaiEXE.Config.KeyboardMapping.Select;
             SaveData.Pad[0, 11] = ShanghaiEXE.Config.KeyboardMapping.Turbo ?? 78;
 
+            //savedata.Seed = ShanghaiEXE.Config.KeyboardMapping.seed;
+
             this.scaleFactorX = ShanghaiEXE.Config.ScaleFactor;
             this.scaleFactorY = ShanghaiEXE.Config.ScaleFactor;
 

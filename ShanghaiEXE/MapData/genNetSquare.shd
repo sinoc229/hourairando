@@ -1283,7 +1283,7 @@ end
 
 MysteryID:BMD1
 position:117:53:0
-Mystery:1,0,104,0,,512
+Mystery:1,0,104,0,,270
 page:1
 startterms:Abutton
 type:1
@@ -1309,7 +1309,7 @@ end
 
 MysteryID:BMD2
 position:125:52:0
-Mystery:1,0,65,2,,513
+Mystery:1,0,65,2,,271
 page:1
 startterms:Abutton
 type:1
@@ -1335,7 +1335,7 @@ end
 
 MysteryID:BMD3
 position:109:55:0
-Mystery:1,0,131,0,,514
+Mystery:1,0,138,0,,269
 page:1
 startterms:Abutton
 type:1
@@ -1360,8 +1360,8 @@ event:
 end
 
 MysteryID:BMD4
-position:133:53:0
-Mystery:1,2,33,7,,522
+position:134:51:0
+Mystery:1,2,33,7,,272
 page:1
 startterms:Abutton
 type:1

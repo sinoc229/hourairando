@@ -175,7 +175,7 @@ namespace NSBattle.Character
                 Console.WriteLine("player has enough HP to get past heaven gate");
             }
                 //debug beeg buster damage and hp
-                this.busterPower = 250;
+            this.busterPower = 250;
             this.hpmax = 9999;
             this.hp = 9999;
 

@@ -16,6 +16,8 @@ using System.Text;
 using System.Threading;
 using Common.EncodeDecode;
 using NSShanghaiEXE.Map;
+using NSAddOn;
+using NSChip;
 
 namespace NSMap
 {
@@ -122,17 +124,26 @@ namespace NSMap
             this.parent.parent.TexClear(false);
             this.mapname = txtname;
             save.nowMap = txtname;
+            
+            string text = "New map: ";
+            Console.WriteLine($"{text}{txtname}");
+
             string path = NSGame.Debug.MaskMapFile ? "data/" + txtname + ".she" : "map/" + txtname + ".txt";
             if (!File.Exists(path))
                 return;
             StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Shift_JIS"));
             string A1 = reader.ReadLine();
+            
             if (NSGame.Debug.MaskMapFile)
                 A1 = TCDEncodeDecode.EncMapScript(A1);
+            
             string[] strArray1 = A1.Split(',');
             int length1 = int.Parse(strArray1[0]);
             int length2 = int.Parse(strArray1[1]);
             int length3 = int.Parse(strArray1[8]);
+
+            //Console.WriteLine(length1);
+
             this.rendX = int.Parse(strArray1[2]);
             this.rendY = int.Parse(strArray1[3]);
             this.rect = new Rectangle(0, 0, int.Parse(strArray1[4]), int.Parse(strArray1[5]));
@@ -155,6 +166,7 @@ namespace NSMap
                     string A2 = reader.ReadLine();
                     if (NSGame.Debug.MaskMapFile)
                         A2 = TCDEncodeDecode.EncMapScript(A2);
+                    
                     string[] strArray2 = A2.Split(',');
                     for (int index3 = 0; index3 < this.map.GetLength(1); ++index3)
                     {
@@ -163,8 +175,12 @@ namespace NSMap
                     }
                 }
                 string A3 = reader.ReadLine();
+                Console.WriteLine(A3);
                 if (NSGame.Debug.MaskMapFile)
+                {
                     str2 = TCDEncodeDecode.EncMapScript(A3);
+                    //Console.WriteLine(str2);
+                }
             }
             this.encounts.Clear();
             string A4;
@@ -172,6 +188,7 @@ namespace NSMap
             {
                 if (NSGame.Debug.MaskMapFile)
                     A4 = TCDEncodeDecode.EncMapScript(A4);
+                
                 if (!(A4 == ""))
                 {
                     EventManager m = new EventManager(this.sound);
@@ -279,7 +296,10 @@ namespace NSMap
             this.randomMystery = randomMysteryList.ToArray();
             string A6 = reader.ReadLine();
             if (NSGame.Debug.MaskMapFile)
+            {
                 str2 = TCDEncodeDecode.EncMapScript(A6);
+                //Console.WriteLine(str2);
+            }
             var eventIndex = 0;
             string A7;
             while ((A7 = reader.ReadLine()) != null)
@@ -287,6 +307,7 @@ namespace NSMap
                 if (NSGame.Debug.MaskMapFile)
                     A7 = TCDEncodeDecode.EncMapScript(A7);
                 string[] strArray2 = A7.Split(':');
+                
                 if (strArray2[0] == "ID")
                 {
                     string id = strArray2[1];
@@ -313,15 +334,123 @@ namespace NSMap
                     if (NSGame.Debug.MaskMapFile)
                         A3 = TCDEncodeDecode.EncMapScript(A3);
                     string[] strArray5 = A3.Split(':')[1].Split(',');
+                    string str = strArray5[0];
+
+                    
+                    
+
+                    //Console.WriteLine(str);
                     random.type = int.Parse(strArray5[0]);
                     random.itemType = int.Parse(strArray5[1]);
                     random.itemNumber = int.Parse(strArray5[2]);
                     random.itemSub = int.Parse(strArray5[3]);
                     random.getInfo = ShanghaiEXE.Translate(strArray5[4]);
                     random.flugNumber = int.Parse(strArray5[5]);
+
+                    if (strArray5[0] == "1" | strArray5[0] == "2")
+                    {
+                        string txt = "Found BMD ";
+                        string spc = " ";
+                        string typ = "";
+                        string name = "";
+                        switch (random.itemType)
+                            {
+                            case 0:
+                                typ = "chip";
+                                //AddOnBase.AddOnSet(itemNumber, 0).name;
+                                ChipFolder chipFolder = new ChipFolder(null);
+                                chipFolder.SettingChip(random.itemNumber + 1);
+                                name = chipFolder.chip.name;
+                                break;
+                            case 1:
+                                typ = "subchip";
+                                switch (random.itemNumber)
+                                {
+                                    case 0:
+                                        name = ShanghaiEXE.Translate("MysteryData.HalfEnrgText");
+                                        break;
+                                    case 1:
+                                        name = ShanghaiEXE.Translate("MysteryData.FullEnrgText");
+                                        break;
+                                    case 2:
+                                        name = ShanghaiEXE.Translate("MysteryData.FirewallText");
+                                        break;
+                                    case 3:
+                                        name = ShanghaiEXE.Translate("MysteryData.OpenPortText");
+                                        break;
+                                    case 4:
+                                        name = ShanghaiEXE.Translate("MysteryData.Anti-VrsText");
+                                        break;
+                                    case 5:
+                                        name = ShanghaiEXE.Translate("MysteryData.VirusScnText");
+                                        break;
+                                    case 6:
+                                        name = ShanghaiEXE.Translate("MysteryData.CrakToolText");
+                                        break;
+                                }
+                                break;
+                            case 2:
+                                typ = "add-on";
+                                name = AddOnBase.AddOnSet(random.itemNumber, 0).name;
+                                break;
+                            case 3:
+                                typ = "other";
+                                switch (random.itemNumber)
+                                {
+                                    case 0:
+                                        name = ShanghaiEXE.Translate("MysteryData.HPMemoryText");
+                                        break;
+                                    case 1:
+                                        name = string.Format(ShanghaiEXE.Translate("MysteryData.RegUpText"), random.itemSub);
+                                        break;
+                                    case 2:
+                                        name =  ShanghaiEXE.Translate("MysteryData.SubMemoryText");
+                                        break;
+                                    case 3:
+                                        name = ShanghaiEXE.Translate("MysteryData.CorePlusText");
+                                        break;
+                                    case 4:
+                                        name = string.Format(ShanghaiEXE.Translate("MysteryData.HertzUpText"), random.itemSub);
+                                        break;
+                                    case 5:
+                                        var bugPlural = random.itemSub > 1;
+                                        var bugGetStrFormat = bugPlural ? ShanghaiEXE.Translate("MysteryData.BugFragTextPlural") : ShanghaiEXE.Translate("MysteryData.BugFragText");
+                                        name = string.Format(bugGetStrFormat, random.itemSub);
+                                        break;
+                                    case 6:
+                                        var frzPlural = random.itemSub > 1;
+                                        var frzGetStrFormat = frzPlural ? ShanghaiEXE.Translate("MysteryData.FreezeFragTextPlural") : ShanghaiEXE.Translate("MysteryData.FreezeFragText");
+                                        name = string.Format(frzGetStrFormat, random.itemSub);
+                                        break;
+                                    case 7:
+                                        var errPlural = random.itemSub > 1;
+                                        var errGetStrFormat = errPlural ? ShanghaiEXE.Translate("MysteryData.ErrorFragTextPlural") : ShanghaiEXE.Translate("MysteryData.ErrorFragText");
+                                        name = string.Format(errGetStrFormat, random.itemSub);
+                                        break;
+                                    default:
+
+                                        name = "zenny/other";
+                                        break;
+                                    case 9:
+                                        name = "interior (junk)";
+                                        break;
+                                }
+
+                                break;
+                            default:
+                                typ = "???";
+                                break;
+                        }
+
+                        Console.WriteLine($"{txt}{random.flugNumber}{spc}{typ}{spc}{name}");
+                    }
+
                     var mysteryData = new MysteryData(s, this.parent, po, floor, MapCharacterBase.ANGLE.UP, this, id, save, reader, random);
                     mysteryData.index = eventIndex;
                     this.Events.Add(mysteryData);
+
+
+
                 }
                 eventIndex++;
             }

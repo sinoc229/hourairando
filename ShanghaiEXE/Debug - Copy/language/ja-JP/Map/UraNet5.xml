@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<data>
-  <Text Key="Map.UraNet5Name" Value="ウラインターネット５" />
-  <Dialogue Key="Map.UraNet5PostgameMumblerDialogue1" Value="････下、左、下、右････,････左、下、左、上････,････左、上、右、左････" Face="NaviPurplePunk" Mono="False" />
-  <Dialogue Key="Map.UraNet5PostgameMumblerDialogue2" Value="････下、左、右････,いやいや、これ全く,パターン成立しなくね？" Face="NaviPurplePunk" Mono="False" />
-  <Dialogue Key="Map.UraNet5PostgameMumblerDialogue3" Value="何か見逃したことがある筈だ････,ウラの宝はきっとどこかにある！" Face="NaviPurplePunk" Mono="False" />
-  <Dialogue Key="Map.UraNet5PostgamePunk2Dialogue1" Value="インゲレスのネット設計者達は,皆グリッド仕組みが大好き過ぎて,どうしようもないようだな？" Face="NaviPurplePunk" Mono="False" />
-</data>

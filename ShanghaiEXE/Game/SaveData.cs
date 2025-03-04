@@ -3043,7 +3043,7 @@ namespace NSGame
                         txtname = "genschool2fb";
                         break;
                     case 66:
-                        txtname = "genschool2fb";
+                        txtname = "dami";
                         break;
                     case 67:
                         txtname = "genUniversity";
@@ -3122,7 +3122,7 @@ namespace NSGame
                         txtname = "inglesSquare";
                         break;
                     case 92:
-                        txtname = "inglesSquare";
+                        txtname = "dami";
                         break;
                     case 93:
                         txtname = "jinja1";
@@ -3378,7 +3378,7 @@ namespace NSGame
                 string text = "checking map: ";
                 Console.WriteLine($"{text}{txtname}");
 
-                string path = Debug.MaskMapFile ? "rawmaps/" + txtname + ".shd" : "map/" + txtname + ".txt";
+                string path = Debug.MaskMapFile ? "MapData/" + txtname + ".shd" : "map/" + txtname + ".txt";
                 if (!File.Exists(path))
                 {
                    Console.WriteLine("Not found?");
@@ -3488,7 +3488,7 @@ namespace NSGame
 
             for (int i = 0; i < totalmystery; i++)
             {
-                Console.Write(listpoz + ": ");
+                //Console.Write(listpoz + ": ");
                 for (int j = 0; j < scrambleid2.GetLength(1); j++)
                 {
                     //scrambleidfinal[i, j] = int.TryParse(scrambleid2[i, j],out nNumber) ? nNumber : -1;
@@ -3498,10 +3498,10 @@ namespace NSGame
 
                     Randolist2[listpoz, j] = int.TryParse(scrambleid2[i, j], out nNumber) ? nNumber : -1;
 
-                    Console.Write(Randolist2[listpoz, j] + " ");
+                    //Console.Write(Randolist2[listpoz, j] + " ");
                 }
                 listpoz++;
-                Console.WriteLine(); // Print a newline after each row
+                //Console.WriteLine(); // Print a newline after each row
             }
 
 
@@ -3535,7 +3535,9 @@ namespace NSGame
 
             if (ShanghaiEXE.Config.Seed > 0)
             {
-                int seed = ShanghaiEXE.Config.Seed;
+                int seed = 123456;
+                //int seed = ShanghaiEXE.Config.Seed;
+                
                 ShuffleRows(newsize, seed); //shuffle it up good
                 ShuffleFirstColumn(newsize, seed); //then shuffle only the first column so that we can refer to it later
             }
@@ -3565,7 +3567,125 @@ namespace NSGame
             }
 
             //Console.WriteLine("----final scrambled list-----");
-            //PrintArray(scrambleidfinal);
+            PrintArray(scrambleidfinal);
+            /*
+            for (int i=0;i<999;i++)
+            {
+               if (scrambleidfinal[i, 0] != -99)
+                 {
+                    var type = scrambleidfinal[i, 2];
+
+                    int vaz = scrambleidfinal[i, 3];
+                    string strz = vaz.ToString();
+                    string newstr = ShanghaiEXE.Translate(strz);
+
+                    var itemSub = scrambleidfinal[i, 4];
+
+
+                    string txt = "Found BMD ";
+                    string spc = " ";
+                    string typ = "";
+                    string name = "";
+
+                    switch (type)
+                    {
+                        case 0:
+                            typ = "chip";
+                            //AddOnBase.AddOnSet(itemNumber, 0).name;
+                            ChipFolder chipFolder = new ChipFolder(null);
+                            chipFolder.SettingChip(i);
+                            name = chipFolder.chip.name;
+                            break;
+                        case 1:
+                            typ = "subchip";
+                            switch (i)
+                            {
+                                case 0:
+                                    name = ShanghaiEXE.Translate("MysteryData.HalfEnrgText");
+                                    break;
+                                case 1:
+                                    name = ShanghaiEXE.Translate("MysteryData.FullEnrgText");
+                                    break;
+                                case 2:
+                                    name = ShanghaiEXE.Translate("MysteryData.FirewallText");
+                                    break;
+                                case 3:
+                                    name = ShanghaiEXE.Translate("MysteryData.OpenPortText");
+                                    break;
+                                case 4:
+                                    name = ShanghaiEXE.Translate("MysteryData.Anti-VrsText");
+                                    break;
+                                case 5:
+                                    name = ShanghaiEXE.Translate("MysteryData.VirusScnText");
+                                    break;
+                                case 6:
+                                    name = ShanghaiEXE.Translate("MysteryData.CrakToolText");
+                                    break;
+                            }
+                            break;
+                        case 2:
+                            typ = "add-on";
+                            //name = AddOnBase.AddOnSet(i, 0).name;
+
+
+                            break;
+                        case 3:
+                            typ = "other";
+                            switch (i)
+                            {
+                                case 0:
+                                    name = ShanghaiEXE.Translate("MysteryData.HPMemoryText");
+                                    break;
+                                case 1:
+                                    name = string.Format(ShanghaiEXE.Translate("MysteryData.RegUpText"), itemSub);
+                                    break;
+                                case 2:
+                                    name = ShanghaiEXE.Translate("MysteryData.SubMemoryText");
+                                    break;
+                                case 3:
+                                    name = ShanghaiEXE.Translate("MysteryData.CorePlusText");
+                                    break;
+                                case 4:
+                                    name = string.Format(ShanghaiEXE.Translate("MysteryData.HertzUpText"), itemSub);
+                                    break;
+                                case 5:
+                                    var bugPlural = itemSub > 1;
+                                    var bugGetStrFormat = bugPlural ? ShanghaiEXE.Translate("MysteryData.BugFragTextPlural") : ShanghaiEXE.Translate("MysteryData.BugFragText");
+                                    name = string.Format(bugGetStrFormat, itemSub);
+                                    break;
+                                case 6:
+                                    var frzPlural = itemSub > 1;
+                                    var frzGetStrFormat = frzPlural ? ShanghaiEXE.Translate("MysteryData.FreezeFragTextPlural") : ShanghaiEXE.Translate("MysteryData.FreezeFragText");
+                                    name = string.Format(frzGetStrFormat, itemSub);
+                                    break;
+                                case 7:
+                                    var errPlural = itemSub > 1;
+                                    var errGetStrFormat = errPlural ? ShanghaiEXE.Translate("MysteryData.ErrorFragTextPlural") : ShanghaiEXE.Translate("MysteryData.ErrorFragText");
+                                    name = string.Format(errGetStrFormat, itemSub);
+                                    break;
+                                default:
+
+                                    name = "zenny/other";
+                                    break;
+                                case 9:
+                                    name = "interior (junk)";
+                                    break;
+                            }
+
+                            break;
+                        default:
+                            typ = "???";
+                            break;
+                    }
+
+                    Console.WriteLine($"{txt}{i}{spc}{typ}{spc}{name}");
+
+                }
+
+
+            }
+            */
+
 
             listpoz = 0;
 

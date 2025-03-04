@@ -853,71 +853,79 @@ namespace NSMap.Character
             this.hidenumber = this.field.encountCap[1];
             // If subchip message is shown, or no encounters (after handling special), return
             // Always evaluate SubChipCount, has side-effect of decrementing timers
-            if (!this.SubChipCount() || (this.field.encounts.Count - (this.savedata.FlagList[this.field.encountCap[0]] ? 0 : this.hidenumber) <= 0))
-                return;
-            if (this.encountInterval <= 0)
+            try
             {
-                this.encountCounter += plus * this.Random.Next(10);
-                if (NSGame.Debug.EncountMax || this.savedata.runSubChips[1] || this.encounter)
-                    this.encountCounter = 1021;
-                if (!this.savedata.runSubChips[1] && this.encountCounter % 1024 == 1021
-                    || (this.encountCounter % 1024 == 872 || this.encountCounter % 1024 == 234)
-                    || this.encountCounter % 1024 == 662
-                    || (this.savedata.runSubChips[1] && this.encountCounter % 1024 == 1021
-                    || (this.encountCounter % 1024 == 872 || this.encountCounter % 1024 == 234)
-                    || (this.encountCounter % 1024 == 662 || this.encountCounter % 1024 == 326 || this.encountCounter % 1024 == 234)
-                    || this.encountCounter % 1024 == 448))
+                if (!this.SubChipCount() || (this.field.encounts.Count - (this.savedata.FlagList[this.field.encountCap[0]] ? 0 : this.hidenumber) <= 0))
+                    return;
+                if (this.encountInterval <= 0)
                 {
-                    if (this.Random.Next(100) < 75 || this.savedata.runSubChips[1] || this.encounter)
+                    this.encountCounter += plus * this.Random.Next(10);
+                    if (NSGame.Debug.EncountMax || this.savedata.runSubChips[1] || this.encounter)
+                        this.encountCounter = 1021;
+                    if (!this.savedata.runSubChips[1] && this.encountCounter % 1024 == 1021
+                        || (this.encountCounter % 1024 == 872 || this.encountCounter % 1024 == 234)
+                        || this.encountCounter % 1024 == 662
+                        || (this.savedata.runSubChips[1] && this.encountCounter % 1024 == 1021
+                        || (this.encountCounter % 1024 == 872 || this.encountCounter % 1024 == 234)
+                        || (this.encountCounter % 1024 == 662 || this.encountCounter % 1024 == 326 || this.encountCounter % 1024 == 234)
+                        || this.encountCounter % 1024 == 448))
                     {
-                        this.encounter = false;
-                        if (this.savedata.runSubChips[3])
+                        if (this.Random.Next(100) < 75 || this.savedata.runSubChips[1] || this.encounter)
                         {
-                            this.encounts = new List<EventManager>(this.field.encounts);
-                            this.encountNumber = this.savedata.ValList[19];
-                        }
-                        else
-                        {
-                            int count = this.field.encounts.Count;
-                            if (!this.savedata.FlagList[this.field.encountCap[0]]
-                                || (ignoreSpecialEncounters && this.field.encountCap[1] != this.field.encounts.Count))
+                            this.encounter = false;
+                            if (this.savedata.runSubChips[3])
                             {
-                                this.encounts = new List<EventManager>();
-                                for (int index = 0; index < this.field.encounts.Count - this.field.encountCap[1]; ++index)
-                                    this.encounts.Add(this.field.encounts[index]);
+                                this.encounts = new List<EventManager>(this.field.encounts);
+                                this.encountNumber = this.savedata.ValList[19];
                             }
                             else
                             {
-                                this.encounts = new List<EventManager>(field.encounts);
+                                int count = this.field.encounts.Count;
+                                if (!this.savedata.FlagList[this.field.encountCap[0]]
+                                    || (ignoreSpecialEncounters && this.field.encountCap[1] != this.field.encounts.Count))
+                                {
+                                    this.encounts = new List<EventManager>();
+                                    for (int index = 0; index < this.field.encounts.Count - this.field.encountCap[1]; ++index)
+                                        this.encounts.Add(this.field.encounts[index]);
+                                }
+                                else
+                                {
+                                    this.encounts = new List<EventManager>(field.encounts);
+                                }
+                                if (this.savedata.addonSkill[7])
+                                    this.encounts = this.Element(ChipBase.ELEMENT.heat);
+                                else if (this.savedata.addonSkill[8])
+                                    this.encounts = this.Element(ChipBase.ELEMENT.aqua);
+                                else if (this.savedata.addonSkill[9])
+                                    this.encounts = this.Element(ChipBase.ELEMENT.leaf);
+                                else if (this.savedata.addonSkill[10])
+                                    this.encounts = this.Element(ChipBase.ELEMENT.eleki);
+                                else if (this.savedata.addonSkill[11])
+                                    this.encounts = this.Element(ChipBase.ELEMENT.poison);
+                                else if (this.savedata.addonSkill[12])
+                                    this.encounts = this.Element(ChipBase.ELEMENT.earth);
+                                this.encountNumber = this.Random.Next(this.encounts.Count);
                             }
-                            if (this.savedata.addonSkill[7])
-                                this.encounts = this.Element(ChipBase.ELEMENT.heat);
-                            else if (this.savedata.addonSkill[8])
-                                this.encounts = this.Element(ChipBase.ELEMENT.aqua);
-                            else if (this.savedata.addonSkill[9])
-                                this.encounts = this.Element(ChipBase.ELEMENT.leaf);
-                            else if (this.savedata.addonSkill[10])
-                                this.encounts = this.Element(ChipBase.ELEMENT.eleki);
-                            else if (this.savedata.addonSkill[11])
-                                this.encounts = this.Element(ChipBase.ELEMENT.poison);
-                            else if (this.savedata.addonSkill[12])
-                                this.encounts = this.Element(ChipBase.ELEMENT.earth);
-                            this.encountNumber = this.Random.Next(this.encounts.Count);
-                        }
-                        this.encountInterval = 300;
-                        if ((!this.savedata.runSubChips[0] || this.IsBypassingFirewall(this.encountNumber) || this.encounterBreak) && this.encounts.Count > this.encountNumber)
-                        {
-                            this.encounterBreak = false;
-                            this.encount = true;
-                            this.savedata.ValList[19] = this.field.encounts.IndexOf(this.encounts[this.encountNumber]);
+                            this.encountInterval = 300;
+                            if ((!this.savedata.runSubChips[0] || this.IsBypassingFirewall(this.encountNumber) || this.encounterBreak) && this.encounts.Count > this.encountNumber)
+                            {
+                                this.encounterBreak = false;
+                                this.encount = true;
+                                this.savedata.ValList[19] = this.field.encounts.IndexOf(this.encounts[this.encountNumber]);
+                            }
                         }
                     }
+                    if (this.encountCounter > 300000)
+                        this.encountCounter = 0;
                 }
-                if (this.encountCounter > 300000)
-                    this.encountCounter = 0;
+                else
+                    --this.encountInterval;
+
             }
-            else
-                --this.encountInterval;
+            catch
+            {
+
+            }
         }
 
         private void Encount()

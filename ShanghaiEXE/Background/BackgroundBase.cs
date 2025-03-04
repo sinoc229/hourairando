@@ -69,7 +69,15 @@ namespace NSBackground
 
 		public static BackgroundBase BackMake(int number)
 		{
-			return BackgroundBase.backgrounds[number];
+            try
+            {
+                return BackgroundBase.backgrounds[number];
+            }
+            catch
+            {
+                return BackgroundBase.backgrounds[0];
+
+            }
 		}
 
 		public BackgroundBase(Color backcolor)

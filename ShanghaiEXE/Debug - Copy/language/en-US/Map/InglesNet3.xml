@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<data>
+  <Text Key="Map.InglesNet3Name" Value="Engelles Area 3" />
+  <!-- ほう････お前さんなかなかダークな気を発しているじゃねえか -->
+  <Dialogue Key="Map.InglesNet3DarkSellerStage1Dialogue1FaceNaviBlackHeel" Value="Hey，little girl....,You have a pretty dark aura,about you，huh?" Face="NaviBlackHeel" Mono="False" />
+  <!-- どうだ　俺の育てたウィルスと戦って　勝ったらダークチップをくれてやるっていうのは -->
+  <Dialogue Key="Map.InglesNet3DarkSellerStage1Dialogue2FaceNaviBlackHeel" Value="Why not fight some viruses,I raised? If you win，I’ll give,you a Dark Chip." Face="NaviBlackHeel" Mono="False" />
+  <!-- もちろん　お前がベットするのはその生命だがな････ -->
+  <Dialogue Key="Map.InglesNet3DarkSellerStage1Dialogue3FaceNaviBlackHeel" Value="Of course，you’ll be putting,your life on the line...." Face="NaviBlackHeel" Mono="False" />
+  <!-- 俺のウィルスと戦うか？ -->
+  <Dialogue Key="Map.InglesNet3DarkSellerStage1Dialogue4QuestionFaceNaviBlackHeel" Value="Will you fight my viruses?" Face="NaviBlackHeel" Mono="False" />
+  <!-- やってやろうじゃない！今は調子が悪い -->
+  <Text Key="Map.InglesNet3DarkSellerStage1Dialogue4Options" Value="Let’s do it!,On second thought...." />
+  <!-- ちっ････怖気づいたか -->
+  <Dialogue Key="Map.InglesNet3DarkSellerStage3Dialogue1FaceNaviBlackHeel" Value="Tch....,Getting cold feet?" Face="NaviBlackHeel" Mono="False" />
+  <!-- よし　じゃあ行くぜ！ -->
+  <Dialogue Key="Map.InglesNet3DarkSellerStage5Dialogue1FaceNaviBlackHeel" Value="Alright，let’s go!" Face="NaviBlackHeel" Mono="False" />
+  <!-- ヒュ〜　勝ちやがったか！ -->
+  <Dialogue Key="Map.InglesNet3DarkSellerStage7Dialogue1FaceNaviBlackHeel" Value="You won! Not bad〜!" Face="NaviBlackHeel" Mono="False" />
+  <!-- よし　こいつを受け取りな！ -->
+  <Dialogue Key="Map.InglesNet3DarkSellerStage7Dialogue2FaceNaviBlackHeel" Value="Here you go，as promised!" Face="NaviBlackHeel" Mono="False" />
+  <!-- 俺はお前に負けたんだこれ以上とやかく言う資格はねぇよ -->
+  <Dialogue Key="Map.InglesNet3DarkSellerStage9Dialogue1FaceNaviBlackHeel" Value="I lost to you. I have no right,to say anything else." Face="NaviBlackHeel" Mono="False" />
+  <Dialogue Key="Map.InglesNet3PostgamePurpleChildNaviDialogue1" Value="You’ve figured it out，this whole,place is just one big tourist trap." Face="NaviPurpleChild" Mono="False" />
+  <Dialogue Key="Map.InglesNet3PostgamePurpleChildNaviDialogue2" Value="If you want the real Engelles，,you’d be better off checking out,the UnderSquare." Face="NaviPurpleChild" Mono="False" />
+  <Dialogue Key="Map.InglesNet3PostgamePurpleChildNaviDialogue3" Value="Sure，it’s a bit dangerous，but,it’s authentic. Come with me，I’ll,keep you safe.... ehehe!" Face="NaviPurpleChild" Mono="False" />
+  <Dialogue Key="Map.InglesNet3PostgameChildNaviDialogue1" Value="I went to the Square， but it’s all,shops and people trying to get,you to take their tours!" Face="NaviChild" Mono="False" />
+  <Dialogue Key="Map.InglesNet3PostgameChildNaviDialogue2" Value="There’s not even any message,boards! Where are all the real,Engellians?" Face="NaviChild" Mono="False" />
+  <Dialogue Key="Map.InglesNet3PostgameThugNaviDialogue1" Value="Heh.... the public Net might,be infested by kiddies， shills，,bootlickers，and tourists...." Face="NaviPurpleHeel" Mono="False" />
+  <Dialogue Key="Map.InglesNet3PostgameThugNaviDialogue2" Value="....but if you know the way，the,Net remembers who it belongs,to." Face="NaviPurpleHeel" Mono="False" />
+  <Dialogue Key="Map.InglesNet3PostgameAgentNaviDialogue1" Value="Yup，Engelles 3 patrol finished!,I’ve got a good enough view,of the area from here!" Face="NaviBlueRobot" Mono="False" />
+  <Dialogue Key="Map.InglesNet3PostgameAgentNaviDialogue2" Value="No need to check the rest of,the area，I’m sure everyone’s,being upstanding citizens!" Face="NaviBlueRobot" Mono="False" />
+  <Dialogue Key="Map.InglesNet3PostgameGreenNaviDialogue1" Value="I did some shopping at the,Square，but couldn’t find what,I wanted." Face="NaviGreenRobot" Mono="False" />
+  <Dialogue Key="Map.InglesNet3PostgameGreenNaviDialogue2" Value="I thought there might be more,vendors out here，but it feels,like I took a wrong turn." Face="NaviGreenRobot" Mono="False" />
+  <Dialogue Key="Map.InglesNet3PostgameGreenNaviDialogue3" Value="I think I’ll turn around.,I’m getting chills for some,reason，like I don’t belong...." Face="NaviGreenRobot" Mono="False" />
+</data>

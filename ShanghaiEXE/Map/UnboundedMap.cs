@@ -4,14 +4,14 @@
     {
         private const byte OutOfBoundsTileType = 0;
 
-        private byte[,,] definedMap;
+        private int[,,] definedMap;
 
-        public UnboundedMap(byte[,,] definedMap)
+        public UnboundedMap(int[,,] definedMap)
         {
             this.definedMap = definedMap;
         }
 
-        public byte this[int z, int x, int y]
+        public int this[int z, int x, int y]
         {
             get
             {

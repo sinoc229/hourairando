@@ -190,6 +190,10 @@ namespace NSGame
         public string[,] scrambleid2 = new string[1000,6];
         public int[,] scrambleidfinal = new int[1000, 6];
         public int[,] Randolist = new int[1000, 6];
+        public int[,] Randolist2 = new int[1000, 6];
+
+        public int[,] Randolistfinal = new int[1000, 6];
+
         public string[] mapnames = new string[1000];
         public UnboundedMap map;
         public RandomMystery[] randomMystery;
@@ -3165,7 +3169,7 @@ namespace NSGame
                         txtname = "netBattleMachineGame";
                         break;
                     case 108:
-                        txtname = "netBattleMachineRin";
+                        txtname = "dami";
                         break;
                     case 109:
                         txtname = "netBattleMachineRin";
@@ -3384,6 +3388,8 @@ namespace NSGame
                     //Console.WriteLine("File found!");
                 }
 
+
+
                 StreamReader sr = new StreamReader(path);
 
                 string searchtext = "Mystery:1,";
@@ -3401,8 +3407,10 @@ namespace NSGame
                         string newstr = line;
 
                         newstr = line.Replace(searchtext, "");
-
-                        newstr = line.Replace(",,", ",-1,"); //unsure if i need this, come back later?
+                        string mapstring = mapno.ToString();
+                        //newstr = line.Replace(",,", mapstring); //unsure if i need this, come back later?
+                        newstr = line.Replace(",,", ","+ mapstring+","); //unsure if i need this, come back later?
+                        //newstr = line.Replace(",,", ",-1,");
 
                         newstr = newstr.Replace("Mystery:", "");
                         //Console.WriteLine(newstr);
@@ -3457,78 +3465,154 @@ namespace NSGame
             }
             int nNumber = 0;
 
-
-            for (int i = 0; i < totalmystery; i++)
-            {
-                Console.Write(i + ": ");
-                for (int j = 0; j < scrambleid2.GetLength(1); j++)
-                {
-                    scrambleidfinal[i, j] = int.TryParse(scrambleid2[i, j],out nNumber) ? nNumber : -1;
-                    Console.Write(scrambleidfinal[i, j] + " ");
-                }
-                Console.WriteLine(); // Print a newline after each row
-            }
-
-
+            int listpoz = 0;
             for (int i = 0; i < 1000; i++)
-                for (int j = 0; j < 2; j++)
-                    Randolist[i, j] = -9999;
-
-            //Randolist
-
-            Console.WriteLine("-------");
-            Console.WriteLine("begin raw randomized BMD list (-9999's must be filled in)");
-            Console.WriteLine("-------");
-
-            for (int i = 0; i < totalmystery;i++)
             {
-                var entryno = scrambleidfinal[i, 0];
+                Randolist2[i, 0] = -99;
+                scrambleidfinal[i, 0] = -99;
 
-                if (entryno != -9999)
-                {
-                    Randolist[entryno, 0] = scrambleidfinal[i, 1];
-                    Randolist[entryno, 1] = scrambleidfinal[i, 2];
-                    Randolist[entryno, 2] = scrambleidfinal[i, 3];
-                    Randolist[entryno, 3] = scrambleidfinal[i, 4];
-                    Randolist[entryno, 4] = scrambleidfinal[i, 5];
-                }
             }
-
+            
 
             for (int i = 0; i < totalmystery; i++)
             {
-                Console.Write(i + " : ");
+                Console.Write(listpoz + ": ");
                 for (int j = 0; j < scrambleid2.GetLength(1); j++)
                 {
-                    //scrambleidfinal[i, j] = int.TryParse(scrambleid2[i, j], out nNumber) ? nNumber : -1;
-                    Console.Write(Randolist[i, j] + " ");
+                    //scrambleidfinal[i, j] = int.TryParse(scrambleid2[i, j],out nNumber) ? nNumber : -1;
+
+                    //scrambleidfinal[i, j] = 1;
+
+
+                    Randolist2[listpoz, j] = int.TryParse(scrambleid2[i, j], out nNumber) ? nNumber : -1;
+
+                    Console.Write(Randolist2[listpoz, j] + " ");
                 }
+                listpoz++;
                 Console.WriteLine(); // Print a newline after each row
             }
 
+
+
+            int[,] newsize = new int[listpoz, 6];
+
+            int entno = 0;
+
+            for (int i = 0; i < 999; i++)
+            {
+                if (Randolist2[i,0] != -99)
+                    {
+                    newsize[entno, 0] = Randolist2[i, 0];
+                    newsize[entno, 1] = Randolist2[i, 1];
+                    newsize[entno, 2] = Randolist2[i, 2];
+                    newsize[entno, 3] = Randolist2[i, 3];
+                    newsize[entno, 4] = Randolist2[i, 4];
+                    newsize[entno, 5] = Randolist2[i, 5];
+
+                    entno++;
+                }
+
+            }
+
+            Console.WriteLine("----unshuffled-----");
+            PrintArray(newsize);
 
             int rng = ShanghaiEXE.Config.Seed; //get RNG seed
-            int n = this.scrambleid.Length;
-
             Random random = new Random(rng);  // Create a Random object with the provided seed
-            int n1 = this.scrambleid.Length;
 
-            // Fisher-Yates shuffle algorithm (Knuth shuffle)
-            for (int i = n1 - 1; i > 0; i--)
+
+
+            int seed = ShanghaiEXE.Config.Seed;
+            ShuffleRows(newsize, seed);
+
+            Console.WriteLine("----shuffled-----");
+            PrintArray(newsize);
+
+            //PrintArray(scrambleidfinal);
+            entno = 0;
+            for (int i=0;i<listpoz; i++)
             {
-                // Pick a random index from 0 to i
-                int j = random.Next(i + 1);
+                //ShuffleRows(newsize, seed);
+                var place = newsize[i, 0];
+                //Console.WriteLine(place);
 
-                // Swap array[i] with the element at random index j
-                string temp = this.scrambleid[i];
-                this.scrambleid[i] = this.scrambleid[j];
-                this.scrambleid[j] = temp;
+                scrambleidfinal[place, 0] = newsize[i, 0];
+                scrambleidfinal[place, 1] = newsize[i, 1];
+                scrambleidfinal[place, 2] = newsize[i, 2];
+                scrambleidfinal[place, 3] = newsize[i, 3];
+                scrambleidfinal[place, 4] = newsize[i, 4];
+                scrambleidfinal[place, 5] = newsize[i, 5];
+
+
             }
-            // everything is now all scrambled
+
+            Console.WriteLine("----final scrambled list-----");
+            PrintArray(scrambleidfinal);
+
+            listpoz = 0;
+
+
+   
 
 
 
+        }
 
+        static void ShuffleRows(int[,] array, int seed)
+        {
+            Random rand = new Random(seed);
+
+            // Get the number of rows
+            int rowCount = array.GetLength(0);
+
+            // Create an array of row indices
+            int[] rowIndices = new int[rowCount];
+            for (int i = 0; i < rowCount; i++)
+            {
+                rowIndices[i] = i;
+            }
+
+            // Shuffle the row indices array
+            for (int i = rowCount - 1; i > 0; i--)
+            {
+                int j = rand.Next(0, i + 1);  // Get a random index
+                                              // Swap elements
+                int temp = rowIndices[i];
+                rowIndices[i] = rowIndices[j];
+                rowIndices[j] = temp;
+            }
+
+            // Create a temporary array to store scrambled rows
+            int[,] scrambledArray = new int[rowCount, array.GetLength(1)];
+
+            // Rearrange rows based on shuffled indices
+            for (int i = 0; i < rowCount; i++)
+            {
+                int originalRowIndex = rowIndices[i];
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    scrambledArray[i, j] = array[originalRowIndex, j];
+                }
+            }
+
+            // Copy the scrambled array back to the original array
+            Array.Copy(scrambledArray, array, array.Length);
+        }
+
+        static void PrintArray(int[,] array)
+        {
+            int rows = array.GetLength(0);
+            int columns = array.GetLength(1);
+            
+            for (int i = 0; i < rows; i++)
+            {
+                Console.Write(i + ": ");
+                for (int j = 0; j < columns; j++)
+                {
+                    Console.Write(array[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
         }
     }
 }

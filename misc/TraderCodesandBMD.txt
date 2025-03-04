@@ -19,16 +19,16 @@ uranet 2-
 97358614 RShield 520 (red)
 
 ein square - 
-69546258 Sakuya＊ 509
-95426368 TankM＊ 510
-58730941 SpannerM＊ 511
-22976453 LLockOn  521 (GREEN)
+69546258 Sakuya＊ 273
+95426368 TankM＊ 274
+58730941 SpannerM＊ 275
+22976453 LLockOn  276 (GREEN)
 
 gen net square -
-65485469 GigaHawkD 512
-71364803 BravSwrdS 513
-10670581 MnkyPol3H 514
-19645233 LostArea 522 (dark)
+65485469 GigaHawkD 269
+71364803 BravSwrdS 270
+10670581 MnkyPol3H 271
+19645233 LostArea 272 (dark)
 
 ingles square -
 37854695 SandPit3C 515
@@ -51,7 +51,7 @@ ingles square -
 
 
 AQUIRED (normally) VIA STORY:
-528 - Drk Raygun C
+528 -   Drk Raygun C
 529 -	vrsball *
 530 -	BStrpwr grey
 531 -	BStrpd grey

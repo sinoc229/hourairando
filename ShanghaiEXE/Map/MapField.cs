@@ -124,7 +124,7 @@ namespace NSMap
             this.parent.parent.TexClear(false);
             this.mapname = txtname;
             save.nowMap = txtname;
-            
+
             string text = "New map: ";
             Console.WriteLine($"{text}{txtname}");
 
@@ -133,10 +133,10 @@ namespace NSMap
                 return;
             StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Shift_JIS"));
             string A1 = reader.ReadLine();
-            
+
             if (NSGame.Debug.MaskMapFile)
                 A1 = TCDEncodeDecode.EncMapScript(A1);
-            
+
             string[] strArray1 = A1.Split(',');
             int length1 = int.Parse(strArray1[0]);
             int length2 = int.Parse(strArray1[1]);
@@ -166,7 +166,7 @@ namespace NSMap
                     string A2 = reader.ReadLine();
                     if (NSGame.Debug.MaskMapFile)
                         A2 = TCDEncodeDecode.EncMapScript(A2);
-                    
+
                     string[] strArray2 = A2.Split(',');
                     for (int index3 = 0; index3 < this.map.GetLength(1); ++index3)
                     {
@@ -188,7 +188,7 @@ namespace NSMap
             {
                 if (NSGame.Debug.MaskMapFile)
                     A4 = TCDEncodeDecode.EncMapScript(A4);
-                
+
                 if (!(A4 == ""))
                 {
                     EventManager m = new EventManager(this.sound);
@@ -307,7 +307,7 @@ namespace NSMap
                 if (NSGame.Debug.MaskMapFile)
                     A7 = TCDEncodeDecode.EncMapScript(A7);
                 string[] strArray2 = A7.Split(':');
-                
+
                 if (strArray2[0] == "ID")
                 {
                     string id = strArray2[1];
@@ -336,8 +336,8 @@ namespace NSMap
                     string[] strArray5 = A3.Split(':')[1].Split(',');
                     string str = strArray5[0];
 
-                    
-                    
+
+
 
                     //Console.WriteLine(str);
                     random.type = int.Parse(strArray5[0]);
@@ -349,12 +349,27 @@ namespace NSMap
 
                     if (strArray5[0] == "1" | strArray5[0] == "2")
                     {
+                        //random.flugNumber = 203;
+                        //typ
+                        int tempdex = random.flugNumber;
+                        //int tempdex = 169;
+
+                        random.itemType = save.scrambleidfinal[tempdex, 2];
+                        //number
+                        random.itemNumber = save.scrambleidfinal[tempdex, 3];
+
+                        int vaz = save.scrambleidfinal[tempdex, 3];
+                        string strz = vaz.ToString();
+                        random.getInfo = ShanghaiEXE.Translate(strz);
+
+                        random.itemSub = save.scrambleidfinal[tempdex, 4];
+
                         string txt = "Found BMD ";
                         string spc = " ";
                         string typ = "";
                         string name = "";
                         switch (random.itemType)
-                            {
+                        {
                             case 0:
                                 typ = "chip";
                                 //AddOnBase.AddOnSet(itemNumber, 0).name;
@@ -404,7 +419,7 @@ namespace NSMap
                                         name = string.Format(ShanghaiEXE.Translate("MysteryData.RegUpText"), random.itemSub);
                                         break;
                                     case 2:
-                                        name =  ShanghaiEXE.Translate("MysteryData.SubMemoryText");
+                                        name = ShanghaiEXE.Translate("MysteryData.SubMemoryText");
                                         break;
                                     case 3:
                                         name = ShanghaiEXE.Translate("MysteryData.CorePlusText");
@@ -443,6 +458,12 @@ namespace NSMap
                         }
 
                         Console.WriteLine($"{txt}{random.flugNumber}{spc}{typ}{spc}{name}");
+
+
+
+                        //Console.WriteLine(save.scrambleidfinal[random.flugNumber, 0]);
+
+
                     }
 
                     var mysteryData = new MysteryData(s, this.parent, po, floor, MapCharacterBase.ANGLE.UP, this, id, save, reader, random);
@@ -605,7 +626,7 @@ namespace NSMap
 
             return sortedLevels;
         }
-        
+
         private static IList<MapCharacterBase> TopologicalRenderSort(IList<MapCharacterBase> unsorted, Vector2 camera, double mapXAdj)
         {
             // Creates graph of items which are behind each
@@ -614,7 +635,7 @@ namespace NSMap
             {
                 if (IsOrderingSkipped(unsorted[i] as MapEventBase, camera, mapXAdj)) continue;
 
-                for (var ii = i+1; ii < unsorted.Count; ii++)
+                for (var ii = i + 1; ii < unsorted.Count; ii++)
                 {
                     if (IsOrderingSkipped(unsorted[ii] as MapEventBase, camera, mapXAdj)) continue;
 
@@ -632,7 +653,7 @@ namespace NSMap
             }
 
             var sortedNodeIndices = new List<int>();
-            
+
             var lowValues = new Dictionary<int, int>();
             var discoveryDepth = 0;
 
@@ -756,7 +777,7 @@ namespace NSMap
 
             var front2 = center2 + size2 / 2;
             var back2 = center2 - size2 / 2;
-            
+
             var rect1 = RectangleF.FromLTRB(back1.X, back1.Y, front1.X, front1.Y);
             var rect2 = RectangleF.FromLTRB(back2.X, back2.Y, front2.X, front2.Y);
 

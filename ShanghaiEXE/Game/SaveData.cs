@@ -2831,6 +2831,7 @@ namespace NSGame
             string txtname = "";
             var mapslookedthru = 0;
             var totalmystery = 0;
+            var totalgifteditems = 0;
             var totalmaps = 175;
 
 
@@ -3395,6 +3396,10 @@ namespace NSGame
                 string searchtext = "Mystery:1,";
                 string searchtext2 = "Mystery:2,";
 
+                string gettext1 = "ItemGet:0";
+                string gettext2 = "ItemGet:1";
+                string gettext3 = "ItemGet:2";
+
                 string line;
 
                 while ((line = sr.ReadLine()) != null)
@@ -3418,7 +3423,11 @@ namespace NSGame
 
                         totalmystery++;
                     }
+                    else if (line.Contains(gettext1) | line.Contains(gettext2) | line.Contains(gettext3))
+                    {
+                        totalgifteditems++;
 
+                    }
                 }
                 linenumb = 0;
                 mapno++;
@@ -3427,14 +3436,17 @@ namespace NSGame
             string txtr = "total BMD found: ";
             Console.WriteLine($"{txtr}{totalmystery}");
 
+            txtr = "total gifted items found: ";
+            Console.WriteLine($"{txtr}{totalgifteditems}");
+
             string teststr = "";
 
 
 
             //teststr = scrambleid[0];
-            Console.WriteLine("-------");
-            Console.WriteLine("begin raw mystery data dump");
-            Console.WriteLine("-------");
+            //Console.WriteLine("-------");
+            //Console.WriteLine("begin raw mystery data dump");
+            //Console.WriteLine("-------");
             //scrambleid2[0,h] = teststr.Split(',');
             for (int i = 0; i < totalmystery; i++)
             {
@@ -3514,19 +3526,25 @@ namespace NSGame
 
             }
 
-            Console.WriteLine("----unshuffled-----");
-            PrintArray(newsize);
+            //Conssole.WriteLine("----unshuffled-----");
+            //PrintArray(newsize);
 
             int rng = ShanghaiEXE.Config.Seed; //get RNG seed
             Random random = new Random(rng);  // Create a Random object with the provided seed
 
 
+            if (ShanghaiEXE.Config.Seed > 0)
+            {
+                int seed = ShanghaiEXE.Config.Seed;
+                ShuffleRows(newsize, seed); //shuffle it up good
+                ShuffleFirstColumn(newsize, seed); //then shuffle only the first column so that we can refer to it later
+            }
+            //Console.WriteLine("----shuffled-----");
+            //PrintArray(newsize);
 
-            int seed = ShanghaiEXE.Config.Seed;
-            ShuffleRows(newsize, seed);
+            int[,] newsize2 = new int[listpoz, 6];
 
-            Console.WriteLine("----shuffled-----");
-            PrintArray(newsize);
+            
 
             //PrintArray(scrambleidfinal);
             entno = 0;
@@ -3546,8 +3564,8 @@ namespace NSGame
 
             }
 
-            Console.WriteLine("----final scrambled list-----");
-            PrintArray(scrambleidfinal);
+            //Console.WriteLine("----final scrambled list-----");
+            //PrintArray(scrambleidfinal);
 
             listpoz = 0;
 
@@ -3597,6 +3615,24 @@ namespace NSGame
 
             // Copy the scrambled array back to the original array
             Array.Copy(scrambledArray, array, array.Length);
+        }
+
+        static void ShuffleFirstColumn(int[,] array, int seed)
+        {
+            Random rand = new Random(seed);
+            int rows = array.GetLength(0);
+
+            // Shuffle the first column
+            for (int i = 0; i < rows; i++)
+            {
+                // Generate a random index to swap with
+                int randomIndex = rand.Next(i, rows);
+
+                // Swap the current element with the random index element in the first column
+                int temp = array[i, 0];
+                array[i, 0] = array[randomIndex, 0];
+                array[randomIndex, 0] = temp;
+            }
         }
 
         static void PrintArray(int[,] array)

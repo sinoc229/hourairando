@@ -186,13 +186,20 @@ namespace NSGame
         public string item;
         public string category;
         //public VariableArray scrambleid = new VariableArray();
+
+        //the spagheti is multiplying!
+        //can probobly not have these be dclaired up here but if anyone thinks they can do it better
+        //submit it, you coward
         public string[] scrambleid = new string[1000];
         public string[,] scrambleid2 = new string[1000,6];
         public int[,] scrambleidfinal = new int[1000, 6];
         public int[,] Randolist = new int[1000, 6];
         public int[,] Randolist2 = new int[1000, 6];
-
         public int[,] Randolistfinal = new int[1000, 6];
+        
+
+
+
 
         public string[] mapnames = new string[1000];
         public UnboundedMap map;
@@ -462,9 +469,7 @@ namespace NSGame
                             }
                         }
                     }
-                    Console.WriteLine("----Seed------");
-                    Console.WriteLine(ShanghaiEXE.Config.Seed);
-                    Console.WriteLine("--------------");
+                    
 
                     str = TCDEncodeDecode.DecryptString(streamReader.ReadLine(), SaveData.pass);
                     this.message = int.Parse(str);
@@ -2349,7 +2354,7 @@ namespace NSGame
                 this.runSubChips[index] = false;
             this.interiors.Clear();
             //APTODO: this inits new save file crap
-            this.Money = 2290000; //default is 1k, probly up a bit
+            this.Money = 1000; //default is 1k, probly up a bit
             this.MaxHz = 10;
             this.MaxCore = 2;
             this.NaviFolder = 5;
@@ -2834,549 +2839,17 @@ namespace NSGame
             var totalgifteditems = 0;
             var totalmaps = 175;
 
-
+            int[,] sourcemap = new int[1000,2];
 
 
             //nowMap2 = txtname;
             var m = 0;
             for (m = 0; m < totalmaps + 1; m++)
             {
-                switch (mapno)
-                {
-                    case 0:
-                        txtname = "airCleaner1";
-                        break;
-                    case 1:
-                        txtname = "airCleaner2";
-                        break;
-                    case 2:
-                        txtname = "airCleaner3";
-                        break;
-                    case 3:
-                        txtname = "airCleaner4";
-                        break;
-                    case 4:
-                        txtname = "ariceTV";
-                        break;
-                    case 5:
-                        txtname = "battleship";
-                        break;
-                    case 6:
-                        txtname = "bench";
-                        break;
-                    case 7:
-                        txtname = "blackboard";
-                        break;
-                    case 8:
-                        txtname = "BronzeStatue";
-                        break;
-                    case 9:
-                        txtname = "BlackBoard";
-                        break;
-                    case 10:
-                        txtname = "blackbord";
-                        break;
-                    case 11:
-                        txtname = "cakeShop";
-                        break;
-                    case 12:
-                        txtname = "car";
-                        break;
-                    case 13:
-                        txtname = "CenterccityWest";
-                        break;
-                    case 14:
-                        txtname = "centerccityNorth";
-                        break;
-                    case 15:
-                        txtname = "centerccitySouth";
-                        break;
-                    case 16:
-                        txtname = "ChangeMachine";
-                        break;
-                    case 17:
-                        txtname = "cityNet1";
-                        break;
-                    case 18:
-                        txtname = "cityNet2";
-                        break;
-                    case 19:
-                        txtname = "cityNet3";
-                        break;
-                    case 20:
-                        txtname = "class2nen1kumi";
-                        break;
-                    case 21:
-                        txtname = "class2nen2kumi";
-                        break;
-                    case 22:
-                        txtname = "classPC";
-                        break;
-                    case 23:
-                        txtname = "clockTower1";
-                        break;
-                    case 24:
-                        txtname = "clockTower2";
-                        break;
-                    case 25:
-                        txtname = "clockTower3";
-                        break;
-                    case 26:
-                        txtname = "clockTower4";
-                        break;
-                    case 27:
-                        txtname = "clockTower5";
-                        break;
-                    case 28:
-                        txtname = "clockTowerReal1f";
-                        break;
-                    case 29:
-                        txtname = "clockTowerReal2f";
-                        break;
-                    case 30:
-                        txtname = "clockTowerReal3f";
-                        break;
-                    case 31:
-                        txtname = "clockTowerReal4f";
-                        break;
-                    case 32:
-                        txtname = "clockTowerReal5f";
-                        break;
-                    case 33:
-                        txtname = "Company3";
-                        break;
-                    case 34:
-                        txtname = "CompanyServer1";
-                        break;
-                    case 35:
-                        txtname = "CompanyServer2";
-                        break;
-                    case 36:
-                        txtname = "CompanyServer3";
-                        break;
-                    case 37:
-                        txtname = "CompanyServer4";
-                        break;
-                    case 38:
-                        txtname = "CompanyServerB";
-                        break;
-                    case 39:
-                        txtname = "Cruiser1f";
-                        break;
-                    case 40:
-                        txtname = "Cruiser1g";
-                        break;
-                    case 41:
-                        txtname = "Cruiser2f";
-                        break;
-                    case 42:
-                        txtname = "Cruiser2g";
-                        break;
-                    case 43:
-                        txtname = "Cruiser3f";
-                        break;
-                    case 44:
-                        txtname = "Cruiser3g";
-                        break;
-                    case 45:
-                        txtname = "cycle";
-                        break;
-                    //ignore debug room and deepura
-                    case 46:
-                        txtname = "eienHighSchoolHP";
-                        break;
-                    case 47:
-                        txtname = "eienNet1";
-                        break;
-                    case 48:
-                        txtname = "eienNet2";
-                        break;
-                    case 49:
-                        txtname = "eienNet3";
-                        break;
-                    case 50:
-                        txtname = "eienSquare";
-                        break;
-                    case 51:
-                        txtname = "EienTown1";
-                        break;
-                    case 52:
-                        txtname = "EienTown2";
-                        break;
-                    case 53:
-                        txtname = "firehydrant";
-                        break;
-                    case 54:
-                        txtname = "flowerbed";
-                        break;
-                    case 55:
-                        txtname = "fountain";
-                        break;
-                    case 56:
-                        txtname = "gameCenter";
-                        break;
-                    case 57:
-                        txtname = "gameCenterCorridor";
-                        break;
-                    case 58:
-                        txtname = "gameCenterRoom";
-                        break;
-                    case 59:
-                        txtname = "gencity";
-                        break;
-                    case 60:
-                        txtname = "genNet1";
-                        break;
-                    case 61:
-                        txtname = "genNet2";
-                        break;
-                    case 62:
-                        txtname = "genNetSquare";
-                        break;
-                    case 63:
-                        txtname = "genschool1f";
-                        break;
-                    case 64:
-                        txtname = "genschool2fa";
-                        break;
-                    case 65:
-                        txtname = "genschool2fb";
-                        break;
-                    case 66:
-                        txtname = "dami";
-                        break;
-                    case 67:
-                        txtname = "genUniversity";
-                        break;
-                    case 68:
-                        txtname = "genUniversity1f";
-                        break;
-                    case 69:
-                        txtname = "genUniversity2f";
-                        break;
-                    case 70:
-                        txtname = "genUniversity2fjim";
-                        break;
-                    case 71:
-                        txtname = "genUniversity2frin";
-                        break;
-                    case 72:
-                        txtname = "genUniversity3";
-                        break;
-                    case 73:
-                        txtname = "genUniversity3room";
-                        break;
-                    case 74:
-                        txtname = "HakureiJinja";
-                        break;
-                    //heaven moved later
-                    case 75:
-                        txtname = "hospital1f";
-                        break;
-                    case 76:
-                        txtname = "hospital2f";
-                        break;
-                    case 77:
-                        txtname = "hospital2fRoom";
-                        break;
-                    case 78:
-                        txtname = "hospital3f";
-                        break;
-                    case 79:
-                        txtname = "HospitalNet1";
-                        break;
-                    case 80:
-                        txtname = "HospitalNet2";
-                        break;
-                    case 81:
-                        txtname = "HosTV";
-                        break;
-                    case 82:
-                        txtname = "hotelHP";
-                        break;
-                    case 83:
-                        txtname = "hotelRef";
-                        break;
-                    case 84:
-                        txtname = "ingleasHotel";
-                        break;
-                    case 85:
-                        txtname = "ingleasHouse";
-                        break;
-                    case 86:
-                        txtname = "ingleasTowerPark";
-                        break;
-                    case 87:
-                        txtname = "ingleasTown";
-                        break;
-                    case 88:
-                        txtname = "inglesNet1f";
-                        break;
-                    case 89:
-                        txtname = "inglesNet2f";
-                        break;
-                    case 90:
-                        txtname = "inglesNet3";
-                        break;
-                    case 91:
-                        txtname = "inglesSquare";
-                        break;
-                    case 92:
-                        txtname = "dami";
-                        break;
-                    case 93:
-                        txtname = "jinja1";
-                        break;
-                    case 94:
-                        txtname = "jinja2";
-                        break;
-                    case 95:
-                        txtname = "jinja3";
-                        break;
-                    case 96:
-                        txtname = "kumamiTank";
-                        break;
-                    case 97:
-                        txtname = "library";
-                        break;
-                    case 98:
-                        txtname = "lostShip1";
-                        break;
-                    case 99:
-                        txtname = "lostShip2";
-                        break;
-                    case 100:
-                        txtname = "mariHP";
-                        break;
-                    case 101:
-                        txtname = "mariroom";
-                        break;
-                    case 102:
-                        txtname = "neckHP";
-                        break;
-                    case 103:
-                        txtname = "neckRoom";
-                        break;
-                    case 104:
-                        txtname = "nekodolphin";
-                        break;
-                    case 105:
-                        txtname = "NetAgentSenter1f";
-                        break;
-                    case 106:
-                        txtname = "NetAgentSenter2f";
-                        break;
-                    case 107:
-                        txtname = "netBattleMachineGame";
-                        break;
-                    case 108:
-                        txtname = "dami";
-                        break;
-                    case 109:
-                        txtname = "netBattleMachineRin";
-                        break;
-                    case 110:
-                        txtname = "partytable";
-                        break;
-                    case 111:
-                        txtname = "Phone";
-                        break;
-                    case 112:
-                        txtname = "photoFrame";
-                        break;
-                    case 113:
-                        txtname = "piano";
-                        break;
-                    case 114:
-                        txtname = "post";
-                        break;
-                    case 115:
-                        txtname = "refrigerator1";
-                        break;
-                    case 116:
-                        txtname = "refrigerator2";
-                        break;
-                    case 117:
-                        txtname = "remihouse";
-                        break;
-                    case 118:
-                        txtname = "remiHP";
-                        break;
-                    case 119:
-                        txtname = "rikaHouse";
-                        break;
-                    case 120:
-                        txtname = "rikaHP";
-                        break;
-                    case 121:
-                        txtname = "ROMbase1f";
-                        break;
-                    case 122:
-                        txtname = "ROMbase2f";
-                        break;
-                    case 123:
-                        txtname = "ROMbase3f";
-                        break;
-                    case 124:
-                        txtname = "ROMbase4f";
-                        break;
-                    case 125:
-                        txtname = "ROMbase5f";
-                        break;
-                    case 126:
-                        txtname = "ROMbase6f";
-                        break;
-                    case 127:
-                        txtname = "ROMbase6f";
-                        break;
-                    case 128:
-                        txtname = "romDisplay";
-                        break;
-                    case 129:
-                        txtname = "ROMbaseOut";
-                        break;
-                    case 130:
-                        txtname = "ROMbaseOut";
-                        break;
-                    case 131:
-                        txtname = "romGate";
-                        break;
-                    case 132:
-                        txtname = "romGate";
-                        break;
-                    case 133:
-                        txtname = "ROMnet1";
-                        break;
-                    case 134:
-                        txtname = "ROMnet2";
-                        break;
-                    case 135:
-                        txtname = "ROMnet3";
-                        break;
-                    case 136:
-                        txtname = "ROMnet4";
-                        break;
-                    case 137:
-                        txtname = "SeirenShip1f";
-                        break;
-                    case 138:
-                        txtname = "SeirenShip1fbridge";
-                        break;
-                    case 139:
-                        txtname = "SeirenShip1fParty";
-                        break;
-                    case 140:
-                        txtname = "SeirenShip2f";
-                        break;
-                    case 141:
-                        txtname = "SeirenShipRoom103";
-                        break;
-                    case 142:
-                        txtname = "SeirenShip3f";
-                        break;
-                    case 143:
-                        txtname = "SeirenShipTV";
-                        break;
-                    case 144:
-                        txtname = "shoolNet1";
-                        break;
-                    case 145:
-                        txtname = "shoolNet1";
-                        break;
-                    case 146:
-                        txtname = "shoolNet2";
-                        break;
-                    case 147:
-                        txtname = "shoolNet3";
-                        break;
-                    case 148:
-                        txtname = "shoolNet4";
-                        break;
-                    case 149:
-                        txtname = "shoolNet4";
-                        break;
-                    case 150:
-                        txtname = "SNSkanri";
-                        break;
-                    case 151:
-                        txtname = "StaffRoom";
-                        break;
-                    case 152:
-                        txtname = "tenkoRoom";
-                        break;
-                    case 153:
-                        txtname = "tesuri";
-                        break;
-                    case 154:
-                        txtname = "UnderCable";
-                        break;
-                    case 155:
-                        txtname = "UnderGyosyou";
-                        break;
-                    case 156:
-                        txtname = "UnderSaikutu";
-                        break;
-                    case 157:
-                        txtname = "uraNet1";
-                        break;
-                    case 158:
-                        txtname = "uraNet2";
-                        break;
-                    case 159:
-                        txtname = "uraNet3";
-                        break;
-                    case 160:
-                        txtname = "uraNet4";
-                        break;
-                    case 161:
-                        txtname = "uraNet5";
-                        break;
-                    case 162:
-                        txtname = "uraNet6";
-                        break;
-                    case 163:
-                        txtname = "uraNet7";
-                        break;
-                    case 164:
-                        txtname = "uraNet8";
-                        break;
-                    case 165:
-                        txtname = "uraNet9";
-                        break;
-                    case 166:
-                        txtname = "uraNet10";
-                        break;
-                    case 167:
-                        txtname = "uraNetSquare";
-                        break;
-                    case 168:
-                        txtname = "uraNetSquare2";
-                        break;
-                    case 169:
-                        txtname = "usakou";
-                        break;
-                    case 170:
-                        txtname = "vendingMachine";
-                        break;
-                    case 171:
-                        txtname = "WiiU";
-                        break;
-                    case 172:
-                        txtname = "Yamada";
-                        break;
-                    case 173:
-                        txtname = "yukkuri";
-                        break;
-                    case 174:
-                        txtname = "heavenNet1";
-                        break;
-                    case 175:
-                        txtname = "heavenNet2";
-                        break;
-                }
+                txtname = FindMapName(mapno);
 
-                string text = "checking map: ";
-                Console.WriteLine($"{text}{txtname}");
+                //string text = "checking map: ";
+                //Console.WriteLine($"{text}{txtname}");
 
                 string path = Debug.MaskMapFile ? "MapData/" + txtname + ".shd" : "map/" + txtname + ".txt";
                 if (!File.Exists(path))
@@ -3415,11 +2888,18 @@ namespace NSGame
                         string mapstring = mapno.ToString();
                         //newstr = line.Replace(",,", mapstring); //unsure if i need this, come back later?
                         newstr = line.Replace(",,", ","+ mapstring+","); //unsure if i need this, come back later?
+                        //i defintely did need this, i'm a genius ^^^^
                         //newstr = line.Replace(",,", ",-1,");
 
                         newstr = newstr.Replace("Mystery:", "");
                         //Console.WriteLine(newstr);
                         scrambleid[totalmystery] = newstr.ToString();
+                        sourcemap[totalmystery,0] = int.Parse(mapstring);
+                        
+                        string tempres = RemoveBeforeLastComma(newstr);
+                        sourcemap[totalmystery, 1] = int.Parse(tempres);
+
+
 
                         totalmystery++;
                     }
@@ -3455,26 +2935,23 @@ namespace NSGame
                 //teststr = Int32.Parse(teststr);
 
                 string[] another = teststr.Split(',');
-                scrambleid2[i, 0] = another[5];
-                scrambleid2[i, 1] = another[0];
-                scrambleid2[i, 2] = another[1];
-                scrambleid2[i, 3] = another[2];
-                scrambleid2[i, 4] = another[3];
-                scrambleid2[i, 5] = another[4];
-                
-                //Console.WriteLine(scrambleid2);
-                /*
-                scrambleid2[i, 0] = another[0];
-                scrambleid2[i, 1] = another[1];
-                scrambleid2[i, 2] = another[2];
-                scrambleid2[i, 3] = another[3];
-                scrambleid2[i, 4] = another[4];
-                scrambleid2[i, 5] = another[5];
-                 * 
-                 * 
-                 **/
+                scrambleid2[i, 0] = another[5]; //flag (flug lmao)
+                scrambleid2[i, 1] = another[0]; //pickup type (1 = bmd, 2 = pmd, 0 is green so we don't care)
+                scrambleid2[i, 2] = another[1]; //type (0 = chip, 1 = sub, 2 = addon, 3 = other)
+                scrambleid2[i, 3] = another[2]; //number (chip number usually)
+                scrambleid2[i, 4] = another[3]; //misc (chip code usually)
+                scrambleid2[i, 5] = another[4]; //what map it's in
+
 
             }
+
+
+            //print non scrambled BMD's
+           
+
+            ///
+
+
             int nNumber = 0;
 
             int listpoz = 0;
@@ -3530,13 +3007,16 @@ namespace NSGame
             //PrintArray(newsize);
 
             int rng = ShanghaiEXE.Config.Seed; //get RNG seed
-            Random random = new Random(rng);  // Create a Random object with the provided seed
+            //rng = 0;
 
+            //Random random = new Random(rng);  // Create a Random object with the provided seed
 
-            if (ShanghaiEXE.Config.Seed > 0)
+            Console.WriteLine("---Seed: " + rng + "----");
+
+            if (rng > 0)
             {
-                int seed = 123456;
-                //int seed = ShanghaiEXE.Config.Seed;
+                //int seed = 123456;
+                int seed = rng;
                 
                 ShuffleRows(newsize, seed); //shuffle it up good
                 ShuffleFirstColumn(newsize, seed); //then shuffle only the first column so that we can refer to it later
@@ -3546,147 +3026,151 @@ namespace NSGame
 
             int[,] newsize2 = new int[listpoz, 6];
 
-            
+            TextWriter originalConsoleOut = Console.Out;
 
-            //PrintArray(scrambleidfinal);
-            entno = 0;
-            for (int i=0;i<listpoz; i++)
+            string filePath = "spoilerlog.txt";
+
+            using (StreamWriter writer = new StreamWriter(filePath))
             {
-                //ShuffleRows(newsize, seed);
-                var place = newsize[i, 0];
-                //Console.WriteLine(place);
+                Console.SetOut(writer);
 
-                scrambleidfinal[place, 0] = newsize[i, 0];
-                scrambleidfinal[place, 1] = newsize[i, 1];
-                scrambleidfinal[place, 2] = newsize[i, 2];
-                scrambleidfinal[place, 3] = newsize[i, 3];
-                scrambleidfinal[place, 4] = newsize[i, 4];
-                scrambleidfinal[place, 5] = newsize[i, 5];
+                Console.WriteLine("----Seed: " + rng + "----");
 
+                Console.WriteLine("----BMD----");
+                //PrintArray(scrambleidfinal);
+                entno = 0;
+                for (int i = 0; i < listpoz; i++)
+                {
+                    //ShuffleRows(newsize, seed);
+                    var place = newsize[i, 0];
+                    //Console.WriteLine(place);
 
-            }
-
-            //Console.WriteLine("----final scrambled list-----");
-            PrintArray(scrambleidfinal);
-            /*
-            for (int i=0;i<999;i++)
-            {
-               if (scrambleidfinal[i, 0] != -99)
-                 {
-                    var type = scrambleidfinal[i, 2];
-
-                    int vaz = scrambleidfinal[i, 3];
-                    string strz = vaz.ToString();
-                    string newstr = ShanghaiEXE.Translate(strz);
-
-                    var itemSub = scrambleidfinal[i, 4];
+                    scrambleidfinal[place, 0] = newsize[i, 0];
+                    scrambleidfinal[place, 1] = newsize[i, 1];
+                    scrambleidfinal[place, 2] = newsize[i, 2];
+                    scrambleidfinal[place, 3] = newsize[i, 3];
+                    scrambleidfinal[place, 4] = newsize[i, 4];
+                    scrambleidfinal[place, 5] = newsize[i, 5];
 
 
-                    string txt = "Found BMD ";
-                    string spc = " ";
-                    string typ = "";
-                    string name = "";
+                }
 
-                    switch (type)
+                //Console.WriteLine("----final scrambled list-----");
+                //PrintArray(scrambleidfinal);
+
+
+
+                int rowCount = sourcemap.GetLength(0);
+
+                for (int i = 0; i < 999; i++)
+                {
+
+
+
+                    if (scrambleidfinal[i, 0] > 0)
                     {
-                        case 0:
-                            typ = "chip";
-                            //AddOnBase.AddOnSet(itemNumber, 0).name;
-                            ChipFolder chipFolder = new ChipFolder(null);
-                            chipFolder.SettingChip(i);
-                            name = chipFolder.chip.name;
-                            break;
-                        case 1:
-                            typ = "subchip";
-                            switch (i)
-                            {
-                                case 0:
-                                    name = ShanghaiEXE.Translate("MysteryData.HalfEnrgText");
-                                    break;
-                                case 1:
-                                    name = ShanghaiEXE.Translate("MysteryData.FullEnrgText");
-                                    break;
-                                case 2:
-                                    name = ShanghaiEXE.Translate("MysteryData.FirewallText");
-                                    break;
-                                case 3:
-                                    name = ShanghaiEXE.Translate("MysteryData.OpenPortText");
-                                    break;
-                                case 4:
-                                    name = ShanghaiEXE.Translate("MysteryData.Anti-VrsText");
-                                    break;
-                                case 5:
-                                    name = ShanghaiEXE.Translate("MysteryData.VirusScnText");
-                                    break;
-                                case 6:
-                                    name = ShanghaiEXE.Translate("MysteryData.CrakToolText");
-                                    break;
-                            }
-                            break;
-                        case 2:
-                            typ = "add-on";
-                            //name = AddOnBase.AddOnSet(i, 0).name;
 
 
-                            break;
-                        case 3:
-                            typ = "other";
-                            switch (i)
-                            {
-                                case 0:
-                                    name = ShanghaiEXE.Translate("MysteryData.HPMemoryText");
-                                    break;
-                                case 1:
-                                    name = string.Format(ShanghaiEXE.Translate("MysteryData.RegUpText"), itemSub);
-                                    break;
-                                case 2:
-                                    name = ShanghaiEXE.Translate("MysteryData.SubMemoryText");
-                                    break;
-                                case 3:
-                                    name = ShanghaiEXE.Translate("MysteryData.CorePlusText");
-                                    break;
-                                case 4:
-                                    name = string.Format(ShanghaiEXE.Translate("MysteryData.HertzUpText"), itemSub);
-                                    break;
-                                case 5:
-                                    var bugPlural = itemSub > 1;
-                                    var bugGetStrFormat = bugPlural ? ShanghaiEXE.Translate("MysteryData.BugFragTextPlural") : ShanghaiEXE.Translate("MysteryData.BugFragText");
-                                    name = string.Format(bugGetStrFormat, itemSub);
-                                    break;
-                                case 6:
-                                    var frzPlural = itemSub > 1;
-                                    var frzGetStrFormat = frzPlural ? ShanghaiEXE.Translate("MysteryData.FreezeFragTextPlural") : ShanghaiEXE.Translate("MysteryData.FreezeFragText");
-                                    name = string.Format(frzGetStrFormat, itemSub);
-                                    break;
-                                case 7:
-                                    var errPlural = itemSub > 1;
-                                    var errGetStrFormat = errPlural ? ShanghaiEXE.Translate("MysteryData.ErrorFragTextPlural") : ShanghaiEXE.Translate("MysteryData.ErrorFragText");
-                                    name = string.Format(errGetStrFormat, itemSub);
-                                    break;
-                                default:
+                        int typ = scrambleidfinal[i, 2];
+                        int entry = scrambleidfinal[i, 3];
+                        int entry2 = scrambleidfinal[i, 4];
 
-                                    name = "zenny/other";
-                                    break;
-                                case 9:
-                                    name = "interior (junk)";
-                                    break;
-                            }
+                        switch (typ)
+                        {
+                            case 0:
+                                Console.Write("Chip : ");
+                                ChipFolder chipFolder = new ChipFolder(null);
+                                chipFolder.SettingChip(entry + 1);
+                                string name = chipFolder.chip.name;
+                                //TODO: figgure out how to get code later
+                                Console.Write(name + " ");
 
-                            break;
-                        default:
-                            typ = "???";
-                            break;
+                                var temp1 = entry + 1;
+                                string stupei = temp1.ToString();
+                                string junpei = entry2.ToString();
+
+                                //int code2 = CodeCheck(temp1, entry2);
+                                //Console.Write(code2 + " ");
+
+
+                                break;
+                            case 1:
+                                Console.Write("Subch: ");
+
+
+                                break;
+                            case 2:
+                                Console.Write("Addon: ");
+
+                                string fuckwit = Addonnamegetter(entry);
+                                Console.Write(fuckwit + " ");
+                                break;
+                            case 3:
+                                Console.Write("Misc: ");
+                                switch (entry)
+                                {
+                                    case 0:
+                                        Console.Write("HP memory");
+                                        break;
+                                    case 1:
+                                        Console.Write("Regup " + entry2);
+                                        break;
+                                    case 2:
+                                        Console.Write("Sub Memory");
+                                        break;
+                                    case 3:
+                                        Console.Write("Core Plus");
+                                        break;
+                                    case 4:
+                                        Console.Write("Hertz Up " + entry2);
+                                        break;
+                                    case 5:
+                                        Console.Write("Bug Frag " + entry2);
+                                        break;
+                                    case 6:
+                                        Console.Write("Frz Frag " + entry2);
+                                        break;
+                                    case 7:
+                                        Console.Write("Err Frag " + entry2);
+                                        break;
+                                    default:
+                                        Console.Write("Zenny " + entry2);
+                                        break;
+
+
+                                }
+
+                                break;
+
+
+                        }
+
+
+
+
+
+                        int mapo = scrambleidfinal[i, 5];
+
+
+                        var spot = FindInSecondColumn(sourcemap, scrambleidfinal[i, 0]);
+
+
+                        string map = FindMapName(sourcemap[spot, 0]);
+                        Console.Write(" " + map);
+
+                        Console.WriteLine();
                     }
+                    //*/
 
-                    Console.WriteLine($"{txt}{i}{spc}{typ}{spc}{name}");
 
                 }
 
 
+
             }
-            */
-
-
+            Console.SetOut(originalConsoleOut);
+            //PrintArray(sourcemap);
+            Console.WriteLine("Spoiler log generated");
             listpoz = 0;
 
 
@@ -3770,5 +3254,692 @@ namespace NSGame
                 Console.WriteLine();
             }
         }
+
+
+        static string FindMapName(int mapno)
+        {
+            string txtname = "missing!";
+            switch(mapno)
+                {
+                    case 0:
+                        txtname = "airCleaner1";
+                break;
+                    case 1:
+                        txtname = "airCleaner2";
+                break;
+                    case 2:
+                        txtname = "airCleaner3";
+                break;
+                    case 3:
+                        txtname = "airCleaner4";
+                break;
+                    case 4:
+                        txtname = "ariceTV";
+                break;
+                    case 5:
+                        txtname = "battleship";
+                break;
+                    case 6:
+                        txtname = "bench";
+                break;
+                    case 7:
+                        txtname = "blackboard";
+                break;
+                    case 8:
+                        txtname = "BronzeStatue";
+                break;
+                    case 9:
+                        txtname = "BlackBoard";
+                break;
+                    case 10:
+                        txtname = "blackbord";
+                break;
+                    case 11:
+                        txtname = "cakeShop";
+                break;
+                    case 12:
+                        txtname = "car";
+                break;
+                    case 13:
+                        txtname = "CenterccityWest";
+                break;
+                    case 14:
+                        txtname = "centerccityNorth";
+                break;
+                    case 15:
+                        txtname = "centerccitySouth";
+                break;
+                    case 16:
+                        txtname = "ChangeMachine";
+                break;
+                    case 17:
+                        txtname = "cityNet1";
+                break;
+                    case 18:
+                        txtname = "cityNet2";
+                break;
+                    case 19:
+                        txtname = "cityNet3";
+                break;
+                    case 20:
+                        txtname = "class2nen1kumi";
+                break;
+                    case 21:
+                        txtname = "class2nen2kumi";
+                break;
+                    case 22:
+                        txtname = "classPC";
+                break;
+                    case 23:
+                        txtname = "clockTower1";
+                break;
+                    case 24:
+                        txtname = "clockTower2";
+                break;
+                    case 25:
+                        txtname = "clockTower3";
+                break;
+                    case 26:
+                        txtname = "clockTower4";
+                break;
+                    case 27:
+                        txtname = "clockTower5";
+                break;
+                    case 28:
+                        txtname = "clockTowerReal1f";
+                break;
+                    case 29:
+                        txtname = "clockTowerReal2f";
+                break;
+                    case 30:
+                        txtname = "clockTowerReal3f";
+                break;
+                    case 31:
+                        txtname = "clockTowerReal4f";
+                break;
+                    case 32:
+                        txtname = "clockTowerReal5f";
+                break;
+                    case 33:
+                        txtname = "Company3";
+                break;
+                    case 34:
+                        txtname = "CompanyServer1";
+                break;
+                    case 35:
+                        txtname = "CompanyServer2";
+                break;
+                    case 36:
+                        txtname = "CompanyServer3";
+                break;
+                    case 37:
+                        txtname = "CompanyServer4";
+                break;
+                    case 38:
+                        txtname = "CompanyServerB";
+                break;
+                    case 39:
+                        txtname = "Cruiser1f";
+                break;
+                    case 40:
+                        txtname = "Cruiser1g";
+                break;
+                    case 41:
+                        txtname = "Cruiser2f";
+                break;
+                    case 42:
+                        txtname = "Cruiser2g";
+                break;
+                    case 43:
+                        txtname = "Cruiser3f";
+                break;
+                    case 44:
+                        txtname = "Cruiser3g";
+                break;
+                    case 45:
+                        txtname = "cycle";
+                break;
+                    //ignore debug room and deepura
+                    case 46:
+                        txtname = "eienHighSchoolHP";
+                break;
+                    case 47:
+                        txtname = "eienNet1";
+                break;
+                    case 48:
+                        txtname = "eienNet2";
+                break;
+                    case 49:
+                        txtname = "eienNet3";
+                break;
+                    case 50:
+                        txtname = "eienSquare";
+                break;
+                    case 51:
+                        txtname = "EienTown1";
+                break;
+                    case 52:
+                        txtname = "EienTown2";
+                break;
+                    case 53:
+                        txtname = "firehydrant";
+                break;
+                    case 54:
+                        txtname = "flowerbed";
+                break;
+                    case 55:
+                        txtname = "fountain";
+                break;
+                    case 56:
+                        txtname = "gameCenter";
+                break;
+                    case 57:
+                        txtname = "gameCenterCorridor";
+                break;
+                    case 58:
+                        txtname = "gameCenterRoom";
+                break;
+                    case 59:
+                        txtname = "gencity";
+                break;
+                    case 60:
+                        txtname = "genNet1";
+                break;
+                    case 61:
+                        txtname = "genNet2";
+                break;
+                    case 62:
+                        txtname = "genNetSquare";
+                break;
+                    case 63:
+                        txtname = "genschool1f";
+                break;
+                    case 64:
+                        txtname = "genschool2fa";
+                break;
+                    case 65:
+                        txtname = "genschool2fb";
+                break;
+                    case 66:
+                        txtname = "cityNetSquare";
+                break;
+                    case 67:
+                        txtname = "genUniversity";
+                break;
+                    case 68:
+                        txtname = "genUniversity1f";
+                break;
+                    case 69:
+                        txtname = "genUniversity2f";
+                break;
+                    case 70:
+                        txtname = "genUniversity2fjim";
+                break;
+                    case 71:
+                        txtname = "genUniversity2frin";
+                break;
+                    case 72:
+                        txtname = "genUniversity3";
+                break;
+                    case 73:
+                        txtname = "genUniversity3room";
+                break;
+                    case 74:
+                        txtname = "HakureiJinja";
+                break;
+                    //heaven moved later
+                    case 75:
+                        txtname = "hospital1f";
+                break;
+                    case 76:
+                        txtname = "hospital2f";
+                break;
+                    case 77:
+                        txtname = "hospital2fRoom";
+                break;
+                    case 78:
+                        txtname = "hospital3f";
+                break;
+                    case 79:
+                        txtname = "HospitalNet1";
+                break;
+                    case 80:
+                        txtname = "HospitalNet2";
+                break;
+                    case 81:
+                        txtname = "HosTV";
+                break;
+                    case 82:
+                        txtname = "hotelHP";
+                break;
+                    case 83:
+                        txtname = "hotelRef";
+                break;
+                    case 84:
+                        txtname = "ingleasHotel";
+                break;
+                    case 85:
+                        txtname = "ingleasHouse";
+                break;
+                    case 86:
+                        txtname = "ingleasTowerPark";
+                break;
+                    case 87:
+                        txtname = "ingleasTown";
+                break;
+                    case 88:
+                        txtname = "inglesNet1f";
+                break;
+                    case 89:
+                        txtname = "inglesNet2f";
+                break;
+                    case 90:
+                        txtname = "inglesNet3";
+                break;
+                    case 91:
+                        txtname = "inglesSquare";
+                break;
+                    case 92:
+                        txtname = "dami";
+                break;
+                    case 93:
+                        txtname = "jinja1";
+                break;
+                    case 94:
+                        txtname = "jinja2";
+                break;
+                    case 95:
+                        txtname = "jinja3";
+                break;
+                    case 96:
+                        txtname = "kumamiTank";
+                break;
+                    case 97:
+                        txtname = "library";
+                break;
+                    case 98:
+                        txtname = "lostShip1";
+                break;
+                    case 99:
+                        txtname = "lostShip2";
+                break;
+                    case 100:
+                        txtname = "mariHP";
+                break;
+                    case 101:
+                        txtname = "mariroom";
+                break;
+                    case 102:
+                        txtname = "neckHP";
+                break;
+                    case 103:
+                        txtname = "neckRoom";
+                break;
+                    case 104:
+                        txtname = "nekodolphin";
+                break;
+                    case 105:
+                        txtname = "NetAgentSenter1f";
+                break;
+                    case 106:
+                        txtname = "NetAgentSenter2f";
+                break;
+                    case 107:
+                        txtname = "netBattleMachineGame";
+                break;
+                    case 108:
+                        txtname = "dami";
+                break;
+                    case 109:
+                        txtname = "netBattleMachineRin";
+                break;
+                    case 110:
+                        txtname = "partytable";
+                break;
+                    case 111:
+                        txtname = "Phone";
+                break;
+                    case 112:
+                        txtname = "photoFrame";
+                break;
+                    case 113:
+                        txtname = "piano";
+                break;
+                    case 114:
+                        txtname = "post";
+                break;
+                    case 115:
+                        txtname = "refrigerator1";
+                break;
+                    case 116:
+                        txtname = "refrigerator2";
+                break;
+                    case 117:
+                        txtname = "remihouse";
+                break;
+                    case 118:
+                        txtname = "remiHP";
+                break;
+                    case 119:
+                        txtname = "rikaHouse";
+                break;
+                    case 120:
+                        txtname = "rikaHP";
+                break;
+                    case 121:
+                        txtname = "ROMbase1f";
+                break;
+                    case 122:
+                        txtname = "ROMbase2f";
+                break;
+                    case 123:
+                        txtname = "ROMbase3f";
+                break;
+                    case 124:
+                        txtname = "ROMbase4f";
+                break;
+                    case 125:
+                        txtname = "ROMbase5f";
+                break;
+                    case 126:
+                        txtname = "ROMbase6f";
+                break;
+                    case 127:
+                        txtname = "ROMbase6f";
+                break;
+                    case 128:
+                        txtname = "romDisplay";
+                break;
+                    case 129:
+                        txtname = "ROMbaseOut";
+                break;
+                    case 130:
+                        txtname = "ROMbaseOut";
+                break;
+                    case 131:
+                        txtname = "romGate";
+                break;
+                    case 132:
+                        txtname = "romGate";
+                break;
+                    case 133:
+                        txtname = "ROMnet1";
+                break;
+                    case 134:
+                        txtname = "ROMnet2";
+                break;
+                    case 135:
+                        txtname = "ROMnet3";
+                break;
+                    case 136:
+                        txtname = "ROMnet4";
+                break;
+                    case 137:
+                        txtname = "SeirenShip1f";
+                break;
+                    case 138:
+                        txtname = "SeirenShip1fbridge";
+                break;
+                    case 139:
+                        txtname = "SeirenShip1fParty";
+                break;
+                    case 140:
+                        txtname = "SeirenShip2f";
+                break;
+                    case 141:
+                        txtname = "SeirenShipRoom103";
+                break;
+                    case 142:
+                        txtname = "SeirenShip3f";
+                break;
+                    case 143:
+                        txtname = "SeirenShipTV";
+                break;
+                    case 144:
+                        txtname = "shoolNet1";
+                break;
+                    case 145:
+                        txtname = "shoolNet1";
+                break;
+                    case 146:
+                        txtname = "shoolNet2";
+                break;
+                    case 147:
+                        txtname = "shoolNet3";
+                break;
+                    case 148:
+                        txtname = "shoolNet4";
+                break;
+                    case 149:
+                        txtname = "shoolNet4";
+                break;
+                    case 150:
+                        txtname = "SNSkanri";
+                break;
+                    case 151:
+                        txtname = "StaffRoom";
+                break;
+                    case 152:
+                        txtname = "tenkoRoom";
+                break;
+                    case 153:
+                        txtname = "tesuri";
+                break;
+                    case 154:
+                        txtname = "UnderCable";
+                break;
+                    case 155:
+                        txtname = "UnderGyosyou";
+                break;
+                    case 156:
+                        txtname = "UnderSaikutu";
+                break;
+                    case 157:
+                        txtname = "uraNet1";
+                break;
+                    case 158:
+                        txtname = "uraNet2";
+                break;
+                    case 159:
+                        txtname = "uraNet3";
+                break;
+                    case 160:
+                        txtname = "uraNet4";
+                break;
+                    case 161:
+                        txtname = "uraNet5";
+                break;
+                    case 162:
+                        txtname = "uraNet6";
+                break;
+                    case 163:
+                        txtname = "uraNet7";
+                break;
+                    case 164:
+                        txtname = "uraNet8";
+                break;
+                    case 165:
+                        txtname = "uraNet9";
+                break;
+                    case 166:
+                        txtname = "uraNet10";
+                break;
+                    case 167:
+                        txtname = "uraNetSquare";
+                break;
+                    case 168:
+                        txtname = "uraNetSquare2";
+                break;
+                    case 169:
+                        txtname = "usakou";
+                break;
+                    case 170:
+                        txtname = "vendingMachine";
+                break;
+                    case 171:
+                        txtname = "WiiU";
+                break;
+                    case 172:
+                        txtname = "Yamada";
+                break;
+                    case 173:
+                        txtname = "yukkuri";
+                break;
+                    case 174:
+                        txtname = "heavenNet1";
+                break;
+                    case 175:
+                        txtname = "heavenNet2";
+                break;
+            }
+
+            return txtname;
+
+        }
+
+
+        static string Addonnamegetter(int addonnum)
+        {
+            string txt = "???";
+
+            switch (addonnum)
+            {
+                case 0: txt = "BustorPower "; break;
+                case 1: txt = "BustorRapid "; break;
+                case 2: txt = "BustorCharge "; break;
+                case 3: txt = "AssaultBuster "; break;
+                case 4: txt = "BlueBuster "; break;
+                case 5: txt = "ChageBypass "; break;
+                case 6: txt = "BustorSet "; break;
+                case 8: txt = "HPPlus50 "; break;
+                case 9: txt = "HPPlus100 "; break;
+                case 10: txt = "HPPlus200 "; break;
+                case 11: txt = "HPPlus500 "; break;
+                case 12: txt = "RichRich "; break;
+                case 13: txt = "DataSalvage "; break;
+                case 14: txt = "HPPlus300 "; break;
+                case 16: txt = "StockCharge "; break;
+                case 17: txt = "DamageGhost "; break;
+                case 18: txt = "FirstAdd "; break;
+                case 19: txt = "FirstBarrier "; break;
+                case 20: txt = "OneFullOpen "; break;
+                case 21: txt = "AutoADD "; break;
+                case 22: txt = "AutoCharge "; break;
+                case 23: txt = "PeaceHeat "; break;
+                case 24: txt = "PeaceAqua "; break;
+                case 25: txt = "PeaceLeaf "; break;
+                case 26: txt = "PeaceEleki "; break;
+                case 27: txt = "PeacePoison "; break;
+                case 28: txt = "PeaceEarth "; break;
+                case 29: txt = "EriaGuard "; break;
+                case 30: txt = "MyGarden "; break;
+                case 31: txt = "Yuzuriai "; break;
+                case 32: txt = "StyleReUse "; break;
+                case 33: txt = "Haisui "; break;
+                case 34: txt = "ChipSizeMinus "; break;
+                case 35: txt = "ChipSizePlus "; break;
+                case 36: txt = "NaviPlus "; break;
+                case 37: txt = "DarkPlus "; break;
+                case 38: txt = "UsedCure "; break;
+                case 39: txt = "UsedPain "; break;
+                case 40: txt = "Grimoire "; break;
+                case 41: txt = "EscapeSoul "; break;
+                case 42: txt = "UnShuffle "; break;
+                case 43: txt = "AngerMind "; break;
+                case 44: txt = "HardObject "; break;
+                case 47: txt = "BuraiStyle "; break;
+                case 48: txt = "ChipChanger "; break;
+                case 49: txt = "BaisokuRunner "; break;
+                case 50: txt = "Undersht "; break;
+                case 54: txt = "HumorSense "; break;
+                case 57: txt = "EirinCall "; break;
+                case 58: txt = "Bullet "; break;
+                case 59: txt = "BulletBig "; break;
+                case 61: txt = "RShield "; break;
+                case 62: txt = "RPanelRepair "; break;
+                case 63: txt = "RHoleMake "; break;
+                case 64: txt = "LCube "; break;
+                case 65: txt = "LMukaikaze "; break;
+                case 66: txt = "LOikaze "; break;
+                case 67: txt = "LBeastRock "; break;
+                case 68: txt = "SlowStart "; break;
+                case 69: txt = "NebulaHole "; break;
+                case 70: txt = "HPDown100 "; break;
+                case 71: txt = "AcidBody "; break;
+                case 72: txt = "HideLife "; break;
+                case 73: txt = "LostLight "; break;
+                case 74: txt = "MassatuSlip "; break;
+                case 75: txt = "Meltingth "; break;
+                case 76: txt = "CustomPain "; break;
+                case 77: txt = "HeavyFoot "; break;
+                case 80: txt = "PonkothuBuster "; break;
+                case 81: txt = "OwataManBody "; break;
+                case 82: txt = "NoGuard "; break;
+                case 83: txt = "LostCustom "; break;
+                case 84: txt = "BlackMind "; break;
+                case 85: txt = "ParizeDamage "; break;
+                case 86: txt = "CAuraSword "; break;
+                case 87: txt = "CDustBomb "; break;
+                case 88: txt = "CVulcan "; break;
+                case 89: txt = "CFallKnife "; break;
+                case 90: txt = "CBlastCanon "; break;
+                case 91: txt = "CLance "; break;
+                case 92: txt = "CRepair "; break;
+                case 93: txt = "CShotGun "; break;
+                case 94: txt = "FudouMyoou "; break;
+                case 95: txt = "Scavenger "; break;
+                case 96: txt = "Sacrifice "; break;
+                case 97: txt = "Mammon "; break;
+
+
+
+            }
+
+                return txt;
+            
+        }
+
+
+        public static string NumberToAlphabet(int number)
+        {
+            if (number < 0 || number > 25)
+            {
+                throw new ArgumentOutOfRangeException("number", "Number must be between 0 and 25.");
+            }
+
+            // Convert the number to the corresponding letter (0 -> A, 1 -> B, ..., 25 -> Z)
+            return ((char)('A' + number)).ToString();
+        }
+
+        public static string RemoveBeforeLastComma(string input)
+        {
+            // Find the last index of the comma
+            int lastCommaIndex = input.LastIndexOf(',');
+
+            // If there's no comma, return the original string
+            if (lastCommaIndex == -1)
+            {
+                return input;
+            }
+
+            // Return the substring after the last comma
+            return input.Substring(lastCommaIndex + 1);
+        }
+
+
+        public static int FindInSecondColumn(int[,] array, int number)
+        {
+            // Iterate through each row and check the value in the second column (index 1)
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                if (array[i, 1] == number)
+                {
+                    return i; // Return the index of the row where the number is found
+                }
+            }
+            return -1; // Return -1 if the number is not found in the second column
+        }
+
+
     }
 }

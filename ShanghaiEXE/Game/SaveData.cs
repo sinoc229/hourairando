@@ -198,7 +198,7 @@ namespace NSGame
         public int[,] Randolistfinal = new int[1000, 6];
 
         public string[] scramblegifts2 = new string[1000];
-
+        public string[] giftitemsglobal = new string[1000];
 
 
         public string[] mapnames = new string[1000];
@@ -2899,11 +2899,12 @@ namespace NSGame
                         //newstr = line.Replace(",,", ",-1,");
 
                         newstr = newstr.Replace("Mystery:", "");
-
+                        /*
                         Console.Write("BMD: ");
                         Console.Write(newstr);
 
                         Console.WriteLine();
+                        */
                         scrambleid[totalmystery] = newstr.ToString();
                         sourcemap[totalmystery,0] = int.Parse(mapstring);
                         
@@ -2934,7 +2935,7 @@ namespace NSGame
                                 //newstry += tempopo;
 
                                 //for that one guy that gives you like 5 of the same chip
-
+                                Console.WriteLine(newstry);
                                 giftitems[totalgifteditems, 0] = newstry;
                                 //Console.WriteLine(newstry);
                                 //Console.WriteLine(txtname);
@@ -2950,12 +2951,16 @@ namespace NSGame
 
                                 giftitems[totalgifteditems, 1] = newstr2;
                                 giftitems[totalgifteditems, 2] = mapstring;
-                                scramblegifts[totalgifteditems] = newstr2;
+                                giftitemsglobal[totalgifteditems] = newstry;
+                                Console.WriteLine(newstry);
 
+                                scramblegifts[totalgifteditems] = newstr2;
+                                /*
                                 Console.Write("Dag: ");
                                 Console.Write(newstr2);
                                 Console.WriteLine();
-                                totalgifteditems++;
+                                */
+                        totalgifteditems++;
 
                             }
                         }
@@ -2976,7 +2981,7 @@ namespace NSGame
 
             
             int rng = ShanghaiEXE.Config.Seed;
-            rng = 124512312;
+            //rng = 0;
 
             Console.WriteLine("---Seed: " + rng + "---");
             //var (shuffled1, shuffled2) = ShuffleArrays(scrambleid, scramblegifts, rng);

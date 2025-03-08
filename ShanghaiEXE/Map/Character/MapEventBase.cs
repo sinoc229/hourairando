@@ -268,24 +268,57 @@ namespace NSMap.Character
                         page.AddEvent(new InteriorSet(this.sound, page.eventmanager, this.field, this.parent, this.savedate));
                         break;
                     case "ItemGet":
-                        if (int.Parse(strArray1[1]) != 3)
-                        {
-                            Console.WriteLine("Getting diag non-key item?");
-                            string lookup = strArray1[1] + strArray1[2] + strArray1[3];
-                            Console.WriteLine(lookup);
 
-                            //insert randomizer intercept here
-
-                        
-
-
-                        }
                         RandomMystery randomMystery = new RandomMystery()
                         {
                             itemType = int.Parse(strArray1[1]),
                             itemNumber = int.Parse(strArray1[2]),
                             itemSub = int.Parse(strArray1[3])
                         };
+
+                        if (int.Parse(strArray1[1]) != 3)
+                        {
+                            Console.WriteLine("Getting diag non-key item?");
+                            string lookup = strArray1[1] + strArray1[2] + strArray1[3];
+                            //Console.WriteLine(lookup);
+                            int index = FindIndex(savedate.giftitemsglobal, lookup);
+
+                            if (index != -1)
+                            {
+                                Console.WriteLine("Found an intercept");
+                                string splitme = savedate.giftitemsglobal[index];
+
+                                //Console.WriteLine(scramblegifts2[i]);
+                                string splungo = savedate.scramblegifts2[index];
+
+                                //Console.WriteLine(scramblegifts[i]);
+                                string[] another = splungo.Split(',');
+
+                                int typ = int.Parse(another[1]);
+                                int entry = int.Parse(another[2]);
+                                int entry2 = int.Parse(another[3]);
+
+
+                                randomMystery = new RandomMystery()
+                                {
+                                    itemType = typ,
+                                    itemNumber = entry,
+                                    itemSub = entry2
+                                };
+
+
+                            }
+                            else
+                            {
+                                Console.WriteLine("Not intercepting/Not found");
+                            }
+                            //insert randomizer intercept here
+
+
+
+
+                        }
+
                         randomMystery.getInfo = MysteryItem.ItemNameGet(randomMystery.itemType, randomMystery.itemNumber, randomMystery.itemSub, ShanghaiEXE.Translate(strArray1[4]));
                         randomMystery.type = 1;
                         page.AddEvent(new MysteryItem(this.sound, page.eventmanager, this.field, randomMystery, false, this.savedate));
@@ -854,6 +887,18 @@ namespace NSMap.Character
             if (!this.LunPage.hitform)
                 return (float)(Position.X + (double)this.LunPage.hitShift.X + (Position.Y + (double)this.LunPage.hitShift.Y));
             return (float)(position.X + (double)this.LunPage.hitShift.X + LunPage.hitrange.X + (position.Y + (double)this.LunPage.hitShift.Y - LunPage.hitrange.Y));
+        }
+
+        static int FindIndex(string[] array, string target)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] == target)
+                {
+                    return i;  // Return the index where the item was found
+                }
+            }
+            return -1;  // Return -1 if the item is not found
         }
 
         public override void Render(IRenderer dg)

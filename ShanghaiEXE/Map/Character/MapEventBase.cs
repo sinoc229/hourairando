@@ -268,6 +268,18 @@ namespace NSMap.Character
                         page.AddEvent(new InteriorSet(this.sound, page.eventmanager, this.field, this.parent, this.savedate));
                         break;
                     case "ItemGet":
+                        if (int.Parse(strArray1[1]) != 3)
+                        {
+                            Console.WriteLine("Getting diag non-key item?");
+                            string lookup = strArray1[1] + strArray1[2] + strArray1[3];
+                            Console.WriteLine(lookup);
+
+                            //insert randomizer intercept here
+
+                        
+
+
+                        }
                         RandomMystery randomMystery = new RandomMystery()
                         {
                             itemType = int.Parse(strArray1[1]),

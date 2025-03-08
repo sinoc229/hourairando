@@ -196,8 +196,8 @@ namespace NSGame
         public int[,] Randolist = new int[1000, 6];
         public int[,] Randolist2 = new int[1000, 6];
         public int[,] Randolistfinal = new int[1000, 6];
-        
 
+        public string[] scramblegifts2 = new string[1000];
 
 
 
@@ -2838,8 +2838,14 @@ namespace NSGame
             var totalmystery = 0;
             var totalgifteditems = 0;
             var totalmaps = 175;
+            var startofgifts = 700;
+            
 
             int[,] sourcemap = new int[1000,2];
+
+            string[,] giftitems = new string[1000, 3];
+
+            string[] scramblegifts = new string[1000];
 
 
             //nowMap2 = txtname;
@@ -2872,6 +2878,7 @@ namespace NSGame
                 string gettext1 = "ItemGet:0";
                 string gettext2 = "ItemGet:1";
                 string gettext3 = "ItemGet:2";
+                //string gettext4 = "ItemGet:3"; //this is shraed by key items and zenny, so zenny will have to remain untouched
 
                 string line;
 
@@ -2892,7 +2899,11 @@ namespace NSGame
                         //newstr = line.Replace(",,", ",-1,");
 
                         newstr = newstr.Replace("Mystery:", "");
-                        //Console.WriteLine(newstr);
+
+                        Console.Write("BMD: ");
+                        Console.Write(newstr);
+
+                        Console.WriteLine();
                         scrambleid[totalmystery] = newstr.ToString();
                         sourcemap[totalmystery,0] = int.Parse(mapstring);
                         
@@ -2905,7 +2916,49 @@ namespace NSGame
                     }
                     else if (line.Contains(gettext1) | line.Contains(gettext2) | line.Contains(gettext3))
                     {
-                        totalgifteditems++;
+                        
+                        string newstr = line;
+                        newstr = newstr.Replace("ItemGet:", "");
+                        newstr = newstr.Replace(":", ",");
+                        int commacount = CountCommas(newstr);
+                        if (newstr != "99,154,3"){ //fuck you blindleaf guy you're outa logic
+                            if (commacount > 2) //filter out key items
+                            {
+
+                                string mapstring = mapno.ToString();
+
+                                string newstry = newstr.Replace(",", "");
+
+
+                                string tempopo = totalgifteditems.ToString();
+                                //newstry += tempopo;
+
+                                //for that one guy that gives you like 5 of the same chip
+
+                                giftitems[totalgifteditems, 0] = newstry;
+                                //Console.WriteLine(newstry);
+                                //Console.WriteLine(txtname);
+                                var tempvar = startofgifts + totalgifteditems;
+                                var numba = tempvar.ToString();
+
+
+                                string newstr2 = "1," + newstr + numba + "," + mapstring;
+                                //Convert the gifted item output to a similar one to BMD's
+
+                                //~~~9 is inserted as g/b/p toggle to stand out, will get sanitized down to 1 later~~
+                                //flug starts at 700 instead of 0, so don't have 700 bmds i guess
+
+                                giftitems[totalgifteditems, 1] = newstr2;
+                                giftitems[totalgifteditems, 2] = mapstring;
+                                scramblegifts[totalgifteditems] = newstr2;
+
+                                Console.Write("Dag: ");
+                                Console.Write(newstr2);
+                                Console.WriteLine();
+                                totalgifteditems++;
+
+                            }
+                        }
 
                     }
                 }
@@ -2913,21 +2966,68 @@ namespace NSGame
                 mapno++;
             }
             //totalmystery
-            string txtr = "total BMD found: ";
-            Console.WriteLine($"{txtr}{totalmystery}");
+            //string txtr = "total BMD found: ";
+            //Console.WriteLine($"{txtr}{totalmystery}");
 
-            txtr = "total gifted items found: ";
-            Console.WriteLine($"{txtr}{totalgifteditems}");
+            //txtr = "total gifted items found: ";
+            //Console.WriteLine($"{txtr}{totalgifteditems}");
 
             string teststr = "";
 
+            
+            int rng = ShanghaiEXE.Config.Seed;
+            rng = 124512312;
+
+            Console.WriteLine("---Seed: " + rng + "---");
+            //var (shuffled1, shuffled2) = ShuffleArrays(scrambleid, scramblegifts, rng);
 
 
-            //teststr = scrambleid[0];
-            //Console.WriteLine("-------");
-            //Console.WriteLine("begin raw mystery data dump");
-            //Console.WriteLine("-------");
-            //scrambleid2[0,h] = teststr.Split(',');
+
+            //scrambleid = shuffled1;
+            //scramblegifts = shuffled2;
+
+
+            var shufflesize = totalgifteditems + totalmystery;
+
+            //Console.Write("Size of both: ");
+            //Console.Write(shufflesize);
+            //Console.WriteLine();
+
+            string[] combined = scrambleid.Concat(scramblegifts).ToArray();
+            string[] cleanedcombined = RemoveBlankEntries(combined);
+            //rng.Shuffle(combined);
+
+            Random rng2 = new Random(rng);
+
+            string[] cleanedcombined2 = cleanedcombined;
+
+            if (rng > 0)
+            {
+                Shuffle(cleanedcombined, rng2);
+                cleanedcombined2 = ShuffleArray(cleanedcombined, rng);
+                Shuffle(cleanedcombined2, rng2);
+            }
+
+
+            for (int i = 0;i< totalmystery;i++)
+            {
+                scrambleid[i] = cleanedcombined2[i];
+
+
+            }
+
+            var spaceno = 0;
+
+            for (int i = totalmystery; i < totalmystery+totalgifteditems; i++)
+            {
+
+                scramblegifts2[spaceno] = cleanedcombined2[i];
+                //nsole.WriteLine(scramblegifts2[i]);
+                spaceno++;
+
+            }
+            
+
             for (int i = 0; i < totalmystery; i++)
             {
                 teststr = scrambleid[i];
@@ -3006,12 +3106,12 @@ namespace NSGame
             //Conssole.WriteLine("----unshuffled-----");
             //PrintArray(newsize);
 
-            int rng = ShanghaiEXE.Config.Seed; //get RNG seed
+           // int rng = ShanghaiEXE.Config.Seed; //get RNG seed
             //rng = 0;
 
             //Random random = new Random(rng);  // Create a Random object with the provided seed
 
-            Console.WriteLine("---Seed: " + rng + "----");
+            
 
             if (rng > 0)
             {
@@ -3030,9 +3130,10 @@ namespace NSGame
 
             string filePath = "spoilerlog.txt";
 
+
             using (StreamWriter writer = new StreamWriter(filePath))
             {
-                Console.SetOut(writer);
+                Console.SetOut(writer); //actually sets output to spoiler log, comment out for debugging
 
                 Console.WriteLine("----Seed: " + rng + "----");
 
@@ -3069,8 +3170,9 @@ namespace NSGame
 
                     if (scrambleidfinal[i, 0] > 0)
                     {
+                        Console.Write(entno.ToString() + ": ");
 
-
+                        entno++;
                         int typ = scrambleidfinal[i, 2];
                         int entry = scrambleidfinal[i, 3];
                         int entry2 = scrambleidfinal[i, 4];
@@ -3154,8 +3256,23 @@ namespace NSGame
 
                         var spot = FindInSecondColumn(sourcemap, scrambleidfinal[i, 0]);
 
+                        string map = "";
 
-                        string map = FindMapName(sourcemap[spot, 0]);
+                        try
+                        {
+                            map = FindMapName(sourcemap[spot, 0]) + " " + i.ToString();
+                            
+                        }
+                        catch
+                        {
+                            var place = 700 - i;
+
+                            place = Math.Abs(place);
+
+
+                            map = "malformed map - " + place.ToString();
+
+                        }
                         Console.Write(" " + map);
 
                         Console.WriteLine();
@@ -3165,12 +3282,117 @@ namespace NSGame
 
                 }
 
+                entno = 0;
+                Console.WriteLine("----Quests / Dialogue ----");
+
+                for (int i =0; i < totalgifteditems;i++)
+                {
+                    Console.Write(i.ToString() + ": ");
+
+                    //Console.WriteLine(scramblegifts2[i]);
+                    string splungo = scramblegifts2[i];
+                    
+                    //Console.WriteLine(scramblegifts[i]);
+                    string[] another = splungo.Split(',');
+
+                    int typ = int.Parse(another[1]);
+                    int entry = int.Parse(another[2]);
+                    int entry2 = int.Parse(another[3]);
+
+
+                    switch (typ)
+                    {
+                        case 0:
+                            Console.Write("Chip : ");
+                            ChipFolder chipFolder = new ChipFolder(null);
+                            chipFolder.SettingChip(entry + 1);
+                            string name = chipFolder.chip.name;
+                            //TODO: figgure out how to get code later
+                            Console.Write(name + " ");
+
+                            var temp1 = entry + 1;
+                            string stupei = temp1.ToString();
+                            string junpei = entry2.ToString();
+
+                            //int code2 = CodeCheck(temp1, entry2);
+                            //Console.Write(code2 + " ");
+
+
+                            break;
+                        case 1:
+                            Console.Write("Subch: ");
+
+
+                            break;
+                        case 2:
+                            Console.Write("Addon: ");
+
+                            string fuckwit = Addonnamegetter(entry);
+                            Console.Write(fuckwit + " ");
+                            break;
+                        case 3:
+                            Console.Write("Misc: ");
+                            switch (entry)
+                            {
+                                case 0:
+                                    Console.Write("HP memory");
+                                    break;
+                                case 1:
+                                    Console.Write("Regup " + entry2);
+                                    break;
+                                case 2:
+                                    Console.Write("Sub Memory");
+                                    break;
+                                case 3:
+                                    Console.Write("Core Plus");
+                                    break;
+                                case 4:
+                                    Console.Write("Hertz Up " + entry2);
+                                    break;
+                                case 5:
+                                    Console.Write("Bug Frag " + entry2);
+                                    break;
+                                case 6:
+                                    Console.Write("Frz Frag " + entry2);
+                                    break;
+                                case 7:
+                                    Console.Write("Err Frag " + entry2);
+                                    break;
+                                default:
+                                    Console.Write("Zenny " + entry2);
+                                    break;
+
+
+                            }
+
+                            break;
+                        default:
+                            Console.Write("Malformed type entry? : ");
+
+
+                            break;
+
+                    }
+
+                    //scramblegifts[i]
+                    string mapapapapo = giftitems[i, 2];
+                    int mapopo2 = int.Parse(mapapapapo);
+
+                    string map = FindMapName(mapopo2) + " " + i.ToString();
+
+                    Console.Write(" " + map);
+
+                    Console.WriteLine();
+                    entno++;
+                }
 
 
             }
             Console.SetOut(originalConsoleOut);
-            //PrintArray(sourcemap);
+            //PrintArray(scrambleidfinal);
             Console.WriteLine("Spoiler log generated");
+
+
             listpoz = 0;
 
 
@@ -3255,6 +3477,21 @@ namespace NSGame
             }
         }
 
+        static void PrintArrayStr(string[,] array)
+        {
+            int rows = array.GetLength(0);
+            int columns = array.GetLength(1);
+
+            for (int i = 0; i < rows; i++)
+            {
+                Console.Write(i + ": ");
+                for (int j = 0; j < columns; j++)
+                {
+                    Console.Write(array[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+        }
 
         static string FindMapName(int mapno)
         {
@@ -3791,6 +4028,9 @@ namespace NSGame
                     case 175:
                         txtname = "heavenNet2";
                 break;
+                    default:
+                    txtname = "???";
+                break;
             }
 
             return txtname;
@@ -3848,7 +4088,7 @@ namespace NSGame
                 case 43: txt = "AngerMind "; break;
                 case 44: txt = "HardObject "; break;
                 case 47: txt = "BuraiStyle "; break;
-                case 48: txt = "ChipChanger "; break;
+                case 48: txt = "Crimson Noise "; break;
                 case 49: txt = "BaisokuRunner "; break;
                 case 50: txt = "Undersht "; break;
                 case 54: txt = "HumorSense "; break;
@@ -3938,6 +4178,95 @@ namespace NSGame
                 }
             }
             return -1; // Return -1 if the number is not found in the second column
+        }
+
+
+        public static (string[], string[]) ShuffleArrays(string[] array1, string[] array2, int seed)
+        {
+            // Create a list to hold the combined elements of both arrays
+            List<string> combinedList = new List<string>();
+
+            // Add elements from both arrays to the list
+            combinedList.AddRange(array1);
+            combinedList.AddRange(array2);
+
+            // Initialize the Random object with the seed
+            Random rng = new Random(seed);
+
+            // Shuffle the combined list using Fisher-Yates algorithm
+            int n = combinedList.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1); // Get a random index between 0 and n
+                string value = combinedList[k];
+                combinedList[k] = combinedList[n];
+                combinedList[n] = value;
+            }
+
+            // Now split the shuffled list back into two arrays with their original sizes
+            string[] shuffledArray1 = combinedList.GetRange(0, array1.Length).ToArray();
+            string[] shuffledArray2 = combinedList.GetRange(array1.Length, array2.Length).ToArray();
+
+            // Return the shuffled arrays
+            return (shuffledArray1, shuffledArray2);
+        }
+
+
+
+
+        public static string[] RemoveBlankEntries(string[] array)
+        {
+            // Use LINQ to filter out null or empty strings from the array
+            return array.Where(s => !string.IsNullOrWhiteSpace(s)).ToArray();
+        }
+
+
+        public static int CountCommas(string input)
+        {
+            int count = 0;
+
+            foreach (char c in input)
+            {
+                if (c == ',')
+                {
+                    count++;
+                }
+            }
+
+            return count;
+        }
+
+
+        static string[] ShuffleArray(string[] array, int seed)
+        {
+            string[] shuffled = (string[])array.Clone();  // Clone the array to avoid modifying the original one
+            Random rng = new Random(seed); // Create a random number generator with a specific seed
+            int n = shuffled.Length;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1); // Get a random index between 0 and n
+                                         // Swap shuffled[n] with the element at random index k
+                string value = shuffled[k];
+                shuffled[k] = shuffled[n];
+                shuffled[n] = value;
+            }
+            return shuffled; // Return the shuffled array
+        }
+
+        static void Shuffle(string[] array, Random rng)
+        {
+            int n = array.Length;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                // Swap
+                string temp = array[k];
+                array[k] = array[n];
+                array[n] = temp;
+            }
         }
 
 

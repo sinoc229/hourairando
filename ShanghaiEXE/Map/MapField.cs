@@ -137,6 +137,8 @@ namespace NSMap
             if (NSGame.Debug.MaskMapFile)
                 A1 = TCDEncodeDecode.EncMapScript(A1);
 
+            
+
             string[] strArray1 = A1.Split(',');
             int length1 = int.Parse(strArray1[0]);
             int length2 = int.Parse(strArray1[1]);
@@ -173,6 +175,8 @@ namespace NSMap
                         if (NSGame.Debug.MaskMapFile)
                             A2 = TCDEncodeDecode.EncMapScript(A2);
 
+                        
+
                         string[] strArray2 = A2.Split(',');
                         for (int index3 = 0; index3 < this.map.GetLength(1); ++index3)
                         {
@@ -181,12 +185,15 @@ namespace NSMap
                         }
                     }
                     string A3 = reader.ReadLine();
-                    Console.WriteLine(A3);
+                    //Console.WriteLine(A3);
                     if (NSGame.Debug.MaskMapFile)
                     {
                         str2 = TCDEncodeDecode.EncMapScript(A3);
                         //Console.WriteLine(str2);
                     }
+
+                    
+
                 }
 
             }
@@ -200,7 +207,7 @@ namespace NSMap
             {
                 if (NSGame.Debug.MaskMapFile)
                     A4 = TCDEncodeDecode.EncMapScript(A4);
-
+                
                 if (!(A4 == ""))
                 {
                     EventManager m = new EventManager(this.sound);
@@ -284,8 +291,11 @@ namespace NSMap
             string A5 = reader.ReadLine();
             if (NSGame.Debug.MaskMapFile)
                 A5 = TCDEncodeDecode.EncMapScript(A5);
+
+            //Console.WriteLine(A5);
             string[] strArray3 = A5.Split(':');
             List<RandomMystery> randomMysteryList = new List<RandomMystery>();
+            
             foreach (string str3 in strArray3)
             {
                 if (str3 == "")
@@ -386,7 +396,7 @@ namespace NSMap
                             {
                                 case 0:
                                     typ = "chip";
-                                    //AddOnBase.AddOnSet(itemNumber, 0).name;
+                                    //AddOnBase.AddOnSet(itemNumber, 0). name;
                                     ChipFolder chipFolder = new ChipFolder(null);
                                     chipFolder.SettingChip(random.itemNumber + 1);
                                     name = chipFolder.chip.name;
@@ -912,6 +922,22 @@ namespace NSMap
         private static Vector2 ToScreenPosition(Vector2 gamePosition)
         {
             return new Vector2(gamePosition.X - gamePosition.Y, (gamePosition.X + gamePosition.Y) / 2);
+        }
+
+        static void PrintArray(string[,] array)
+        {
+            int rows = array.GetLength(0);
+            int columns = array.GetLength(1);
+
+            for (int i = 0; i < rows; i++)
+            {
+                Console.Write(i + ": ");
+                for (int j = 0; j < columns; j++)
+                {
+                    Console.Write(array[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
         }
     }
 }

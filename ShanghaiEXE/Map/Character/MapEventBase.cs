@@ -312,7 +312,7 @@ namespace NSMap.Character
                             {
                                 Console.WriteLine("Not intercepting/Not found");
                             }
-                            //insert randomizer intercept here
+                           
 
 
 

@@ -293,8 +293,40 @@
                               IsChecked="{Binding AllowTurboSlowdown}"/>
                     <CheckBox Content="{Binding Language, Converter={StaticResource RegionToTranslatedConverter}, ConverterParameter=DisableBGMOverride}"
                               IsChecked="{Binding DisableBGMOverride}"/>
-                    <CheckBox Content="{Binding Language, Converter={StaticResource RegionToTranslatedConverter}, ConverterParameter=FixEngrish}"
+                    <CheckBox Content="{Binding Language, ConverterParameter=FixEngrish, Converter={StaticResource RegionToTranslatedConverter}}"
                               IsChecked="{Binding FixEngrish}"/>
+                    <GroupBox Canvas.Top="130" Width="270" Header="{Binding Language, Converter={StaticResource RegionToTranslatedConverter}, ConverterParameter=Randomizer}">
+                        <Grid HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.Resources>
+                                <Style TargetType="StackPanel">
+                                    <Setter Property="Orientation" Value="Horizontal" />
+                                    <Setter Property="Margin" Value="2,5" />
+                                </Style>
+                                <Style TargetType="TextBox">
+                                    <Setter Property="Width" Value="50" />
+                                    <Setter Property="Margin" Value="5,0" />
+                                </Style>
+                            </Grid.Resources>
+                            <StackPanel Grid.Column="0">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Language, Converter={StaticResource RegionToTranslatedConverter}, ConverterParameter=Seed}" />
+                                    <TextBox Text="{Binding Seed}" />
+                                    <TextBlock Text="Seed" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1">
+
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+                    <CheckBox Content="{Binding Language, ConverterParameter=IncludeHeaven, Converter={StaticResource RegionToTranslatedConverter}}"
+                              IsChecked="{Binding IncludeHeaven}"/>
+                    <CheckBox Content="{Binding Language, ConverterParameter=IncludeJobs, Converter={StaticResource RegionToTranslatedConverter}}"
+                              IsChecked="{Binding IncludeJobs}"/>
                 </StackPanel>
             </TabItem>
         </TabControl>

@@ -58,6 +58,8 @@
   <Text Key="AllowTurboSlowdown" Value="[Allow Turbo Slowdown]" />
   <Text Key="DisableBGMOverride" Value="ＢＧＭ強制終了を非活性化" />
   <Text Key="FixEngrish" Value="オリジナル英語修正" />
+  <Text Key="IncludeHeaven" Value="Include Heaven" />
+  <Text Key="IncludeJobs" Value="Include Jobs" />
   <Text Key="StretchFullscreen" Value="画面比率維持" />
   <Text Key="StretchFullscreenOpenGL" Value="OpenGLモードのみ" />
 </data>

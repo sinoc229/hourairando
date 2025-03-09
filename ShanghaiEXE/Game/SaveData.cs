@@ -2979,6 +2979,7 @@ namespace NSGame
 
             string teststr = "";
 
+
             
             int rng = ShanghaiEXE.Config.Seed;
             //rng = 0;

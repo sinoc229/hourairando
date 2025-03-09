@@ -58,6 +58,8 @@
   <Text Key="AllowTurboSlowdown" Value="Allow Turbo Slowdown" />
   <Text Key="DisableBGMOverride" Value="Disable BGM Override" />
   <Text Key="FixEngrish" Value="Fix Original English" />
+  <Text Key="IncludeHeaven" Value="Include Heaven" />
+  <Text Key="IncludeJobs" Value="Include Jobs" />
   <Text Key="StretchFullscreen" Value="Maintain Aspect Ratio" />
   <Text Key="StretchFullscreenOpenGL" Value="OpenGL mode only" />
 </data>

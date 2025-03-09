@@ -375,7 +375,11 @@ namespace NSMap
                         {
                             //random.flugNumber = 203;
                             //typ
-                            int tempdex = random.flugNumber;
+                            int tempdex2 = random.flugNumber;
+
+                            var tempdex = FindNumberInLeftColumn(save.scrambleidfinal, tempdex2);
+
+
                             //int tempdex = 169;
 
                             random.itemType = save.scrambleidfinal[tempdex, 2];
@@ -938,6 +942,22 @@ namespace NSMap
                 }
                 Console.WriteLine();
             }
+        }
+
+
+        static int FindNumberInLeftColumn(int[,] array, int number)
+        {
+            int rows = array.GetLength(0);
+
+            for (int i = 0; i < rows; i++)
+            {
+                if (array[i, 0] == number) // Check if the first column of the current row matches the number
+                {
+                    return i; // Return the row index if found
+                }
+            }
+
+            return -1; // Return -1 if the number is not found in the leftmost column
         }
     }
 }

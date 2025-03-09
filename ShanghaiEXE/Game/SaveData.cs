@@ -2897,7 +2897,7 @@ namespace NSGame
                         newstr = line.Replace(",,", ","+ mapstring+","); //unsure if i need this, come back later?
                         //i defintely did need this, i'm a genius ^^^^
                         //newstr = line.Replace(",,", ",-1,");
-
+                        
                         newstr = newstr.Replace("Mystery:", "");
                         /*
                         Console.Write("BMD: ");
@@ -2946,7 +2946,7 @@ namespace NSGame
                                 string newstr2 = "1," + newstr + numba + "," + mapstring;
                                 //Convert the gifted item output to a similar one to BMD's
 
-                                //~~~9 is inserted as g/b/p toggle to stand out, will get sanitized down to 1 later~~
+                                
                                 //flug starts at 700 instead of 0, so don't have 700 bmds i guess
 
                                 giftitems[totalgifteditems, 1] = newstr2;
@@ -2971,8 +2971,8 @@ namespace NSGame
                 mapno++;
             }
             //totalmystery
-            //string txtr = "total BMD found: ";
-            //Console.WriteLine($"{txtr}{totalmystery}");
+            string txtr = "total BMD found: ";
+            Console.WriteLine($"{txtr}{totalmystery}");
 
             //txtr = "total gifted items found: ";
             //Console.WriteLine($"{txtr}{totalgifteditems}");
@@ -2991,6 +2991,8 @@ namespace NSGame
 
             //scrambleid = shuffled1;
             //scramblegifts = shuffled2;
+
+            //PrintArray(totalmystery);
 
 
             var shufflesize = totalgifteditems + totalmystery;
@@ -3061,6 +3063,7 @@ namespace NSGame
             int nNumber = 0;
 
             int listpoz = 0;
+
             for (int i = 0; i < 1000; i++)
             {
                 Randolist2[i, 0] = -99;
@@ -3069,10 +3072,12 @@ namespace NSGame
             }
             
 
+
+            //makes everything work?
             for (int i = 0; i < totalmystery; i++)
             {
                 //Console.Write(listpoz + ": ");
-                for (int j = 0; j < scrambleid2.GetLength(1); j++)
+                for (int j = 0; j < Randolist2.GetLength(1); j++)
                 {
                     //scrambleidfinal[i, j] = int.TryParse(scrambleid2[i, j],out nNumber) ? nNumber : -1;
 
@@ -3091,8 +3096,11 @@ namespace NSGame
 
             int[,] newsize = new int[listpoz, 6];
 
-            int entno = 0;
+            
 
+
+            int entno = 0;
+            var entriesadded = 0;
             for (int i = 0; i < 999; i++)
             {
                 if (Randolist2[i,0] != -99)
@@ -3105,9 +3113,11 @@ namespace NSGame
                     newsize[entno, 5] = Randolist2[i, 5];
 
                     entno++;
+                    
                 }
 
             }
+            //Console.WriteLine(entriesadded);
 
             //Conssole.WriteLine("----unshuffled-----");
             //PrintArray(newsize);
@@ -3118,7 +3128,8 @@ namespace NSGame
             //Random random = new Random(rng);  // Create a Random object with the provided seed
 
             
-
+            /*
+             * 
             if (rng > 0)
             {
                 //int seed = 123456;
@@ -3127,16 +3138,27 @@ namespace NSGame
                 ShuffleRows(newsize, seed); //shuffle it up good
                 ShuffleFirstColumn(newsize, seed); //then shuffle only the first column so that we can refer to it later
             }
+            */
             //Console.WriteLine("----shuffled-----");
             //PrintArray(newsize);
+
+            for (int i=0;i<999;i++)
+            {
+                scrambleidfinal[i, 0] = -99;
+
+            }
+
+            ShuffleFirstColumn(newsize, rng);
 
             int[,] newsize2 = new int[listpoz, 6];
 
             TextWriter originalConsoleOut = Console.Out;
 
+            
+
             string filePath = "spoilerlog.txt";
 
-
+            entriesadded = 0;
             using (StreamWriter writer = new StreamWriter(filePath))
             {
                 Console.SetOut(writer); //actually sets output to spoiler log, comment out for debugging
@@ -3146,21 +3168,67 @@ namespace NSGame
                 Console.WriteLine("----BMD----");
                 //PrintArray(scrambleidfinal);
                 entno = 0;
-                for (int i = 0; i < listpoz; i++)
+                int[] indexyoufuck = new int[999];
+                
+                /* old behaviour, index before printing (was innacurate and duplicated sometimes)
+
+                for (int i = 0; i < totalmystery; i++)
                 {
                     //ShuffleRows(newsize, seed);
                     var place = newsize[i, 0];
+                    
                     //Console.WriteLine(place);
 
-                    scrambleidfinal[place, 0] = newsize[i, 0];
-                    scrambleidfinal[place, 1] = newsize[i, 1];
-                    scrambleidfinal[place, 2] = newsize[i, 2];
-                    scrambleidfinal[place, 3] = newsize[i, 3];
-                    scrambleidfinal[place, 4] = newsize[i, 4];
-                    scrambleidfinal[place, 5] = newsize[i, 5];
+                    indexyoufuck[i] = place;
+
+                    var resulter = FindIndex(indexyoufuck, place);
+
+                    if (resulter != -1 && scrambleidfinal[i, 0] == -99)
+                    {
+
+                        scrambleidfinal[place, 0] = newsize[i, 0];
+                        scrambleidfinal[place, 1] = newsize[i, 1];
+                        scrambleidfinal[place, 2] = newsize[i, 2];
+                        scrambleidfinal[place, 3] = newsize[i, 3];
+                        scrambleidfinal[place, 4] = newsize[i, 4];
+                        scrambleidfinal[place, 5] = newsize[i, 5];
+
+                        //Console.WriteLine(place);
+
+                        indexyoufuck[i] = place;
+                        entriesadded++;
+                    }
+                    else
+                    {
+                        //Console.WriteLine("already indexed: " + place);
+
+
+
+                    }
+
+                    
+                }
+
+                */
+                //Console.WriteLine("Scrambles found: " + entriesadded);
+
+                entriesadded = 0;
+                for (int i=0;i<999;i++)
+                {
+                    if (scrambleidfinal[i, 0] != -99)
+                    {
+                        //Console.WriteLine(scrambleidfinal[i, 0]);
+                        entriesadded++;
+                    }
 
 
                 }
+                //Console.WriteLine("Scrambles indexed: " + entriesadded);
+
+
+
+                entriesadded = 0;
+                //PrintArray(scrambleidfinal);
 
                 //Console.WriteLine("----final scrambled list-----");
                 //PrintArray(scrambleidfinal);
@@ -3169,19 +3237,18 @@ namespace NSGame
 
                 int rowCount = sourcemap.GetLength(0);
 
-                for (int i = 0; i < 999; i++)
+                for (int i = 0; i < newsize.GetLength(0); i++)
                 {
 
-
-
-                    if (scrambleidfinal[i, 0] > 0)
+                    if (newsize[i, 0] > -1)
                     {
+                        entriesadded++;
                         Console.Write(entno.ToString() + ": ");
 
                         entno++;
-                        int typ = scrambleidfinal[i, 2];
-                        int entry = scrambleidfinal[i, 3];
-                        int entry2 = scrambleidfinal[i, 4];
+                        int typ = newsize[i, 2];
+                        int entry = newsize[i, 3];
+                        int entry2 = newsize[i, 4];
 
                         switch (typ)
                         {
@@ -3257,16 +3324,16 @@ namespace NSGame
 
 
 
-                        int mapo = scrambleidfinal[i, 5];
+                        int mapo = newsize[i, 5];
 
 
-                        var spot = FindInSecondColumn(sourcemap, scrambleidfinal[i, 0]);
+                        var spot = FindInSecondColumn(sourcemap, newsize[i, 0]);
 
                         string map = "";
 
                         try
                         {
-                            map = FindMapName(sourcemap[spot, 0]) + " " + i.ToString();
+                            map = FindMapName(sourcemap[spot, 0]) + " " + newsize[i, 0];
                             
                         }
                         catch
@@ -3282,11 +3349,22 @@ namespace NSGame
                         Console.Write(" " + map);
 
                         Console.WriteLine();
+
+                        scrambleidfinal[newsize[i, 0], 0] = newsize[i, 0];
+                        scrambleidfinal[newsize[i, 0], 1] = newsize[i, 1];
+                        scrambleidfinal[newsize[i, 0], 2] = newsize[i, 2];
+                        scrambleidfinal[newsize[i, 0], 3] = newsize[i, 3];
+                        scrambleidfinal[newsize[i, 0], 4] = newsize[i, 4];
+                        scrambleidfinal[newsize[i, 0], 5] = newsize[i, 5];
+                        //scrambleidfinal[newsize[i, 0], 6] = newsize[i, 6];
+
                     }
                     //*/
 
 
                 }
+
+
 
                 entno = 0;
                 Console.WriteLine("----Quests / Dialogue ----");
@@ -3398,7 +3476,7 @@ namespace NSGame
             //PrintArray(scrambleidfinal);
             Console.WriteLine("Spoiler log generated");
 
-
+            
             listpoz = 0;
 
 
@@ -4273,6 +4351,18 @@ namespace NSGame
                 array[k] = array[n];
                 array[n] = temp;
             }
+        }
+
+        static int FindIndex(int[] array, int target)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] == target)
+                {
+                    return i;  // Return the index where the item was found
+                }
+            }
+            return -1;  // Return -1 if the item is not found
         }
 
 

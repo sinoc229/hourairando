@@ -314,16 +314,13 @@
                             <StackPanel Grid.Column="0">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="{Binding Language, Converter={StaticResource RegionToTranslatedConverter}, ConverterParameter=Seed}" />
-                                    <TextBox Text="{Binding Seed}" />
-                                    <TextBlock Text="Seed" />
+                                    <TextBox Text="{Binding Seed}" Width="83" />
+                                    <TextBlock Text="Seed" Width="115" />
                                 </StackPanel>
-                            </StackPanel>
-                            <StackPanel Grid.Column="1">
-
                             </StackPanel>
                         </Grid>
                     </GroupBox>
-                    <CheckBox Content="{Binding Language, ConverterParameter=IncludeHeaven, Converter={StaticResource RegionToTranslatedConverter}}"
+                    <CheckBox Content="{Binding LanguAge, ConverterParameter=IncludeHeaven, Converter={StaticResource RegionToTranslatedConverter}}"
                               IsChecked="{Binding IncludeHeaven}"/>
                     <CheckBox Content="{Binding Language, ConverterParameter=IncludeJobs, Converter={StaticResource RegionToTranslatedConverter}}"
                               IsChecked="{Binding IncludeJobs}"/>

@@ -60,8 +60,6 @@ fade:30:0:0:0:0:True
 msgopen:
 msg:Map.ExOmakeExtra1Stage4Dialogue1FaceSprite
 ItemGet:0:26:3:
-ItemGet:0:27:3:
-ItemGet:0:28:3:
 msgclose:
 BranchEnd:
 end

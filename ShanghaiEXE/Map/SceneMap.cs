@@ -1161,7 +1161,7 @@ namespace NSMap
 
             this.savedata.flagList[788] = false; //stage intro cutscene
 
-            // this.savedata.flagList[722] = true; //start hospital
+            //this.savedata.flagList[722] = true; //start hospital
             //this.savedata.flagList[721] = true;
             //this.savedata.flagList[720] = true;
 

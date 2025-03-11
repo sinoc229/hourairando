@@ -971,7 +971,7 @@ warp:CompanyServer1:424:376:1:5
 end
 
 ID:7章　潜入イベント
-position:219:259:0
+position:232:258:0
 page:1
 startterms:Touch
 type:1
@@ -1507,6 +1507,32 @@ speed:0
 graphic:19:4,0,3,0,0
 hitrange:3:0:0:0
 hitform:circle
+event:
+end
+
+MysteryID:GMD
+position:163:251:0
+Mystery:1,0,154,3,,5
+page:1
+startterms:Abutton
+type:1
+terms:
+move:
+speed:3
+graphic:-2:0,40,16,40,16
+hitrange:2:0:8:8
+hitform:circle
+event:
+end
+page:2
+startterms:Abutton
+type:0
+terms:
+move:
+speed:0
+graphic:-1:0,0,0,0,0
+hitrange:0:0:0:0
+hitform:square
 event:
 end
 

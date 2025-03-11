@@ -711,7 +711,6 @@ msgopen:
 msg:Map.GenNet2Request2FemaleNavi1Stage5Dialogue1FaceNaviPurpleFemale
 msg:Map.GenNet2Request2FemaleNavi1Stage5Dialogue2FaceNaviPurpleFemale
 msg:Map.GenNet2Request2FemaleNavi1Stage5Dialogue3FaceNaviPurpleFemale
-ItemGet:0:123:3:
 editFlag:84:True
 msgclose:
 QuestEnd:

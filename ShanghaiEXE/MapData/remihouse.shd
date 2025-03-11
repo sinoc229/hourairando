@@ -348,6 +348,7 @@ ifEnd:1
 ifFlag:6:True:1
 msgopen:
 msg:Map.RemihouseSakuyaBattleStage5Dialogue1FaceRemilia
+ItemGet:0:87:0:
 msgclose:
 editFlag:155:True
 ifEnd:1

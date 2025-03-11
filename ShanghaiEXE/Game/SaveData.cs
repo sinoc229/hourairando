@@ -2842,6 +2842,7 @@ namespace NSGame
             
 
             int[,] sourcemap = new int[1000,2];
+            int[] dupemode = new int[1000];
 
             string[,] giftitems = new string[1000, 3];
 
@@ -2890,30 +2891,43 @@ namespace NSGame
                     {
                         //Console.WriteLine(line);
                         string newstr = line;
-
-                        newstr = line.Replace(searchtext, "");
-                        string mapstring = mapno.ToString();
-                        //newstr = line.Replace(",,", mapstring); //unsure if i need this, come back later?
-                        newstr = line.Replace(",,", ","+ mapstring+","); //unsure if i need this, come back later?
-                        //i defintely did need this, i'm a genius ^^^^
-                        //newstr = line.Replace(",,", ",-1,");
-                        
-                        newstr = newstr.Replace("Mystery:", "");
-                        /*
-                        Console.Write("BMD: ");
-                        Console.Write(newstr);
-
-                        Console.WriteLine();
-                        */
-                        scrambleid[totalmystery] = newstr.ToString();
-                        sourcemap[totalmystery,0] = int.Parse(mapstring);
-                        
                         string tempres = RemoveBeforeLastComma(newstr);
-                        sourcemap[totalmystery, 1] = int.Parse(tempres);
+                        int fuckstrings = int.Parse(tempres);
+
+                        int index = Array.IndexOf(dupemode,fuckstrings );
+
+                        if (index == -1)
+                        {
+
+                            newstr = line.Replace(searchtext, "");
+                            string mapstring = mapno.ToString();
+                            //newstr = line.Replace(",,", mapstring); //unsure if i need this, come back later?
+                            newstr = line.Replace(",,", "," + mapstring + ","); //unsure if i need this, come back later?
+                                                                                //i defintely did need this, i'm a genius ^^^^
+                                                                                //newstr = line.Replace(",,", ",-1,");
+
+                            newstr = newstr.Replace("Mystery:", "");
+                            /*
+                            Console.Write("BMD: ");
+                            Console.Write(newstr);
+
+                            Console.WriteLine();
+                            */
+                            scrambleid[totalmystery] = newstr.ToString();
+                            sourcemap[totalmystery, 0] = int.Parse(mapstring);
+
+                            //string tempres = RemoveBeforeLastComma(newstr);
+                            sourcemap[totalmystery, 1] = int.Parse(tempres);
+                            dupemode[totalmystery] = int.Parse(tempres);
 
 
+                            totalmystery++;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Found a dupe, discarding: " + totalmystery);
 
-                        totalmystery++;
+                        }
                     }
                     else if (line.Contains(gettext1) | line.Contains(gettext2) | line.Contains(gettext3))
                     {
@@ -3068,7 +3082,8 @@ namespace NSGame
             {
                 Randolist2[i, 0] = -99;
                 scrambleidfinal[i, 0] = -99;
-
+                scrambleidfinal[i, 1] = -99;
+                scrambleidfinal[i, 2] = -99;
             }
             
 
@@ -3270,7 +3285,7 @@ namespace NSGame
 
                                 break;
                             case 1:
-                                Console.Write("Subch: ");
+                                Console.Write("Sub chip: ");
 
 
                                 break;
@@ -4257,6 +4272,19 @@ namespace NSGame
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 if (array[i, 1] == number)
+                {
+                    return i; // Return the index of the row where the number is found
+                }
+            }
+            return -1; // Return -1 if the number is not found in the second column
+        }
+
+        public static int FindInColumn(int[,] array, int number, int column)
+        {
+            // Iterate through each row and check the value in the second column (index 1)
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                if (array[i, column] == number)
                 {
                     return i; // Return the index of the row where the number is found
                 }

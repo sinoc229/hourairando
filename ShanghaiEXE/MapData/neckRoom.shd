@@ -47,6 +47,7 @@ ifFlag:6:True:1
 msgopen:
 msg:Map.NeckRoomSpannerManBattleStage5Dialogue1FaceTsubakiNekku
 msg:Map.NeckRoomSpannerManBattleStage5Dialogue2FaceTsubakiNekku
+ItemGet:0:3:0:
 EditItem:9:True
 editFlag:1670:True
 msg:Map.NeckRoomSpannerManBattleStage5Dialogue3FaceTsubakiNekku

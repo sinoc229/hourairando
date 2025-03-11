@@ -137,7 +137,11 @@ namespace NSMap
             if (NSGame.Debug.MaskMapFile)
                 A1 = TCDEncodeDecode.EncMapScript(A1);
 
-            
+            if (this.save.ValList[28] < 0)
+            {
+                this.save.ValList[28] = 0;
+
+            }
 
             string[] strArray1 = A1.Split(',');
             int length1 = int.Parse(strArray1[0]);
@@ -379,116 +383,126 @@ namespace NSMap
 
                             var tempdex = FindNumberInLeftColumn(save.scrambleidfinal, tempdex2);
 
-
-                            //int tempdex = 169;
-
-                            random.itemType = save.scrambleidfinal[tempdex, 2];
-                            //number
-                            random.itemNumber = save.scrambleidfinal[tempdex, 3];
-
-                            int vaz = save.scrambleidfinal[tempdex, 3];
-                            string strz = vaz.ToString();
-                            random.getInfo = ShanghaiEXE.Translate(strz);
-
-                            random.itemSub = save.scrambleidfinal[tempdex, 4];
-
-                            string txt = "Found BMD ";
-                            string spc = " ";
-                            string typ = "";
-                            string name = "";
-                            switch (random.itemType)
+                            if (save.scrambleidfinal[tempdex, 2] != -99)
                             {
-                                case 0:
-                                    typ = "chip";
-                                    //AddOnBase.AddOnSet(itemNumber, 0). name;
-                                    ChipFolder chipFolder = new ChipFolder(null);
-                                    chipFolder.SettingChip(random.itemNumber + 1);
-                                    name = chipFolder.chip.name;
-                                    break;
-                                case 1:
-                                    typ = "subchip";
-                                    switch (random.itemNumber)
-                                    {
-                                        case 0:
-                                            name = ShanghaiEXE.Translate("MysteryData.HalfEnrgText");
-                                            break;
-                                        case 1:
-                                            name = ShanghaiEXE.Translate("MysteryData.FullEnrgText");
-                                            break;
-                                        case 2:
-                                            name = ShanghaiEXE.Translate("MysteryData.FirewallText");
-                                            break;
-                                        case 3:
-                                            name = ShanghaiEXE.Translate("MysteryData.OpenPortText");
-                                            break;
-                                        case 4:
-                                            name = ShanghaiEXE.Translate("MysteryData.Anti-VrsText");
-                                            break;
-                                        case 5:
-                                            name = ShanghaiEXE.Translate("MysteryData.VirusScnText");
-                                            break;
-                                        case 6:
-                                            name = ShanghaiEXE.Translate("MysteryData.CrakToolText");
-                                            break;
-                                    }
-                                    break;
-                                case 2:
-                                    typ = "add-on";
-                                    name = AddOnBase.AddOnSet(random.itemNumber, 0).name;
-                                    break;
-                                case 3:
-                                    typ = "other";
-                                    switch (random.itemNumber)
-                                    {
-                                        case 0:
-                                            name = ShanghaiEXE.Translate("MysteryData.HPMemoryText");
-                                            break;
-                                        case 1:
-                                            name = string.Format(ShanghaiEXE.Translate("MysteryData.RegUpText"), random.itemSub);
-                                            break;
-                                        case 2:
-                                            name = ShanghaiEXE.Translate("MysteryData.SubMemoryText");
-                                            break;
-                                        case 3:
-                                            name = ShanghaiEXE.Translate("MysteryData.CorePlusText");
-                                            break;
-                                        case 4:
-                                            name = string.Format(ShanghaiEXE.Translate("MysteryData.HertzUpText"), random.itemSub);
-                                            break;
-                                        case 5:
-                                            var bugPlural = random.itemSub > 1;
-                                            var bugGetStrFormat = bugPlural ? ShanghaiEXE.Translate("MysteryData.BugFragTextPlural") : ShanghaiEXE.Translate("MysteryData.BugFragText");
-                                            name = string.Format(bugGetStrFormat, random.itemSub);
-                                            break;
-                                        case 6:
-                                            var frzPlural = random.itemSub > 1;
-                                            var frzGetStrFormat = frzPlural ? ShanghaiEXE.Translate("MysteryData.FreezeFragTextPlural") : ShanghaiEXE.Translate("MysteryData.FreezeFragText");
-                                            name = string.Format(frzGetStrFormat, random.itemSub);
-                                            break;
-                                        case 7:
-                                            var errPlural = random.itemSub > 1;
-                                            var errGetStrFormat = errPlural ? ShanghaiEXE.Translate("MysteryData.ErrorFragTextPlural") : ShanghaiEXE.Translate("MysteryData.ErrorFragText");
-                                            name = string.Format(errGetStrFormat, random.itemSub);
-                                            break;
-                                        default:
 
-                                            name = "zenny/other";
-                                            break;
-                                        case 9:
-                                            name = "interior (junk)";
-                                            break;
-                                    }
+                                //int tempdex = 169;
 
-                                    break;
-                                default:
-                                    typ = "???";
-                                    break;
+                                random.itemType = save.scrambleidfinal[tempdex, 2];
+
+
+                                //number
+                                random.itemNumber = save.scrambleidfinal[tempdex, 3];
+
+                                int vaz = save.scrambleidfinal[tempdex, 3];
+                                string strz = vaz.ToString();
+                                random.getInfo = ShanghaiEXE.Translate(strz);
+
+                                random.itemSub = save.scrambleidfinal[tempdex, 4];
+
+                                string txt = "Found BMD ";
+                                string spc = " ";
+                                string typ = "";
+                                string name = "";
+                                switch (random.itemType)
+                                {
+                                    case 0:
+                                        typ = "chip";
+                                        //AddOnBase.AddOnSet(itemNumber, 0). name;
+                                        ChipFolder chipFolder = new ChipFolder(null);
+                                        chipFolder.SettingChip(random.itemNumber + 1);
+                                        name = chipFolder.chip.name;
+                                        break;
+                                    case 1:
+                                        typ = "subchip";
+                                        switch (random.itemNumber)
+                                        {
+                                            case 0:
+                                                name = ShanghaiEXE.Translate("MysteryData.HalfEnrgText");
+                                                break;
+                                            case 1:
+                                                name = ShanghaiEXE.Translate("MysteryData.FullEnrgText");
+                                                break;
+                                            case 2:
+                                                name = ShanghaiEXE.Translate("MysteryData.FirewallText");
+                                                break;
+                                            case 3:
+                                                name = ShanghaiEXE.Translate("MysteryData.OpenPortText");
+                                                break;
+                                            case 4:
+                                                name = ShanghaiEXE.Translate("MysteryData.Anti-VrsText");
+                                                break;
+                                            case 5:
+                                                name = ShanghaiEXE.Translate("MysteryData.VirusScnText");
+                                                break;
+                                            case 6:
+                                                name = ShanghaiEXE.Translate("MysteryData.CrakToolText");
+                                                break;
+                                        }
+                                        break;
+                                    case 2:
+                                        typ = "add-on";
+                                        name = AddOnBase.AddOnSet(random.itemNumber, 0).name;
+                                        break;
+                                    case 3:
+                                        typ = "other";
+                                        switch (random.itemNumber)
+                                        {
+                                            case 0:
+                                                name = ShanghaiEXE.Translate("MysteryData.HPMemoryText");
+                                                break;
+                                            case 1:
+                                                name = string.Format(ShanghaiEXE.Translate("MysteryData.RegUpText"), random.itemSub);
+                                                break;
+                                            case 2:
+                                                name = ShanghaiEXE.Translate("MysteryData.SubMemoryText");
+                                                break;
+                                            case 3:
+                                                name = ShanghaiEXE.Translate("MysteryData.CorePlusText");
+                                                break;
+                                            case 4:
+                                                name = string.Format(ShanghaiEXE.Translate("MysteryData.HertzUpText"), random.itemSub);
+                                                break;
+                                            case 5:
+                                                var bugPlural = random.itemSub > 1;
+                                                var bugGetStrFormat = bugPlural ? ShanghaiEXE.Translate("MysteryData.BugFragTextPlural") : ShanghaiEXE.Translate("MysteryData.BugFragText");
+                                                name = string.Format(bugGetStrFormat, random.itemSub);
+                                                break;
+                                            case 6:
+                                                var frzPlural = random.itemSub > 1;
+                                                var frzGetStrFormat = frzPlural ? ShanghaiEXE.Translate("MysteryData.FreezeFragTextPlural") : ShanghaiEXE.Translate("MysteryData.FreezeFragText");
+                                                name = string.Format(frzGetStrFormat, random.itemSub);
+                                                break;
+                                            case 7:
+                                                var errPlural = random.itemSub > 1;
+                                                var errGetStrFormat = errPlural ? ShanghaiEXE.Translate("MysteryData.ErrorFragTextPlural") : ShanghaiEXE.Translate("MysteryData.ErrorFragText");
+                                                name = string.Format(errGetStrFormat, random.itemSub);
+                                                break;
+                                            default:
+
+                                                name = "zenny/other";
+                                                break;
+                                            case 9:
+                                                name = "interior (junk)";
+                                                break;
+                                        }
+
+                                        break;
+                                    default:
+                                        typ = "???";
+                                        break;
+                                }
+
+                                Console.WriteLine($"{txt}{random.flugNumber}{spc}{typ}{spc}{name}");
+
                             }
-
-                            Console.WriteLine($"{txt}{random.flugNumber}{spc}{typ}{spc}{name}");
-
-
-
+                            else
+                            {
+                                Console.WriteLine("Nothing found! Putting in some zenny...");
+                                random.itemType = 3;
+                                random.itemNumber = 8;
+                                random.itemSub = 1000;
+                            }
                             //Console.WriteLine(save.scrambleidfinal[random.flugNumber, 0]);
 
 

@@ -16,7 +16,8 @@ using System.Windows.Forms;
 using NSMap;
 using NSShanghaiEXE.Map;
 using NSMap.Character;
-using System.Drawing;
+using Archipelago;
+using Archipelago.MultiClient.Net;
 
 namespace NSGame
 {
@@ -2316,6 +2317,8 @@ namespace NSGame
             }
         }
 
+        public object AllItems { get; private set; }
+
         public static void PadNumChange(int PadNum, int Button, int Value)
         {
             SaveData.Pad[PadNum, Button] = Value;
@@ -3531,10 +3534,22 @@ namespace NSGame
 
         public void AP_Connect()
         {
+            var session = ArchipelagoSessionFactory.CreateSession("localhost", 38281);
+            Console.WriteLine(session);
 
+            //ArchipelagoSession
+            LoginResult result = session.TryConnectAndLogin("Risk of Rain 2", "Ijwu", int(0b000);
 
 
         }
+
+        
+
+        private static void Connect(string server, string user, string pass)
+        {
+
+        }
+
 
 
         #region bad shuffling logic zone

@@ -4,6 +4,9 @@ using NSGame;
 using Common.Vectors;
 using System;
 using System.Drawing;
+using NSEvent;
+//using NSShanghaiEXE.Mapev
+
 
 namespace NSMap.Character
 {
@@ -36,6 +39,11 @@ namespace NSMap.Character
         public MapCharacterBase.ANGLE EndAngle;
         public bool floating;
         public bool noShadow;
+        public bool tester = false;
+        private EventManager em;
+        protected SaveData savedate;
+
+
 
         public virtual MapCharacterBase.ANGLE Angle
         {
@@ -66,6 +74,10 @@ namespace NSMap.Character
         {
             set
             {
+                APupdate();
+
+
+
                 this.animeflame = value;
                 if (animeflame <= this.walkanime)
                     return;
@@ -264,5 +276,58 @@ namespace NSMap.Character
             DOWNLEFT, // SOUTH
             none,
         }
+
+        public void APupdate() //seems like the best place to put this, since it runs every frame when not in combat or cutscene
+        {
+            //this is gonna spam a lot, test
+            if (tester == false)
+            {
+                tester = true;
+                //Console.WriteLine(savedate.ap_itemq);
+                /*
+                this.sound.PlaySE(SoundEffect.decide);
+                EventManager eventManager = new EventManager(this.parent, this.sound);
+                eventManager.AddEvent(new StatusHide(this.sound, eventManager, true, this.parent, this.savedate));
+                //eventManager.AddEvent(new InteriorSetting(this.sound, eventManager, this.parent, this.savedate));
+                eventManager.AddEvent(new StatusHide(this.sound, eventManager, false, this.parent, this.savedate));
+                this.parent.eventmanager.EventClone(eventManager);
+                this.parent.eventmanager.playevent = true;
+                */
+                /*
+                for (int i=0;i<9999;i++)
+                {
+                    if (savedate.apgive[i,6] == 0 )
+                        {
+
+                        //insert event hijack here???
+
+
+
+
+                        savedate.apgive[i, 6] = 1; //mark as recived
+                        savedate.ap_itemq++;
+                        }
+
+
+                }
+
+
+
+
+
+                savedate.ValList[198] = savedate.ap_itemq;
+
+                */
+
+
+
+
+                }
+
+
+
+        }
+
+        
     }
 }

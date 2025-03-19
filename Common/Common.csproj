@@ -37,6 +37,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Archipelago.MultiClient.Net, Version=6.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Archipelago.MultiClient.Net.6.6.0\lib\net45\Archipelago.MultiClient.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Archipelago.MultiClient.Net.6.6.0\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="NVorbis, Version=0.10.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NVorbis.0.10.4\lib\net45\NVorbis.dll</HintPath>
     </Reference>

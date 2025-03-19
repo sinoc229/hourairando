@@ -61,8 +61,14 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Archipelago.MultiClient.Net, Version=6.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Archipelago.MultiClient.Net.6.6.0\lib\net45\Archipelago.MultiClient.Net.dll</HintPath>
+    </Reference>
     <Reference Include="Costura, Version=3.3.3.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
       <HintPath>..\packages\Costura.Fody.3.3.3\lib\net40\Costura.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Archipelago.MultiClient.Net.6.6.0\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NVorbis, Version=0.10.0.3, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NVorbis.0.10.1\lib\net45\NVorbis.dll</HintPath>

@@ -202,12 +202,21 @@ namespace NSGame
 
 
         public string[] mapnames = new string[1000];
+
+
+        public int[,] apgive = new int[9999, 7];
+        public int ap_itemq = 0;
+
         public UnboundedMap map;
         public RandomMystery[] randomMystery;
 
         public void Load(Control parent = null)
         {
-            
+            for (int i = 0; i < 9999; i++)
+            {
+                apgive[i, 6] = -1;
+
+            }
 
             this.loadEnd = false;
             var loadAttemptedAndFailed = false;
@@ -731,6 +740,8 @@ namespace NSGame
 
             Maplootfinder();
 
+            AP_Connect();
+
             this.loadEnd = true;
         }
 
@@ -1188,7 +1199,7 @@ namespace NSGame
 
             
 
-        }
+        } //not used
 
         public ICollection<Dialogue> RetconSave()
         {
@@ -2319,6 +2330,14 @@ namespace NSGame
         {
             //function that's called when you hit newgame normally, we're hijacking this in part to set
             //freeplay stuff
+
+            for (int i = 0; i < 9999; i++)
+            {
+                apgive[i, 6] = -1;
+
+            }
+
+            ap_itemq = 0;
             this.manybattle = 0;
             this.HPmax = 200;
             this.HPnow = this.HPmax;
@@ -2829,8 +2848,16 @@ namespace NSGame
         }
 
 
+
         public void Maplootfinder()
         {
+
+            for (int i = 0; i < 9999; i++)
+            {
+                apgive[i, 6] = -1;
+
+            }
+
             var linenumb = 0;
             var mapno = 0;
             string txtname = "";
@@ -3500,6 +3527,17 @@ namespace NSGame
 
 
         }
+
+
+        public void AP_Connect()
+        {
+
+
+
+        }
+
+
+        #region bad shuffling logic zone
 
         static void ShuffleRows(int[,] array, int seed)
         {
@@ -4325,8 +4363,6 @@ namespace NSGame
         }
 
 
-
-
         public static string[] RemoveBlankEntries(string[] array)
         {
             // Use LINQ to filter out null or empty strings from the array
@@ -4393,6 +4429,6 @@ namespace NSGame
             return -1;  // Return -1 if the item is not found
         }
 
-
+        #endregion  
     }
 }

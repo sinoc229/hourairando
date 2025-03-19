@@ -463,5 +463,13 @@ namespace NSMap.Character.Menu
             backmenu,
             end,
         }
+
+
+        public void forcenetwork()
+        {
+
+
+
+        }
     }
 }

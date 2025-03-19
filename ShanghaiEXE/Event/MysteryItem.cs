@@ -17,8 +17,8 @@ namespace NSEvent
         private readonly MapField field;
         private readonly MysteryData mystery;
         private readonly SceneMap parent;
-        private bool message;
-        private bool setting;
+        public bool message;
+        public bool setting;
         private EventManager em;
         private int flagNo;
 
@@ -80,7 +80,7 @@ namespace NSEvent
             }
         }
 
-        private void ItemGet()
+        public void ItemGet()
         {
             this.flagNo = this.itemData.flugNumber;
             if (this.itemData.type == 0)
@@ -172,7 +172,7 @@ namespace NSEvent
                 this.savedata.GetRandomMystery[this.flagNo] = true;
         }
 
-        private void Eventmake()
+        public void Eventmake()
         {
             Console.WriteLine("getting mystery data?");
             

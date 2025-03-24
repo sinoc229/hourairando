@@ -61,6 +61,14 @@ namespace Common.Config
 
         public int Seed { get; set; } = 0;
 
+        public int IncludeHeaven { get; set; } = 0;
+
+        public int IncludeJobs { get; set; } = 0;
+
+        public string Username { get; set; } = "Change Me!";
+
+        public string APConnect { get; set; } = "archipelago.gg:00000";
+
         #region New
 
         [OptionalField(VersionAdded = 2)]
@@ -204,6 +212,14 @@ namespace Common.Config
                     config.Seed = int.Parse(configReader.ReadLine());
                     Console.WriteLine("New seed:");
                     Console.WriteLine(config.Seed);
+
+                    config.Username = configReader.ReadLine();
+                    Console.WriteLine("Username:");
+                    Console.WriteLine(config.Username);
+
+                    config.APConnect = configReader.ReadLine();
+                    Console.WriteLine("Connect to:");
+                    Console.WriteLine(config.APConnect);
 
                     config.ApplyNewFieldDefaults();
                     return config;

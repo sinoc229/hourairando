@@ -3311,12 +3311,35 @@ namespace NSGame
 
                                 //int code2 = CodeCheck(temp1, entry2);
                                 //Console.Write(code2 + " ");
-
+                                Console.Write(entry2);
 
                                 break;
                             case 1:
                                 Console.Write("Sub chip: ");
 
+                                switch (entry)
+                                {
+                                    case 0:
+                                        Console.Write("Half Energy");
+                                        break;
+                                    case 1:
+                                        Console.Write("Full Energy");
+                                        break;
+                                    case 2:
+                                        Console.Write("Firewall");
+                                        break;
+                                    case 3:
+                                        Console.Write("Open Port");
+                                        break;
+                                    case 4:
+                                        Console.Write("Virus Scan");
+                                        break;
+                                    case 5:
+                                        Console.Write("Crack Tool");
+                                        break;
+
+
+                                }
 
                                 break;
                             case 2:
@@ -3443,6 +3466,8 @@ namespace NSGame
                             string stupei = temp1.ToString();
                             string junpei = entry2.ToString();
 
+                            Console.Write(entry2);
+
                             //int code2 = CodeCheck(temp1, entry2);
                             //Console.Write(code2 + " ");
 
@@ -3451,6 +3476,32 @@ namespace NSGame
                         case 1:
                             Console.Write("Subch: ");
 
+                            switch (entry)
+                            {
+                                case 0:
+                                    Console.Write("Half Energy");
+                                    break;
+                                case 1:
+                                    Console.Write("Full Energy");
+                                    break;
+                                case 2:
+                                    Console.Write("Firewall");
+                                    break;
+                                case 3:
+                                    Console.Write("Open Port");
+                                    break;
+                                case 4:
+                                    Console.Write("Virus Scan");
+                                    break;
+                                case 5:
+                                    Console.Write("Crack Tool");
+                                    break;
+
+
+                            }
+
+                            //switch (entry)
+                                
 
                             break;
                         case 2:
@@ -3534,12 +3585,46 @@ namespace NSGame
 
         public void AP_Connect()
         {
-            var session = ArchipelagoSessionFactory.CreateSession("localhost", 38281);
+            //Console.WriteLine(ShanghaiEXE.Config.Username);
+
+            var session = ArchipelagoSessionFactory.CreateSession("archipelago.gg", 42391);
             Console.WriteLine(session);
+            LoginResult result;
 
             //ArchipelagoSession
-            LoginResult result = session.TryConnectAndLogin("Risk of Rain 2", "Ijwu", int(0b000);
+            try
+            {
+                result = session.TryConnectAndLogin("Shanghai.Exe", ShanghaiEXE.Config.Username, Archipelago.MultiClient.Net.Enums.ItemsHandlingFlags.AllItems);
+            }
+            catch(Exception e)
+            {
+                result = new LoginFailure(e.GetBaseException().Message);
+            }
 
+
+            if (!result.Successful)
+            {
+                LoginFailure failure = (LoginFailure)result;
+                string errorMessage = $"Failed to Connect";
+                foreach (string error in failure.Errors)
+                {
+                    errorMessage += $"\n    {error}";
+                }
+                foreach (Archipelago.MultiClient.Net.Enums.ConnectionRefusedError error in failure.ErrorCodes)
+                {
+                    errorMessage += $"\n    {error}";
+                }
+
+                MessageBox.Show(
+                            errorMessage,
+                            "AP error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+
+                return; // Did not connect, show the user the contents of `errorMessage`
+            }
+
+            var loginSuccess = (LoginSuccessful)result;
 
         }
 

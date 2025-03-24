@@ -320,10 +320,43 @@
                             </StackPanel>
                         </Grid>
                     </GroupBox>
-                    <CheckBox Content="{Binding LanguAge, ConverterParameter=IncludeHeaven, Converter={StaticResource RegionToTranslatedConverter}}"
+                    <CheckBox Content="{Binding Language, ConverterParameter=IncludeHeaven, Converter={StaticResource RegionToTranslatedConverter}}"
                               IsChecked="{Binding IncludeHeaven}"/>
                     <CheckBox Content="{Binding Language, ConverterParameter=IncludeJobs, Converter={StaticResource RegionToTranslatedConverter}}"
                               IsChecked="{Binding IncludeJobs}"/>
+                    <GroupBox Canvas.Top="130" Width="270" Header="{Binding Language, Converter={StaticResource RegionToTranslatedConverter}, ConverterParameter=Randomizer}">
+                        <Grid HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.Resources>
+                                <Style TargetType="StackPanel">
+                                    <Setter Property="Orientation" Value="Horizontal" />
+                                    <Setter Property="Margin" Value="2,5" />
+                                </Style>
+                                <Style TargetType="TextBox">
+                                    <Setter Property="Width" Value="50" />
+                                    <Setter Property="Margin" Value="5,0" />
+                                </Style>
+                            </Grid.Resources>
+                            <StackPanel Grid.Column="0">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Language, Converter={StaticResource RegionToTranslatedConverter}, ConverterParameter=Username}" />
+                                    <TextBox Text="{Binding Username}" Width="89" />
+                                    <TextBlock Text="N" RenderTransformOrigin="0,0" Width="135" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Language, Converter={StaticResource RegionToTranslatedConverter}, ConverterParameter=APConnect}" />
+                                    <TextBox Text="{Binding APConnect}" Width="89" />
+                                    <TextBlock Text="C" RenderTransformOrigin="0,0" Width="135" />
+                                </StackPanel>
+                            </StackPanel>
+
+                        </Grid>
+                    </GroupBox>
                 </StackPanel>
             </TabItem>
         </TabControl>

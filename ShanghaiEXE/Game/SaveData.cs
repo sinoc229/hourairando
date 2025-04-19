@@ -3294,6 +3294,7 @@ namespace NSGame
                         int typ = newsize[i, 2];
                         int entry = newsize[i, 3];
                         int entry2 = newsize[i, 4];
+                        int mdtype = newsize[i, 1];
 
                         switch (typ)
                         {
@@ -3309,9 +3310,22 @@ namespace NSGame
                                 string stupei = temp1.ToString();
                                 string junpei = entry2.ToString();
 
+                                
+
                                 //int code2 = CodeCheck(temp1, entry2);
                                 //Console.Write(code2 + " ");
                                 Console.Write(entry2);
+
+                                if (mdtype == 1)
+                                {
+                                    Console.Write(" ");
+                                    Console.Write("BMD");
+                                }
+                                else if (mdtype == 2)
+                                {
+                                    Console.Write(" ");
+                                    Console.Write("PMD");
+                                }
 
                                 break;
                             case 1:
@@ -3341,6 +3355,17 @@ namespace NSGame
 
                                 }
 
+                                if (mdtype == 1)
+                                {
+                                    Console.Write(" ");
+                                    Console.Write("BMD");
+                                }
+                                else if (mdtype == 2)
+                                {
+                                    Console.Write(" ");
+                                    Console.Write("PMD");
+                                }
+
                                 break;
                             case 2:
                                 Console.Write("Addon: ");
@@ -3348,6 +3373,17 @@ namespace NSGame
                                 string fuckwit = Addonnamegetter(entry);
                                 Console.Write(fuckwit + "  ");
                                 Console.Write(entry2);
+
+                                if (mdtype == 1)
+                                {
+                                    Console.Write(" ");
+                                    Console.Write("BMD");
+                                }
+                                else if (mdtype == 2)
+                                {
+                                    Console.Write(" ");
+                                    Console.Write("PMD");
+                                }
 
                                 break;
                             case 3:
@@ -3383,6 +3419,17 @@ namespace NSGame
                                         break;
 
 
+                                }
+
+                                if (mdtype == 1)
+                                {
+                                    Console.Write(" ");
+                                    Console.Write("BMD");
+                                }
+                                else if (mdtype == 2)
+                                {
+                                    Console.Write(" ");
+                                    Console.Write("PMD");
                                 }
 
                                 break;
@@ -3467,6 +3514,8 @@ namespace NSGame
                             var temp1 = entry + 1;
                             string stupei = temp1.ToString();
                             string junpei = entry2.ToString();
+                            
+                              
 
                             Console.Write(entry2);
 

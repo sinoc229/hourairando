@@ -3346,7 +3346,9 @@ namespace NSGame
                                 Console.Write("Addon: ");
 
                                 string fuckwit = Addonnamegetter(entry);
-                                Console.Write(fuckwit + " ");
+                                Console.Write(fuckwit + "  ");
+                                Console.Write(entry2);
+
                                 break;
                             case 3:
                                 Console.Write("Misc: ");

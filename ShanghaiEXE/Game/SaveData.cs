@@ -3354,6 +3354,9 @@ namespace NSGame
                                     case 6:
                                         Console.Write("Anti-Virus");
                                         break;
+                                    default:
+                                        Console.Write(entry);
+                                        break;
 
                                 }
 

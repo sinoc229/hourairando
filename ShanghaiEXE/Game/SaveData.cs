@@ -3351,7 +3351,9 @@ namespace NSGame
                                     case 5:
                                         Console.Write("Crack Tool");
                                         break;
-
+                                    case 6:
+                                        Console.Write("Anti-Virus");
+                                        break;
 
                                 }
 
@@ -3550,7 +3552,9 @@ namespace NSGame
                                 case 6:
                                     Console.Write("Anti-Virus");
                                     break;
-
+                                default:
+                                    Console.Write(entry);
+                                    break;
 
                             }
 

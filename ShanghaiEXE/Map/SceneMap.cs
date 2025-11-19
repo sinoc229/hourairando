@@ -133,20 +133,34 @@ namespace NSMap
             this.persistentEvents = new List<IPersistentEvent>();
         }
 
-        public void NewGame(int plus) //old, don't use
+        public void NewGame(int plus) //actual new game, if rando is off
         {
-            Console.WriteLine("Attempting newgame plus?");
-            this.player = new NSMap.Character.Player(this.sound, this, new Point((int)0.0, (int)0.0), (int)0.0, MapCharacterBase.ANGLE.DOWNLEFT, this.main, this.savedata, this.savedata.nowZ);
-            this.step = (SceneMap.STEPS)this.savedata.steptype;
-            this.stepover[0] = this.savedata.stepoverX;
-            this.stepover[1] = this.savedata.stepoverY;
-            this.player.stepCounter = this.savedata.stepCounter;
-            this.persistentEvents.Clear();
-            this.field = new MapField(this.sound, this.savedata.nowMap, this.savedata, this);
+            this.player = new NSMap.Character.Player(this.sound, this, new Point(32, 32), 0, MapCharacterBase.ANGLE.DOWN, this.main, this.savedata, 0.0f);
+            this.field = new MapField(this.sound, "aliceroom", this.savedata, this);
+            this.savedata.isJackedIn = false;
+            if (plus >= 0)
+            {
+                this.savedata.ValList[28] = plus;
+            }
+            else
+            {
+                switch (plus)
+                {
+                    case -2:
+                        this.savedata.GetAddon(new OwataManBody(AddOnBase.ProgramColor.dark));
+                        break;
+                    case -1:
+                        this.savedata.GetAddon(new Haisui(AddOnBase.ProgramColor.dark));
+                        this.savedata.GetAddon(new RShield(AddOnBase.ProgramColor.red));
+                        this.savedata.GetAddon(new LBeastRock(AddOnBase.ProgramColor.gleen));
+                        break;
+                }
+            }
             this.player.FieldSet(this.field);
             this.fadeColor = Color.Black;
             this.alpha = byte.MaxValue;
-            this.FadeStart(Color.FromArgb(0, this.fadeColor), 5);
+            this.player.NoPrint = true;
+            this.savedata.Init_newgame();
         }
 
         public void LoadGame()
@@ -165,7 +179,7 @@ namespace NSMap
             this.FadeStart(Color.FromArgb(0, this.fadeColor), 5);
         }
 
-        public void LoadGame2()
+        public void LoadGame2() //start randomizer
         {
             Console.WriteLine("Attempting newgame plus load (and setting position to alice's house)");
             this.savedata.isJackedIn = false; //change player to alice, don't run around the overworld

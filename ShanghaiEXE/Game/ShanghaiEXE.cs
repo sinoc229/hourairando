@@ -580,11 +580,10 @@ namespace NSGame
 
         public void NewGame(int plus)
         {
-            //load freeplay?
-            Console.WriteLine("Attempting free play load");
             SceneMain scene = (SceneMain)ShanghaiEXE.scene;
             scene.mapscene.NewGame(plus);
             ShanghaiEXE.scene = scene;
+
         }
 
         public void LoadGame()
@@ -599,7 +598,14 @@ namespace NSGame
         {
             Console.WriteLine("Attempting free play load");
             SceneMain scene = (SceneMain)ShanghaiEXE.scene;
-            scene.mapscene.LoadGame2();
+            if (ShanghaiEXE.Config.DoRando == 1)
+            {
+                scene.mapscene.LoadGame2();
+            }
+            else
+            {
+                scene.mapscene.NewGame(0);
+            }
             ShanghaiEXE.scene = scene;
         }
 

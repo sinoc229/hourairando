@@ -60,6 +60,7 @@
   <Text Key="FixEngrish" Value="원본 영어 수정" />
   <Text Key="IncludeHeaven" Value="Include Heaven" />
   <Text Key="IncludeJobs" Value="Include Jobs" />
+  <Text Key="DoRando" Value="Openworld Start (rec. for Randomizer)" />
   <Text Key="StretchFullscreen" Value="화면 비율 유지" />
   <Text Key="StretchFullscreenOpenGL" Value="OpenGL 모드 전용" />
 </data>

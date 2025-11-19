@@ -2477,6 +2477,139 @@ namespace NSGame
             this.chipThread.Start();
         }
 
+        public void Init_newgame()
+        {
+            this.manybattle = 0;
+            this.HPmax = 200;
+            this.HPnow = this.HPmax;
+            for (int index = 0; index < this.style.Length; ++index)
+                this.style[index] = new Style();
+            this.style[0].style = 0;
+            this.style[0].element = 0;
+            this.setstyle = 0;
+            this.havestyles = 1;
+            this.efolder = 0;
+            for (int index = 0; index < this.canselectmenu.Length; ++index)
+                this.canselectmenu[index] = true;
+            for (int index = 0; index < this.datelist.Length; ++index)
+                this.datelist[index] = false;
+            for (int index1 = 0; index1 < this.havechip.GetLength(0); ++index1)
+            {
+                for (int index2 = 0; index2 < this.havechip.GetLength(1); ++index2)
+                    this.havechip[index1, index2] = 0;
+            }
+            this.havechips.Clear();
+            for (int index1 = 0; index1 < this.shopCount.GetLength(0); ++index1)
+            {
+                for (int index2 = 0; index2 < this.shopCount.GetLength(1); ++index2)
+                    this.shopCount[index1, index2] = 0;
+            }
+            for (int index = 0; index < this.regularflag.Length; ++index)
+                this.regularflag[index] = false;
+            for (int index = 0; index < this.regularchip.Length; ++index)
+                this.regularchip[index] = 0;
+            this.HaveVirus = new Virus[3];
+            this.stockVirus = new List<Virus>();
+            for (int index = 0; index < this.runSubChips.Length; ++index)
+                this.runSubChips[index] = false;
+            this.interiors.Clear();
+            this.Money = 0;
+            this.MaxHz = 10;
+            this.MaxCore = 2;
+            this.NaviFolder = 5;
+            this.darkFolder = 1;
+            this.plusFolder = 0;
+            this.haveAddon.Clear();
+            this.equipAddon.Clear();
+            for (int index = 0; index < this.busterspec.Length; ++index)
+            {
+                this.busterspec[index] = 0;
+                this.busterspec[index] = 1;
+            }
+            for (int index1 = 0; index1 < this.chipFolder.GetLength(0); ++index1)
+            {
+                for (int index2 = 0; index2 < this.chipFolder.GetLength(1); ++index2)
+                {
+                    for (int index3 = 0; index3 < this.chipFolder.GetLength(2); ++index3)
+                    {
+                        this.chipFolder[index1, index2, index3] = 0;
+                        if (index1 == 0)
+                            this.chipFolder[index1, index2, index3] = index2 > 1 ? (index2 > 3 ? (index2 > 5 ? (index2 > 7 ? (index2 > 9 ? (index2 > 12 ? (index2 > 14 ? (index2 > 17 ? (index2 > 19 ? (index2 > 20 ? (index2 > 22 ? (index2 > 25 ? (index2 > 28 ? (index3 != 0 ? 0 : 190) : (index3 != 0 ? 2 : 188)) : (index3 != 0 ? 2 : 174)) : (index3 != 0 ? 1 : 158)) : (index3 != 0 ? 0 : 136)) : (index3 != 0 ? 1 : 121)) : (index3 != 0 ? 2 : 100)) : (index3 != 0 ? 1 : 62)) : (index3 != 0 ? 1 : 59)) : (index3 != 0 ? 0 : 59)) : (index3 != 0 ? 2 : 43)) : (index3 != 0 ? 0 : 43)) : (index3 != 0 ? 1 : 1)) : (index3 != 0 ? 0 : 1);
+                        if (index1 == 1)
+                            this.chipFolder[index1, index2, index3] = index2 > 1 ? (index2 > 3 ? (index2 > 5 ? (index2 > 7 ? (index2 > 10 ? (index2 > 13 ? (index2 > 15 ? (index2 > 17 ? (index2 > 21 ? (index2 > 25 ? (index2 > 28 ? (index3 != 0 ? 0 : 188) : (index3 != 0 ? 2 : 174)) : (index3 != 0 ? 1 : 158)) : (index3 != 0 ? 1 : 121)) : (index3 != 0 ? 2 : 43)) : (index3 != 0 ? 1 : 43)) : (index3 != 0 ? 2 : 100)) : (index3 != 0 ? 1 : 62)) : (index3 != 0 ? 2 : 59)) : (index3 != 0 ? 0 : 59)) : (index3 != 0 ? 1 : 1)) : (index3 != 0 ? 0 : 1);
+                        if (index1 == 2)
+                            this.chipFolder[index1, index2, index3] = index2 > 1 ? (index2 > 3 ? (index2 > 5 ? (index2 > 7 ? (index2 > 10 ? (index2 > 13 ? (index2 > 15 ? (index2 > 17 ? (index2 > 20 ? (index2 > 22 ? (index2 > 26 ? (index3 != 0 ? 0 : 188) : (index3 != 0 ? 2 : 174)) : (index3 != 0 ? 1 : 158)) : (index3 != 0 ? 1 : 121)) : (index3 != 0 ? 2 : 43)) : (index3 != 0 ? 1 : 43)) : (index3 != 0 ? 2 : 100)) : (index3 != 0 ? 1 : 62)) : (index3 != 0 ? 2 : 59)) : (index3 != 0 ? 0 : 59)) : (index3 != 0 ? 1 : 1)) : (index3 != 0 ? 0 : 1);
+                    }
+                }
+            }
+            for (int index = 0; index < this.stylepoint.Length; ++index)
+                this.stylepoint[index] = 0;
+            this.havefolder[1] = false;
+            this.havefolder[2] = false;
+            for (int index = 0; index < this.HaveVirus.Length; ++index)
+                this.HaveVirus[index] = null;
+            this.haveCaptureBomb = 0;
+            for (int index = 0; index < this.havePeace.Length; ++index)
+                this.havePeace[index] = 0;
+            this.mind = 0;
+            for (int index = 0; index < this.flagList.Length; ++index)
+                this.flagList[index] = false;
+            for (int index = 0; index < this.valList.Count; ++index)
+                this.valList[index] = 0;
+            for (int index = 0; index < this.getMystery.Length; ++index)
+                this.getMystery[index] = false;
+            for (int index = 0; index < this.getRandomMystery.Length; ++index)
+                this.getRandomMystery[index] = false;
+            for (int index1 = 0; index1 < this.bbsRead.GetLength(0); ++index1)
+            {
+                for (int index2 = 0; index2 < this.bbsRead.GetLength(1); ++index2)
+                    this.bbsRead[index1, index2] = false;
+            }
+            for (int index = 0; index < this.questEnd.Length; ++index)
+                this.questEnd[index] = false;
+            for (int index = 0; index < this.virusSPbustedFlug.Length; ++index)
+                this.virusSPbustedFlug[index] = false;
+            for (int index = 0; index < this.haveSubChis.Length; ++index)
+                this.haveSubChis[index] = 0;
+            for (int index = 0; index < this.virusSPbusted.Length; ++index)
+                this.virusSPbusted[index] = false;
+            for (int index = 0; index < this.questEnd.Length; ++index)
+                this.questEnd[index] = false;
+            this.mailread.Clear();
+            this.mail.Clear();
+            this.keyitem.Clear();
+            this.AddonReset();
+            this.fukasinArea = 0;
+            this.time = new byte[4];
+            this.haveSubMemory = 2;
+            this.havefolder[0] = true;
+            this.Regularlarge = 4;
+            this.datelist[0] = true;
+            this.datelist[42] = true;
+            this.datelist[58] = true;
+            this.datelist[61] = true;
+            this.datelist[99] = true;
+            this.datelist[120] = true;
+            this.datelist[135] = true;
+            this.datelist[157] = true;
+            this.datelist[173] = true;
+            this.datelist[187] = true;
+            this.datelist[189] = true;
+            this.shopThread = new Thread(new ThreadStart(this.ShopSave));
+            this.shopThread.Start();
+            this.flagThread = new Thread(new ThreadStart(this.FlugSave));
+            this.flagThread.Start();
+            this.valThread = new Thread(new ThreadStart(this.ValSave));
+            this.valThread.Start();
+            this.mysThread = new Thread(new ThreadStart(this.MysSave));
+            this.mysThread.Start();
+            this.ranThread = new Thread(new ThreadStart(this.RanSave));
+            this.ranThread.Start();
+            this.chipThread = new Thread(new ThreadStart(this.ChipSave));
+            this.chipThread.Start();
+        }
+
+
         public void TimePlus()
         {
 
@@ -3647,12 +3780,16 @@ namespace NSGame
         public void AP_Connect()
         {
             //Console.WriteLine(ShanghaiEXE.Config.Username);
-
+            //dummy this out for now
+            /*
             var session = ArchipelagoSessionFactory.CreateSession("archipelago.gg", 42391);
             Console.WriteLine(session);
             LoginResult result;
 
             //ArchipelagoSession
+
+
+            
             try
             {
                 result = session.TryConnectAndLogin("Shanghai.Exe", ShanghaiEXE.Config.Username, Archipelago.MultiClient.Net.Enums.ItemsHandlingFlags.AllItems);
@@ -3687,9 +3824,11 @@ namespace NSGame
 
             var loginSuccess = (LoginSuccessful)result;
 
+
+    */
         }
 
-        
+
 
         private static void Connect(string server, string user, string pass)
         {

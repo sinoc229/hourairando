@@ -320,10 +320,12 @@
                             </StackPanel>
                         </Grid>
                     </GroupBox>
+                    <!--
                     <CheckBox Content="{Binding Language, ConverterParameter=IncludeHeaven, Converter={StaticResource RegionToTranslatedConverter}}"
                               IsChecked="{Binding IncludeHeaven}"/>
-                    <CheckBox Content="{Binding Language, ConverterParameter=IncludeJobs, Converter={StaticResource RegionToTranslatedConverter}}"
-                              IsChecked="{Binding IncludeJobs}"/>
+                    -->
+                    <CheckBox Content="{Binding Language, ConverterParameter=DoRando, Converter={StaticResource RegionToTranslatedConverter}}"
+                              IsChecked="{Binding DoRando}"/>
                     <GroupBox Canvas.Top="130" Width="270" Header="{Binding Language, Converter={StaticResource RegionToTranslatedConverter}, ConverterParameter=Randomizer}">
                         <Grid HorizontalAlignment="Stretch">
                             <Grid.ColumnDefinitions>
@@ -340,6 +342,7 @@
                                     <Setter Property="Margin" Value="5,0" />
                                 </Style>
                             </Grid.Resources>
+                            <!--
                             <StackPanel Grid.Column="0">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="{Binding Language, Converter={StaticResource RegionToTranslatedConverter}, ConverterParameter=Username}" />
@@ -353,7 +356,8 @@
                                     <TextBox Text="{Binding APConnect}" Width="89" />
                                     <TextBlock Text="C" RenderTransformOrigin="0,0" Width="135" />
                                 </StackPanel>
-                            </StackPanel>
+                            
+                            </StackPanel> -->
 
                         </Grid>
                     </GroupBox>

@@ -57,9 +57,10 @@
   <Text Key="AdjustBustingLevel" Value="Enable Busting Level Downgrading" />
   <Text Key="AllowTurboSlowdown" Value="Allow Turbo Slowdown" />
   <Text Key="DisableBGMOverride" Value="Disable BGM Override" />
-  <Text Key="FixEngrish" Value="Fix Original English" />
-  <Text Key="IncludeHeaven" Value="Include Heaven" />
+  <Text Key="FixEngrish" Value="Fix old translation" />
+  <Text Key="IncludeHeaven" Value="Include Heaven" /> <!-- some twitter moron is gonna get on me if i keep this as 'engrish'-->
   <Text Key="IncludeJobs" Value="Include Jobs" />
+  <Text Key="DoRando" Value="Openworld Start (rec. for Randomizer)" />
   <Text Key="StretchFullscreen" Value="Maintain Aspect Ratio" />
   <Text Key="StretchFullscreenOpenGL" Value="OpenGL mode only" />
 </data>

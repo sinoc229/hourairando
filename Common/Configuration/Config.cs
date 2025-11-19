@@ -59,9 +59,11 @@ namespace Common.Config
 
         public bool ShowDialogueTester { get; set; } = false;
 
-        public int Seed { get; set; } = 0;
+        public int Seed { get; set; } = 123123;
 
         public int IncludeHeaven { get; set; } = 0;
+
+        public int DoRando { get; set; } = 1;
 
         public int IncludeJobs { get; set; } = 0;
 
@@ -220,6 +222,10 @@ namespace Common.Config
                     config.APConnect = configReader.ReadLine();
                     Console.WriteLine("Connect to:");
                     Console.WriteLine(config.APConnect);
+
+                    config.DoRando = int.Parse(configReader.ReadLine());
+                    Console.WriteLine("Do randomizer:");
+                    Console.WriteLine(config.DoRando);
 
                     config.ApplyNewFieldDefaults();
                     return config;

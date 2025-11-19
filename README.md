@@ -2,30 +2,26 @@
 
 
 # ShanghaiEXE Freeplay mod
-Fork of Shanghai EXE (as of SHNecro's 8/22/23 commit) that faucilitates freeplay, randomization and Multiworld compatability.
+Fork of Shanghai EXE (as of SHNecro's 8/22/23 commit) that faucilitates freeplay, adds unused content and randomization.
 
-Currently early in dev, no actual rando features yet. 
-Currently only supports freeplay.
-
-The end goal is a fully realised randomizer with Arcapeligo support. 
-(Maybe finish up the remaining unfinished chips and Cirno BX, if there's demand)
 
 # Features
-Start a new game in the post game, with no side content completed
-(at the moment there's no extra blockers, they may be added later once logic is rigurously tested)
-
-Change the difficulty any time at Alice's HP
-
-New boss fights! Youmu, Yuyuko, Orin, Flandre, Mima, and ShanghaiDS are now fixed up and avalible.
-(Yuyuko, Orin and Mima don't include navi chips)
-
-New chips! Dark/DX versions of older chips added,as well as a dark chip for Kikuri
-
-Gauntlent fights from the old demo now avalible in the main game, reward otherwise unobtainable chips
-
-Styles are now 4x faster to aquire
-
-Number trader items now spread around new BMD's (located in net Squares)
+-BMG/PMD randomization
+-Optional (but recommended) Open world/postgame start
+-Items obtained during the course of the story are redistributed to new BMD's
+-Difficulty selection (in Alice's PC, the red Sprite)
+-Added super chip trader
+-Number Trader items are now spread around new BMD's
+-Style are now aproximently 4 times faster to aquire
+-Added in hidden Gauntlet fights that reward new chips (or whatever the randomizer decides to give!)
+-Added new Dark chips, and a few previously unobtainable chip codes
+-Added refights for bosses that previously lacked them (Okuu, Kikuri)
+-Relaxed a couple of the Heaven (post game) door requirements to lower grinding in a randomizer setting
+-Added previously unseen bosses (Orin, Yuyuko, Flandre, Mima)
+ --Dark Shanghai and Beast-Out Cir no are in the code but less finished, they may come later once I get comfortable with the boss code
+-Added new condition to get to secret final bosses (Get the 4 new navi dark chips)
+-Spoiler log for randomizer, if you're stuck
+-Capcom copyrighted stuff obliterated from orbit (If i missed anything, please report)
 
 
 # Future goals

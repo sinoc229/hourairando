@@ -121,7 +121,7 @@
   <!-- あっ　チップ！？あげますよもう！使いこなせませんでしたし！ -->
   <Dialogue Key="Map.UraNetSquare2Request12ChinpiraStage3Dialogue2FaceNaviPurplePunk" Value="You want the chip?! Take it!,It’s useless for me anyways!" Face="NaviPurplePunk" Mono="False" />
   <!-- こんなにたくさんいらないんだけど････ -->
-  <Dialogue Key="Map.UraNetSquare2Request12ChinpiraStage3Dialogue3FaceShanghai" Value="(What am I going to do with,all these chips....?)" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.UraNetSquare2Request12ChinpiraStage3Dialogue3FaceShanghai" Value="(Normally this would reward a,bunch of random chips， but it,screws with the randomizer...)" Face="Shanghai" />
   <!-- え！？　たりない！？なんなら全部持っていってください！！ -->
   <Dialogue Key="Map.UraNetSquare2Request12ChinpiraStage3Dialogue4FaceNaviPurplePunk" Value="Did I displease you?! Please!,Spare me! Have more chips!" Face="NaviPurplePunk" Mono="False" />
   <!-- （まあいっか） -->
@@ -184,4 +184,5 @@
   <Dialogue Key="Map.UraNetSquare2PostgamePurpleNaviDialogue4" Value="Pssh，get real.,They’re even trying to recruit,with some civvy as a mascot." Face="NaviPurpleFemale" Mono="False" />
   <Dialogue Key="Map.UraNetSquare2PostgamePunk1Dialogue1" Value="You want something?,No?,Then why’re you botherin’ me?" Face="NaviPurplePunk" Mono="False" />
   <Dialogue Key="Map.UraNetSquare2PostgamePunk2Dialogue1" Value="D-Dark Chips....,Can anyone.... spare some,Dark Chips....?" Face="NaviPurplePunk" Mono="False" />
+  <Dialogue Key="blindleafguy_explination" Value="(Check the GMD to the,right to get the quest item)" Face="Shanghai" />
 </data>

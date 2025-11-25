@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <data>
   <!-- セカイウラスクエア -->
   <Text Key="Map.UraNetSquare2Name" Value="セカイウラスクエア" />
@@ -121,7 +121,7 @@
   <!-- あっ　チップ！？あげますよもう！使いこなせませんでしたし！ -->
   <Dialogue Key="Map.UraNetSquare2Request12ChinpiraStage3Dialogue2FaceNaviPurplePunk" Value="あっ　チップ！？,あげますよもう！,使いこなせませんでしたし！" Face="NaviPurplePunk" Mono="False" />
   <!-- こんなにたくさんいらないんだけど････ -->
-  <Dialogue Key="Map.UraNetSquare2Request12ChinpiraStage3Dialogue3FaceShanghai" Value="こんなにたくさん,いらないんだけど････" Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.UraNetSquare2Request12ChinpiraStage3Dialogue3FaceShanghai" Value="こんなにたくさん,いらないんだけど････" Face="Shanghai" />
   <!-- え！？　たりない！？なんなら全部持っていってください！！ -->
   <Dialogue Key="Map.UraNetSquare2Request12ChinpiraStage3Dialogue4FaceNaviPurplePunk" Value="え！？　たりない！？,なんなら全部,持っていってください！！" Face="NaviPurplePunk" Mono="False" />
   <!-- （まあいっか） -->
@@ -184,4 +184,5 @@
   <Dialogue Key="Map.UraNetSquare2PostgamePurpleNaviDialogue4" Value="現実感のない事はよく言うよな,どうせどこかの民間人連れてきて,マスコットに使ってるくせによ" Face="NaviPurpleFemale" Mono="False" />
   <Dialogue Key="Map.UraNetSquare2PostgamePunk1Dialogue1" Value="何か用かい？,無い？,じゃ何で話しかけたんだい？" Face="NaviPurplePunk" Mono="False" />
   <Dialogue Key="Map.UraNetSquare2PostgamePunk2Dialogue1" Value="ダっダークチっプ････,だ、誰か････俺にダークちップを,くれル人････い、いるか････？" Face="NaviPurplePunk" Mono="False" />
+  <Dialogue Key="blindleafguy_explination" Value="[(Check the GMD to the,right to get the quest item)]" Face="Shanghai" />
 </data>

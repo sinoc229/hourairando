@@ -23,4 +23,7 @@
   <Dialogue Key="Map.DeepUra1End1" Value="Unfortunately，you’ve reached,the end of implemented content." Face="Sprite" />
   <Dialogue Key="Map.DeepUra1End2" Value="Please back up your save,before exploring this incomplete,area to avoid setting flags." Face="Sprite" />
   <Dialogue Key="Map.DeepUra1End3" Value="The area entrance cutscene,will reset at the end of this,message." Face="Sprite" />
+  <Dialogue Key="" Value="You dare enter my domain?" Face="FlandreAngry" />
+  <Dialogue Key="deepnet_flanders1" Value="You dare challange ,Lord Mima?" Face="FlandreAngry" />
+  <Dialogue Key="deep_fightquestion1" Value="Fight the,final bosses?" Face="Shanghai" />
 </data>

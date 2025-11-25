@@ -490,8 +490,9 @@
   <Text Key="Save.BackupCorrupted" Value="The backup savegame has also failed to load." />
   <Text Key="Save.BackupNotFound" Value="No backup was able to be found." />
   <Dialogue Key="" Value="GO FIND THE P-CODES,AND ID’S TO GET,PAST THE CUBES!" Face="Ghost" />
-  <Dialogue Key="Rando_goaround" Value="FIND DS CHIPS:,OKUU RAN YORIHIME, AND MIMA" Face="0,0" />
+  <Dialogue Key="Rando_goaround" Value="FIND THE P-CODES AND,ID’S TO GET TO THE,DEEP NET!" Face="0,0" />
   <Dialogue Key="" Value="I’m the final boss of the,randomizer.,Wana fight?" Face="FlandreNormal" />
   <Dialogue Key="Rando_Flandrefightstart" Value="I’m the final boss of the,randomizer. " Face="FlandreNormal" />
   <Dialogue Key="Rando_fightquestion" Value="Fight this boss?" Face="Shanghai" />
+  <Dialogue Key="" Value="(Check the GMD to the right for,the quest item)" Face="Shanghai" />
 </data>

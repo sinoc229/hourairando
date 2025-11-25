@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <data>
   <Text Key="" Value="" />
   <Dialogue Key="Debug.UnimplementedText" Value="[FIRST LINE],[TEXT NOT IMPLEMENTED],[THIRD LINE]" Face="Sprite" Mono="False" />
@@ -470,7 +470,6 @@
   <Dialogue Key="Retcon.0550CrimDexEnabled" Value="일리걸 라이브러리 추가." Face="Sprite" Mono="False" />
   <Dialogue Key="Retcon.0550WIPEndgameReset" Value="임시로 추가되었던,포스트게임 전투 초기화." Face="Sprite" Mono="False" />
   <Dialogue Key="Retcon.0550HeavenJackOut" Value="화이트 헤븐 에리어에서,플러그아웃." Face="Sprite" Mono="False" />
-
   <Text Key="Save.SaveFailedTitle" Value="세이브에 실패했습니다!" />
   <Text Key="Save.SaveFailed" Value="세이브 과정에서 문제가 발생했습니다.&#xA;&#xD;&#xA;&#xD;최신 버전으로 게임을 업데이트하는 것이 권장됩니다.&#xA;&#xD;&#xA;&#xD;현재 발생한 버그를 https://gitgud.io/SHNecro/shanghaiexe/-/issues나 게임을 다운로드한 곳에 제보해 주십시오." />
   <Text Key="Save.SaveRetained" Value="이전의 세이브 파일을 백업 파일에서 복구했습니다.&#xA;&#xD;&#xA;&#xD;게임에 복귀하면 ESC 키를 눌러 시작 화면으로 돌아가십시오." />
@@ -480,4 +479,5 @@
   <Text Key="Save.BackupRestored" Value="이전의 세이브 파일을 백업 파일에서 복구했습니다." />
   <Text Key="Save.BackupCorrupted" Value="백업 세이브 파일 또한 로딩에 실패했습니다." />
   <Text Key="Save.BackupNotFound" Value="백업 세이브 파일을 찾을 수 없습니다." />
+  <Dialogue Key="" Value="[(Check the GMD to the right for,the quest item)]" Face="Shanghai" />
 </data>

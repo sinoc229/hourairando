@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <data>
   <Text Key="" Value="" />
   <Dialogue Key="Debug.UnimplementedText" Value="[FIRST LINE],[TEXT NOT IMPLEMENTED],[THIRD LINE]" Face="Sprite" Mono="False" />
@@ -480,7 +480,6 @@
   <Dialogue Key="Retcon.0550CrimDexEnabled" Value="イリーガルライブラリを,追加しました" Face="Sprite" Mono="False" />
   <Dialogue Key="Retcon.0550WIPEndgameReset" Value="臨時で仕掛けてた,バリアー等とのバトルを,リセットしました" Face="Sprite" Mono="False" />
   <Dialogue Key="Retcon.0550HeavenJackOut" Value="バリアー等の実装により,ホワイトヘブンエリアから,プラグアウトさせました" Face="Sprite" Mono="False" />
-
   <Text Key="Save.SaveFailedTitle" Value="セーブ失敗！" />
   <Text Key="Save.SaveFailed" Value="セーブの途中に問題が発生しました。&#xA;&#xD;&#xA;&#xD;最新バージョンへのアップデートをお勧めします。&#xA;&#xD;&#xA;&#xD;最新バージョンでプレイしてる場合は、今起きたバグをhttps://gitgud.io/SHNecro/shanghaiexe/-/issuesやこのゲームをＤＬした所に通報して下さい。" />
   <Text Key="Save.SaveRetained" Value="正常的に作動するセーブファイルをバックアップから読み込みました。&#xA;&#xD;&#xA;&#xD;ゲームに戻ると'ESC'キーで最初の画面に戻って下さい" />
@@ -490,4 +489,5 @@
   <Text Key="Save.BackupRestored" Value="以前のセーブファイルをバックアップから読み込みました" />
   <Text Key="Save.BackupCorrupted" Value="バックアップ,セーブファイルの,読み込みに失敗しました" />
   <Text Key="Save.BackupNotFound" Value="バックアップ,セーブファイルが,見つかりませんでした" />
+  <Dialogue Key="" Value="[(Check the GMD to the right for,the quest item)]" Face="Shanghai" />
 </data>

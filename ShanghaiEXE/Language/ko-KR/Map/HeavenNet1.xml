@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <data>
   <!-- ホワイトヘブンエリア１ -->
   <Text Key="Map.HeavenNet1Name" Value="화이트 헤븐 에리어 1" />
@@ -125,4 +125,5 @@
   <Dialogue Key="Map.HeavenNet1BarrierUnlockScanHealingCheckFailure" Value="대상의 확인에 실패하였습니다:,반만의 상처를 치료할 수 있는,대의사" Face="None" Mono="False" />
   <Text Key="Map.HeavenNet1GhostEnemyName" Value="？？？？" />
   <Dialogue Key="Map.HeavenNet1Barrier1EscapeDialogue1" Value="배리어가 재생하고 있는 것 같아.,다시 한 번 확실하게 준비해서,단박에 해결하자，앨리스." Face="Shanghai" Mono="False" />
+  <Dialogue Key="rando_goaround" Value="[FIND THE 4,FORBIDDEN DARK CHIPS]" Face="0,0" />
 </data>

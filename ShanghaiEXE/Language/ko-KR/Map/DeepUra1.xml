@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <data>
   <Text Key="Map.DeepUra1Name" Value="딥 에리어 1" />
   <Dialogue Key="Map.DeepUra1EntryCutsceneStage1Dialogue1FaceCirno" Value="[Ahahahahaha!,Good job making it this far!]" Face="Cirno" Mono="False" />
@@ -20,4 +20,7 @@
   <Dialogue Key="Map.DeepUra1EntryCutsceneStage6Dialogue2FaceShanghai" Value="[Everything’s just fine.]" Face="Shanghai" Mono="False" />
   <Dialogue Key="Map.DeepUra1Shop1ShopIntro" Value="[--ndor vendor vendor ven--,           --nything you like?]" Face="Sheet10Face9Blank" Auto="True" />
   <Dialogue Key="Map.DeepUra1Shop2ShopIntro" Value="[--ndor vendor vendor ven--,           --nything you like?]" Face="Sheet10Face8Blank" Auto="True" />
+  <Dialogue Key="" Value="[You dare enter my domain?]" Face="FlandreAngry" />
+  <Dialogue Key="deepnet_flanders1" Value="[You dare challange ,Lord Mima?]" Face="FlandreAngry" />
+  <Dialogue Key="deep_fightquestion1" Value="[Fight the,final bosses?]" Face="Shanghai" />
 </data>

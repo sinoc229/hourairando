@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <data>
   <!-- ROM首領の部屋 -->
   <Text Key="Map.RombaseBossroomName" Value="ROM 두령의 방" />
@@ -78,4 +78,6 @@
   <Dialogue Key="Map.RombaseBossroomChapter7EventsStage3Dialogue3FaceHoodedFace" Value="그리고 그 실험은,ROM이 지배하는 세계로 향하는,첫걸음이 될 것이다!" Face="HoodedFace" Mono="False" />
   <!-- アハハハ！アハハハハハハ！ -->
   <Dialogue Key="Map.RombaseBossroomChapter7EventsStage3Dialogue4FaceHoodedFace" Value="아하하하!,아하하하하하하!" Face="HoodedFace" Mono="False" />
+  <Dialogue Key="" Value="[Fight Kikuri?]" Face="YoungAlice" />
+  <Dialogue Key="kikurrefight_1" Value="[Fight Kikuri]" Face="KikuriHuman" />
 </data>

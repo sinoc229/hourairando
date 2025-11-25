@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <data>
   <!-- セカイウラスクエア -->
   <Text Key="Map.UraNetSquare2Name" Value="세계 우라 스퀘어" />
@@ -121,7 +121,7 @@
   <!-- あっ　チップ！？あげますよもう！使いこなせませんでしたし！ -->
   <Dialogue Key="Map.UraNetSquare2Request12ChinpiraStage3Dialogue2FaceNaviPurplePunk" Value="아，칩!?,드，드리겠습니다!,잘 쓰지도 못 했던 거!" Face="NaviPurplePunk" Mono="False" />
   <!-- こんなにたくさんいらないんだけど････ -->
-  <Dialogue Key="Map.UraNetSquare2Request12ChinpiraStage3Dialogue3FaceShanghai" Value="이렇게까지 많이,필요한 것도 아닌데...." Face="Shanghai" Mono="False" />
+  <Dialogue Key="Map.UraNetSquare2Request12ChinpiraStage3Dialogue3FaceShanghai" Value="이렇게까지 많이,필요한 것도 아닌데...." Face="Shanghai" />
   <!-- え！？　たりない！？なんなら全部持っていってください！！ -->
   <Dialogue Key="Map.UraNetSquare2Request12ChinpiraStage3Dialogue4FaceNaviPurplePunk" Value="예!? 더 필요하다구요!?,뭣하면 그냥 전부 다,가져가세요!!" Face="NaviPurplePunk" Mono="False" />
   <!-- （まあいっか） -->
@@ -184,4 +184,5 @@
   <Dialogue Key="Map.UraNetSquare2PostgamePurpleNaviDialogue4" Value="누가 보면 만화 더빙인 줄 알겠네.,어차피 근처 민간인 끌고 와서,마스코트로 써먹을 거면서." Face="NaviPurpleFemale" Mono="False" />
   <Dialogue Key="Map.UraNetSquare2PostgamePunk1Dialogue1" Value="용건 있나?,없나?,그럼 왜 말 걸었나?" Face="NaviPurplePunk" Mono="False" />
   <Dialogue Key="Map.UraNetSquare2PostgamePunk2Dialogue1" Value="나 이렇게.... 오래 있을 수 없소....,다크칩.... 다크칩 좀,갔다 주시오...." Face="NaviPurplePunk" Mono="False" />
+  <Dialogue Key="blindleafguy_explination" Value="[(Check the GMD to the,right to get the quest item)]" Face="Shanghai" />
 </data>

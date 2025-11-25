@@ -453,7 +453,7 @@ namespace NSGame
                         if (flag)
                             str = TCDEncodeDecode.DecryptString(streamReader.ReadLine(), SaveData.pass);
                         string[] strArray6 = str.Split('/');
-                        //this is shop delated, figgure out how it's zeroing them out
+                        //this is shop related, figgure out how it's zeroing them out
                         int index2 = -1;
                         for (int index1 = 0; index1 < this.shopCount.GetLength(0); ++index1)
                         {
@@ -2479,6 +2479,8 @@ namespace NSGame
 
         public void Init_newgame()
         {
+            //the old newgame function, for the not sandbox mode
+
             this.manybattle = 0;
             this.HPmax = 200;
             this.HPnow = this.HPmax;
@@ -3507,7 +3509,7 @@ namespace NSGame
                                 break;
                             case 2:
                                 Console.Write("Addon: ");
-
+                                //todo: make dictionary to convery internal names to names that appear in navicust
                                 string fuckwit = Addonnamegetter(entry);
                                 Console.Write(fuckwit + "  ");
                                 Console.Write(entry2);
@@ -3838,6 +3840,8 @@ namespace NSGame
 
 
         #region bad shuffling logic zone
+
+        //ima be real with you cheif i was out of my element on this one, so it's a lot of github code
 
         static void ShuffleRows(int[,] array, int seed)
         {

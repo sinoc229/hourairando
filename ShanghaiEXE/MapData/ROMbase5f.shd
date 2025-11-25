@@ -41,7 +41,7 @@ hitform:circle
 event:
 msgopen:
 msg:Enemy.KikuriName1
-question:Rando_fightquestion:Map.ExOmakeExtra5Stage1Dialogue4Options
+question:kikurrefight_1:Map.ExOmakeExtra5Stage1Dialogue4Options
 BranchHead:1
 msgclose:
 BranchEnd:
@@ -70,7 +70,7 @@ hitform:circle
 event:
 msgopen:
 msg:Enemy.KikuriName2
-question:Rando_fightquestion:Map.ExOmakeExtra5Stage1Dialogue4Options
+question:kikurrefight_1:Map.ExOmakeExtra5Stage1Dialogue4Options
 BranchHead:1
 msgclose:
 BranchEnd:

@@ -1,4 +1,4 @@
-![Splash screen](https://i.imgur.com/yn7YYdE.jpg)
+![Splash screen](https://i.imgur.com/3un2Qq8.png)
 
 
 # ShanghaiEXE Randomizer mod

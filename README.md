@@ -1,7 +1,7 @@
 ![Splash screen](https://i.imgur.com/3un2Qq8.png)
 
 
-# ShanghaiEXE Randomizer mod
+# Shanghai.EXE Genso Network Randomizer
 Fork of Shanghai EXE (as of SHNecro's 8/22/23 commit) that faucilitates freeplay, adds new and unused content, randomization and some new features.
 
 Randomization is on by default, but can be disabled by chaning the seed to 0 and turning off the Randomizer start in the key config tool.
@@ -64,7 +64,7 @@ CirnoBX and ShanghaiDS (partialy done in code, shanghai moreso)
 
 Unique boss music?
 
-### Known issues
+## Known issues
 I can't get the map editor to compile, so the included one is just the binary from the old version
 
 Spoiler log lists internal names of add-ons, not in game names (most of them are romanized versions of the BN equivalents)
@@ -83,10 +83,10 @@ I'm not finishing up Online PVP. Don't ask.
 
 Omake room causes crashes (It's content has been distributed out to the rest of the game anyway, so it shouldn't matter much)
 
-### Legal
+## Legal
 
 This version of the game is based off of SHNecro's continuation of the game. He dosn't maintain a public presence and seems to be MIA, so if he makes himself known I'll work with him to keep this licensed apropriately.
 
 Due to the orgional game getting shut down, reverse engineered and then updated by an anon it's legal history is hard to track, so we're going be assume it's abandonware.
 
-This game and code are licensed STRICTLY under a CC-NC license. You can do whatever you want with it, but if you try to make money off of it we'll kill you in real roblox.
+This game and code are licensed STRICTLY under a CC-NC license. You can do whatever you want with it, but don't make any money off it.

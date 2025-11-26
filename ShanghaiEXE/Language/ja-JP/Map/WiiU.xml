@@ -1,8 +1,10 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <data>
   <Text Key="Map.WiiUName" Value="最新ゲーム機の電脳" />
   <Dialogue Key="Map.WiiUSprite1Stage1Dialogue1FaceSprite" Value="アップデートパッチガ,インストール　カンリョウシマシタ" Face="Sprite" Mono="False" />
   <Dialogue Key="Map.WiiUSprite1Stage1Dialogue2FaceSprite" Value="ジカイキドウジニ,テキヨウサレマス" Face="Sprite" Mono="False" />
   <Dialogue Key="Map.WiiUSprite2Stage1Dialogue1FaceSprite" Value="コントローラーノ　ガメンダケデ,アソベルゲームモ,アルンデスヨ" Face="Sprite" Mono="False" />
   <Dialogue Key="Map.WiiUSprite2Stage1Dialogue2FaceSprite" Value="チャンネルセンソウカラ,カイホウサレルッテ　コトデス！" Face="Sprite" Mono="False" />
+  <Dialogue Key="wiiu_shitpost1" Value="[Should we tell them?]" Face="Shanghai" />
+  <Dialogue Key="wiiu_shitpost2" Value="[...,Let’s leave them alone.,]" Face="Alice" />
 </data>

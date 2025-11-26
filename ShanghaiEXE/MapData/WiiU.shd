@@ -116,7 +116,8 @@ event:
 msgopen:
 msg:Map.WiiUSprite1Stage1Dialogue1FaceSprite
 msg:Map.WiiUSprite1Stage1Dialogue2FaceSprite
-msg:Map.Wiiu.shitpost1
+msg:wiiu_shitpost1
+msg:wiiu_shitpost2
 msgclose:
 end
 

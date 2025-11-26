@@ -31,7 +31,7 @@ hitform:circle
 event:
 msgopen:
 msg:Map.HospitalNet2BossEventStage5Dialogue4FaceUtsuhoDark
-question:Map.ExOmakeExtra1Stage1Dialogue4QuestionFaceSprite:Map.ExOmakeExtra5Stage1Dialogue4Options
+question:Rando_fightquestion:Map.ExOmakeExtra5Stage1Dialogue4Options
 BranchHead:1
 msgclose:
 BranchEnd:
@@ -57,7 +57,7 @@ hitform:circle
 event:
 msgopen:
 msg:Map.HospitalNet2BossEventStage3Dialogue10FaceUtsuhoDark
-question:Map.ExOmakeExtra1Stage1Dialogue4QuestionFaceSprite:Map.ExOmakeExtra5Stage1Dialogue4Options
+question:Rando_fightquestion:Map.ExOmakeExtra5Stage1Dialogue4Options
 BranchHead:1
 msgclose:
 BranchEnd:
@@ -65,7 +65,7 @@ BranchHead:0
 msgclose:
 battle:0:4:3:0:1:1:1:0::60:3:4:1:1:1:1:0::0:4:5:2:1:1:1:0::0:0:0:False:True:False:False:VScybeast:0
 editFlag:1751:True
-msg:Map.HosTVevEventStage9Dialogue1FaceUtsuhoDark
+msg:Debug.UnimplementedText
 fade:30:0:0:0:0:True
 bgmon:hospital
 HP:2000:True
@@ -261,6 +261,7 @@ msg:Map.Hospital2fRoomChapter5EventsStage1Dialogue6FaceShanghai
 msg:Map.Hospital2fRoomChapter5EventsStage1Dialogue7FaceAlice
 msg:Map.Hospital2fRoomChapter5EventsStage1Dialogue8FaceTenshi
 msg:Map.Hospital2fRoomChapter5EventsStage1Dialogue9FaceTenshi
+ItemGet:0:76:0:
 msg:Map.Hospital2fRoomChapter5EventsStage1Dialogue10FaceAlice
 msg:Map.Hospital2fRoomChapter5EventsStage1Dialogue11FaceTenshi
 msg:Map.Hospital2fRoomChapter5EventsStage1Dialogue12FaceTenshi
@@ -501,7 +502,7 @@ event:
 msgopen:
 msg:Map.Hospital2fRoomPostRequestAfterDialogue1
 msg:Map.Hospital2fRoomPostRequestAfterDialogue2
-question:Map.ExOmakeExtra6-2Stage1Dialogue4QuestionFaceSprite:ChipTrader.ConfirmOptions
+question:Rando_fightquestion:ChipTrader.ConfirmOptions
 BranchHead:1
 msgclose:
 BranchEnd:

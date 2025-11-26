@@ -231,8 +231,8 @@ hitrange:3:0:0:0
 hitform:circle
 event:
 msgopen:
-msg:Rando_Flandrefightstart
-question:Rando_fightquestion:Map.ExOmakeExtra5Stage1Dialogue4Options
+msg:deepnet_flanders1
+question:deep_fightquestion1:Map.ExOmakeExtra5Stage1Dialogue4Options
 BranchHead:1
 msgclose:
 BranchEnd:

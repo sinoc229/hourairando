@@ -3002,7 +3002,7 @@ namespace NSGame
             var mapslookedthru = 0;
             var totalmystery = 0;
             var totalgifteditems = 0;
-            var totalmaps = 175;
+            var totalmaps = 174;
             var startofgifts = 700;
             
 
@@ -4153,324 +4153,327 @@ namespace NSGame
                     case 70:
                         txtname = "genUniversity2fjim";
                 break;
-                    case 71:
-                        txtname = "genUniversity2frin";
+                   // case 71: //moved to not cauze a lock during navicust tutorial
+                    //txtname = "genUniversity2frin";
+                    //txtname = "???";
                 break;
-                    case 72:
+                    case 71:
                         txtname = "genUniversity3";
                 break;
-                    case 73:
+                    case 72:
                         txtname = "genUniversity3room";
                 break;
-                    case 74:
+                    case 73:
                         txtname = "HakureiJinja";
                 break;
                     //heaven moved later
-                    case 75:
+                    case 74:
                         txtname = "hospital1f";
                 break;
-                    case 76:
+                    case 75:
                         txtname = "hospital2f";
                 break;
-                    case 77:
+                    case 76:
                         txtname = "hospital2fRoom";
                 break;
-                    case 78:
+                    case 77:
                         txtname = "hospital3f";
                 break;
-                    case 79:
+                    case 78:
                         txtname = "HospitalNet1";
                 break;
-                    case 80:
+                    case 79:
                         txtname = "HospitalNet2";
                 break;
-                    case 81:
+                    case 80:
                         txtname = "HosTV";
                 break;
-                    case 82:
+                    case 81:
                         txtname = "hotelHP";
                 break;
-                    case 83:
+                    case 82:
                         txtname = "hotelRef";
                 break;
-                    case 84:
+                    case 83:
                         txtname = "ingleasHotel";
                 break;
-                    case 85:
+                    case 84:
                         txtname = "ingleasHouse";
                 break;
-                    case 86:
+                    case 85:
                         txtname = "ingleasTowerPark";
                 break;
-                    case 87:
+                    case 86:
                         txtname = "ingleasTown";
                 break;
-                    case 88:
+                    case 87:
                         txtname = "inglesNet1f";
                 break;
-                    case 89:
+                    case 88:
                         txtname = "inglesNet2f";
                 break;
-                    case 90:
+                    case 89:
                         txtname = "inglesNet3";
                 break;
-                    case 91:
+                    case 90:
                         txtname = "inglesSquare";
                 break;
-                    case 92:
+                    case 91:
                         txtname = "dami";
                 break;
-                    case 93:
+                    case 92:
                         txtname = "jinja1";
                 break;
-                    case 94:
+                    case 93:
                         txtname = "jinja2";
                 break;
-                    case 95:
+                    case 94:
                         txtname = "jinja3";
                 break;
-                    case 96:
+                    case 95:
                         txtname = "kumamiTank";
                 break;
-                    case 97:
+                    case 96:
                         txtname = "library";
                 break;
-                    case 98:
+                    case 97:
                         txtname = "lostShip1";
                 break;
-                    case 99:
+                    case 98:
                         txtname = "lostShip2";
                 break;
-                    case 100:
+                    case 99:
                         txtname = "mariHP";
                 break;
-                    case 101:
+                    case 100:
                         txtname = "mariroom";
                 break;
-                    case 102:
+                    case 101:
                         txtname = "neckHP";
                 break;
-                    case 103:
+                    case 102:
                         txtname = "neckRoom";
                 break;
-                    case 104:
+                    case 103:
                         txtname = "nekodolphin";
                 break;
-                    case 105:
+                    case 104:
                         txtname = "NetAgentSenter1f";
                 break;
-                    case 106:
+                    case 105:
                         txtname = "NetAgentSenter2f";
                 break;
-                    case 107:
+                    case 106:
                         txtname = "netBattleMachineGame";
                 break;
-                    case 108:
+                    case 107:
                         txtname = "dami";
                 break;
-                    case 109:
+                    case 108:
                         txtname = "netBattleMachineRin";
                 break;
-                    case 110:
+                    case 109:
                         txtname = "partytable";
                 break;
-                    case 111:
+                    case 110:
                         txtname = "Phone";
                 break;
-                    case 112:
+                    case 111:
                         txtname = "photoFrame";
                 break;
-                    case 113:
+                    case 112:
                         txtname = "piano";
                 break;
-                    case 114:
+                    case 113:
                         txtname = "post";
                 break;
-                    case 115:
+                    case 114:
                         txtname = "refrigerator1";
                 break;
-                    case 116:
+                    case 115:
                         txtname = "refrigerator2";
                 break;
-                    case 117:
+                    case 116:
                         txtname = "remihouse";
                 break;
-                    case 118:
+                    case 117:
                         txtname = "remiHP";
                 break;
-                    case 119:
+                    case 118:
                         txtname = "rikaHouse";
                 break;
-                    case 120:
+                    case 119:
                         txtname = "rikaHP";
                 break;
-                    case 121:
+                    case 120:
                         txtname = "ROMbase1f";
                 break;
-                    case 122:
+                    case 121:
                         txtname = "ROMbase2f";
                 break;
-                    case 123:
+                    case 122:
                         txtname = "ROMbase3f";
                 break;
-                    case 124:
+                    case 123:
                         txtname = "ROMbase4f";
                 break;
-                    case 125:
+                    case 124:
                         txtname = "ROMbase5f";
+                break;
+                    case 125:
+                        txtname = "ROMbase6f";
                 break;
                     case 126:
                         txtname = "ROMbase6f";
                 break;
                     case 127:
-                        txtname = "ROMbase6f";
+                        txtname = "romDisplay";
                 break;
                     case 128:
-                        txtname = "romDisplay";
+                        txtname = "ROMbaseOut";
                 break;
                     case 129:
                         txtname = "ROMbaseOut";
                 break;
                     case 130:
-                        txtname = "ROMbaseOut";
+                        txtname = "romGate";
                 break;
                     case 131:
                         txtname = "romGate";
                 break;
                     case 132:
-                        txtname = "romGate";
-                break;
-                    case 133:
                         txtname = "ROMnet1";
                 break;
-                    case 134:
+                    case 133:
                         txtname = "ROMnet2";
                 break;
-                    case 135:
+                    case 134:
                         txtname = "ROMnet3";
                 break;
-                    case 136:
+                    case 135:
                         txtname = "ROMnet4";
                 break;
-                    case 137:
+                    case 136:
                         txtname = "SeirenShip1f";
                 break;
-                    case 138:
+                    case 137:
                         txtname = "SeirenShip1fbridge";
                 break;
-                    case 139:
+                    case 138:
                         txtname = "SeirenShip1fParty";
                 break;
-                    case 140:
+                    case 139:
                         txtname = "SeirenShip2f";
                 break;
-                    case 141:
+                    case 140:
                         txtname = "SeirenShipRoom103";
                 break;
-                    case 142:
+                    case 141:
                         txtname = "SeirenShip3f";
                 break;
-                    case 143:
+                    case 142:
                         txtname = "SeirenShipTV";
+                break;
+                    case 143:
+                        txtname = "shoolNet1";
                 break;
                     case 144:
                         txtname = "shoolNet1";
                 break;
                     case 145:
-                        txtname = "shoolNet1";
-                break;
-                    case 146:
                         txtname = "shoolNet2";
                 break;
-                    case 147:
+                    case 146:
                         txtname = "shoolNet3";
+                break;
+                    case 147:
+                        txtname = "shoolNet4";
                 break;
                     case 148:
                         txtname = "shoolNet4";
                 break;
                     case 149:
-                        txtname = "shoolNet4";
-                break;
-                    case 150:
                         txtname = "SNSkanri";
                 break;
-                    case 151:
+                    case 150:
                         txtname = "StaffRoom";
                 break;
-                    case 152:
+                    case 151:
                         txtname = "tenkoRoom";
                 break;
-                    case 153:
+                    case 152:
                         txtname = "tesuri";
                 break;
-                    case 154:
+                    case 153:
                         txtname = "UnderCable";
                 break;
-                    case 155:
+                    case 154:
                         txtname = "UnderGyosyou";
                 break;
-                    case 156:
+                    case 155:
                         txtname = "UnderSaikutu";
                 break;
-                    case 157:
+                    case 156:
                         txtname = "uraNet1";
                 break;
-                    case 158:
+                    case 157:
                         txtname = "uraNet2";
                 break;
-                    case 159:
+                    case 158:
                         txtname = "uraNet3";
                 break;
-                    case 160:
+                    case 159:
                         txtname = "uraNet4";
                 break;
-                    case 161:
+                    case 160:
                         txtname = "uraNet5";
                 break;
-                    case 162:
+                    case 161:
                         txtname = "uraNet6";
                 break;
-                    case 163:
+                    case 162:
                         txtname = "uraNet7";
                 break;
-                    case 164:
+                    case 163:
                         txtname = "uraNet8";
                 break;
-                    case 165:
+                    case 164:
                         txtname = "uraNet9";
                 break;
-                    case 166:
+                    case 165:
                         txtname = "uraNet10";
                 break;
-                    case 167:
+                    case 166:
                         txtname = "uraNetSquare";
                 break;
-                    case 168:
+                    case 167:
                         txtname = "uraNetSquare2";
                 break;
-                    case 169:
+                    case 168:
                         txtname = "usakou";
                 break;
-                    case 170:
+                    case 169:
                         txtname = "vendingMachine";
                 break;
-                    case 171:
+                    case 170:
                         txtname = "WiiU";
                 break;
-                    case 172:
+                    case 171:
                         txtname = "Yamada";
                 break;
-                    case 173:
+                    case 172:
                         txtname = "yukkuri";
                 break;
-                    case 174:
+                    case 173:
                         txtname = "heavenNet1";
                 break;
-                    case 175:
+                    case 174:
                         txtname = "heavenNet2";
                 break;
                     default:
-                    txtname = "???";
+                    Console.WriteLine("Too many levels trying to be indexed! I'm gonna flip!!!");
+                    txtname = "???"; //this should cause a crash
+                    
                 break;
             }
 

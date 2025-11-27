@@ -140,7 +140,7 @@ namespace NSMap
             if (this.save.ValList[28] < 0)
             {
                 this.save.ValList[28] = 0;
-
+                //reset difficulty to 0, if it somehow gets to -1
             }
 
             string[] strArray1 = A1.Split(',');

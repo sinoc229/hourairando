@@ -107,6 +107,7 @@ editFlag:9:False
 emove:-1:wayup,0
 fade:60:0:0:0:0:True
 msgopen:
+Special:8
 canSkip:
 msg:Map.GameCenterChapter3EventsStage1Dialogue1FaceMaleStudent
 msg:Map.GameCenterChapter3EventsStage1Dialogue2FaceShanghai

@@ -47,7 +47,6 @@ graphic:-1:196,150,21,15,0
 hitrange:90:200:0:0
 hitform:square
 event:
-credit:Messages.Shanghairandoreminder:0:20:False:False:20:200:20
 mapChange:aliceroom:25:34:0:0
 end
 
@@ -130,6 +129,7 @@ PositionSet:
 fade:120:0:255:255:255:False
 playerHide:False
 StatusHide:False
+Special:8
 end
 
 ID:PostGameAutoplayStart-AliceSleeping

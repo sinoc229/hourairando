@@ -32,7 +32,7 @@ position:76:71:0
 page:1
 startterms:Abutton
 type:1
-terms:none
+terms:variable/10/False/0/8
 move:
 speed:0
 graphic:9:6,0,7,0,0
@@ -41,7 +41,7 @@ hitform:circle
 event:
 msgopen:
 msg:Enemy.KikuriName1
-question:Rando_fightquestion:Map.ExOmakeExtra5Stage1Dialogue4Options
+question:Map.ExOmakeExtra1Stage1Dialogue4QuestionFaceSprite:Map.ExOmakeExtra5Stage1Dialogue4Options
 BranchHead:1
 msgclose:
 BranchEnd:
@@ -61,7 +61,7 @@ position:53:72:0
 page:1
 startterms:Abutton
 type:1
-terms:none
+terms:variable/10/False/0/8
 move:
 speed:0
 graphic:18:4,0,7,0,0
@@ -70,7 +70,7 @@ hitform:circle
 event:
 msgopen:
 msg:Enemy.KikuriName2
-question:Rando_fightquestion:Map.ExOmakeExtra5Stage1Dialogue4Options
+question:Map.ExOmakeExtra6-2Stage1Dialogue4QuestionFaceSprite:Map.ExOmakeExtra5Stage1Dialogue4Options
 BranchHead:1
 msgclose:
 BranchEnd:
@@ -129,7 +129,7 @@ event:
 end
 
 ID:バリアー
-position:165:82:0
+position:64:79:0
 page:1
 startterms:Abutton
 type:1
@@ -201,7 +201,7 @@ eventDeath:
 end
 
 ID:バリアー
-position:94:-33:0
+position:31:79:0
 page:1
 startterms:Abutton
 type:1
@@ -230,7 +230,7 @@ event:
 end
 
 ID:バリアー
-position:158:16:0
+position:97:79:0
 page:1
 startterms:Abutton
 type:1

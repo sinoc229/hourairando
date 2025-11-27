@@ -169,7 +169,7 @@ terms:none
 move:
 speed:0
 graphic:-1:0,0,0,0,0
-hitrange:9:24:0:0
+hitrange:9:46:0:0
 hitform:square
 event:
 emove:7章　サグメ:wayup,0

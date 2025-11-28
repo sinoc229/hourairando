@@ -1875,7 +1875,7 @@ event:
 end
 
 ID:4章天子
-position:-64:-56:0
+position:33:46:0
 page:1
 startterms:Abutton
 type:1
@@ -2052,7 +2052,7 @@ event:
 end
 
 ID:7章　会議後イベント
-position:-41:61:0
+position:47:56:0
 page:1
 startterms:Touch
 type:1
@@ -2080,6 +2080,7 @@ msg:Map.AliceroomChapter7Post-ConferenceEventStage1Dialogue6FaceAlice
 msg:Map.AliceroomChapter7Post-ConferenceEventStage1Dialogue7FaceShanghai
 msgclose:
 editValue:3:False:0:0:88
+editFlag:609:False
 editFlag:551:True
 effectEnd:
 playerHide:False

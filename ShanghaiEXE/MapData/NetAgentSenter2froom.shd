@@ -96,7 +96,7 @@ fade:15:0:0:0:0:True
 end
 
 ID:廊下へ
-position:111:73:0
+position:111:72:0
 page:1
 startterms:Touch
 type:1

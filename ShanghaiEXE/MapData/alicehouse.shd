@@ -19,6 +19,38 @@
 
 
 
+ID:Darknavi_failsafe
+position:51:68:0
+page:1
+startterms:Abutton
+type:1
+terms:variable/3/False/0/85
+move:
+speed:0
+graphic:11:5,0,7,0,0
+hitrange:3:0:0:0
+hitform:circle
+event:
+msgopen:
+editValue:34:False:0:0:9
+editValue:3:False:0:0:86
+editFlag:529:True
+msg:Map.CityNet1BlackRobe1Stage5Dialogue16FaceAlice
+editFlag:531:True
+msgclose:
+end
+page:2
+startterms:Abutton
+type:1
+terms:variable/3/False/5/85
+move:
+speed:0
+graphic:-2:0,0,0,0,0
+hitrange:3:3:0:0
+hitform:square
+event:
+end
+
 ID:テーブル
 position:22:68:0
 page:1

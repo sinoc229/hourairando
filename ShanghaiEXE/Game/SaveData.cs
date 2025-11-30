@@ -2990,6 +2990,7 @@ namespace NSGame
         public void Maplootfinder()
         {
 
+
             for (int i = 0; i < 9999; i++)
             {
                 apgive[i, 6] = -1;

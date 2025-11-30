@@ -175,15 +175,23 @@ namespace NSBattle.Character
                 Console.WriteLine("player has enough HP to get past heaven gate");
             }
             this.savedata.FlagList[1666] = true; //this should always be true until intigration 
-            //is done with Odyn or until signifigant
-            //rewrites to how items are given out are done (whatever comes first)
+                                                 //is done with Odyn or until signifigant
+                                                 //rewrites to how items are given out are done (whatever comes first)
 
+            int dsblock = ShanghaiEXE.Config.DSblock;
+            if (dsblock == 1)
+            {
+                this.savedata.flagList[1667] = false;
+            }
+            else
+            {
+                this.savedata.flagList[1667] = true;
+            }
 
-
-                //debug beeg buster damage and hp
+            //debug beeg buster damage and hp
             //this.busterPower = 250;
-            //this.hpmax = 9999;
-           // this.hp = 9999;
+           // this.hpmax = 9999;
+            //this.hp = 9999;
 
             this.hpprint = this.hp;
             this.position = new Point(pX, pY);

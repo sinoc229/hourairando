@@ -334,6 +334,9 @@ namespace NSTitle
             this._rect = new Rectangle(0, 0, 240, 160);
             this._position = new Vector2(0.0f, 0.0f);
             dg.DrawImage(dg, "fadescreen", this._rect, true, this._position, color);
+
+            //this._position = new Vector2(140.0f, 16.0f);
+            //dg.DrawMiniText(str, this._position, Color.FromArgb(16, 16, 16));
         }
 
         private void PushbuttonRender(IRenderer dg)
@@ -413,6 +416,20 @@ namespace NSTitle
             this._position = new Vector2(0.0f, 144f);
             this._rect = new Rectangle(440, 0, 64, 16);
             dg.DrawImage(dg, "title", this._rect, true, this._position, false, Color.White);
+
+            if (ShanghaiEXE.Config.Seed != 0.0)
+            {
+                Color white2 = Color.White;
+                string str = "Seed: " + ShanghaiEXE.Config.Seed.ToString();
+                this._position = new Vector2(0.0f, 0.0f);
+                dg.DrawMicroText(str, this._position, white2);
+            }
+            else
+            {
+                Color white2 = Color.White;
+                this._position = new Vector2(0.0f, 0.0f);
+                dg.DrawMicroText("Rando. Off", this._position, white2);
+            }
         }
 
         private enum TITLESCENE

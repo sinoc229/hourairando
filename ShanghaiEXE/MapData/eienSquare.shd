@@ -136,7 +136,6 @@ event:
 fade:60:255:0:0:0:True
 mapChange:eienSquare:266:88:0:0
 emove:プレイヤー:wayup,0
-emove:4章N1司会:waydown,0
 editFlag:236:True
 fade:60:0:0:0:0:True
 wait:60:False
@@ -150,7 +149,6 @@ emove:プレイヤー:waydown,0
 msg:Map.EienSquareChapter4ModeratorN1Stage3Dialogue5FaceSpannerMan
 msgclose:
 seon:warp
-effect:13::4章スパナ２:::3:-1:0:1:none
 wait:10:False
 editFlag:237:True
 wait:60:False
@@ -173,9 +171,7 @@ msg:Map.EienSquareChapter4ModeratorN1Stage5Dialogue15FaceTsubakiNekku
 msg:Map.EienSquareChapter4ModeratorN1Stage5Dialogue16FaceSpannerMan
 msg:Map.EienSquareChapter4ModeratorN1Stage5Dialogue17FaceTsubakiNekku
 msgclose:
-emove:4章スパナ２:warpdown,200
 seon:warp
-effect:5::4章スパナ２:::3:-1:0:1:none
 wait:60:False
 Facehere:
 msgopen:

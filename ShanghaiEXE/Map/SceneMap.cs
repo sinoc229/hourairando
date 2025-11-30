@@ -135,6 +135,9 @@ namespace NSMap
 
         public void NewGame(int plus) //actual new game, if rando is off
         {
+
+
+
             this.player = new NSMap.Character.Player(this.sound, this, new Point(32, 32), 0, MapCharacterBase.ANGLE.DOWN, this.main, this.savedata, 0.0f);
             this.field = new MapField(this.sound, "aliceroom", this.savedata, this);
             this.savedata.isJackedIn = false;
@@ -177,6 +180,9 @@ namespace NSMap
             this.fadeColor = Color.Black;
             this.alpha = byte.MaxValue;
             this.FadeStart(Color.FromArgb(0, this.fadeColor), 5);
+
+
+
         }
 
         public void LoadGame2() //start randomizer
@@ -322,6 +328,8 @@ namespace NSMap
 
             //flag list extracted from a no sidecontent playthrough
             //no idea what most of this shit does, i don't think anybody does!
+
+
 
             #region flag list
             this.savedata.flagList[0] = false;

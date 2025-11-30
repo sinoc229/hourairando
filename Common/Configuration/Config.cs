@@ -65,6 +65,8 @@ namespace Common.Config
 
         public int DoRando { get; set; } = 1;
 
+        public int DSblock { get; set; } = 1;
+
         public int IncludeJobs { get; set; } = 0;
 
         public string Username { get; set; } = "Change Me!";
@@ -225,6 +227,10 @@ namespace Common.Config
 
                     config.DoRando = int.Parse(configReader.ReadLine());
                     Console.WriteLine("Do randomizer:");
+                    Console.WriteLine(config.DoRando);
+
+                    config.DSblock = int.Parse(configReader.ReadLine());
+                    Console.WriteLine("DS Block:");
                     Console.WriteLine(config.DoRando);
 
                     config.ApplyNewFieldDefaults();

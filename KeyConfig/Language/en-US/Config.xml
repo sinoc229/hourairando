@@ -61,6 +61,7 @@
   <Text Key="IncludeHeaven" Value="Include Heaven" /> <!-- some twitter moron is gonna get on me if i keep this as 'engrish'-->
   <Text Key="IncludeJobs" Value="Include Jobs" />
   <Text Key="DoRando" Value="Openworld Start (rec. for Randomizer)" />
+  <Text Key="DSblock" Value="Require DS Chips for secret bosses" />
   <Text Key="StretchFullscreen" Value="Maintain Aspect Ratio" />
   <Text Key="StretchFullscreenOpenGL" Value="OpenGL mode only" />
 </data>

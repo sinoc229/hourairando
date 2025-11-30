@@ -326,6 +326,8 @@
                     -->
                     <CheckBox Content="{Binding Language, ConverterParameter=DoRando, Converter={StaticResource RegionToTranslatedConverter}}"
                               IsChecked="{Binding DoRando}"/>
+                    <CheckBox Content="{Binding Language, ConverterParameter=DSblock, Converter={StaticResource RegionToTranslatedConverter}}"
+                              IsChecked="{Binding DSblock}"/>
                     <GroupBox Canvas.Top="130" Width="270" Header="{Binding Language, Converter={StaticResource RegionToTranslatedConverter}, ConverterParameter=Randomizer}">
                         <Grid HorizontalAlignment="Stretch">
                             <Grid.ColumnDefinitions>

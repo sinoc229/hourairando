@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using NSAddOn;
+//using System.Windows.Forms;
 
 namespace NSMap.Character
 {
@@ -120,73 +121,81 @@ namespace NSMap.Character
                 this.eventhit = this.parent.CanMove_EventHit(MapCharacterBase.ANGLE.none);
             if (!this.openMenu)
             {
-                if (this.moveOrder.Length == 0)
+                try
                 {
-                    int num1 = this.parent.Field.Map_[this.floor, (int)this.Position.X / 8, (int)this.Position.Y / 8];
-                    if (this.conveyorSoundOn)
+                    if (this.moveOrder.Length == 0)
                     {
-                        if (this.conveyorSound >= 102)
+                        int num1 = this.parent.Field.Map_[this.floor, (int)this.Position.X / 8, (int)this.Position.Y / 8];
+                        if (this.conveyorSoundOn)
                         {
-                            this.conveyorSoundOn = false;
-                            this.conveyorSound = 0;
+                            if (this.conveyorSound >= 102)
+                            {
+                                this.conveyorSoundOn = false;
+                                this.conveyorSound = 0;
+                            }
+                            ++this.conveyorSound;
                         }
-                        ++this.conveyorSound;
+                        if (num1 < 14)
+                        {
+                            if (!this.parent.eventmanager.playevent && this.parent.NoEvent)
+                                this.Control();
+                            if (this.conveyorSoundOn && this.conveyorSound > 4)
+                            {
+                                this.sound.StopSE(SoundEffect.conveyor);
+                                this.conveyorSoundOn = false;
+                                this.conveyorSound = 0;
+                            }
+                        }
+                        else
+                        {
+                            int num2 = 2;
+                            this.animeflame = 0;
+                            if (!this.conveyorSoundOn)
+                            {
+                                this.sound.PlaySE(SoundEffect.conveyor);
+                                this.conveyorSoundOn = true;
+                                this.conveyorSound = 0;
+                            }
+                            switch (num1)
+                            {
+                                case 14:
+                                    this.Angle = MapCharacterBase.ANGLE.UPRIGHT;
+                                    this.position.Y -= num2;
+                                    break;
+                                case 15:
+                                    this.Angle = MapCharacterBase.ANGLE.DOWNLEFT;
+                                    this.position.Y += num2;
+                                    break;
+                                case 16:
+                                    this.Angle = MapCharacterBase.ANGLE.UPLEFT;
+                                    this.position.X -= num2;
+                                    break;
+                                case 17:
+                                    this.Angle = MapCharacterBase.ANGLE.DOWNRIGHT;
+                                    this.position.X += num2;
+                                    break;
+                            }
+                        }
                     }
-                    if (num1 < 14)
+                    else if (this.movingOrder >= this.moveOrder.Length)
                     {
-                        if (!this.parent.eventmanager.playevent && this.parent.NoEvent)
-                            this.Control();
-                        if (this.conveyorSoundOn && this.conveyorSound > 4)
-                        {
-                            this.sound.StopSE(SoundEffect.conveyor);
-                            this.conveyorSoundOn = false;
-                            this.conveyorSound = 0;
-                        }
+                        this.movingOrder = 0;
+                        this.moveOrder = new EventMove[0];
+                        this.moving = false;
                     }
                     else
                     {
-                        int num2 = 2;
-                        this.animeflame = 0;
-                        if (!this.conveyorSoundOn)
-                        {
-                            this.sound.PlaySE(SoundEffect.conveyor);
-                            this.conveyorSoundOn = true;
-                            this.conveyorSound = 0;
-                        }
-                        switch (num1)
-                        {
-                            case 14:
-                                this.Angle = MapCharacterBase.ANGLE.UPRIGHT;
-                                this.position.Y -= num2;
-                                break;
-                            case 15:
-                                this.Angle = MapCharacterBase.ANGLE.DOWNLEFT;
-                                this.position.Y += num2;
-                                break;
-                            case 16:
-                                this.Angle = MapCharacterBase.ANGLE.UPLEFT;
-                                this.position.X -= num2;
-                                break;
-                            case 17:
-                                this.Angle = MapCharacterBase.ANGLE.DOWNRIGHT;
-                                this.position.X += num2;
-                                break;
-                        }
+                        this.moveOrder[this.movingOrder].Move(MoveSpeed);
+                        if (this.moveOrder[this.movingOrder].MoveEnd())
+                            ++this.movingOrder;
                     }
+                    this.FlamePlus();
                 }
-                else if (this.movingOrder >= this.moveOrder.Length)
+                catch (Exception)
                 {
-                    this.movingOrder = 0;
-                    this.moveOrder = new EventMove[0];
-                    this.moving = false;
+                    throw new InvalidOperationException("Malformed or missing save file");
+
                 }
-                else
-                {
-                    this.moveOrder[this.movingOrder].Move(MoveSpeed);
-                    if (this.moveOrder[this.movingOrder].MoveEnd())
-                        ++this.movingOrder;
-                }
-                this.FlamePlus();
             }
             else
                 this.menu.UpDate();

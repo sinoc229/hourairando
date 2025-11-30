@@ -6,6 +6,7 @@ using Common.Vectors;
 using System.Drawing;
 using NSMap.Character.Menu;
 using System.Linq;
+using System;
 
 namespace NSTitle
 {
@@ -27,6 +28,11 @@ namespace NSTitle
         private bool printLoad;
         private int stars;
         private int starAnime;
+
+        private int menuoffy = 64;
+        private int optionsel = 2;
+        private int optionmax = 2;
+        private int hassavefile = 1;
 
         private SceneTitle.TITLEMENU Menu
         {
@@ -51,6 +57,12 @@ namespace NSTitle
             this.parent = p;
             this.nowscene = SceneTitle.TITLESCENE.init;
             this.test = false;
+            if (this.test == false)
+            {
+                optionsel = 0;
+                //optionmax = 1;
+                hassavefile = 0;
+            }
             this.printLoad = p.loadSUCCESS;
         }
 
@@ -195,22 +207,42 @@ namespace NSTitle
                     {
                         this.fadealpha = byte.MaxValue;
                         this.parent.battlenum = 0;
-                        switch (this.menu)
+                        //make menu buttons do stuff
+                        switch (optionsel)
                         {
-                            case SceneTitle.TITLEMENU.Start:
+                            case 0:
                                 if (this.savedata.loadEnd)
                                 {
                                     this.parent.ChangeOfSecne(Scene.Main);
-                                    this.parent.LoadGamePlus();
-                                    //load 5real?
+                                    this.parent.LoadGame_story();
+                                    //start story mode
                                     break;
                                 }
                                 break;
-                            case SceneTitle.TITLEMENU.Load:
+                            case 1:
                                 if (this.savedata.loadEnd)
                                 {
                                     this.parent.ChangeOfSecne(Scene.Main);
-                                    this.parent.LoadGame();
+                                    this.parent.LoadGame_freeroam();
+                                    //start freeroam
+                                    break;
+                                }
+                                break;
+                            case 2:
+                                if (this.savedata.loadEnd)
+                                {
+                                    if (hassavefile == 1)
+                                    {
+                                        this.parent.ChangeOfSecne(Scene.Main);
+                                        this.parent.LoadGame();
+                                        //load whatevs
+                                    }
+                                    else
+                                    {
+                                        this.parent.ChangeOfSecne(Scene.Main);
+                                        this.parent.LoadGame_story();
+                                        //fallack, start story mode if the user don't actually have a save
+                                    }
                                     break;
                                 }
                                 break;
@@ -240,23 +272,36 @@ namespace NSTitle
             }
             if (this.keywait <= 0)
             {
-                if (!this.printLoad)
-                    return;
+                //if (!this.printLoad)
+                //    return;
                 if (Input.IsPush(Button.Up))
                 {
-                    --this.Menu;
+                    --optionsel;
                     this.keywait = Input.IsPress(Button.Up) ? 25 : 5;
                     this.sound.PlaySE(SoundEffect.movecursol);
                 }
                 if (Input.IsPush(Button.Down))
                 {
-                    ++this.Menu;
+                    ++optionsel;
                     this.keywait = Input.IsPress(Button.Down) ? 25 : 5;
                     this.sound.PlaySE(SoundEffect.movecursol);
                 }
             }
             else
                 this.keywait = Input.IsUp(Button.Up) || Input.IsUp(Button.Down) ? 0 : this.keywait - 1;
+
+
+            //you'd think there would be a wrap method built in somewhere, but no
+            if (optionsel < 0)
+            {
+                optionsel = optionmax;
+            }
+            if (optionsel > optionmax)
+            {
+                optionsel = 0;
+            }
+
+
         }
 
         private void Command()
@@ -354,16 +399,8 @@ namespace NSTitle
             this._rect = new Rectangle(0, 0, 240, 160);
             this._position = new Vector2(0.0f, 0.0f);
             dg.DrawImage(dg, "fadescreen", this._rect, true, this._position, false, color1);
-            if (this.test)
-            {
-                this._rect = new Rectangle(240, 208, 56, 32);
-                if (this.menu == SceneTitle.TITLEMENU.Load)
-                    this._rect.X += this._rect.Width;
-                this._position = this.fontposition;
-                dg.DrawImage(dg, "title", this._rect, false, this._position, false, Color.White);
-            }
-            else
-            {
+
+                //draw the actual options!
                 Color color2;
                 switch (this.plus)
                 {
@@ -384,21 +421,28 @@ namespace NSTitle
                 this._rect = newGameSprite.Item2;
                 if (this.menu == SceneTitle.TITLEMENU.Load)
                     this._rect.X += this._rect.Width;
-                this._position = new Vector2(this.fontposition.X - (newGameSprite.Item2.Width - 24), this.fontposition.Y - (newGameSprite.Item2.Height - 0));
-                dg.DrawImage(dg, newGameSprite.Item1, this._rect, true, this._position, false, color2);
-                if (this.printLoad)
-                {
-                    var continueSprite = ShanghaiEXE.languageTranslationService.GetLocalizedSprite("SceneTitle.Continue");
-                    this._rect = continueSprite.Item2;
-                    if (this.menu == SceneTitle.TITLEMENU.Load)
-                        this._rect.X += this._rect.Width;
-                    this._position = new Vector2(this.fontposition.X - (continueSprite.Item2.Width - 24), this.fontposition.Y);
-                    dg.DrawImage(dg, "title", this._rect, true, this._position, false, Color.White);
-                }
-            }
+                this._position = new Vector2(this.fontposition.X - (newGameSprite.Item2.Width - 24), this.fontposition.Y - (newGameSprite.Item2.Height - 0)- menuoffy);
+                //dg.DrawImage(dg, newGameSprite.Item1, this._rect, true, this._position, false, color2);
+                dg.DrawText("New Game (Story)", this._position, true);
+                //Console.WriteLine(this.fontposition.Y)
+                this._position = new Vector2(this.fontposition.X - (newGameSprite.Item2.Width - 24), this.fontposition.Y - (newGameSprite.Item2.Height - 0) - menuoffy+16);
+                //dg.DrawImage(dg, newGameSprite.Item1, this._rect, true, this._position, false, color2);
+                dg.DrawText("New Game (Feeeroam)", this._position, true);
+
+                var continueSprite = ShanghaiEXE.languageTranslationService.GetLocalizedSprite("SceneTitle.Continue");
+                this._rect = continueSprite.Item2;
+                if (this.menu == SceneTitle.TITLEMENU.Load)
+                    this._rect.X += this._rect.Width;
+                this._position = new Vector2(this.fontposition.X - (continueSprite.Item2.Width - 24), this.fontposition.Y - (newGameSprite.Item2.Height - 0) - menuoffy+32);
+                dg.DrawText("Continue", this._position, true);
+
             //this._position.X = (float)(fontposition.X - (double)(this._rect.Width / 2) - 16.0);
+            //arrow
+
             this._position.X = this._position.X - 8;
-            this._position.Y = this.menu == SceneTitle.TITLEMENU.Start ? this.fontposition.Y - 8f : this.fontposition.Y + 8f;
+            this._position.Y = 128 - menuoffy-8;// + optionsel * 16;
+            this._position.Y += optionsel * 16;
+
             this._rect = new Rectangle(240 + this.frame % 4 * 16, 192, 16, 16);
             dg.DrawImage(dg, "title", this._rect, false, this._position, false, Color.White);
             int num = 0;

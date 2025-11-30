@@ -594,18 +594,19 @@ namespace NSGame
             ShanghaiEXE.scene = scene;
         }
 
-        public void LoadGamePlus()
+        public void LoadGame_freeroam()
         {
             Console.WriteLine("Attempting free play load");
             SceneMain scene = (SceneMain)ShanghaiEXE.scene;
-            if (ShanghaiEXE.Config.DoRando == 1)
-            {
-                scene.mapscene.LoadGame2();
-            }
-            else
-            {
-                scene.mapscene.NewGame(0);
-            }
+            scene.mapscene.LoadGame2();
+            ShanghaiEXE.scene = scene;
+        }
+
+        public void LoadGame_story()
+        {
+            Console.WriteLine("Attempting free play load");
+            SceneMain scene = (SceneMain)ShanghaiEXE.scene;
+            scene.mapscene.NewGame(0);
             ShanghaiEXE.scene = scene;
         }
 

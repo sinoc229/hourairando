@@ -401,7 +401,7 @@ namespace NSGame
 
             this.UpdateLoadingText(LoadType.Save, 25);
             this.savedata = new SaveData();
-            this.savedata.Init();
+            this.savedata.Init(false);
             this.UpdateLoadingText(LoadType.Save, 50);
             this.savedata.Load(this);
             this.UpdateLoadingText(LoadType.Save, 100);
@@ -594,19 +594,26 @@ namespace NSGame
             ShanghaiEXE.scene = scene;
         }
 
-        public void LoadGame_freeroam()
+        public void LoadGame_freeroam(bool sfmode, bool rndmfolder)
         {
             Console.WriteLine("Attempting free play load");
             SceneMain scene = (SceneMain)ShanghaiEXE.scene;
-            scene.mapscene.LoadGame2();
+            scene.mapscene.LoadGame2(sfmode, rndmfolder);
             ShanghaiEXE.scene = scene;
         }
 
-        public void LoadGame_story()
+        public void LoadGame_story(bool sfmode, bool rndmfolder)
         {
             Console.WriteLine("Attempting free play load");
             SceneMain scene = (SceneMain)ShanghaiEXE.scene;
-            scene.mapscene.NewGame(0);
+            if (sfmode == false)
+            {
+                scene.mapscene.NewGame(0);
+            }
+            if (sfmode == true)
+            {
+                scene.mapscene.NewGame(-1);
+            }
             ShanghaiEXE.scene = scene;
         }
 

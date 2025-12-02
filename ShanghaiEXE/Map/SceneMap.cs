@@ -159,11 +159,18 @@ namespace NSMap
                         break;
                 }
             }
+            bool sfmode = false;
+            if (plus != 0)
+            {
+                sfmode = true;   
+            }
+
             this.player.FieldSet(this.field);
             this.fadeColor = Color.Black;
             this.alpha = byte.MaxValue;
             this.player.NoPrint = true;
-            this.savedata.Init_newgame();
+            this.savedata.Init_newgame(sfmode);
+
         }
 
         public void LoadGame()
@@ -185,7 +192,7 @@ namespace NSMap
 
         }
 
-        public void LoadGame2() //start randomizer
+        public void LoadGame2(bool sfmode, bool rndmfoldr) //start randomizer
         {
             Console.WriteLine("Attempting newgame plus load (and setting position to alice's house)");
             this.savedata.isJackedIn = false; //change player to alice, don't run around the overworld
@@ -203,7 +210,7 @@ namespace NSMap
             this.fadeColor = Color.Black;
             this.alpha = byte.MaxValue;
             Console.WriteLine("Initing most of ths save file");
-            this.savedata.Init(); //<--- resets flags, put proper flags down bellow
+            this.savedata.Init(false); //<--- resets flags, put proper flags down bellow
 
             //this.main.FolderReset();
             this.savedata.chipFolder[0, 0, 0] = 2;
@@ -302,14 +309,14 @@ namespace NSMap
                     else if (index2 < 27)
                     {
                         if (index3 == 0)
-                            this.savedata.chipFolder[index1, index2, index3] = 59;
+                            this.savedata.chipFolder[index1, index2, index3] = 188;
                         else
-                            this.savedata.chipFolder[index1, index2, index3] = 3;
+                            this.savedata.chipFolder[index1, index2, index3] = 0;
                     }
                     else if (index2 < 29)
                     {
                         if (index3 == 0)
-                            this.savedata.chipFolder[index1, index2, index3] = 59;
+                            this.savedata.chipFolder[index1, index2, index3] = 188;
                         else
                             this.savedata.chipFolder[index1, index2, index3] = 0;
                     }
@@ -322,7 +329,10 @@ namespace NSMap
                     }
                 }
             }
-            this.savedata.havefolder[1] = false;
+            this.savedata.havefolder[1] = true;
+
+            
+
 
             this.main.FolderLoad();
 
@@ -1205,6 +1215,66 @@ namespace NSMap
             Console.WriteLine("Set flags here, when we figgure them out");
 
             this.FadeStart(Color.FromArgb(0, this.fadeColor), 5);
+
+            if (sfmode == true)
+            {
+                this.savedata.GetAddon(new Haisui(AddOnBase.ProgramColor.dark));
+                this.savedata.GetAddon(new RShield(AddOnBase.ProgramColor.red));
+                this.savedata.GetAddon(new LBeastRock(AddOnBase.ProgramColor.gleen));
+            }
+
+            bool random2ndfolder = false;
+
+            if (rndmfoldr == true)
+            {
+                Console.WriteLine("Shuffling random folder");
+                index1 = 0;
+                //var index3 = 0;
+                var seed = ShanghaiEXE.Config.Seed;
+                Random rng = new Random(seed);
+                
+                for (int index2 = 0; index2 < this.savedata.chipFolder.GetLength(1); ++index2)
+                {
+                    for (int index3 = 0; index3 < this.savedata.chipFolder.GetLength(2); ++index3)
+                    {
+                        int chipno = Random.Next(1, 50);
+                        int chipcode = Random.Next(0, 3);
+                        if (index3 == 0)
+                            this.savedata.chipFolder[0, index2, index3] = chipno;
+                        else if (index3 == 1)
+                            this.savedata.chipFolder[0, index2, index3] = chipcode;
+
+                        if (random2ndfolder == true)
+                        {
+                            chipno = Random.Next(1, 50);
+                            chipcode = Random.Next(0, 3);
+                            if (index3 == 0)
+                                this.savedata.chipFolder[1, index2, index3] = chipno;
+                            else if (index3 == 1)
+                                this.savedata.chipFolder[1, index2, index3] = chipcode;
+                        }
+                        //this.savedata.chipFolder[index1, index2, index3] = chipno;
+                        //Console.WriteLine(chipno);
+                        //var code = Random.Next(0, 3);
+                        //this.savedata.chipFolder[index1, index2, 1] = code;
+
+                    }
+                }
+                
+                
+                
+                //for (int index2 = 0; index2 < this.savedata.chipFolder.GetLength(1); ++index2)
+                // {
+                //     var chipno = Random.Next(0, 150);
+                //     this.savedata.chipFolder[index1, index2, 0] = chipno;
+                //     var code = Random.Next(0, 3);
+                //     this.savedata.chipFolder[index1, index2, 1] = code;
+
+                // }
+
+                this.main.FolderLoad();
+            }
+
         }
 
         public void FieldSet(string name, Point posi, int floor, MapCharacterBase.ANGLE angle)

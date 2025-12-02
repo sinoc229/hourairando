@@ -193,8 +193,10 @@ namespace NSMap.Character
                 }
                 catch (Exception)
                 {
-                    throw new InvalidOperationException("Malformed or missing save file");
-
+                    //todo: "button" is a shared var between this and the windows error handler so I'll need
+                    //to creatively cause a popup somehow else
+                    Environment.Exit(1);
+                    //throw new InvalidOperationException("Malformed or missing save file");
                 }
             }
             else

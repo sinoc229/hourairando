@@ -49,6 +49,7 @@ namespace NSMap.Character.Menu
 
         public void Init()
         {
+            //this.savedata.FlagList[785] = false;
             this.nowscene = TopMenu.TOPMENUSCENE.init;
             this.selectmenu = TopMenu.TOPMENU.chipfolder;
             this.canselectmenu = new bool[this.savedata.canselectmenu.Length];

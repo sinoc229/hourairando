@@ -190,7 +190,7 @@ namespace NSBattle.Character
 
             //debug beeg buster damage and hp
             //this.busterPower = 250;
-           // this.hpmax = 9999;
+            //this.hpmax = 9999;
             //this.hp = 9999;
 
             this.hpprint = this.hp;

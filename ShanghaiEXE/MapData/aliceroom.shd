@@ -63,6 +63,7 @@ hitrange:3:3:0:0
 hitform:square
 event:
 playerHide:True
+editMenu:8:True
 StatusHide:True
 editValue:14:False:0:0:0
 editFlag:788:True
@@ -1671,6 +1672,8 @@ hitrange:8:24:0:0
 hitform:square
 event:
 fade:15:255:0:0:0:True
+editMenu:8:True
+editMenu:7:False
 mapChange:alicehouse:46:122:0:1
 fade:15:0:0:0:0:True
 end

@@ -2329,7 +2329,7 @@ namespace NSGame
             SaveData.pass = "evAJ5h1lGgmYm0EgZbbraA==";
         }
 
-        public void Init()
+        public void Init(bool sfmode)
         {
             //function that's called when you hit newgame normally, we're hijacking this in part to set
             //freeplay stuff
@@ -2477,7 +2477,7 @@ namespace NSGame
             this.chipThread.Start();
         }
 
-        public void Init_newgame()
+        public void Init_newgame(bool sfmode)
         {
             //the old newgame function, for the not sandbox mode
 
@@ -2609,6 +2609,14 @@ namespace NSGame
             this.ranThread.Start();
             this.chipThread = new Thread(new ThreadStart(this.ChipSave));
             this.chipThread.Start();
+            if (sfmode == true)
+            {
+                this.GetAddon(new Haisui(AddOnBase.ProgramColor.dark));
+                this.GetAddon(new RShield(AddOnBase.ProgramColor.red));
+                this.GetAddon(new LBeastRock(AddOnBase.ProgramColor.gleen));
+            }
+
+
         }
 
 

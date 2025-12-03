@@ -33,11 +33,12 @@ namespace NSTitle
         private int menuoffy = 64;
         private int menuoffx = 30;
         private int optionsel = 2;
-        private int optionmax = 4;
+        private int optionmax = 3;
         private int hassavefile = 1;
         private bool isinfade = false;
         private bool starforcemode = false;
         private bool randomfolder = false;
+        private byte menulayer = 0;
 
         private byte linescrl1 = 0;
         private int linescrl2 = 0;
@@ -328,36 +329,72 @@ namespace NSTitle
         {
             if (Input.IsPress(Button._A) || Input.IsPress(Button._Start))
             {
-                if (optionsel < 3)
-                {
-                    //for newgame and loading
-                    this.nowscene = SceneTitle.TITLESCENE.fade;
-                    this.sound.PlaySE(SoundEffect.thiptransmission);
+                if (menulayer == 0) //main save/load menu
+                    {
+                    if (optionsel < 3)
+                    {
+                        //for newgame and loading
+                        this.nowscene = SceneTitle.TITLESCENE.fade;
+                        this.sound.PlaySE(SoundEffect.thiptransmission);
+                    }
+                    else
+                    {
+                        //for the option options
+                        //this.sound.PlaySE(SoundEffect.thiptransmission);
+                        switch (optionsel)
+                        {
+                            case 3:
+                                menulayer = 1;
+                                optionsel = 0;
+                                // starforcemode = !starforcemode;
+                               // this.sound.PlaySE(SoundEffect.thiptransmission);
+                                break;
+                            case 4:
+                                //randomfolder = !randomfolder;
+                               // this.sound.PlaySE(SoundEffect.thiptransmission);
+                                break;
+
+                        }
+
+
+                    }
                 }
-                else
+                if (menulayer == 1)
                 {
-                    //for the option options
-                    //this.sound.PlaySE(SoundEffect.thiptransmission);
                     switch (optionsel)
                     {
-                        case 3:
-                            starforcemode = !starforcemode;
-                            this.sound.PlaySE(SoundEffect.thiptransmission);
-                            break;
-                        case 4:
-                            randomfolder = !randomfolder;
-                            this.sound.PlaySE(SoundEffect.thiptransmission);
-                            break;
-                    
-                    }
+                        case 0:
+                        starforcemode = !starforcemode;
+                        this.sound.PlaySE(SoundEffect.thiptransmission);
+                        break;
 
+                        case 1:
+                        randomfolder = !randomfolder;
+                        this.sound.PlaySE(SoundEffect.thiptransmission);
+                        break;
+                        case 2:
+                            menulayer = 0;
+                            optionsel = 3;
+                        break;
+
+                    }
 
                 }
             }
             if (Input.IsPress(Button._B))
             {
-                this.nowscene = SceneTitle.TITLESCENE.pushbutton;
-                this.sound.PlaySE(SoundEffect.cancel);
+                switch (menulayer)
+                {
+                    case 0:
+                    this.nowscene = SceneTitle.TITLESCENE.pushbutton;
+                    this.sound.PlaySE(SoundEffect.cancel);
+                        break;
+                    case 1:
+                        menulayer = 0;
+                        this.sound.PlaySE(SoundEffect.cancel);
+                        optionsel = 3;
+                        break;
+                }
             }
             if (this.keywait <= 0)
             {
@@ -556,88 +593,139 @@ namespace NSTitle
 
             //top and bottom bits
             this._rect = new Rectangle(0, 292, 240, 20);
-            this._position = new Vector2(0, 0-topoff);
+            this._position = new Vector2(0, 0 - topoff);
             dg.DrawImage(dg, "title3", this._rect, true, this._position, false, Color.White);
 
 
             this._rect = new Rectangle(0, 323, 240, 20);
-            this._position = new Vector2(0, 160-20+topoff);
+            this._position = new Vector2(0, 160 - 20 + topoff);
             dg.DrawImage(dg, "title3", this._rect, true, this._position, false, Color.White);
 
 
 
-            int menustartx = 60-(topoff*4);
+            int menustartx = 60 - (topoff * 4);
             int menustarty = 112;
-                //draw the actual options!
-                Color color2;
-                switch (this.plus)
-                {
-                    case 1:
-                        color2 = Color.Yellow;
-                        break;
-                    case 2:
-                        color2 = Color.Cyan;
-                        break;
-                    case 9:
-                        color2 = Color.Red;
-                        break;
-                    default:
-                        color2 = Color.White;
-                        break;
-                }
-                var newGameSprite = ShanghaiEXE.languageTranslationService.GetLocalizedSprite("SceneTitle.NewGame");
-                this._rect = newGameSprite.Item2;
-                if (this.menu == SceneTitle.TITLEMENU.Load)
-                    this._rect.X += this._rect.Width;
-                this._position = new Vector2(menustartx - menuoffx, menustarty - menuoffy);
-                //dg.DrawImage(dg, newGameSprite.Item1, this._rect, true, this._position, false, color2);
+            //draw the actual options!
+            Color color2;
+            switch (this.plus)
+            {
+                case 1:
+                    color2 = Color.Yellow;
+                    break;
+                case 2:
+                    color2 = Color.Cyan;
+                    break;
+                case 9:
+                    color2 = Color.Red;
+                    break;
+                default:
+                    color2 = Color.White;
+                    break;
+            }
+            var newGameSprite = ShanghaiEXE.languageTranslationService.GetLocalizedSprite("SceneTitle.NewGame");
+            this._rect = newGameSprite.Item2;
+            if (this.menu == SceneTitle.TITLEMENU.Load)
+                this._rect.X += this._rect.Width;
+            this._position = new Vector2(menustartx - menuoffx, menustarty - menuoffy);
+            //dg.DrawImage(dg, newGameSprite.Item1, this._rect, true, this._position, false, color2);
 
-                //TODO: hook up localization
-
-                dg.DrawText("New Game (Story)", this._position, true);
-                //Console.WriteLine(this.fontposition.Y)
-                this._position = new Vector2(menustartx - menuoffx, menustarty - menuoffy+16);
-                //dg.DrawImage(dg, newGameSprite.Item1, this._rect, true, this._position, false, color2);
+            //TODO: hook up localization
+            //this rendering could probly use cleaning up
+            switch (menulayer)
+            {
+                case 0:
+                    menuoffy = 64;
+                    optionmax = 3;
+                    dg.DrawText("New Game (Story)", this._position, true);
+            //Console.WriteLine(this.fontposition.Y)
+                this._position = new Vector2(menustartx - menuoffx, menustarty - menuoffy + 16);
+            //dg.DrawImage(dg, newGameSprite.Item1, this._rect, true, this._position, false, color2);
                 dg.DrawText("New Game (Freeroam)", this._position, true);
 
                 var continueSprite = ShanghaiEXE.languageTranslationService.GetLocalizedSprite("SceneTitle.Continue");
                 this._rect = continueSprite.Item2;
                 if (this.menu == SceneTitle.TITLEMENU.Load)
-                    this._rect.X += this._rect.Width;
-                this._position = new Vector2(menustartx - menuoffx, menustarty - menuoffy+32);
+                this._rect.X += this._rect.Width;
+                this._position = new Vector2(menustartx - menuoffx, menustarty - menuoffy + 32);
                 dg.DrawText("Continue", this._position, true);
-                this._position = new Vector2(menustartx - menuoffx, menustarty - menuoffy+ 48);
-                string onoff;
-                if (starforcemode == true)
-                {
-                onoff = "On";
-                }
-                else
-                {
-                onoff = "Off";
-                }
-                dg.DrawText("StrFrc Mode: " + onoff, this._position, true);
-                this._position = new Vector2(menustartx - menuoffx, menustarty - menuoffy + 64);
-                if (randomfolder == true)
-                {
-                    onoff = "On";
-                }
-                else
-                {
-                    onoff = "Off";
-                }
-                dg.DrawText("Random Fldr: " + onoff, this._position, true);
+                this._position = new Vector2(menustartx - menuoffx, menustarty - menuoffy + 48);
+                dg.DrawText("Options", this._position, true);
+                    break;
+                case 1:
+                    optionmax = 2;
+                    menuoffy = 90;
+                    this._position = new Vector2(menustartx - menuoffx, menustarty - menuoffy);
+                    string onoff;
+                    if (starforcemode == true)
+                    {
+                        onoff = "On";
+                    }
+                    else
+                    {
+                        onoff = "Off";
+                    }
+                    dg.DrawText("StrFrc Mode: " + onoff, this._position, true);
+                    this._position = new Vector2(menustartx - menuoffx, menustarty - menuoffy + 16);
+                    if (randomfolder == true)
+                    {
+                        onoff = "On";
+                    }
+                    else
+                    {
+                        onoff = "Off";
+                    }
+                    dg.DrawText("Random Fldr: " + onoff, this._position, true);
+                    this._position = new Vector2(menustartx - menuoffx, menustarty - menuoffy + 32);
+                    dg.DrawText("Back", this._position, true);
 
+
+                    break;
+            }
 
             //this._position.X = (float)(fontposition.X - (double)(this._rect.Width / 2) - 16.0);
             //arrow
 
-            this._position.X = this._position.X - 8;
-            this._position.Y = 128 - menuoffy-8;// + optionsel * 16;
-            this._position.Y += optionsel * 16;
+            if (menulayer == 0) //schmove it down for the top menu a bit
+            {
+                this._position.X = this._position.X - 8;
+                this._position.Y = 128 - menuoffy - 8;// + optionsel * 16;
+                this._position.Y += optionsel * 16;
+            }
+            else
+            {
+                this._position.X = this._position.X - 8;
+                this._position.Y = 128 - menuoffy - 8-24+23;// + optionsel * 16;
+                this._position.Y += optionsel * 16;
+
+            }
 
             this._rect = new Rectangle(240 + this.frame % 4 * 16, 192, 16, 16);
             dg.DrawImage(dg, "title", this._rect, false, this._position, false, Color.White);
+
+            //tooltips
+            if (menulayer == 1)
+            {
+                string str = "";
+
+                this._position = new Vector2(0.0f, 147 + topoff);
+                dg.DrawMicroText(str, this._position, Color.White);
+
+                switch (optionsel)
+                {
+
+                        case 0:
+                        str = "Start with Starforce addons";
+                        break;
+                        case 1:
+                        str = "Start with a random, chaotic folder!";
+                        break;
+                }
+
+                this._position = new Vector2(0.0f, 147 + topoff);
+                dg.DrawMicroText(str, this._position, Color.White);
+            }
+
+            
             int num = 0;
             for (int index = 0; index < this.star.Length; ++index)
             {
@@ -654,22 +742,26 @@ namespace NSTitle
             this._rect = new Rectangle(440, 0, 64, 16);
             // dg.DrawImage(dg, "title", this._rect, true, this._position, false, Color.White);
             Color white2 = Color.White;
+            if (menulayer == 0)
+            {
             string str = "v0.1.0";
             this._position = new Vector2(0.0f, 147 + topoff);
-
             dg.DrawMicroText(str, this._position, white2);
+            
+            
             if (ShanghaiEXE.Config.Seed != 0.0)
-            {
-                
-                str = "Seed: " + ShanghaiEXE.Config.Seed.ToString();
-                this._position = new Vector2(0, -2 - topoff);
-                dg.DrawMicroText(str, this._position, white2);
-            }
-            else
-            {
-                
-                this._position = new Vector2(0.0f, -2 - topoff);
-                dg.DrawMicroText("Rando. Off", this._position, white2);
+                {
+
+                    str = "Seed: " + ShanghaiEXE.Config.Seed.ToString();
+                    this._position = new Vector2(0, -2 - topoff);
+                    dg.DrawMicroText(str, this._position, white2);
+                }
+                else
+                {
+
+                    this._position = new Vector2(0.0f, -2 - topoff);
+                    dg.DrawMicroText("Rando. Off", this._position, white2);
+                }
             }
         }
 

@@ -286,6 +286,7 @@ namespace NSEvent
 
         public override void Render(IRenderer dg)
         {
+            bool helpwindow = false;
             if (this.shopmode)
             {
                 this.field.back.Render(dg);
@@ -392,17 +393,17 @@ namespace NSEvent
                 {
                     this._position = new Vector2(5f, 108f);
                     if (this.auto)
-				    {
-					    this._rect = new Rectangle(40 * this.autoFrame, faceNo * 48, 40, 48);
-				    }
-				    else if (this.mono)
-				    {
-					    this._rect = new Rectangle(200, faceNo * 48, 40, 48);
-				    }
+                    {
+                        this._rect = new Rectangle(40 * this.autoFrame, faceNo * 48, 40, 48);
+                    }
+                    else if (this.mono)
+                    {
+                        this._rect = new Rectangle(200, faceNo * 48, 40, 48);
+                    }
                     else
                     {
-						this._rect = new Rectangle(0, faceNo * 48, 40, 48);
-					}
+                        this._rect = new Rectangle(0, faceNo * 48, 40, 48);
+                    }
                     string te = "Face" + this.faceSeet.ToString();
                     dg.DrawImage(dg, te, this._rect, true, this._position, Color.White);
                     if (!this.eventmanager.playevent)
@@ -420,11 +421,14 @@ namespace NSEvent
                     switch (this.shopType)
                     {
                         case 0:
+                            //chip window display
                             if ((uint)this.goods[this.Select].numberNo > 0U)
                             {
+                                helpwindow = true;
+                                int xoff = 85;
                                 ChipFolder chipFolder = new ChipFolder(null);
                                 chipFolder.SettingChip(this.goods[this.Select].numberNo);
-                                this._position = new Vector2(80f, 8f);
+                                this._position = new Vector2(80 + xoff, 8f);
                                 if (chipFolder.chip.dark)
                                     this._rect = new Rectangle(848, 216, 80, 96);
                                 else if (chipFolder.chip.navi)
@@ -432,7 +436,7 @@ namespace NSEvent
                                 else
                                     this._rect = new Rectangle(680, 120, 80, 96);
                                 dg.DrawImage(dg, "menuwindows", this._rect, true, this._position, Color.White);
-                                this._position = new Vector2(89f, 25f);
+                                this._position = new Vector2(89 + xoff, 25f);
                                 chipFolder.chip.GraphicsRender(dg, this._position, this.goods[this.Select].numberSub, true, true);
                                 strArray = chipFolder.chip.information;
                                 break;
@@ -449,6 +453,9 @@ namespace NSEvent
                             addOnBase.Render(dg, false, false, new Vector2(72f, 40f), this);
                             strArray = addOnBase.infomasion;
                             break;
+                        default:
+                            //do nothing if it's somthing weird like a core up
+                            break;
                     }
                     for (int index = 0; index < strArray.Length; ++index)
                     {
@@ -456,54 +463,70 @@ namespace NSEvent
                         dg.DrawText(strArray[index], this._position, this.savedata);
                     }
                 }
-                switch (this.moneyType)
+                if (helpwindow == false)
                 {
-                    case 0:
-                        this._rect = new Rectangle(488, 232, 80, 40);
-                        this._position = new Vector2(160f, 0.0f);
-                        dg.DrawImage(dg, "menuwindows", this._rect, true, this._position, Color.White);
-                        break;
-                    case 1:
-                        {
-                            var bugFragSprite = ShanghaiEXE.languageTranslationService.GetLocalizedSprite("Shop.BugFragCounter");
-                            this._rect = bugFragSprite.Item2;
-                            this._position = new Vector2(160f, 0.0f);
-                            dg.DrawImage(dg, bugFragSprite.Item1, this._rect, true, this._position, Color.White);
-                        }
-                        break;
-                    case 2:
-                        {
-                            var bugFragSprite = ShanghaiEXE.languageTranslationService.GetLocalizedSprite("Shop.FrzFragCounter");
-                            this._rect = bugFragSprite.Item2;
-                            this._position = new Vector2(160f, 0.0f);
-                            dg.DrawImage(dg, bugFragSprite.Item1, this._rect, true, this._position, Color.White);
-                        }
-                        break;
-                    case 3:
-                        {
-                            var bugFragSprite = ShanghaiEXE.languageTranslationService.GetLocalizedSprite("Shop.ErrFragCounter");
-                            this._rect = bugFragSprite.Item2;
-                            this._position = new Vector2(160f, 0.0f);
-                            dg.DrawImage(dg, bugFragSprite.Item1, this._rect, true, this._position, Color.White);
-                        }
-                        break;
-                }
-                if (this.moneyType == 0)
-                {
-                    if (this.savedata.Money < this.savedata.moneyover)
+                    switch (this.moneyType)
                     {
-                        AllBase.NAME[] nameArray = this.Nametodata(this.savedata.Money.ToString() + "Z");
-                        point = new Vector2(232 - nameArray.Length * 8, 16f);
-                        foreach (var data in ((IEnumerable<AllBase.NAME>)nameArray).Select((v, j) => new
+                        case 0:
+                            this._rect = new Rectangle(488, 232, 80, 40);
+                            this._position = new Vector2(160f, 0.0f);
+                            dg.DrawImage(dg, "menuwindows", this._rect, true, this._position, Color.White);
+                            break;
+                        case 1:
+                            {
+                                var bugFragSprite = ShanghaiEXE.languageTranslationService.GetLocalizedSprite("Shop.BugFragCounter");
+                                this._rect = bugFragSprite.Item2;
+                                this._position = new Vector2(160f, 0.0f);
+                                dg.DrawImage(dg, bugFragSprite.Item1, this._rect, true, this._position, Color.White);
+                            }
+                            break;
+                        case 2:
+                            {
+                                var bugFragSprite = ShanghaiEXE.languageTranslationService.GetLocalizedSprite("Shop.FrzFragCounter");
+                                this._rect = bugFragSprite.Item2;
+                                this._position = new Vector2(160f, 0.0f);
+                                dg.DrawImage(dg, bugFragSprite.Item1, this._rect, true, this._position, Color.White);
+                            }
+                            break;
+                        case 3:
+                            {
+                                var bugFragSprite = ShanghaiEXE.languageTranslationService.GetLocalizedSprite("Shop.ErrFragCounter");
+                                this._rect = bugFragSprite.Item2;
+                                this._position = new Vector2(160f, 0.0f);
+                                dg.DrawImage(dg, bugFragSprite.Item1, this._rect, true, this._position, Color.White);
+                            }
+                            break;
+                    }
+
+                    if (this.moneyType == 0)
+                    {
+                        if (this.savedata.Money < this.savedata.moneyover)
                         {
-                            v,
-                            j
-                        }))
-                        {
-                            this._rect = new Rectangle((int)data.v * 8, 88, 8, 16);
-                            this._position = new Vector2(point.X + 8 * data.j, point.Y);
-                            dg.DrawImage(dg, "font", this._rect, true, this._position, Color.White);
+                            AllBase.NAME[] nameArray = this.Nametodata(this.savedata.Money.ToString() + "Z");
+                            point = new Vector2(232 - nameArray.Length * 8, 16f);
+                            foreach (var data in ((IEnumerable<AllBase.NAME>)nameArray).Select((v, j) => new
+                            {
+                                v,
+                                j
+                            }))
+                            {
+                                this._rect = new Rectangle((int)data.v * 8, 88, 8, 16);
+                                this._position = new Vector2(point.X + 8 * data.j, point.Y);
+                                dg.DrawImage(dg, "font", this._rect, true, this._position, Color.White);
+                            }
                         }
+                        else
+                        {
+                            this._position = new Vector2(164f, 16f);
+                            this.TextRender(dg, ShanghaiEXE.Translate("Shop.Billionaire"), false, this._position, false);
+                        }
+                    }
+                    else if (this.savedata.havePeace[this.moneyType - 1] < this.savedata.moneyover)
+                    {
+                        AllBase.NAME[] nameArray = this.Nametodata(string.Format(ShanghaiEXE.Translate("Shop.ZennyFormat"), this.savedata.havePeace[this.moneyType - 1]));
+                        point = new Vector2(232 - nameArray.Length * 8, 16f);
+                        this._position = new Vector2(point.X, point.Y);
+                        DrawBlockCharacters(dg, nameArray, 88, this._position, Color.White, out this._rect, out this._position);
                     }
                     else
                     {
@@ -511,21 +534,13 @@ namespace NSEvent
                         this.TextRender(dg, ShanghaiEXE.Translate("Shop.Billionaire"), false, this._position, false);
                     }
                 }
-                else if (this.savedata.havePeace[this.moneyType - 1] < this.savedata.moneyover)
-                {
-                    AllBase.NAME[] nameArray = this.Nametodata(string.Format(ShanghaiEXE.Translate("Shop.ZennyFormat"), this.savedata.havePeace[this.moneyType - 1]));
-                    point = new Vector2(232 - nameArray.Length * 8, 16f);
-                    this._position = new Vector2(point.X, point.Y);
-                    DrawBlockCharacters(dg, nameArray, 88, this._position, Color.White, out this._rect, out this._position);
-                }
-                else
-                {
-                    this._position = new Vector2(164f, 16f);
-                    this.TextRender(dg, ShanghaiEXE.Translate("Shop.Billionaire"), false, this._position, false);
-                }
                 this._rect = new Rectangle(432, 232, 56, 40);
                 this._position = new Vector2(176f, 56f);
-                dg.DrawImage(dg, "menuwindows", this._rect, true, this._position, Color.White);
+                if (helpwindow == false)
+                {
+                    dg.DrawImage(dg, "menuwindows", this._rect, true, this._position, Color.White);
+                }
+
             }
             if (this.eventmanager.playevent)
                 this.eventmanager.Render(dg);

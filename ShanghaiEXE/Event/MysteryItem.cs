@@ -1,4 +1,6 @@
-﻿using NSAddOn;
+﻿using Common;
+using Common.Vectors;
+using NSAddOn;
 using NSChip;
 using NSShanghaiEXE.InputOutput.Audio;
 using NSShanghaiEXE.InputOutput.Rendering;
@@ -8,6 +10,8 @@ using NSMap.Character;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using System.Drawing;
+
 
 namespace NSEvent
 {
@@ -21,6 +25,9 @@ namespace NSEvent
         public bool setting;
         private EventManager em;
         private int flagNo;
+        private bool chipshow;
+        public int xswooce = 50;
+        private int chipcode = 0;
 
         public MysteryItem(
           IAudioEngine s,
@@ -116,6 +123,9 @@ namespace NSEvent
                 case 0:
                     this.savedata.category = ShanghaiEXE.Translate("MysteryItem.BattleChipText");
                     this.savedata.AddChip(this.itemData.itemNumber + 1, this.itemData.itemSub, true);
+                    chipshow = true; //show that chip, if you're so great
+                    chipcode = this.itemData.itemSub;
+
                     break;
                 case 1:
                     this.savedata.category = ShanghaiEXE.Translate("MysteryItem.SubChipText");
@@ -165,6 +175,7 @@ namespace NSEvent
                 default:
                     this.manager.parent.Player.EncountSet(true);
                     break;
+
             }
             if ((uint)this.itemData.type > 0U)
                 this.savedata.GetMystery[this.flagNo] = true;
@@ -329,6 +340,35 @@ namespace NSEvent
 
         public override void Render(IRenderer dg)
         {
+            if (chipshow == true) //if it's a chip, render it out
+            {
+                string[] strArray = new string[3] { "", "", "" }; //i don't think this does anything but just incase
+                int xoff = 85+ xswooce;
+                int yoff = 0;
+                if (xswooce > 0)
+                {
+                    xswooce -= 5;
+                }
+                    
+
+                ChipFolder chipFolder = new ChipFolder(null);
+                chipFolder.SettingChip(this.itemData.itemNumber+1);
+                this._position = new Vector2(80 + xoff, 8f+yoff);
+                if (chipFolder.chip.dark)
+                    this._rect = new Rectangle(848, 216, 80, 96);
+                else if (chipFolder.chip.navi)
+                    this._rect = new Rectangle(848, 120, 80, 96);
+                else
+                    this._rect = new Rectangle(680, 120, 80, 96);
+                dg.DrawImage(dg, "menuwindows", this._rect, true, this._position, Color.White);
+                this._position = new Vector2(89 + xoff, 25+yoff);
+                
+
+
+                chipFolder.chip.GraphicsRender(dg, this._position, chipcode, true, true);
+                strArray = chipFolder.chip.information;
+
+            }
             if (!this.message)
                 return;
             this.em?.Render(dg);

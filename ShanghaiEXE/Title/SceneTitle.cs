@@ -500,8 +500,6 @@ namespace NSTitle
                 case SceneTitle.TITLESCENE.pushbutton:
                     this.PushbuttonRender(dg);
                     this.isinfade = false;
-                    //this.topoff = 30;
-                    //this.fadealp = 0;
                     break;
                 case SceneTitle.TITLESCENE.select:
                 case SceneTitle.TITLESCENE.fade:
@@ -516,22 +514,7 @@ namespace NSTitle
             this._position = new Vector2(0.0f, 0.0f);
             dg.DrawImage(dg, "fadescreen", this._rect, true, this._position, color);
 
-            /* old testing crap
-            this._rect = new Rectangle(0, 132, 240, 132+160);
-            this._position = new Vector2(0, 0);
-            //dg.DrawImage(dg, "title3", this._rect, true, this._position, Color.White);
 
-            this._rect = new Rectangle(0, 0, 240, 124);
-            this._position = new Vector2(0, 18);
-            //dg.DrawImage(dg, "title3", this._rect, true, this._position, Color.White);
-
-
-            this._rect = new Rectangle(0, 292, 240, 292+160);
-            this._position = new Vector2(0, 0);
-            //dg.DrawImage(dg, "title3", this._rect, true, this._position, Color.White);
-            //this._position = new Vector2(140.0f, 16.0f);
-            //dg.DrawMiniText(str, this._position, Color.FromArgb(16, 16, 16));
-            */
             //darken stuff
             if (this.isinfade == false) //smooth fadeout
             {

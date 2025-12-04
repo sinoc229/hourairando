@@ -39,7 +39,7 @@ namespace NSTitle
           : base(s, p, save)
         {
             this.parent = p;
-            this.nowscene = FirstTitle.TITLESCENE.rogoinit;
+            this.nowscene = FirstTitle.TITLESCENE.disclaimerinit;
         }
 
         public override void Updata()
@@ -127,6 +127,38 @@ namespace NSTitle
                         break;
                     }
                     break;
+                case FirstTitle.TITLESCENE.disclaimerinit:
+                    if (this.fadealpha <= 0)
+                    {
+                        this.nowscene = FirstTitle.TITLESCENE.disclaimerpushbutton;
+                        break;
+                    }
+                    ++this.frame;
+                    if (this.frame > 30)
+                        this.fadealpha -= 8;
+                    if (this.fadealpha <= 0)
+                        this.fadealpha = 0;
+                    break;
+                case FirstTitle.TITLESCENE.disclaimerpushbutton:
+                    ++this.frame;
+                    if (this.frame >= 120 && this.savedata.loadEnd || this.Push())
+                    {
+                        this.nowscene = FirstTitle.TITLESCENE.disclaimerfade;
+                        this.frame = 0;
+                        break;
+                    }
+                    break;
+                case FirstTitle.TITLESCENE.disclaimerfade:
+                    this.fadealpha += 8;
+                    if (this.fadealpha >= byte.MaxValue)
+                    {
+                        ++this.frame;
+                        this.fadealpha = byte.MaxValue;
+                        if (this.frame > 30)
+                            this.nowscene = FirstTitle.TITLESCENE.rogoinit;
+                        break;
+                    }
+                    break;
             }
             if ((uint)(this.nowscene - 3) > 3U)
                 return;
@@ -145,6 +177,15 @@ namespace NSTitle
         {
             switch (this.nowscene)
             {
+                case FirstTitle.TITLESCENE.disclaimerinit:
+                case FirstTitle.TITLESCENE.disclaimerpushbutton:
+                case FirstTitle.TITLESCENE.disclaimerfade:
+                    //var disclaimer = ShanghaiEXE.languageTranslationService.GetLocalizedSprite("FirstTitle.Disclaimer");
+                     //this._rect = disclaimer.Item2;
+                    this._position = new Vector2(0.0f, 0.0f);
+                    this._rect = new Rectangle(0, 0, 240, 160);
+                    dg.DrawImage(dg, "title0", this._rect, true, this._position, false, Color.White);
+                    break;
                 case FirstTitle.TITLESCENE.rogoinit:
                 case FirstTitle.TITLESCENE.rogopushbutton:
                 case FirstTitle.TITLESCENE.rogofade:
@@ -176,6 +217,8 @@ namespace NSTitle
                             this._position = new Vector2(120f, 80f);
                             dg.DrawImage(dg, spinningTitleSprite.Item1, this._rect, false, this._position, this.scall, this.rogorota, Color.White);
                             break;
+
+
                     }
                     break;
             }
@@ -206,6 +249,9 @@ namespace NSTitle
             titlepush,
             titlespin,
             titlefade,
+            disclaimerinit,
+            disclaimerpushbutton,
+            disclaimerfade,
         }
     }
 }

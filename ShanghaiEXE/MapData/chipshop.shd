@@ -176,6 +176,7 @@ hitrange:20:20:8:8
 hitform:square
 event:
 msgopen:
+msg:patchi_randohint1
 msgclose:
 end
 
@@ -1783,7 +1784,6 @@ ifEnd:0
 ifFlag:444:False:1
 msgopen:
 msg:Map.ChipshopByte-chanStage3Dialogue1FaceBrownHairGalStudent
-Special:0
 msg:Map.ChipshopByte-chanStage3Dialogue2FaceBrownHairGalStudent
 msgclose:
 editFlag:444:True

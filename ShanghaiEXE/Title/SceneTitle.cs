@@ -39,6 +39,7 @@ namespace NSTitle
         private bool starforcemode = false;
         private bool randomfolder = false;
         private byte menulayer = 0;
+        private int doubletap = 0;
 
         private byte linescrl1 = 0;
         private int linescrl2 = 0;
@@ -327,106 +328,118 @@ namespace NSTitle
 
         private void KeyControl()
         {
-            if (Input.IsPress(Button._A) || Input.IsPress(Button._Start))
+            if (doubletap <= 0)
             {
-                if (menulayer == 0) //main save/load menu
+                if (doubletap <= 0)
+                {
+                    if (Input.IsPress(Button._A) || Input.IsPress(Button._Start))
                     {
-                    if (optionsel < 3)
-                    {
-                        //for newgame and loading
-                        this.nowscene = SceneTitle.TITLESCENE.fade;
-                        this.sound.PlaySE(SoundEffect.thiptransmission);
-                    }
-                    else
-                    {
-                        //for the option options
-                        //this.sound.PlaySE(SoundEffect.thiptransmission);
-                        switch (optionsel)
+                        doubletap = 5;
+                        if (menulayer == 0) //main save/load menu
                         {
-                            case 3:
-                                menulayer = 1;
-                                optionsel = 0;
-                                // starforcemode = !starforcemode;
-                               // this.sound.PlaySE(SoundEffect.thiptransmission);
-                                break;
-                            case 4:
-                                //randomfolder = !randomfolder;
-                               // this.sound.PlaySE(SoundEffect.thiptransmission);
-                                break;
+                            if (optionsel < 3)
+                            {
+                                //for newgame and loading
+                                this.nowscene = SceneTitle.TITLESCENE.fade;
+                                this.sound.PlaySE(SoundEffect.thiptransmission);
+                            }
+                            else
+                            {
+                                //for the option options
+                                //this.sound.PlaySE(SoundEffect.thiptransmission);
+                                switch (optionsel)
+                                {
+                                    case 3:
+                                        menulayer = 1;
+                                        optionsel = 0;
+                                        //return;
+                                        // starforcemode = !starforcemode;
+                                        // this.sound.PlaySE(SoundEffect.thiptransmission);
+                                        break;
+                                    case 4:
+                                        //randomfolder = !randomfolder;
+                                        // this.sound.PlaySE(SoundEffect.thiptransmission);
+                                        break;
+
+                                }
+
+
+                            }
+                        }
+                        else if (menulayer == 1)
+                        {
+                            switch (optionsel)
+                            {
+                                case 0:
+                                    starforcemode = !starforcemode;
+                                    this.sound.PlaySE(SoundEffect.thiptransmission);
+                                    break;
+
+                                case 1:
+                                    randomfolder = !randomfolder;
+                                    this.sound.PlaySE(SoundEffect.thiptransmission);
+                                    break;
+                                case 2:
+                                    menulayer = 0;
+                                    optionsel = 3;
+                                    break;
+
+                            }
 
                         }
-
-
                     }
-                }
-                if (menulayer == 1)
-                {
-                    switch (optionsel)
+                    if (Input.IsPress(Button._B))
                     {
-                        case 0:
-                        starforcemode = !starforcemode;
-                        this.sound.PlaySE(SoundEffect.thiptransmission);
-                        break;
+                        switch (menulayer)
+                        {
+                            case 0:
+                                this.nowscene = SceneTitle.TITLESCENE.pushbutton;
+                                this.sound.PlaySE(SoundEffect.cancel);
+                                break;
+                            case 1:
+                                menulayer = 0;
+                                optionsel = 3;
+                                this.sound.PlaySE(SoundEffect.cancel);
 
-                        case 1:
-                        randomfolder = !randomfolder;
-                        this.sound.PlaySE(SoundEffect.thiptransmission);
-                        break;
-                        case 2:
-                            menulayer = 0;
-                            optionsel = 3;
-                        break;
-
+                                
+                                break;
+                        }
                     }
-
                 }
-            }
-            if (Input.IsPress(Button._B))
-            {
-                switch (menulayer)
+                if (this.keywait <= 0)
                 {
-                    case 0:
-                    this.nowscene = SceneTitle.TITLESCENE.pushbutton;
-                    this.sound.PlaySE(SoundEffect.cancel);
-                        break;
-                    case 1:
-                        menulayer = 0;
-                        this.sound.PlaySE(SoundEffect.cancel);
-                        optionsel = 3;
-                        break;
+                    //if (!this.printLoad)
+                    //    return;
+                    if (Input.IsPush(Button.Up))
+                    {
+                        --optionsel;
+                        this.keywait = Input.IsPress(Button.Up) ? 25 : 5;
+                        this.sound.PlaySE(SoundEffect.movecursol);
+                    }
+                    if (Input.IsPush(Button.Down))
+                    {
+                        ++optionsel;
+                        this.keywait = Input.IsPress(Button.Down) ? 25 : 5;
+                        this.sound.PlaySE(SoundEffect.movecursol);
+                    }
                 }
+                else
+                    this.keywait = Input.IsUp(Button.Up) || Input.IsUp(Button.Down) ? 0 : this.keywait - 1;
             }
-            if (this.keywait <= 0)
-            {
-                //if (!this.printLoad)
-                //    return;
-                if (Input.IsPush(Button.Up))
-                {
-                    --optionsel;
-                    this.keywait = Input.IsPress(Button.Up) ? 25 : 5;
-                    this.sound.PlaySE(SoundEffect.movecursol);
-                }
-                if (Input.IsPush(Button.Down))
-                {
-                    ++optionsel;
-                    this.keywait = Input.IsPress(Button.Down) ? 25 : 5;
-                    this.sound.PlaySE(SoundEffect.movecursol);
-                }
-            }
-            else
-                this.keywait = Input.IsUp(Button.Up) || Input.IsUp(Button.Down) ? 0 : this.keywait - 1;
-
+            else { doubletap -= 1; }
 
             //you'd think there would be a wrap method built in somewhere, but no
-            if (optionsel < 0)
-            {
-                optionsel = optionmax;
+            if (doubletap <= 0)
+                {
+                if (optionsel < 0)
+                {
+                    optionsel = optionmax;
+                }
+                if (optionsel > optionmax)
+                {
+                    optionsel = 0;
+                }
             }
-            if (optionsel > optionmax)
-            {
-                optionsel = 0;
-            }
-
 
         }
 

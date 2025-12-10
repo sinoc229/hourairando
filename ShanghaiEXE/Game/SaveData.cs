@@ -24,7 +24,7 @@ namespace NSGame
 
     public class SaveData
     {
-        private const string FreeplayPath = "freeplay.she";
+        private const string FreeplayPath = "freeplay.she"; //unused, old method
         private const string SavePath = "save.she";
         private const string SavePathTemp = "save.she.tmp";
         private const string BackupPath = "save.she.bak";
@@ -198,12 +198,16 @@ namespace NSGame
         public int[,] Randolist2 = new int[1000, 6];
         public int[,] Randolistfinal = new int[1000, 6];
 
+
+        public string[] encounterid = new string[1000];
+        public string[,] encounterid2 = new string[1000, 6]; //just incase
+
         public string[] scramblegifts2 = new string[1000];
         public string[] giftitemsglobal = new string[1000];
 
 
         public string[] mapnames = new string[1000];
-
+        public int totalmaps = 174;
 
         public int[,] apgive = new int[9999, 7];
         public int ap_itemq = 0;
@@ -213,7 +217,7 @@ namespace NSGame
 
         public void Load(Control parent = null)
         {
-            for (int i = 0; i < 9999; i++)
+            for (int i = 0; i < 9999; i++) //generate items for ap to refrence later
             {
                 apgive[i, 6] = -1;
 
@@ -740,6 +744,7 @@ namespace NSGame
 
 
             Maplootfinder();
+            Mapencounterfinder(); 
 
             AP_Connect();
 
@@ -2033,6 +2038,7 @@ namespace NSGame
 
         public void FlugSave()
         {
+            // if i ever meet dot in real life i'm going to gently sit him down, teach him english, then strangle him
             this.flugEnd = false;
             StringBuilder sourceString = new StringBuilder();
             foreach (bool flag in this.flagList)
@@ -2079,6 +2085,7 @@ namespace NSGame
 
         public void RanSave()
         {
+            //no relation to fluffy tail
             this.ranEnd = false;
             StringBuilder sourceString = new StringBuilder();
             foreach (bool flag in this.getRandomMystery)
@@ -3011,7 +3018,7 @@ namespace NSGame
             var mapslookedthru = 0;
             var totalmystery = 0;
             var totalgifteditems = 0;
-            var totalmaps = 174;
+            //totalmaps;
             var startofgifts = 700;
             
 
@@ -3787,6 +3794,71 @@ namespace NSGame
 
         }
 
+        public void Mapencounterfinder()
+        {
+            var linenumb = 0;
+            var mapno = 0;
+            string txtname = "";
+            var mapslookedthru = 0;
+            var totalfights = 0;
+            var totalgifteditems = 0;
+            //var totalmaps = 174;
+            var startofgifts = 700;
+
+            int[,] sourcemap = new int[1000, 2];
+            int[] dupemode = new int[1000];
+
+
+            //loop thru maps and find all non boss encounters
+            var m = 0;
+            for (m = 0; m < totalmaps + 1; m++)
+            {
+                txtname = FindMapName(mapno);
+
+                string path = Debug.MaskMapFile ? "MapData/" + txtname + ".shd" : "map/" + txtname + ".txt";
+                if (!File.Exists(path))
+                {
+                    Console.WriteLine("Not found?");
+
+                }
+                else
+                {
+                    //Console.WriteLine("File found!");
+                }
+
+
+                StreamReader sr = new StreamReader(path);
+
+                string searchtext = "battle:"; //method1, checking for all battles
+                string gettext1 = "VSvirus"; //method2, checking for generic virus battles
+
+                string line;
+
+                //stick all the non boss random encounters in a list
+                while ((line = sr.ReadLine()) != null)
+                {
+                    linenumb++;
+
+                    if (line.Contains(gettext1))
+                    {
+                        Console.WriteLine(line);
+                        string newstr = line;
+
+                        encounterid[totalfights] = newstr;
+                        totalfights++;
+
+
+
+                    }
+                    
+                }
+                linenumb = 0;
+                mapno++;
+
+
+            }
+
+            }
 
         public void AP_Connect()
         {

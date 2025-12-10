@@ -1233,6 +1233,8 @@ namespace NSMap
                 var seed = ShanghaiEXE.Config.Seed;
                 Random rng = new Random(seed);
                 
+                //TODO: library this so it dosn't generate unsueable folders or otherwise unobtainable chips
+
                 for (int index2 = 0; index2 < this.savedata.chipFolder.GetLength(1); ++index2)
                 {
                     for (int index3 = 0; index3 < this.savedata.chipFolder.GetLength(2); ++index3)

@@ -140,8 +140,26 @@ namespace NSMap
             if (this.save.ValList[28] < 0)
             {
                 this.save.ValList[28] = 0;
-                //reset difficulty to 0, if it somehow gets to -1
+                //reset difficulty to 0, if it somehow gets to -1\
+
+                Console.WriteLine("reset difficulty to 0, it somehow got fucked up");
             }
+
+            //convert map name to an int for the randomizer
+            var input = txtname.ToUpper();
+            int result = 0;
+            foreach (char character in input)
+            {
+                int value = (int)character - (int)'A' + 1;
+                result = result * 26 + value;
+            }
+
+            result = Math.Abs(result);
+
+            this.save.ValList[150] = result;
+
+
+            //Console.WriteLine(result);
 
             string[] strArray1 = A1.Split(',');
             int length1 = int.Parse(strArray1[0]);

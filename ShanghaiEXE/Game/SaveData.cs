@@ -208,6 +208,9 @@ namespace NSGame
 
         public string[] mapnames = new string[1000];
         public int totalmaps = 174;
+        public int[] fightsinthismap = new int[1000];
+        public int totalfights = 0;
+        
 
         public int[,] apgive = new int[9999, 7];
         public int ap_itemq = 0;
@@ -3796,11 +3799,13 @@ namespace NSGame
 
         public void Mapencounterfinder()
         {
+            Console.WriteLine("Starting battle indexing...");
+
             var linenumb = 0;
             var mapno = 0;
             string txtname = "";
             var mapslookedthru = 0;
-            var totalfights = 0;
+            
             var totalgifteditems = 0;
             //var totalmaps = 174;
             var startofgifts = 700;
@@ -3811,8 +3816,10 @@ namespace NSGame
 
             //loop thru maps and find all non boss encounters
             var m = 0;
+            var thismap = 0;
             for (m = 0; m < totalmaps + 1; m++)
             {
+                thismap = 0;
                 txtname = FindMapName(mapno);
 
                 string path = Debug.MaskMapFile ? "MapData/" + txtname + ".shd" : "map/" + txtname + ".txt";
@@ -3829,7 +3836,7 @@ namespace NSGame
 
                 StreamReader sr = new StreamReader(path);
 
-                string searchtext = "battle:"; //method1, checking for all battles
+               
                 string gettext1 = "VSvirus"; //method2, checking for generic virus battles
 
                 string line;
@@ -3841,24 +3848,32 @@ namespace NSGame
 
                     if (line.Contains(gettext1))
                     {
-                        Console.WriteLine(line);
+                        Console.WriteLine(line); //debug
                         string newstr = line;
-
+                        thismap++;
                         encounterid[totalfights] = newstr;
                         totalfights++;
 
+//                        fightsinthismap[mapno]++;
 
+                        //Console.WriteLine("Fights in map " + m + " :" + thismap);
 
                     }
                     
                 }
+                fightsinthismap[mapno] = thismap;
+                Console.WriteLine("Fights in map " + mapno + " :" + thismap);
+
                 linenumb = 0;
                 mapno++;
 
 
             }
 
-            }
+
+            Console.WriteLine("Total fights: " + totalfights);
+
+        }
 
         public void AP_Connect()
         {

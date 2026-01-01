@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using NSAddOn;
+using NSBattle;
 //using System.Windows.Forms;
 
 namespace NSMap.Character
@@ -49,6 +50,8 @@ namespace NSMap.Character
         private int hidenumber;
         private bool encounter;
         private bool encounterBreak;
+        public int currentfield = 0;
+        public int[] battleitem = new int[1000];
 
         public void CloseMenu()
         {
@@ -108,6 +111,14 @@ namespace NSMap.Character
         public void FieldSet(MapField fi)
         {
             this.field = fi;
+            //turns out this is only called when you first hit newgame/continue
+            //var test = this.field.mapname;
+
+            //Console.WriteLine("Indexing map name...");
+            //Console.WriteLine(test);
+            //this.Battlefield = 0;
+            //convert fi into a number we can refrence for randomization
+            //this.currentfield = int(fi);
         }
 
         public override void Update()
@@ -457,6 +468,7 @@ namespace NSMap.Character
                 m.AddEvent(new BranchHead(this.sound, m, 1, this.savedata));
                 m.AddEvent(new CloseMassageWindow(this.sound, m));
                 m.AddEvent(new BranchEnd(this.sound, m, this.savedata));
+               // m.AddEvent(new Battle(m, 63, 3, 4, 2, 1, 1, 1, 0, 63, 3, 5, 0, 1, 1, 1, 0, 63, 3, 3, 0, 1, 1, 1, 0, 0, 0, 16, false, false, true, true, "VSvirus", 36));
             }
             else
             {
@@ -892,6 +904,8 @@ namespace NSMap.Character
                             else
                             {
                                 int count = this.field.encounts.Count;
+                                var ignoreaddonmods = false; //for randomizer purposes
+                                
                                 if (!this.savedata.FlagList[this.field.encountCap[0]]
                                     || (ignoreSpecialEncounters && this.field.encountCap[1] != this.field.encounts.Count))
                                 {
@@ -903,18 +917,25 @@ namespace NSMap.Character
                                 {
                                     this.encounts = new List<EventManager>(field.encounts);
                                 }
-                                if (this.savedata.addonSkill[7])
-                                    this.encounts = this.Element(ChipBase.ELEMENT.heat);
-                                else if (this.savedata.addonSkill[8])
-                                    this.encounts = this.Element(ChipBase.ELEMENT.aqua);
-                                else if (this.savedata.addonSkill[9])
-                                    this.encounts = this.Element(ChipBase.ELEMENT.leaf);
-                                else if (this.savedata.addonSkill[10])
-                                    this.encounts = this.Element(ChipBase.ELEMENT.eleki);
-                                else if (this.savedata.addonSkill[11])
-                                    this.encounts = this.Element(ChipBase.ELEMENT.poison);
-                                else if (this.savedata.addonSkill[12])
-                                    this.encounts = this.Element(ChipBase.ELEMENT.earth);
+
+                                if (ignoreaddonmods == false)
+                                {
+                                    if (this.savedata.addonSkill[7])
+                                        this.encounts = this.Element(ChipBase.ELEMENT.heat);
+                                    else if (this.savedata.addonSkill[8])
+                                        this.encounts = this.Element(ChipBase.ELEMENT.aqua);
+                                    else if (this.savedata.addonSkill[9])
+                                        this.encounts = this.Element(ChipBase.ELEMENT.leaf);
+                                    else if (this.savedata.addonSkill[10])
+                                        this.encounts = this.Element(ChipBase.ELEMENT.eleki);
+                                    else if (this.savedata.addonSkill[11])
+                                        this.encounts = this.Element(ChipBase.ELEMENT.poison);
+                                    else if (this.savedata.addonSkill[12])
+                                        this.encounts = this.Element(ChipBase.ELEMENT.earth);
+                                }
+
+                                Console.WriteLine(new List<EventManager>(this.field.encounts));
+                                
                                 this.encountNumber = this.Random.Next(this.encounts.Count);
                             }
                             this.encountInterval = 300;
@@ -922,6 +943,7 @@ namespace NSMap.Character
                             {
                                 this.encounterBreak = false;
                                 this.encount = true;
+                                //set this encounter as previous encounter for subchip reasons
                                 this.savedata.ValList[19] = this.field.encounts.IndexOf(this.encounts[this.encountNumber]);
                             }
                         }
@@ -941,7 +963,84 @@ namespace NSMap.Character
 
         private void Encount()
         {
-            this.parent.eventmanager.EventClone(this.encounts[this.encountNumber]);
+            Console.WriteLine("Encounter starting");
+            bool encounterrando = false;
+
+            if (encounterrando == false) //vanilla behaviour
+            {
+                this.parent.eventmanager.EventClone(this.encounts[this.encountNumber]);
+                Console.WriteLine(this.encounts[this.encountNumber]);
+
+            }
+            //^^ generate the actual event ^^
+
+            if (encounterrando == true) //intercept the battle event creation with the most verbose arguments i've ever seen
+            {
+
+                var test = this.savedata.totalfights;
+                Console.WriteLine(test);
+                int configseed = ShanghaiEXE.Config.Seed;
+
+                //add in every unique indentifiable variable i can think of to create a unique seed
+                var fightseed = this.encountNumber + configseed + this.savedata.ValList[150];
+
+
+                #region wrap number into encounter list
+                //can probobly move this to a diffrent function but whatever
+                var x_min = 0;
+                var x_max = this.savedata.totalfights;
+                var x = fightseed;
+
+                if (x < x_min)
+                    x = x_max - (x_min - x) % (x_max - x_min);
+                else
+                    x = x_min + (x - x_min) % (x_max - x_min);
+
+                fightseed = x;
+                #endregion
+                Console.WriteLine("Fightseed: " + fightseed);
+
+                //parse the battle in postion fightseed
+
+                string input = this.savedata.encounterid[fightseed];
+
+                string[] parts = input.Split(':');
+
+                List<int> numbers = parts
+                    .Where(s => int.TryParse(s, out _)) // Filter for numeric strings
+                    .Select(s => int.Parse(s))          // Convert the filtered strings to integers
+                    .ToList();
+
+                Console.WriteLine("Original string: " + input);
+                Console.WriteLine("Numeric values only:");
+
+                int index = 0;
+                foreach (int number in numbers)
+                {
+                    Console.WriteLine("Entry #" + index + "  " + number);
+                    index++;
+                }
+
+                //scuffed byte converter
+                byte ennum1 = (byte)numbers[1];
+                byte ennum2 = (byte)numbers[9];
+                byte ennum3 = (byte)numbers[17];
+
+                //set bg
+                int randobg = random.Next(4, 40);
+
+                this.parent.eventmanager.ClearEvent();
+
+                this.parent.eventmanager.AddEvent(new Battle(this.sound, this.parent.eventmanager, numbers[0], ennum1, numbers[2], numbers[3], numbers[4], numbers[5], numbers[6], numbers[7], "<- enemy1", numbers[8], ennum2, numbers[10], numbers[11], numbers[12], numbers[13], numbers[14], numbers[15], "<- enemy2", numbers[16], ennum3, numbers[18], numbers[19], numbers[20], numbers[21], numbers[22], numbers[23], "<- enemy3", Panel.PANEL._nomal, Panel.PANEL._nomal, 0, false, true, true, true, "VSvirus", randobg, this.savedata));
+
+                //test battle
+                //this.parent.eventmanager.AddEvent(new Battle(this.sound, this.parent.eventmanager, 28, 1, 4, 1, 1, 1, 1, 0, "<- enemy1", 33, 2, 5, 0, 1, 1, 1, 0, "<- enemy2", 33, 2, 5, 2, 1, 1, 1, 0, "<- enemy3", Panel.PANEL._nomal, Panel.PANEL._nomal, 0, false, true, true, true, "VSvirus", 4, this.savedata));
+
+
+                //
+                this.parent.eventmanager.AddEvent(new Fade(this.sound, this.parent.eventmanager, 20, 0, byte.MaxValue, byte.MaxValue, byte.MaxValue, true, this.savedata));
+            }
+
             this.parent.eventmanager.playevent = true;
             this.encountCounter = 0;
             this.encount = false;
@@ -958,6 +1057,7 @@ namespace NSMap.Character
 
         private bool IsBypassingFirewall(int number)
         {
+            //todo: randomizer stuff
             var totalEnemyHp = 0;
             if (!(this.field.encounts[number].events[1] is Battle))
                 return false;

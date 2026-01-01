@@ -1286,6 +1286,8 @@ namespace NSMap
             this.player.PositionSet(posi, floor, angle);
             this.player.position.Z = this.savedata.pluginZ;
             this.player.field = this.field;
+
+
         }
 
         public override void Updata()

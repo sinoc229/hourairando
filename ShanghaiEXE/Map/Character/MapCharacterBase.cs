@@ -31,6 +31,7 @@ namespace NSMap.Character
         public Vector2 positionQ;
         public SceneMap parent;
         public MapField field;
+        public MapField Battlefield;
         public bool playeHit;
         public int rendType;
         public int floor;
